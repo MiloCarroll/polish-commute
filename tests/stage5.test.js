@@ -126,3 +126,16 @@ test('backup reminder: after 14 days since the last export, or 7 days of study w
   assert.equal(lastBackupText(null, now), 'Never exported.');
   assert.equal(lastBackupText(now - 2 * DAY, now), 'Last export: 2 days ago.');
 });
+
+test('recorded voice choice: speaker gender first, random for variety, female default', async () => {
+  const { chooseClip } = await import('../js/tts.js');
+  const all = { f: 'f.mp3', m: 'm.mp3', f2: 'f2.mp3' };
+  assert.equal(chooseClip(all, {}), 'f.mp3');
+  assert.equal(chooseClip(all, { gender: 'm' }), 'm.mp3');
+  assert.equal(chooseClip({ f2: 'f2.mp3', m: 'm.mp3' }, { gender: 'f' }), 'f2.mp3');
+  assert.equal(chooseClip({ f: 'f.mp3' }, { gender: 'm' }), 'f.mp3', 'falls back when no male voice');
+  assert.equal(chooseClip(all, { variety: true }, () => 0.99), 'f2.mp3');
+  assert.equal(chooseClip(all, { variety: true, gender: 'f' }, () => 0.99), 'f2.mp3', 'variety stays within the gender');
+  assert.equal(chooseClip(all, { variety: true, gender: 'm' }, () => 0.5), 'm.mp3');
+  assert.equal(chooseClip(undefined, {}), null);
+});

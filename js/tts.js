@@ -96,7 +96,11 @@ export async function loadClips() {
     const res = await fetch('content/audio/manifest.json');
     if (!res.ok) return 0;
     const m = await res.json();
-    for (const [text, file] of Object.entries(m.clips ?? {})) clips.set(clipKey(text), `content/audio/${file}`);
+    // clips: { "<text>": { "f": "f/ab12.mp3", "m": "m/cd34.mp3", "f2": ... } }
+    for (const [text, files] of Object.entries(m.clips ?? {})) {
+      const byVoice = typeof files === 'string' ? { f: files } : files;
+      clips.set(clipKey(text), Object.fromEntries(Object.entries(byVoice).map(([v, f]) => [v, `content/audio/${f}`])));
+    }
   } catch { /* no clips: speech synthesis only */ }
   return clips.size;
 }
@@ -164,8 +168,28 @@ export function unlock() {
  * Speak Polish text: a bundled clip if there is one, otherwise the Polish voice.
  * Resolves when playback ends; false if nothing could be played.
  */
-export function speak(text, { slow = false } = {}) {
-  const clip = clips.get(clipKey(text));
+/**
+ * Pick a clip for the text. `gender` ('m' | 'f') prefers a voice of that gender (the
+ * speaker of the sentence); `variety` picks a random available voice (listening practice).
+ */
+export function chooseClip(byVoice, { gender = null, variety = false } = {}, rand = Math.random) {
+  if (!byVoice) return null;
+  const voices = Object.keys(byVoice);
+  if (!voices.length) return null;
+  if (variety) {
+    const pool = gender ? voices.filter((v) => v[0] === gender) : voices;
+    const from = pool.length ? pool : voices;
+    return byVoice[from[Math.floor(rand() * from.length)]];
+  }
+  if (gender) {
+    const match = voices.find((v) => v === gender) ?? voices.find((v) => v[0] === gender);
+    if (match) return byVoice[match];
+  }
+  return byVoice.f ?? byVoice[voices[0]];
+}
+
+export function speak(text, { slow = false, gender = null, variety = false } = {}) {
+  const clip = chooseClip(clips.get(clipKey(text)), { gender, variety });
   if (clip) return playFile(clip, { slow }).then((ok) => ok || speakVoice(text, { slow }));
   return speakVoice(text, { slow });
 }
@@ -189,9 +213,9 @@ function speakVoice(text, { slow = false } = {}) {
 }
 
 /** Auto-play: only speaks once a tap has unlocked audio this session. */
-export function autoSpeak(text) {
+export function autoSpeak(text, opts = {}) {
   if (!unlocked) return Promise.resolve(false);
-  return speak(text);
+  return speak(text, opts);
 }
 
 export function stop() {

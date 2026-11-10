@@ -13,9 +13,18 @@ const load = (m) => JSON.parse(readFileSync(join(ROOT, 'content', `${m}.json`), 
 /** The key a clip is stored under: the exact text, Unicode-normalised and trimmed. */
 export const clipKey = (text) => String(text).normalize('NFC').replace(/\s+/g, ' ').trim();
 
-export function collectTexts() {
-  const out = new Set();
-  const add = (t) => { if (t && /\p{L}/u.test(t)) out.add(clipKey(t)); };
+/**
+ * Every speakable text with the gender of its speaker where the sentence depends on it:
+ * Map text → Set of 'm' / 'f' (empty set = no particular speaker).
+ */
+export function collectSpeech() {
+  const out = new Map();
+  const add = (t, gender = null) => {
+    if (!t || !/\p{L}/u.test(t)) return;
+    const k = clipKey(t);
+    if (!out.has(k)) out.set(k, new Set());
+    if (gender) out.get(k).add(gender);
+  };
   const braces = (s) => [...String(s ?? '').matchAll(/\{\{(.+?)\}\}/g)].forEach((m) => add(m[1]));
   const lesson = (L) => {
     if (!L) return;
@@ -23,18 +32,23 @@ export function collectTexts() {
       ...(L.table?.rows?.flat() ?? []), ...(L.table?.head ?? [])].forEach(braces);
     (L.letters ?? []).forEach((l) => (l.examples ?? []).forEach(add));
   };
-  const variants = (x) => (x?.v ? Object.values(x.v) : [x]);
+  // Variant keys are speaker gender + listener gender, so the first letter is the speaker's.
+  const variants = (x) => (x?.v ? Object.entries(x.v).map(([k, v]) => [v, k[0]]) : [[x, null]]);
 
   for (const t of load('pronunciation').topics) { lesson(t.lesson); t.items.forEach((i) => add(i.pl)); }
   for (const t of load('vocabulary').topics) {
     for (const i of t.items) {
       add(i.pl);
       if (i.forms) Object.values(i.forms).forEach(add);
-      (i.examples ?? []).forEach((e) => variants(e).forEach((v) => add(v.pl)));
+      (i.examples ?? []).forEach((e) => variants(e).forEach(([v, g]) => add(v.pl, g)));
     }
   }
-  for (const t of load('grammar').topics) { lesson(t.lesson); t.items.forEach((i) => variants(i).forEach((v) => add(v.pl))); }
-  return [...out].sort();
+  for (const t of load('grammar').topics) { lesson(t.lesson); t.items.forEach((i) => variants(i).forEach(([v, g]) => add(v.pl, g))); }
+  return out;
+}
+
+export function collectTexts() {
+  return [...collectSpeech().keys()].sort();
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

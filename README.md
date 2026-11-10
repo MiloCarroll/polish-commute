@@ -16,7 +16,7 @@ A personal, offline web app for learning conversational Polish on a 40-minute tr
 - **Storage:** IndexedDB database `polski` with stores `cards` (FSRS state per studied card), `reviews` (the full review log, never pruned, so parameters can be optimised later), `settings`, `flags` (cards marked as possibly wrong, with a note) and `own` (your own phrases).
 - **Daily allowance:** 15 new cards per day shared across all modules. A card counts against the allowance when it is first reviewed. The study day resets at 04:00 local time.
 - **Today's session** (`js/session.js`): every due card from every module first, then new cards from whichever module has introduced the fewest new cards today, so the allowance is spread evenly. Learning cards are shown a little early only when nothing else is left.
-- **Audio clips (optional):** if `content/audio/manifest.json` exists, mapping exact Polish text to a file in `content/audio/`, those clips are played instead of the live voice (and cached for offline use). `node tools/audio-texts.js --list` prints every text the app can speak (about 1,500). Without clips the app uses the iPhone's Polish voice. `content/audio/test.m4a` is a test clip for checking whether recorded audio plays with the phone on silent.
+- **Audio clips (optional):** if `content/audio/manifest.json` exists, mapping exact Polish text to a file in `content/audio/`, those clips are played instead of the live voice (and cached for offline use). Clips are generated once with Azure AI Speech on the free tier (`tools/make-audio.js`, with a monthly character cap below the free allowance): Zofia as the main voice, Marek for the learner's own gender-dependent lines, and Agnieszka as an extra voice so listening cards vary the speaker. Setup and commands: [`docs/audio-setup.md`](docs/audio-setup.md). `node tools/audio-texts.js --list` prints every text the app can speak (about 1,500). Without clips the app uses the iPhone's Polish voice. `content/audio/test.m4a` is a test clip for checking whether recorded audio plays with the phone on silent.
 - **Offline:** `sw.js` caches every app file under a versioned cache, cache-first. A new deployment shows "Update available, tap to reload" instead of reloading by itself.
 - **Audio:** the Web Speech API with Polish (`pl-PL`) voices only. The first tap in each session unlocks auto-play (an iOS requirement).
 
@@ -58,7 +58,7 @@ js/flags.js        Flag button, flag dialog, text export
 js/timer.js        session timer bar and message
 js/views/          home, module/topic, study, stats, phrases, settings, first-run (welcome)
 content/           course content (JSON); how to write it: docs/content-pronunciation.md, docs/content-vocabulary.md, docs/content-grammar.md
-tools/             validate-content.js, update-sw.js, released-ids.json, audio-texts.js
+tools/             validate-content.js, update-sw.js, released-ids.json, audio-texts.js, make-audio.js
 tests/             node --test unit tests
 ```
 

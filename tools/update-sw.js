@@ -30,17 +30,20 @@ export function computeAssets() {
   for (const f of files) hash.update(f).update('\0').update(readFileSync(join(ROOT, f)));
   // Also hash the worker's own logic (everything except the generated lines).
   hash.update(stripGenerated(readFileSync(join(ROOT, 'sw.js'), 'utf8')));
-  return { version: hash.digest('hex').slice(0, 12), assets: ['./', ...files] };
+  const isClip = (f) => f.startsWith('content/audio/') && f.endsWith('.mp3');
+  return { version: hash.digest('hex').slice(0, 12), assets: ['./', ...files.filter((f) => !isClip(f))], audio: files.filter(isClip) };
 }
 
 function stripGenerated(src) {
-  return src.replace(/^const VERSION = .*$/m, '').replace(/^const ASSETS = [\s\S]*?\];$/m, '');
+  return src.replace(/^const VERSION = .*$/m, '').replace(/^const ASSETS = [\s\S]*?\];$/m, '').replace(/^const AUDIO = [\s\S]*?\];$/m, '');
 }
 
-export function renderSw(src, { version, assets }) {
+export function renderSw(src, { version, assets, audio = [] }) {
+  const list = (xs) => (xs.length ? `[\n${xs.map((a) => `  '${a}',`).join('\n')}\n]` : '[]');
   return src
     .replace(/^const VERSION = .*$/m, `const VERSION = '${version}';`)
-    .replace(/^const ASSETS = [\s\S]*?\];$/m, `const ASSETS = [\n${assets.map((a) => `  '${a}',`).join('\n')}\n];`);
+    .replace(/^const ASSETS = [\s\S]*?\];$/m, `const ASSETS = ${list(assets)};`)
+    .replace(/^const AUDIO = [\s\S]*?\];$/m, `const AUDIO = ${list(audio)};`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
@@ -52,6 +55,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     console.log('sw.js is up to date');
   } else {
     writeFileSync(swPath, out);
-    console.log(`sw.js updated: version ${computeAssets().version}, ${computeAssets().assets.length} assets`);
+    const c = computeAssets();
+    console.log(`sw.js updated: version ${c.version}, ${c.assets.length} app files, ${c.audio.length} audio clips`);
   }
 }
