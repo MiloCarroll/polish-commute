@@ -1,0 +1,11 @@
+{
+  "name": "polish-commute",
+  "private": true,
+  "type": "module",
+  "description": "Polski: an offline Polish trainer for the morning commute. No dependencies, no build step.",
+  "scripts": {
+    "test": "node --test tests/",
+    "validate": "node tools/validate-content.js",
+    "sw": "node tools/update-sw.js"
+  }
+}

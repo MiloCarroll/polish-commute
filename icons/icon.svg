@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c8193a"/>
+      <stop offset="1" stop-color="#97102a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <!-- speech bubble -->
+  <path fill="#ffffff" d="M150 136h212a46 46 0 0 1 46 46v118a46 46 0 0 1-46 46H246l-62 50v-50h-34a46 46 0 0 1-46-46V182a46 46 0 0 1 46-46z"/>
+  <!-- letter a with an ogonek, drawn as shapes so it renders the same everywhere -->
+  <g fill="none" stroke="#b3122f" stroke-linecap="round">
+    <circle cx="244" cy="234" r="44" stroke-width="26"/>
+    <path d="M288 186v92" stroke-width="26"/>
+    <path d="M288 284c-20 10-26 26-16 36c8 7 20 6 30 0" stroke-width="16"/>
+  </g>
+</svg>

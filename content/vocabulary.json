@@ -1,0 +1,37 @@
+{
+  "module": "vocabulary",
+  "title": "Vocabulary",
+  "status": "Preview: 8 starter words with recognition cards. The full module arrives in stage 3.",
+  "topics": [
+    {
+      "id": "v-greetings",
+      "title": "Greetings, goodbyes, thanks, apologies",
+      "items": [
+        { "id": "v-0001", "pl": "cześć", "en": "hi; bye", "pos": "interjection", "rank": 1,
+          "note": "Informal: use with your partner, friends and people your age.",
+          "examples": [ { "pl": "Cześć! Co słychać?", "en": "Hi! How are things?" } ] },
+        { "id": "v-0002", "pl": "dzień dobry", "en": "hello; good morning (polite)", "pos": "phrase", "rank": 2,
+          "note": "Polite greeting used all day until evening. Safe with older relatives.",
+          "examples": [ { "pl": "Dzień dobry wszystkim!", "en": "Hello, everyone!" } ] },
+        { "id": "v-0003", "pl": "dziękuję", "en": "thank you", "pos": "verb (1st person)", "rank": 3,
+          "examples": [ { "pl": "Dziękuję bardzo!", "en": "Thank you very much!" } ] },
+        { "id": "v-0004", "pl": "proszę", "en": "please; here you are; you're welcome", "pos": "verb (1st person)", "rank": 4,
+          "examples": [ { "pl": "Proszę bardzo!", "en": "You're welcome! / Here you go!" } ] },
+        { "id": "v-0005", "pl": "przepraszam", "en": "sorry; excuse me", "pos": "verb (1st person)", "rank": 5,
+          "examples": [ { "pl": "Przepraszam, nie wiem.", "en": "Sorry, I don't know." } ] },
+        { "id": "v-0006", "pl": "do zobaczenia", "en": "see you; goodbye", "pos": "phrase", "rank": 6,
+          "examples": [ { "pl": "Do zobaczenia jutro!", "en": "See you tomorrow!" } ] }
+      ]
+    },
+    {
+      "id": "v-yesno",
+      "title": "Yes, no and conversation fillers",
+      "items": [
+        { "id": "v-0007", "pl": "tak", "en": "yes", "pos": "particle", "rank": 7,
+          "examples": [ { "pl": "Tak, wiem.", "en": "Yes, I know." } ] },
+        { "id": "v-0008", "pl": "nie", "en": "no; not", "pos": "particle", "rank": 8,
+          "examples": [ { "pl": "Nie, dziękuję.", "en": "No, thank you." } ] }
+      ]
+    }
+  ]
+}

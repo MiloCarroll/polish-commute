@@ -1,0 +1,15 @@
+{
+  "module": "grammar",
+  "title": "Grammar",
+  "status": "Explanations and drills arrive in stage 4.",
+  "topics": [
+    { "id": "g-01", "title": "Być and personal pronouns", "items": [] },
+    { "id": "g-02", "title": "Noun gender from word endings", "items": [] },
+    { "id": "g-03", "title": "Present-tense conjugation groups", "items": [] },
+    { "id": "g-04", "title": "Accusative after mam, lubię, chcę, widzę", "items": [] },
+    { "id": "g-05", "title": "Negation and the genitive", "items": [] },
+    { "id": "g-06", "title": "Adjective agreement", "items": [] },
+    { "id": "g-07", "title": "Questions and question words", "items": [] },
+    { "id": "g-08", "title": "Past tense: “I was”, “you were”", "items": [] }
+  ]
+}

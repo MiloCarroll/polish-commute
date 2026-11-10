@@ -1,0 +1,19 @@
+{
+  "module": "pronunciation",
+  "title": "Pronunciation",
+  "status": "Lessons and exercises arrive in stage 2.",
+  "topics": [
+    { "id": "pr-01", "title": "The alphabet and the six oral vowels", "items": [] },
+    { "id": "pr-02", "title": "y versus i; ó and u sound the same", "items": [] },
+    { "id": "pr-03", "title": "ł and w", "items": [] },
+    { "id": "pr-04", "title": "Nasal vowels ą and ę", "items": [] },
+    { "id": "pr-05", "title": "sz, cz, rz/ż", "items": [] },
+    { "id": "pr-06", "title": "ś, ć, ź, ń and si, ci, zi, ni", "items": [] },
+    { "id": "pr-07", "title": "Telling the two “sh / ch / zh” series apart", "items": [] },
+    { "id": "pr-08", "title": "dz, dź, dż", "items": [] },
+    { "id": "pr-09", "title": "ch and h", "items": [] },
+    { "id": "pr-10", "title": "Consonant clusters", "items": [] },
+    { "id": "pr-11", "title": "Devoicing at word end and in clusters", "items": [] },
+    { "id": "pr-12", "title": "Stress on the second-to-last syllable", "items": [] }
+  ]
+}
