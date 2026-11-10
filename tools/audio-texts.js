@@ -44,6 +44,17 @@ export function collectSpeech() {
     }
   }
   for (const t of load('grammar').topics) { lesson(t.lesson); t.items.forEach((i) => variants(i).forEach(([v, g]) => add(v.pl, g))); }
+  // Dialogues: each line in its speaker's voice. Lines by the learner or partner without
+  // variants may be heard with either gender setting, so they get both voices.
+  for (const t of load('dialogues').topics) {
+    lesson(t.lesson);
+    for (const l of t.items) {
+      const fixed = t.cast?.[l.who]?.gender;
+      if (l.v) Object.entries(l.v).forEach(([k, v]) => add(v.pl, k[0]));
+      else if (fixed) add(l.pl, fixed);
+      else { add(l.pl, 'm'); add(l.pl, 'f'); }
+    }
+  }
   return out;
 }
 

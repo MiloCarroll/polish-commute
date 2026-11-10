@@ -431,3 +431,20 @@ textarea.answer-input { resize: vertical; min-height: 64px; }
 .btn.secondary { min-height: 48px; font-weight: 600; }
 .backup-note { margin: 0 0 14px; }
 .backup-note p { margin-top: 0; }
+.undo-btn {
+  min-height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); color: var(--accent); font: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.session-counts .undo-btn { margin-left: auto; }
+.session-counts .undo-btn + .flag-btn { margin-left: 0; }
+.sentence-prompt { font-size: 1.4rem; line-height: 1.35; }
+
+/* ---- Conversations ------------------------------------------------------ */
+.prev-line { text-align: left; padding: 10px 12px; margin-bottom: 14px; background: var(--surface-2); border-radius: 12px; }
+.prev-line .en { display: block; margin-top: 2px; }
+.who { font-weight: 700; color: var(--muted); text-transform: none; }
+.scene { margin: 0 0 12px; }
+.script { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 8px; }
+.script li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.script li.mine { border-color: var(--accent); background: var(--accent-soft); }
+.script p { margin: 2px 0 0; }

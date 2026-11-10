@@ -71,14 +71,14 @@ export async function reviewsSince(ms) {
   return req(s.index('review').getAll(IDBKeyRange.lowerBound(ms)));
 }
 
-/** Save a card record and its review-log entry atomically. */
+/** Save a card record and its review-log entry atomically. Resolves with the log entry's key. */
 export async function saveReview(record, logEntry) {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const tx = db.transaction(['cards', 'reviews'], 'readwrite');
     tx.objectStore('cards').put(record);
-    tx.objectStore('reviews').add(logEntry);
-    tx.oncomplete = () => resolve();
+    const add = tx.objectStore('reviews').add(logEntry);
+    tx.oncomplete = () => resolve(add.result);
     tx.onerror = () => reject(tx.error);
     tx.onabort = () => reject(tx.error);
   });
@@ -152,6 +152,22 @@ export async function deleteCards(ids) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction('cards', 'readwrite');
     for (const id of ids) tx.objectStore('cards').delete(id);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+/**
+ * Undo one review: put the card back as it was (or remove it if it was new) and delete
+ * that review-log entry, atomically.
+ */
+export async function undoReview(cardId, previousRecord, logKey) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(['cards', 'reviews'], 'readwrite');
+    if (previousRecord) tx.objectStore('cards').put(previousRecord);
+    else tx.objectStore('cards').delete(cardId);
+    tx.objectStore('reviews').delete(logKey);
     tx.oncomplete = () => resolve();
     tx.onerror = () => reject(tx.error);
   });

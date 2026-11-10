@@ -38,3 +38,20 @@ test('grammar: one card per drill, the drill id is the card id, order kept', () 
   ] }] });
   assert.deepEqual(mod.defs.map((d) => [d.id, d.kind]), [['g-01-001', 'choose'], ['g-01-002', 'choose'], ['g-01-003', 'type']]);
 });
+
+test('dialogues: a listening card per line, plus a "your turn" card for the learner\'s lines', () => {
+  const mod = buildModule({ module: 'dialogues', title: 'C', topics: [{ id: 'd-01', title: 'T', cast: {}, items: [
+    { id: 'd-01-001', who: 'partner', to: 'learner' }, { id: 'd-01-002', who: 'learner', to: 'partner' },
+  ] }] });
+  assert.deepEqual(mod.defs.map((d) => d.id), ['d-01-001-listen', 'd-01-002-listen', 'd-01-002-say']);
+  assert.equal(mod.defs[2].requires, 'd-01-002-listen');
+});
+
+test('vocabulary: items with a listening card also get a whole-sentence "say" card', () => {
+  const mod = buildModule({ module: 'vocabulary', title: 'V', topics: [{ id: 'v-x', title: 'X', items: [
+    { id: 'v-0001', pl: 'kot', en: 'cat', cards: ['rec', 'listen'], examples: [{ pl: 'Mam kota.', en: 'I have a cat.' }] },
+    { id: 'v-0002', pl: 'pies', en: 'dog', cards: ['rec', 'listen'], examples: [{ speaker: 'partner', v: {} }] },
+  ] }] });
+  assert.ok(mod.defs.some((d) => d.id === 'v-0001-say' && d.requires === 'v-0001-rec'));
+  assert.ok(!mod.defs.some((d) => d.id === 'v-0002-say'), "no say card for the partner's lines");
+});

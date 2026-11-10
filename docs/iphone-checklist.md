@@ -156,3 +156,13 @@ Tap the **Update available** banner first.
 - [ ] Home's main button is now **Today's session** (with "N due · N new"). It runs your due reviews first, then new cards taking turns between pronunciation, vocabulary and grammar. *Review all due only* is the smaller button below it.
 - [ ] Settings → *Back up your progress* shows "Last export: …". After you export, it says "today".
 - [ ] **Silent-mode test** (the important one): Settings → *About the Polish voice* → **Sound-file test**. With the phone **on silent** and **no headphones**, tap *Play test clip*. Tell me whether you hear "Dzień dobry! To jest test dźwięku." (It's the same basic voice as now; this only checks whether recorded clips get through silent mode.)
+
+## Additions: undo, conversations, whole sentences, more vocabulary
+
+Tap the **Update available** banner first.
+
+- [ ] **Undo:** answer a card, then tap **↶ Undo** at the top of the next card. The previous card comes back as it was, and Home's "new cards left today" goes back up if it was a new card.
+- [ ] **Conversations** (new fourth tile): open *Meeting her parents*. The whole script shows, your lines highlighted; *Play all* reads it through, each speaker in their own voice once the recorded clips are in.
+- [ ] Study it: each card shows the line before it; you hear a line and reveal it; later, "Your turn" cards show the English of your line to say in your head.
+- [ ] **Whole sentences:** in Vocabulary, some words now also have "How would you say…" cards (after you've got the Polish → English card right once): you see an English sentence, say it in your head, then *Show Polish*.
+- [ ] **New vocabulary topics** at the end of the list: Health, Weather, Work and studies, Free time and hobbies, Holidays and traditions, At the table.

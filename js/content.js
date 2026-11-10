@@ -1,10 +1,10 @@
 // Loads course content and turns items into card definitions.
 // Card IDs are permanent: `<item id>-<kind>`, e.g. "v-0001-rec". Never renumber released items.
 
-export const MODULES = ['pronunciation', 'vocabulary', 'grammar'];
+export const MODULES = ['pronunciation', 'vocabulary', 'grammar', 'dialogues'];
 
 /** Order in which card kinds are introduced within a topic. */
-export const KIND_ORDER = ['rec', 'listen', 'stress', 'dict', 'gap', 'prod'];
+export const KIND_ORDER = ['rec', 'listen', 'stress', 'dict', 'gap', 'prod', 'say'];
 
 /** Card kinds generated for each module's items. Later stages add kinds here. */
 export function cardsForItem(module, topic, item) {
@@ -12,7 +12,11 @@ export function cardsForItem(module, topic, item) {
     case 'vocabulary': {
       // Recognition first; the other directions unlock after its first successful review.
       const rec = `${item.id}-rec`;
-      const kinds = item.cards ?? ['rec'];
+      const kinds = [...(item.cards ?? ['rec'])];
+      // Whole-sentence production: every item with a listening card also gets a "say it"
+      // card for the same sentence (not for lines the partner says).
+      const ex = item.examples?.[0];
+      if (kinds.includes('listen') && ex && ex.speaker !== 'partner') kinds.push('say');
       return kinds.map((kind) => ({
         id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind,
         ...(kind === 'rec' ? {} : { requires: rec }),
@@ -21,6 +25,13 @@ export function cardsForItem(module, topic, item) {
     case 'pronunciation':
       // One card per listed exercise: listen (listen and choose), dict (dictation), stress.
       return (item.cards ?? []).map((kind) => ({ id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind }));
+    case 'dialogues': {
+      // Every line: a listening card. The learner's own lines: also a "your turn" card,
+      // unlocked once its listening card has been answered correctly.
+      const listen = { id: `${item.id}-listen`, module, topic: topic.id, item: item.id, kind: 'listen' };
+      if (item.who !== 'learner') return [listen];
+      return [listen, { id: `${item.id}-say`, module, topic: topic.id, item: item.id, kind: 'say', requires: listen.id }];
+    }
     case 'grammar':
       // One card per drill; the drill ID is the card ID (e.g. "g-03-017").
       return [{ id: item.id, module, topic: topic.id, item: item.id, kind: item.type }];

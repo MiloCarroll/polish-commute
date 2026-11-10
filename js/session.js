@@ -4,7 +4,7 @@ import { pickNext } from './scheduler.js';
 import { dayStart } from './day.js';
 import { State } from './scheduler.js';
 
-export const MODULE_ORDER = ['pronunciation', 'vocabulary', 'grammar'];
+export const MODULE_ORDER = ['pronunciation', 'vocabulary', 'grammar', 'dialogues'];
 
 /** New cards introduced today per module (first-ever review today). */
 export function newTodayByModule(todayLogs, now = new Date()) {

@@ -1,6 +1,6 @@
 // Study session: picks the next card, shows a topic's lesson before its first new card,
 // renders the exercise for the card's kind, and records the grade.
-import { state, recordReview } from '../app.js';
+import { state, recordReview, undoLastReview } from '../app.js';
 import { settings, setSetting } from '../settings.js';
 import { allDefs, MODULES } from '../content.js';
 import { pickToday } from '../session.js';
@@ -11,7 +11,7 @@ import { lessonHtml, lessonHandlers } from '../lesson.js';
 import { hideAccentBar } from '../accentbar.js';
 import * as tts from '../tts.js';
 import { flagButton } from '../flags.js';
-import { resolveDrill } from '../variants.js';
+import { resolveDrill, resolveLine } from '../variants.js';
 
 function scopeDefs(scope, topicId) {
   if (scope === 'all' || scope === 'today') return allDefs(state.content);
@@ -38,6 +38,7 @@ export function studyView(scope, topicId) {
   const route = location.hash;
   let lastId = null;
   let timer = null;
+  let undo = null; // { handle, def, isNew, topic } for the last answer
   const stillHere = () => location.hash === route;
 
   function next() {
@@ -80,7 +81,7 @@ export function studyView(scope, topicId) {
           ? `A card you are still learning comes back in about ${mins} minute${mins === 1 ? '' : 's'}.`
           : scope === 'today' ? "That's today's session done: nothing else is due and today's new cards are used up." : 'Nothing else is due in this section today.'}</p>
       </div>`,
-      actions: `<a class="btn primary" href="${back}">Back</a>`,
+      actions: `${undo ? '<button type="button" class="btn" data-undo>↶ Undo last answer</button>' : ''}<a class="btn primary" href="${back}">Back</a>`,
     });
     if (waitUntil) timer = setTimeout(() => { if (stillHere()) next(); }, waitUntil - Date.now() + 500);
   }
@@ -91,13 +92,14 @@ export function studyView(scope, topicId) {
     const exercise = exerciseFor(def);
     const shownAt = Date.now();
     const counts = countCards(defs, state.records);
-    const shown = item.v
-      ? resolveDrill(item, { learnerGender: settings().learnerGender, partnerGender: settings().partnerGender }).pl
-      : item.pl;
+    const g = { learnerGender: settings().learnerGender, partnerGender: settings().partnerGender };
+    const shown = def.module === 'dialogues' ? resolveLine(item, topic.cast, g).pl
+      : item.v ? resolveDrill(item, g).pl : item.pl;
     const head = `<div class="session-counts muted small">
         ${isNew ? '<span class="pill new">New</span>' : ''}
         <span>${counts.due} due</span>
         ${!topicId ? `<span class="topic-tag">${esc(topic.title)}</span>` : ''}
+        ${undo ? '<button type="button" class="undo-btn" data-undo aria-label="Undo the last answer">↶ Undo</button>' : ''}
         ${flagButton(def.id, shown)}
       </div>`;
 
@@ -108,12 +110,30 @@ export function studyView(scope, topicId) {
         const now = new Date();
         const { record, log } = applyReview(def, state.records.get(def.id), rating,
           now, settings().retention, now.getTime() - shownAt);
-        await recordReview(record, log);
+        const handle = await recordReview(record, log);
+        undo = { handle, def, isNew, topic };
         lastId = def.id;
         next();
       },
     });
   }
+
+  // Undo: put the last answer back and show that card again.
+  const onUndo = async (e) => {
+    if (!e.target.closest('[data-undo]') || !undo || !stillHere()) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const u = undo;
+    undo = null;
+    clearTimeout(timer);
+    tts.stop();
+    hideAccentBar();
+    await undoLastReview(u.handle);
+    lastId = null;
+    showCard(u.def, u.isNew, u.topic);
+  };
+  document.addEventListener('click', onUndo, true);
+  window.addEventListener('hashchange', () => document.removeEventListener('click', onUndo, true), { once: true });
 
   next();
 }

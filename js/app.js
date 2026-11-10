@@ -42,12 +42,26 @@ export async function reloadOwnPhrases() {
   state.content.vocabulary = withOwnPhrases(state.content.vocabulary, state.own);
 }
 
+/**
+ * Save a review. Returns an undo handle { cardId, previous, logKey, log } that
+ * undoLastReview() can use to put everything back.
+ */
 export async function recordReview(record, log) {
-  await db.saveReview(record, log);
+  const previous = state.records.get(record.id) ?? null;
+  const logKey = await db.saveReview(record, log);
   if (!settings().firstStudy) setSetting('firstStudy', log.review);
   state.records.set(record.id, record);
   const reloaded = await refreshToday();
   if (!reloaded && log.review >= state.todayStart) state.todayLogs.push(log);
+  return { cardId: record.id, previous, logKey, log };
+}
+
+export async function undoLastReview(handle) {
+  await db.undoReview(handle.cardId, handle.previous, handle.logKey);
+  if (handle.previous) state.records.set(handle.cardId, handle.previous);
+  else state.records.delete(handle.cardId);
+  const i = state.todayLogs.lastIndexOf(handle.log);
+  if (i >= 0) state.todayLogs.splice(i, 1);
 }
 
 // ---- Routing ---------------------------------------------------------------

@@ -116,3 +116,16 @@ Within each topic, order items from most to least useful for family and couple c
 ```json
 { "id": "v-family", "title": "Family members and in-laws", "items": [ ... ] }
 ```
+
+## Batch 2 topics (family life)
+
+| topic id | title | IDs | items |
+|---|---|---|---|
+| v-health | Health and how people feel physically | v-1301… | 30 |
+| v-weather | Weather and seasons | v-1401… | 25 |
+| v-work | Work and studies (incl. talking about a PhD) | v-1501… | 30 |
+| v-hobbies | Free time and hobbies | v-1601… | 30 |
+| v-holidays | Holidays, celebrations and traditions | v-1701… | 30 |
+| v-table | At the table: manners and phrases | v-1801… | 25 |
+
+Avoid repeating words that already exist in `content/vocabulary.json` (check before adding); use them freely in examples.

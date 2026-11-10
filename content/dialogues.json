@@ -1,0 +1,969 @@
+{
+  "module": "dialogues",
+  "title": "Conversations",
+  "topics": [
+    {
+      "id": "d-01",
+      "title": "Meeting her parents",
+      "lesson": {
+        "summary": "You arrive at her parents' door for the first time, with flowers.",
+        "body": [
+          "Her mum and dad open the door. They are meeting you for the first time, so everyone is polite: they call you {{pan}} (or {{pani}}), and you call them {{pan}} and {{pani}}. With pan/pani the verb is in the third person, like talking about someone: {{Napije się pan kawy?}} is literally \"Will the gentleman have a coffee?\"."
+        ],
+        "more": [
+          "Bringing flowers for the mother (an odd number of stems, never chrysanthemums, which are for graves) is a classic first-visit gesture.",
+          "In ordinary writing, pan and pani take a small letter; a capital (Pan, Pani) is used when writing to the person, in letters and messages, as a sign of respect."
+        ]
+      },
+      "cast": {
+        "mama": {
+          "name": "Her mum",
+          "gender": "f"
+        },
+        "tata": {
+          "name": "Her dad",
+          "gender": "m"
+        }
+      },
+      "items": [
+        {
+          "id": "d-01-001",
+          "who": "mama",
+          "to": "learner",
+          "pl": "Dzień dobry! Zapraszamy, proszę wejść.",
+          "en": "Hello! Welcome, please come in.",
+          "note": "Zapraszamy: literally \"we invite (you)\", the usual way to welcome a guest."
+        },
+        {
+          "id": "d-01-002",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Dzień dobry. Bardzo mi miło panią poznać.",
+          "en": "Hello. Very nice to meet you.",
+          "note": "Panią: accusative of pani, \"to meet you (madam)\"."
+        },
+        {
+          "id": "d-01-003",
+          "who": "learner",
+          "to": "mama",
+          "pl": "To dla pani.",
+          "en": "These are for you.",
+          "note": "Dla + genitive: dla pani, dla pana."
+        },
+        {
+          "id": "d-01-004",
+          "who": "mama",
+          "to": "learner",
+          "pl": "Jakie piękne kwiaty! Dziękuję bardzo.",
+          "en": "What beautiful flowers! Thank you very much.",
+          "note": null
+        },
+        {
+          "id": "d-01-005",
+          "who": "tata",
+          "to": "learner",
+          "v": {
+            "mm": {
+              "pl": "Dzień dobry. Miło mi wreszcie pana poznać.",
+              "en": "Hello. Nice to finally meet you."
+            },
+            "mf": {
+              "pl": "Dzień dobry. Miło mi wreszcie panią poznać.",
+              "en": "Hello. Nice to finally meet you."
+            }
+          },
+          "note": "Wreszcie: finally, at last."
+        },
+        {
+          "id": "d-01-006",
+          "who": "learner",
+          "to": "tata",
+          "v": {
+            "mm": {
+              "pl": "Mnie również. Dużo o panu słyszałem.",
+              "en": "Likewise. I've heard a lot about you."
+            },
+            "fm": {
+              "pl": "Mnie również. Dużo o panu słyszałam.",
+              "en": "Likewise. I've heard a lot about you."
+            }
+          },
+          "note": "O + locative: o panu, o pani."
+        },
+        {
+          "id": "d-01-007",
+          "who": "tata",
+          "to": "learner",
+          "pl": "Mam nadzieję, że same dobre rzeczy.",
+          "en": "Only good things, I hope.",
+          "note": "A light joke; mam nadzieję = I hope."
+        },
+        {
+          "id": "d-01-008",
+          "who": "mama",
+          "to": "learner",
+          "v": {
+            "fm": {
+              "pl": "Niech pan siada. Napije się pan kawy?",
+              "en": "Have a seat. Would you like a coffee?"
+            },
+            "ff": {
+              "pl": "Niech pani siada. Napije się pani kawy?",
+              "en": "Have a seat. Would you like a coffee?"
+            }
+          },
+          "note": "Napić się takes the genitive: kawy, herbaty."
+        },
+        {
+          "id": "d-01-009",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Tak, chętnie. Poproszę.",
+          "en": "Yes, I'd love one, please.",
+          "note": "Poproszę: the polite way to accept or order something."
+        },
+        {
+          "id": "d-01-010",
+          "who": "learner",
+          "to": "all",
+          "pl": "Mają państwo bardzo ładny dom.",
+          "en": "You have a very nice house.",
+          "note": "Państwo: formal \"you\" for a couple or group, with a third-person plural verb (mają)."
+        }
+      ]
+    },
+    {
+      "id": "d-02",
+      "title": "Dinner at her parents'",
+      "lesson": {
+        "summary": "Dinner at her parents' table: wishing everyone a good meal, praising the food, taking seconds and saying you're full.",
+        "body": [
+          "Before eating, everyone says {{Smacznego!}} and the usual answer is {{Dziękuję, nawzajem.}} Her mum will keep offering more food. Say {{Tak, poproszę jeszcze trochę}} to accept, and {{Dziękuję, jestem najedzony}} (a woman says {{najedzona}}) when you really can't eat any more."
+        ],
+        "more": [
+          "Refusing seconds once is often taken as politeness, so the host may offer again. A friendly, firm \"dziękuję, jestem najedzony\" plus praise for the food is the kind way out.",
+          "Obiad is the main hot meal, traditionally eaten in the afternoon, not in the evening."
+        ]
+      },
+      "cast": {
+        "mama": {
+          "name": "Her mum",
+          "gender": "f"
+        },
+        "tata": {
+          "name": "Her dad",
+          "gender": "m"
+        }
+      },
+      "items": [
+        {
+          "id": "d-02-001",
+          "who": "mama",
+          "to": "all",
+          "pl": "Zapraszam do stołu. Smacznego!",
+          "en": "Come to the table, everyone. Enjoy your meal!",
+          "note": "Do + genitive: do stołu."
+        },
+        {
+          "id": "d-02-002",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Dziękuję, nawzajem.",
+          "en": "Thank you, you too.",
+          "note": "Nawzajem: likewise, the same to you."
+        },
+        {
+          "id": "d-02-003",
+          "who": "tata",
+          "to": "learner",
+          "v": {
+            "mm": {
+              "pl": "Lubi pan pierogi?",
+              "en": "Do you like pierogi?"
+            },
+            "mf": {
+              "pl": "Lubi pani pierogi?",
+              "en": "Do you like pierogi?"
+            }
+          },
+          "note": null
+        },
+        {
+          "id": "d-02-004",
+          "who": "learner",
+          "to": "tata",
+          "pl": "Tak, bardzo. Są pyszne!",
+          "en": "Yes, very much. They're delicious!",
+          "note": null
+        },
+        {
+          "id": "d-02-005",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Sama pani je zrobiła?",
+          "en": "Did you make them yourself?",
+          "note": "Je: \"them\" for things (pierogi). Sama agrees with pani."
+        },
+        {
+          "id": "d-02-006",
+          "who": "mama",
+          "to": "learner",
+          "pl": "Tak, to przepis mojej mamy.",
+          "en": "Yes, it's my mum's recipe.",
+          "note": null
+        },
+        {
+          "id": "d-02-007",
+          "who": "mama",
+          "to": "learner",
+          "v": {
+            "fm": {
+              "pl": "Nałożyć panu jeszcze?",
+              "en": "Shall I give you some more?"
+            },
+            "ff": {
+              "pl": "Nałożyć pani jeszcze?",
+              "en": "Shall I give you some more?"
+            }
+          },
+          "note": "Nałożyć: to put food on someone's plate. Panu/pani: dative, \"for you\"."
+        },
+        {
+          "id": "d-02-008",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Tak, poproszę jeszcze trochę.",
+          "en": "Yes, a little more, please.",
+          "note": null
+        },
+        {
+          "id": "d-02-009",
+          "who": "mama",
+          "to": "learner",
+          "pl": "A może kawałek ciasta?",
+          "en": "And how about a piece of cake?",
+          "note": "Kawałek + genitive: kawałek ciasta."
+        },
+        {
+          "id": "d-02-010",
+          "who": "learner",
+          "to": "mama",
+          "v": {
+            "mf": {
+              "pl": "Dziękuję, jestem najedzony. Wszystko było pyszne.",
+              "en": "Thank you, I'm full. Everything was delicious."
+            },
+            "ff": {
+              "pl": "Dziękuję, jestem najedzona. Wszystko było pyszne.",
+              "en": "Thank you, I'm full. Everything was delicious."
+            }
+          },
+          "note": "Najedzony: full (from eating). A woman says najedzona."
+        }
+      ]
+    },
+    {
+      "id": "d-03",
+      "title": "Phone call with her mum",
+      "lesson": {
+        "summary": "Her mum calls, your partner puts her on speaker, and you get invited for Sunday lunch.",
+        "body": [
+          "Your partner talks to her mum with {{ty}}, while you stay polite with {{pani}}. When her mum talks to both of you, she uses the plural {{wy}} form: {{Co robicie w weekend?}} At the end, greetings get passed on: {{Tata was pozdrawia}} and {{Pozdrów tatę!}}"
+        ],
+        "more": [
+          "Pozdrawiać / pozdrowić: to send greetings. Pozdrów (go, ją, tatę) is the informal \"say hi to...\"; formally it's proszę pozdrowić.",
+          "Do usłyszenia (\"until we hear each other\") is the phone version of do zobaczenia."
+        ]
+      },
+      "cast": {
+        "mama": {
+          "name": "Her mum",
+          "gender": "f"
+        }
+      },
+      "items": [
+        {
+          "id": "d-03-001",
+          "who": "partner",
+          "to": "mama",
+          "pl": "Cześć, mamo! Mam cię na głośniku.",
+          "en": "Hi, Mum! You're on speaker.",
+          "note": "Mamo: the form for addressing mum (vocative). Mam cię na głośniku: literally \"I have you on the speaker\"."
+        },
+        {
+          "id": "d-03-002",
+          "who": "mama",
+          "to": "all",
+          "pl": "Cześć! Co u was słychać?",
+          "en": "Hi! How are you both?",
+          "note": "U + genitive: u was, u ciebie, u pani."
+        },
+        {
+          "id": "d-03-003",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Dzień dobry! Wszystko dobrze, dziękuję. A u pani?",
+          "en": "Hello! All good, thank you. And you?",
+          "note": null
+        },
+        {
+          "id": "d-03-004",
+          "who": "mama",
+          "to": "all",
+          "pl": "Też dobrze. Co robicie w weekend?",
+          "en": "Good too. What are you doing at the weekend?",
+          "note": "Robicie: the plural \"you\" (wy), for both of you."
+        },
+        {
+          "id": "d-03-005",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Jeszcze nie wiemy. Może pójdziemy na spacer.",
+          "en": "We don't know yet. Maybe we'll go for a walk.",
+          "note": null
+        },
+        {
+          "id": "d-03-006",
+          "who": "mama",
+          "to": "all",
+          "pl": "To może przyjedziecie w niedzielę na obiad?",
+          "en": "So how about coming for lunch on Sunday?",
+          "note": "W + accusative for days: w niedzielę, w sobotę."
+        },
+        {
+          "id": "d-03-007",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Bardzo chętnie. Dziękujemy!",
+          "en": "We'd love to. Thank you!",
+          "note": null
+        },
+        {
+          "id": "d-03-008",
+          "who": "mama",
+          "to": "all",
+          "pl": "Świetnie. Tata was pozdrawia.",
+          "en": "Great. Dad says hello.",
+          "note": "Literally \"Dad greets you (both)\"."
+        },
+        {
+          "id": "d-03-009",
+          "who": "partner",
+          "to": "mama",
+          "pl": "Pozdrów tatę od nas!",
+          "en": "Say hello to Dad from us!",
+          "note": "Pozdrów: informal \"say hi to\"; od + genitive: od nas."
+        },
+        {
+          "id": "d-03-010",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Do usłyszenia!",
+          "en": "Talk to you soon!",
+          "note": "The phone goodbye: literally \"until we hear (each other)\"."
+        }
+      ]
+    },
+    {
+      "id": "d-04",
+      "title": "Morning at home",
+      "lesson": {
+        "summary": "A slow morning at home together: how you slept, coffee, and plans for the day.",
+        "body": [
+          "Just the two of you, so it's all informal {{ty}}. Past tense and adjectives change with who is speaking: a man says {{jestem zmęczony}}, a woman {{jestem zmęczona}}; you ask him {{Jak spałeś?}} and her {{Jak spałaś?}} {{Kochanie}} (\"darling\") works for either of you."
+        ],
+        "more": [
+          "Z + instrumental for \"with\" (z mlekiem), bez + genitive for \"without\" (bez cukru).",
+          "Miłego dnia! (\"Have a nice day!\") is in the genitive because it's short for \"I wish you a nice day\"."
+        ]
+      },
+      "cast": {},
+      "items": [
+        {
+          "id": "d-04-001",
+          "who": "partner",
+          "to": "learner",
+          "v": {
+            "fm": {
+              "pl": "Dzień dobry, kochanie. Jak spałeś?",
+              "en": "Good morning, darling. How did you sleep?"
+            },
+            "mm": {
+              "pl": "Dzień dobry, kochanie. Jak spałeś?",
+              "en": "Good morning, darling. How did you sleep?"
+            },
+            "ff": {
+              "pl": "Dzień dobry, kochanie. Jak spałaś?",
+              "en": "Good morning, darling. How did you sleep?"
+            },
+            "mf": {
+              "pl": "Dzień dobry, kochanie. Jak spałaś?",
+              "en": "Good morning, darling. How did you sleep?"
+            }
+          },
+          "note": "Spałeś to a man, spałaś to a woman."
+        },
+        {
+          "id": "d-04-002",
+          "who": "learner",
+          "to": "partner",
+          "v": {
+            "mf": {
+              "pl": "Dobrze, ale jestem jeszcze zmęczony.",
+              "en": "Fine, but I'm still tired."
+            },
+            "mm": {
+              "pl": "Dobrze, ale jestem jeszcze zmęczony.",
+              "en": "Fine, but I'm still tired."
+            },
+            "ff": {
+              "pl": "Dobrze, ale jestem jeszcze zmęczona.",
+              "en": "Fine, but I'm still tired."
+            },
+            "fm": {
+              "pl": "Dobrze, ale jestem jeszcze zmęczona.",
+              "en": "Fine, but I'm still tired."
+            }
+          },
+          "note": "Jeszcze: still."
+        },
+        {
+          "id": "d-04-003",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Zrobić ci kawę?",
+          "en": "Shall I make you a coffee?",
+          "note": "Ci: \"(for) you\", the short dative of ty."
+        },
+        {
+          "id": "d-04-004",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Tak, poproszę. Z mlekiem, bez cukru.",
+          "en": "Yes, please. With milk, no sugar.",
+          "note": null
+        },
+        {
+          "id": "d-04-005",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Co dzisiaj robisz?",
+          "en": "What are you doing today?",
+          "note": null
+        },
+        {
+          "id": "d-04-006",
+          "who": "learner",
+          "to": "partner",
+          "v": {
+            "mf": {
+              "pl": "Rano pracuję, a po południu jestem wolny.",
+              "en": "I'm working in the morning, but I'm free in the afternoon."
+            },
+            "mm": {
+              "pl": "Rano pracuję, a po południu jestem wolny.",
+              "en": "I'm working in the morning, but I'm free in the afternoon."
+            },
+            "ff": {
+              "pl": "Rano pracuję, a po południu jestem wolna.",
+              "en": "I'm working in the morning, but I'm free in the afternoon."
+            },
+            "fm": {
+              "pl": "Rano pracuję, a po południu jestem wolna.",
+              "en": "I'm working in the morning, but I'm free in the afternoon."
+            }
+          },
+          "note": "Po południu: in the afternoon."
+        },
+        {
+          "id": "d-04-007",
+          "who": "partner",
+          "to": "learner",
+          "pl": "To może pójdziemy razem na zakupy?",
+          "en": "Then shall we go shopping together?",
+          "note": "Może...? is a soft way to suggest something."
+        },
+        {
+          "id": "d-04-008",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Dobry pomysł. Musimy kupić chleb i mleko.",
+          "en": "Good idea. We need to buy bread and milk.",
+          "note": null
+        },
+        {
+          "id": "d-04-009",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Wrócę z pracy około piątej.",
+          "en": "I'll be back from work around five.",
+          "note": "Około + genitive: około piątej (godziny)."
+        },
+        {
+          "id": "d-04-010",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Dobrze. Miłego dnia, kochanie!",
+          "en": "OK. Have a nice day, darling!",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "d-05",
+      "title": "Making plans for the weekend",
+      "lesson": {
+        "summary": "At home, you and your partner decide what to do at the weekend.",
+        "body": [
+          "A relaxed chat between the two of you, all in informal ty. Notice {{Może pójdziemy…?}} (\"Maybe we'll go…?\"), the easiest way to suggest something, and {{Pasuje mi}} (\"Works for me\") for agreeing to a time."
+        ],
+        "more": [
+          "{{w sobotę}}, {{w niedzielę}}: on Saturday, on Sunday. After {{w}} with days of the week, the day takes the accusative.",
+          "{{Mam wolne}} means \"I have the day off\", literally \"I have free\".",
+          "Times use the ordinal number: {{o drugiej}} (at two), {{o siódmej}} (at seven)."
+        ]
+      },
+      "cast": {},
+      "items": [
+        {
+          "id": "d-05-001",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Masz czas w ten weekend?",
+          "en": "Are you free this weekend?",
+          "note": "Literally \"Do you have time this weekend?\""
+        },
+        {
+          "id": "d-05-002",
+          "who": "partner",
+          "to": "learner",
+          "pl": "W sobotę pracuję, ale w niedzielę mam wolne.",
+          "en": "I'm working on Saturday, but I'm off on Sunday.",
+          "note": null
+        },
+        {
+          "id": "d-05-003",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Może pójdziemy do kina?",
+          "en": "How about going to the cinema?",
+          "note": "Literally \"Maybe we'll go to the cinema?\" A soft way to suggest."
+        },
+        {
+          "id": "d-05-004",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Dobry pomysł! Na jaki film?",
+          "en": "Good idea! Which film?",
+          "note": "You go {{na film}}: \"to\" a film uses na."
+        },
+        {
+          "id": "d-05-005",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Nie wiem, sprawdzę wieczorem.",
+          "en": "I don't know, I'll check this evening.",
+          "note": null
+        },
+        {
+          "id": "d-05-006",
+          "who": "partner",
+          "to": "learner",
+          "pl": "A najpierw może spacer w parku?",
+          "en": "And maybe a walk in the park first?",
+          "note": null
+        },
+        {
+          "id": "d-05-007",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Dobrze. O której wychodzimy?",
+          "en": "OK. What time are we leaving?",
+          "note": null
+        },
+        {
+          "id": "d-05-008",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Może o drugiej po południu?",
+          "en": "How about two in the afternoon?",
+          "note": null
+        },
+        {
+          "id": "d-05-009",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Pasuje mi. To ja kupię bilety.",
+          "en": "Works for me. I'll buy the tickets, then.",
+          "note": "{{To ja…}} = \"I'll be the one who…\""
+        },
+        {
+          "id": "d-05-010",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Super, dziękuję, kochanie!",
+          "en": "Great, thank you, darling!",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "d-06",
+      "title": "Her brother",
+      "lesson": {
+        "summary": "You meet her younger brother Tomek and make small talk about work and football.",
+        "body": [
+          "Siblings and people your age use informal ty straight away, so you can relax: no pan here. Notice {{Czym się zajmujesz?}} (\"What do you do?\"), the usual way to ask about someone's work, and {{Chętnie!}} (\"Gladly!\") for saying yes to an invitation."
+        ],
+        "more": [
+          "{{Jestem mechanikiem}}: after {{jestem}}, a job takes the instrumental case ({{mechanik}} → {{mechanikiem}}).",
+          "Legia (Warsaw) and Lech (Poznań) are two of the best-known Polish football clubs. {{Legia z Lechem}} = Legia against Lech.",
+          "{{Tomek}} is the everyday form of the name Tomasz."
+        ]
+      },
+      "cast": {
+        "brat": {
+          "name": "Her brother Tomek",
+          "gender": "m"
+        }
+      },
+      "items": [
+        {
+          "id": "d-06-001",
+          "who": "brat",
+          "to": "learner",
+          "pl": "Cześć, jestem Tomek. Wreszcie się poznajemy!",
+          "en": "Hi, I'm Tomek. We finally meet!",
+          "note": null
+        },
+        {
+          "id": "d-06-002",
+          "who": "learner",
+          "to": "brat",
+          "v": {
+            "mm": {
+              "pl": "Cześć, miło mi. Dużo o tobie słyszałem.",
+              "en": "Hi, nice to meet you. I've heard a lot about you."
+            },
+            "fm": {
+              "pl": "Cześć, miło mi. Dużo o tobie słyszałam.",
+              "en": "Hi, nice to meet you. I've heard a lot about you."
+            }
+          },
+          "note": "Past tense ends in -łem for a man, -łam for a woman."
+        },
+        {
+          "id": "d-06-003",
+          "who": "brat",
+          "to": "learner",
+          "pl": "Mam nadzieję, że same dobre rzeczy!",
+          "en": "Only good things, I hope!",
+          "note": null
+        },
+        {
+          "id": "d-06-004",
+          "who": "brat",
+          "to": "learner",
+          "pl": "Czym się zajmujesz?",
+          "en": "What do you do?",
+          "note": "Asks about someone's job, literally \"What do you occupy yourself with?\""
+        },
+        {
+          "id": "d-06-005",
+          "who": "learner",
+          "to": "brat",
+          "pl": "Robię doktorat. A ty?",
+          "en": "I'm doing a PhD. And you?",
+          "note": "Doktorat: a doctorate (PhD). Robić doktorat = to be doing a PhD."
+        },
+        {
+          "id": "d-06-006",
+          "who": "brat",
+          "to": "learner",
+          "pl": "Jestem mechanikiem. Lubisz piłkę nożną?",
+          "en": "I'm a mechanic. Do you like football?",
+          "note": null
+        },
+        {
+          "id": "d-06-007",
+          "who": "learner",
+          "to": "brat",
+          "pl": "Tak, ale wolę oglądać niż grać.",
+          "en": "Yes, but I prefer watching to playing.",
+          "note": null
+        },
+        {
+          "id": "d-06-008",
+          "who": "brat",
+          "to": "learner",
+          "pl": "To może obejrzymy razem mecz w sobotę?",
+          "en": "So how about watching the match together on Saturday?",
+          "note": null
+        },
+        {
+          "id": "d-06-009",
+          "who": "learner",
+          "to": "brat",
+          "pl": "Chętnie! Kto gra?",
+          "en": "I'd love to! Who's playing?",
+          "note": null
+        },
+        {
+          "id": "d-06-010",
+          "who": "brat",
+          "to": "learner",
+          "pl": "Legia z Lechem. Przyniosę piwo.",
+          "en": "Legia against Lech. I'll bring beer.",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "d-07",
+      "title": "Christmas Eve (Wigilia)",
+      "lesson": {
+        "summary": "Christmas Eve supper with her family: sharing the wafer, exchanging wishes, and the first dishes.",
+        "body": [
+          "In Poland the main Christmas celebration is {{Wigilia}}, the supper on the evening of 24 December. Before eating, everyone shares {{opłatek}}, a thin white wafer: two people each break off a piece of the other's wafer and wish each other well, then move on to the next person. Simple wishes are perfect: {{Wesołych Świąt!}}, {{Wszystkiego najlepszego!}}, {{zdrowia}}, {{szczęścia}}."
+        ],
+        "more": [
+          "By tradition the meal starts when the first star appears in the sky ({{pierwsza gwiazdka}}). Children are often sent to the window to look for it.",
+          "An extra place is set at the table for an unexpected guest, so that nobody who comes that evening is turned away.",
+          "The supper is traditionally meatless, and many families aim for twelve dishes. Common ones are {{barszcz z uszkami}} (clear beetroot soup with small mushroom dumplings), {{pierogi}} (often with cabbage and mushrooms) and {{karp}} (carp, usually fried).",
+          "Wishes are in the genitive because {{życzę}} (I wish) is understood: {{(Życzę) zdrowia, szczęścia}}. {{Nawzajem}} means \"the same to you\"."
+        ]
+      },
+      "cast": {
+        "mama": {
+          "name": "Her mum",
+          "gender": "f"
+        },
+        "tata": {
+          "name": "Her dad",
+          "gender": "m"
+        }
+      },
+      "items": [
+        {
+          "id": "d-07-001",
+          "who": "tata",
+          "to": "all",
+          "pl": "Jest pierwsza gwiazdka! Możemy zaczynać.",
+          "en": "There's the first star! We can begin.",
+          "note": "{{gwiazdka}} = little star; the meal traditionally starts when it appears."
+        },
+        {
+          "id": "d-07-002",
+          "who": "mama",
+          "to": "learner",
+          "pl": "Wesołych Świąt! Dużo zdrowia i szczęścia.",
+          "en": "Merry Christmas! Lots of health and happiness.",
+          "note": "Said while sharing the opłatek wafer."
+        },
+        {
+          "id": "d-07-003",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Dziękuję, nawzajem! Wszystkiego najlepszego.",
+          "en": "Thank you, the same to you! All the best.",
+          "note": null
+        },
+        {
+          "id": "d-07-004",
+          "who": "partner",
+          "to": "learner",
+          "pl": "Kochanie, teraz my. Wesołych Świąt!",
+          "en": "Darling, now us. Merry Christmas!",
+          "note": null
+        },
+        {
+          "id": "d-07-005",
+          "who": "learner",
+          "to": "partner",
+          "pl": "Życzę ci zdrowia, miłości i spokoju.",
+          "en": "I wish you health, love and peace.",
+          "note": "{{życzyć}} + {{ci}} (to you) + the wish in the genitive."
+        },
+        {
+          "id": "d-07-006",
+          "who": "partner",
+          "to": "learner",
+          "v": {
+            "fm": {
+              "pl": "Dziękuję. Żebyśmy zawsze byli razem.",
+              "en": "Thank you. May we always be together."
+            },
+            "ff": {
+              "pl": "Dziękuję. Żebyśmy zawsze były razem.",
+              "en": "Thank you. May we always be together."
+            },
+            "mm": {
+              "pl": "Dziękuję. Żebyśmy zawsze byli razem.",
+              "en": "Thank you. May we always be together."
+            },
+            "mf": {
+              "pl": "Dziękuję. Żebyśmy zawsze byli razem.",
+              "en": "Thank you. May we always be together."
+            }
+          },
+          "note": "{{byli}} when at least one of the two is a man, {{były}} for two women."
+        },
+        {
+          "id": "d-07-007",
+          "who": "learner",
+          "to": "tata",
+          "pl": "Dla kogo jest to wolne miejsce?",
+          "en": "Who is the empty place for?",
+          "note": null
+        },
+        {
+          "id": "d-07-008",
+          "who": "tata",
+          "to": "learner",
+          "pl": "Dla niespodziewanego gościa. Taka tradycja.",
+          "en": "For an unexpected guest. It's a tradition.",
+          "note": null
+        },
+        {
+          "id": "d-07-009",
+          "who": "mama",
+          "to": "learner",
+          "pl": "Na początek barszcz z uszkami.",
+          "en": "To start, beetroot soup with little dumplings.",
+          "note": "{{uszka}} = \"little ears\", small dumplings usually filled with mushrooms."
+        },
+        {
+          "id": "d-07-010",
+          "who": "learner",
+          "to": "mama",
+          "pl": "Dziękuję. Pięknie pachnie!",
+          "en": "Thank you. It smells wonderful!",
+          "note": null
+        }
+      ]
+    },
+    {
+      "id": "d-08",
+      "title": "Visiting her grandparents",
+      "lesson": {
+        "summary": "You visit her grandparents with flowers, ask after their health and get tea, cheesecake and a tour of the garden.",
+        "body": [
+          "Use pan and pani with her grandparents: {{Jak się pan czuje?}} to grandpa, {{Czy może pani mówić wolniej?}} to grandma. They speak to you politely too, with pan (or pani), and the verb is in the third person: {{Napije się pan herbaty?}} (\"Will you have some tea?\")."
+        ],
+        "more": [
+          "{{Proszę usiąść}} (\"Please sit down\") is a polite, everyday formula. Older people will often press you to eat more: {{Tak, poproszę}} is always a good answer.",
+          "{{Wchodźcie}} (\"come in\") is plural ty, said to both of you at once.",
+          "If they suggest you call them {{babcia}} and {{dziadek}}, they are offering informal address. Until then, stay with pan and pani."
+        ]
+      },
+      "cast": {
+        "babcia": {
+          "name": "Her grandma",
+          "gender": "f"
+        },
+        "dziadek": {
+          "name": "Her grandpa",
+          "gender": "m"
+        }
+      },
+      "items": [
+        {
+          "id": "d-08-001",
+          "who": "babcia",
+          "to": "all",
+          "pl": "Dzień dobry! Wchodźcie, wchodźcie.",
+          "en": "Hello! Come in, come in.",
+          "note": null
+        },
+        {
+          "id": "d-08-002",
+          "who": "learner",
+          "to": "babcia",
+          "pl": "Dzień dobry. Te kwiaty są dla pani.",
+          "en": "Hello. These flowers are for you.",
+          "note": "{{dla pani}}: polite \"for you\" to a woman."
+        },
+        {
+          "id": "d-08-003",
+          "who": "babcia",
+          "to": "learner",
+          "pl": "Ojej, piękne! Dziękuję. Proszę usiąść.",
+          "en": "Oh, lovely! Thank you. Please sit down.",
+          "note": null
+        },
+        {
+          "id": "d-08-004",
+          "who": "learner",
+          "to": "dziadek",
+          "pl": "Jak się pan czuje?",
+          "en": "How are you feeling?",
+          "note": "Formal, to a man: the verb is third person."
+        },
+        {
+          "id": "d-08-005",
+          "who": "dziadek",
+          "to": "learner",
+          "pl": "Nie najgorzej, tylko trochę boli mnie kolano.",
+          "en": "Not too bad, just my knee hurts a bit.",
+          "note": "{{boli mnie…}} = \"…hurts me\"."
+        },
+        {
+          "id": "d-08-006",
+          "who": "babcia",
+          "to": "learner",
+          "v": {
+            "fm": {
+              "pl": "Napije się pan herbaty? Upiekłam sernik.",
+              "en": "Will you have some tea? I've baked a cheesecake."
+            },
+            "ff": {
+              "pl": "Napije się pani herbaty? Upiekłam sernik.",
+              "en": "Will you have some tea? I've baked a cheesecake."
+            }
+          },
+          "note": null
+        },
+        {
+          "id": "d-08-007",
+          "who": "learner",
+          "to": "babcia",
+          "pl": "Przepraszam, czy może pani mówić wolniej?",
+          "en": "Sorry, could you speak more slowly?",
+          "note": null
+        },
+        {
+          "id": "d-08-008",
+          "who": "babcia",
+          "to": "learner",
+          "pl": "Oczywiście. Herbata? I kawałek sernika?",
+          "en": "Of course. Tea? And a piece of cheesecake?",
+          "note": null
+        },
+        {
+          "id": "d-08-009",
+          "who": "learner",
+          "to": "babcia",
+          "pl": "Tak, poproszę. Dziękuję bardzo.",
+          "en": "Yes, please. Thank you very much.",
+          "note": null
+        },
+        {
+          "id": "d-08-010",
+          "who": "dziadek",
+          "to": "learner",
+          "v": {
+            "mm": {
+              "pl": "A potem pokażę panu nasz ogród.",
+              "en": "And afterwards I'll show you our garden."
+            },
+            "mf": {
+              "pl": "A potem pokażę pani nasz ogród.",
+              "en": "And afterwards I'll show you our garden."
+            }
+          },
+          "note": "{{panu}} = to you (to a man), {{pani}} = to you (to a woman)."
+        }
+      ]
+    }
+  ]
+}

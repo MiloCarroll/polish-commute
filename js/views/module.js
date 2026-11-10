@@ -6,6 +6,8 @@ import { lessonHtml, lessonHandlers } from '../lesson.js';
 import { markLessonSeen } from './study.js';
 import { OWN_TOPIC } from '../own.js';
 import { ownTopicView } from './phrases.js';
+import { resolveLine, roleLabel } from '../variants.js';
+import * as tts from '../tts.js';
 
 /** First topic (in suggested order) that still has unstudied cards. */
 export function nextSuggestedTopic(mod, records) {
@@ -54,6 +56,7 @@ export function topicView(m, topicId) {
   const topic = mod?.topics.find((t) => t.id === topicId);
   if (!topic) { location.replace(`#/module/${m}`); return; }
   if (topic.id === OWN_TOPIC) return ownTopicView(topic);
+  if (m === 'dialogues' && topic.items.length) return dialogueTopicView(mod, topic);
   const c = countCards(topic.cards, state.records);
 
   const items = m === 'grammar' ? '' : topic.items.map((it) => `
@@ -80,5 +83,41 @@ export function topicView(m, topicId) {
   });
   onAction({ ...lessonHandlers });
   // Reading the lesson here counts: Continue won't show it again before the first new card.
+  if (topic.lesson) markLessonSeen(topic.id);
+}
+
+/** A dialogue's page: scene, the whole script (playable line by line or all), study button. */
+function dialogueTopicView(mod, topic) {
+  const c = countCards(topic.cards, state.records);
+  const g = { learnerGender: settings().learnerGender, partnerGender: settings().partnerGender };
+  const lines = topic.items.map((l) => resolveLine(l, topic.cast, g));
+  render({
+    title: topic.title,
+    back: '#/module/dialogues',
+    body: `${lessonHtml(topic.lesson)}
+      <h2 class="section-title">The conversation</h2>
+      <button class="btn" data-action="play-all">${speakerIcon}<span>Play all</span></button>
+      <ol class="script">${lines.map((l, i) => `
+        <li class="${l.who === 'learner' ? 'mine' : ''}">
+          <button class="icon-btn small" data-action="say-line" data-i="${i}" aria-label="Play line">${speakerIcon}</button>
+          <div><span class="who small">${esc(roleLabel(l.who, topic.cast))}</span>
+            <p class="pl" lang="pl">${esc(l.pl)}</p><p class="muted small">${esc(l.en)}</p></div>
+        </li>`).join('')}</ol>
+      <p class="muted small">${c.learned}/${c.total} cards learned · ${c.due} due · ${c.newAvailable} new</p>`,
+    actions: c.due || c.newAvailable ? `<a class="btn primary" href="#/study/dialogues/${topic.id}">Study this conversation</a>` : '',
+  });
+  let playing = 0;
+  onAction({
+    ...lessonHandlers,
+    'say-line': (el) => { playing++; const l = lines[Number(el.dataset.i)]; tts.speak(l.pl, { gender: l.gender }); },
+    'play-all': async () => {
+      const run = ++playing;
+      for (const l of lines) {
+        if (run !== playing || !document.querySelector('.script')) return;
+        await tts.speak(l.pl, { gender: l.gender });
+        await new Promise((r) => setTimeout(r, 500));
+      }
+    },
+  });
   if (topic.lesson) markLessonSeen(topic.id);
 }

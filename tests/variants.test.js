@@ -57,3 +57,19 @@ test('resolveDrill overlays the variant for the current genders', async () => {
   assert.equal(d.reason, 'She says byłam.');
   assert.equal(d.v, undefined);
 });
+
+test('dialogue lines: genders from settings or the cast, reachable variant keys', async () => {
+  const { resolveLine, reachableKeys, roleLabel } = await import('../js/variants.js');
+  const cast = { mama: { name: 'Her mum', gender: 'f' }, tata: { name: 'Her dad', gender: 'm' } };
+  const line = { id: 'd-01-004', who: 'mama', to: 'learner', v: {
+    fm: { pl: 'Jesteś głodny?', en: 'Are you hungry?' }, ff: { pl: 'Jesteś głodna?', en: 'Are you hungry?' } } };
+  assert.deepEqual(reachableKeys(line, cast).sort(), ['ff', 'fm']);
+  assert.deepEqual(reachableKeys({ who: 'learner', to: 'partner' }, cast).sort(), ['ff', 'fm', 'mf', 'mm']);
+  assert.deepEqual(reachableKeys({ who: 'learner', to: 'all' }, cast).sort(), ['f-', 'm-']);
+  assert.equal(resolveLine(line, cast, { learnerGender: 'm', partnerGender: 'f' }).pl, 'Jesteś głodny?');
+  assert.equal(resolveLine(line, cast, { learnerGender: 'f', partnerGender: 'm' }).pl, 'Jesteś głodna?');
+  assert.equal(resolveLine(line, cast, {}).gender, 'f', "mum's voice is female");
+  assert.equal(resolveLine({ who: 'tata', to: 'all', pl: 'Na zdrowie!', en: 'Cheers!' }, cast, {}).gender, 'm');
+  assert.equal(roleLabel('partner', cast), 'Your partner');
+  assert.equal(roleLabel('tata', cast), 'Her dad');
+});

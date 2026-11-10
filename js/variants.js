@@ -70,3 +70,41 @@ export function resolveDrill(item, genders) {
   const { v, ...base } = item;
   return { ...base, ...v[variantKey(item, genders)] };
 }
+
+// ---- Dialogue lines -----------------------------------------------------------
+// A line has `who` (speaker) and `to` (person addressed): "learner", "partner", a key of
+// the dialogue's `cast` (fixed gender), or "all" (to = a group). Gender-dependent lines
+// carry `v` keyed by speaker gender + listener gender ("-" for a group).
+
+export function roleGender(role, cast, { learnerGender = 'm', partnerGender = 'f' } = {}) {
+  if (role === 'learner') return learnerGender;
+  if (role === 'partner') return partnerGender;
+  if (role === 'all' || role == null) return '-';
+  return cast?.[role]?.gender ?? '-';
+}
+
+/** Every variant key a line can need, given which roles have changeable genders. */
+export function reachableKeys(line, cast) {
+  const opts = (role) => (role === 'learner' || role === 'partner' ? ['m', 'f'] : [roleGender(role, cast)]);
+  const keys = [];
+  for (const a of opts(line.who)) for (const b of opts(line.to)) keys.push(`${a}${b}`);
+  return [...new Set(keys)];
+}
+
+/** The concrete line for the current settings: { pl, en, note, who, to, gender }. */
+export function resolveLine(line, cast, genders) {
+  const speaker = roleGender(line.who, cast, genders);
+  const listener = roleGender(line.to, cast, genders);
+  const v = line.v ? line.v[`${speaker}${listener}`] : null;
+  return {
+    who: line.who, to: line.to, note: line.note ?? null,
+    pl: v?.pl ?? line.pl, en: v?.en ?? line.en,
+    gender: speaker === '-' ? null : speaker,
+  };
+}
+
+export function roleLabel(role, cast) {
+  if (role === 'learner') return 'You';
+  if (role === 'partner') return 'Your partner';
+  return cast?.[role]?.name ?? role;
+}

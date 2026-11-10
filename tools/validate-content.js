@@ -8,7 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildModule, MODULES } from '../js/content.js';
 import { normalise } from '../js/grading.js';
-import { VARIANT_KEYS, countWhole } from '../js/variants.js';
+import { VARIANT_KEYS, countWhole, reachableKeys } from '../js/variants.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const RELEASED = join(ROOT, 'tools', 'released-ids.json');
@@ -20,11 +20,13 @@ const ID_PATTERNS = {
   pronunciation: /^pr-\d{2}-\d{3}$/,
   vocabulary: /^v-\d{4}$/,
   grammar: /^g-\d{2}-\d{3}$/,
+  dialogues: /^d-\d{2}-\d{3}$/,
 };
 const TOPIC_PATTERNS = {
   pronunciation: /^pr-\d{2}$/,
   vocabulary: /^v-[a-z0-9-]+$/,
   grammar: /^g-\d{2}$/,
+  dialogues: /^d-\d{2}$/,
 };
 
 
@@ -124,7 +126,7 @@ function validatePronunciation(json, err, checkPolish) {
 // ---- Vocabulary -------------------------------------------------------------
 
 const POS = ['noun', 'verb', 'adjective', 'adverb', 'pronoun', 'numeral', 'preposition', 'conjunction', 'particle', 'interjection', 'phrase'];
-const VOCAB_CARDS = ['rec', 'prod', 'gap', 'listen'];
+const VOCAB_CARDS = ['rec', 'prod', 'gap', 'listen']; // 'say' is added automatically for items with 'listen'
 const PERSON_KEYS = ['ja', 'ty', 'on', 'my', 'wy', 'oni'];
 
 function validateExample(ex, w, err, checkPolish) {
@@ -181,7 +183,16 @@ function validateVocabItem(it, w, topic, err, checkPolish) {
 }
 
 /** English → Polish must be answerable: identical English glosses need a hint or each other as alternatives. */
-function validateVocabModule(json, err) {
+// Known duplicates kept on purpose (both IDs already released).
+const ALLOWED_DUPLICATES = new Set(['o której']);
+
+function validateVocabModule(json, err, warn = () => {}) {
+  const byPl = new Map();
+  for (const t of json.topics) for (const it of t.items) {
+    const k = normalise(it.pl);
+    if (byPl.has(k) && !ALLOWED_DUPLICATES.has(k)) warn(`vocabulary/${it.id}: "${it.pl}" is also ${byPl.get(k)}`);
+    byPl.set(k, it.id);
+  }
   const byEn = new Map();
   for (const t of json.topics) for (const it of t.items) {
     if (!(it.cards ?? []).includes('prod')) continue;
@@ -262,6 +273,47 @@ function validateGrammar(json, err, checkPolish) {
 }
 
 
+// ---- Dialogues ----------------------------------------------------------------
+
+function validateDialogues(json, err, checkPolish) {
+  for (const t of json.topics) {
+    const tw = `dialogues/${t.id}`;
+    if (!t.items.length) continue;
+    const L = t.lesson;
+    if (!L || typeof L.summary !== 'string' || !Array.isArray(L.body) || !L.body.length) err(tw, 'lesson needs summary and body');
+    [L?.summary, ...(L?.body ?? []), ...(L?.more ?? [])].filter(Boolean)
+      .flatMap((x) => [...String(x).matchAll(/\{\{(.+?)\}\}/g)].map((m) => m[1])).forEach((x) => checkPolish(`${tw}/lesson`, x));
+    const cast = t.cast ?? {};
+    for (const [k, c] of Object.entries(cast)) {
+      if (!/^[a-z]+$/.test(k) || ['learner', 'partner', 'all'].includes(k)) err(tw, `bad cast key "${k}"`);
+      if (!['m', 'f'].includes(c?.gender) || !c?.name) err(tw, `cast "${k}" needs a name and gender m/f`);
+    }
+    const roles = new Set(['learner', 'partner', ...Object.keys(cast)]);
+    if (t.items.length < 6 || t.items.length > 10) err(tw, `has ${t.items.length} lines; aim for 6–10`);
+    if (!t.items.some((l) => l.who === 'learner')) err(tw, 'the learner should have at least one line');
+    for (const line of t.items) {
+      const w = `${tw}/${line.id}`;
+      if (!roles.has(line.who)) err(w, `unknown speaker "${line.who}"`);
+      if (!roles.has(line.to) && line.to !== 'all') err(w, `unknown listener "${line.to}"`);
+      if (line.who === line.to) err(w, 'a line cannot be addressed to its speaker');
+      if (line.v) {
+        const need = reachableKeys(line, cast);
+        for (const k of need) {
+          const v = line.v[k];
+          if (!v) { err(`${w}/${k}`, 'missing variant'); continue; }
+          checkPolish(`${w}/${k}`, v.pl);
+          if (typeof v.en !== 'string' || !v.en) err(`${w}/${k}`, 'missing English');
+        }
+        const extra = Object.keys(line.v).filter((k) => !need.includes(k));
+        if (extra.length) err(w, `variants ${extra.join(', ')} can never be used (speaker/listener genders)`);
+      } else {
+        checkPolish(w, line.pl);
+        if (typeof line.en !== 'string' || !line.en) err(w, 'missing English');
+      }
+    }
+  }
+}
+
 export function validate(contents) {
   const errors = [];
   const warnings = [];
@@ -301,8 +353,9 @@ export function validate(contents) {
       }
     }
     if (m === 'pronunciation') validatePronunciation(json, err, checkPolish);
-    if (m === 'vocabulary') validateVocabModule(json, err);
+    if (m === 'vocabulary') validateVocabModule(json, err, (w) => warnings.push(w));
     if (m === 'grammar') validateGrammar(json, err, checkPolish);
+    if (m === 'dialogues') validateDialogues(json, err, checkPolish);
     for (const def of buildModule(structuredClone(json)).defs) {
       if (cardIds.has(def.id)) err(def.id, 'duplicate card id');
       cardIds.add(def.id);

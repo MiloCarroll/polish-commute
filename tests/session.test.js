@@ -52,5 +52,5 @@ test('a module with no new cards left is skipped', () => {
 test('respects the shared allowance and counts per module', () => {
   const { shown, logs } = run(byModule(), new Map(), 2, at(2026, 11, 10, 8), 10);
   assert.equal(new Set(shown).size, 2, 'only two distinct new cards (then their learning steps)');
-  assert.deepEqual(newTodayByModule(logs, at(2026, 11, 10, 9)), { pronunciation: 1, vocabulary: 1, grammar: 0 });
+  assert.deepEqual(newTodayByModule(logs, at(2026, 11, 10, 9)), { pronunciation: 1, vocabulary: 1, grammar: 0, dialogues: 0 });
 });

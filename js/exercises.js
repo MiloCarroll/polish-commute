@@ -6,7 +6,7 @@ import { Rating, previewIntervals } from './scheduler.js';
 import { grade, diffExpected, normalise, MESSAGES } from './grading.js';
 import { render, esc, speakerIcon, onAction, $ } from './ui.js';
 import { attachAccentBar, hideAccentBar } from './accentbar.js';
-import { resolveExample, resolveDrill, gapExample, splitGap } from './variants.js';
+import { resolveExample, resolveDrill, gapExample, splitGap, resolveLine, roleLabel } from './variants.js';
 import { settings } from './settings.js';
 import { state } from './app.js';
 import * as tts from './tts.js';
@@ -305,6 +305,109 @@ function vlisten(ctx) {
   });
 }
 
+// ---- Whole sentence: say it in your head, then compare (self-graded) --------
+
+/**
+ * Shared by vocabulary "say" cards and dialogue "say" cards.
+ *   en: the English to express; pl: the Polish to compare with; gender: speaker's voice
+ *   context: optional HTML above the prompt (e.g. the previous dialogue line)
+ *   hint: optional small hint line; details: HTML shown after reveal
+ */
+function sayCard(ctx, { en, pl, gender = null, context = '', hint = '', details = '' }) {
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}
+      <div class="card study">
+        ${context}
+        <p class="question">How would you say…</p>
+        <p class="prompt sentence-prompt">${esc(en)}</p>
+        ${hint ? `<p class="muted small">${hint}</p>` : ''}
+        <p class="muted small">Say it in your head, then check.</p>
+        <div id="answer" hidden class="details">
+          <p class="sentence pl" lang="pl">${esc(pl)}
+            <button class="icon-btn small inline" data-action="say" data-text="${esc(pl)}" ${gender ? `data-gender="${gender}"` : ''} aria-label="Play">${speakerIcon}</button></p>
+          ${details}
+        </div>
+      </div>`,
+    actions: `<button class="btn primary" data-action="reveal">Show Polish</button>`,
+  });
+  onAction({
+    say: sayEl,
+    reveal: () => {
+      $('#answer').hidden = false;
+      document.getElementById('actions').innerHTML = gradeButtons(ctx);
+      tts.speak(pl, { gender });
+    },
+    grade: guard((el) => ctx.done(Number(el.dataset.rating))),
+  });
+}
+
+function vsay(ctx) {
+  const { item } = ctx;
+  const ex = resolveExample(item.examples?.[0], genders());
+  if (!ex) return rec(ctx);
+  const toPartner = item.examples[0].v && (item.examples[0].speaker ?? 'learner') === 'learner';
+  sayCard(ctx, {
+    en: ex.en, pl: ex.pl, gender: speakerGender(item.examples[0]),
+    hint: `Uses <span class="pl" lang="pl">${esc(item.pl)}</span>${toPartner ? ' · said to your partner' : ''}`,
+    details: `<details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`,
+  });
+}
+
+// ---- Dialogues -----------------------------------------------------------------
+
+/** The line before this one, shown for context (text, translation and play button). */
+function previousLine(ctx) {
+  const lines = ctx.topic.items;
+  const i = lines.indexOf(ctx.item);
+  if (i <= 0) return `<p class="scene muted small">${esc(ctx.topic.lesson?.summary ?? ctx.topic.title)}</p>`;
+  const p = resolveLine(lines[i - 1], ctx.topic.cast, genders());
+  return `<div class="prev-line">
+    <span class="who small">${esc(roleLabel(p.who, ctx.topic.cast))}:</span>
+    <span class="pl" lang="pl">${esc(p.pl)}</span>
+    <button class="icon-btn small inline" data-action="say" data-text="${esc(p.pl)}" ${p.gender ? `data-gender="${p.gender}"` : ''} aria-label="Play previous line">${speakerIcon}</button>
+    <span class="muted small en">${esc(p.en)}</span>
+  </div>`;
+}
+
+function dlisten(ctx) {
+  const line = resolveLine(ctx.item, ctx.topic.cast, genders());
+  const voice = { gender: line.gender };
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}
+      <div class="card study">
+        ${previousLine(ctx)}
+        <p class="question">${esc(roleLabel(line.who, ctx.topic.cast))} ${line.who === 'learner' ? 'say' : 'says'}…</p>
+        ${audioRow()}
+        ${noVoiceNote(line.pl)}
+        <div id="answer" hidden class="details">
+          <p class="sentence pl" lang="pl">${esc(line.pl)}</p>
+          <p class="answer">${esc(line.en)}</p>
+          ${line.note ? `<p class="note">${esc(line.note)}</p>` : ''}
+        </div>
+      </div>`,
+    actions: `<button class="btn primary" data-action="reveal">Show text</button>`,
+  });
+  if (settings().autoplay) tts.autoSpeak(line.pl, voice);
+  onAction({
+    play: () => tts.speak(line.pl, voice),
+    slow: () => tts.speak(line.pl, { ...voice, slow: true }),
+    say: sayEl,
+    reveal: () => { $('#answer').hidden = false; document.getElementById('actions').innerHTML = gradeButtons(ctx); },
+    grade: guard((el) => ctx.done(Number(el.dataset.rating))),
+  });
+}
+
+function dsay(ctx) {
+  const line = resolveLine(ctx.item, ctx.topic.cast, genders());
+  sayCard(ctx, {
+    en: line.en, pl: line.pl, gender: line.gender,
+    context: `${previousLine(ctx)}<p class="small muted">Your turn${line.to && line.to !== 'all' ? `, to ${esc(roleLabel(line.to, ctx.topic.cast).replace(/^(Your|Her|His|Our) /, (w) => w.toLowerCase()))}` : ''}.</p>`,
+    details: line.note ? `<p class="note">${esc(line.note)}</p>` : '',
+  });
+}
+
 // ---- Pronunciation: listen and choose --------------------------------------
 
 function shuffle(arr) {
@@ -484,6 +587,9 @@ export const EXERCISES = {
   'vocabulary/prod': prod,
   'vocabulary/gap': gap,
   'vocabulary/listen': vlisten,
+  'vocabulary/say': vsay,
+  'dialogues/listen': dlisten,
+  'dialogues/say': dsay,
   'pronunciation/listen': listen,
   'pronunciation/dict': dict,
   'pronunciation/stress': stress,

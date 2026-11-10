@@ -5,9 +5,10 @@ A personal, offline web app for learning conversational Polish on a 40-minute tr
 **Status: version 1 complete (stages 1–5).**
 
 - **Pronunciation:** 12 topics with lessons; listen and choose, dictation, stress spotting.
-- **Vocabulary:** 12 topics, about 300 words; Polish → English, English → Polish, listening and sentence gaps, with gender-aware example sentences; plus *My phrases* for your own cards.
+- **Vocabulary:** 18 topics, about 470 words; Polish → English, English → Polish, listening, sentence gaps and whole-sentence "how would you say…" cards, with gender-aware example sentences; plus *My phrases* for your own cards.
 - **Grammar:** 8 topics with plain-English explanations and tables; choose-the-form then typed drills, each wrong answer showing a reason and a link back to the explanation.
-- **Around it:** a one-tap *Today's session* (all due reviews, then new cards shared across the three modules), a shared daily allowance, Stats, a Flag button on every card, export/import with a backup reminder, a session timer and an offline update banner.
+- **Conversations:** 8 short dialogues for real situations with her family (meeting her parents, dinner, a phone call with her mum, Wigilia, her grandparents…), with gender variants. Every line has a listening card; your own lines also get a "your turn" card. The topic page shows the whole script with *Play all*.
+- **Around it:** *Undo* for the last answer, a one-tap *Today's session* (all due reviews, then new cards shared across the three modules), a shared daily allowance, Stats, a Flag button on every card, export/import with a backup reminder, a session timer and an offline update banner.
 
 ## How it works
 
@@ -130,3 +131,8 @@ No native speaker reviews this content, so it follows the safeguards in the proj
 - *Verified on Wiktionary:* present tense of być, mieć, znać, czekać, mieszkać, słuchać, mówić, robić, lubić, widzieć, myśleć, tęsknić, uczyć się, pracować, gotować, rozumieć, pisać, jechać, iść, pić, słyszeć; past tense of być, robić, pracować, tęsknić, dzwonić, sprzątać, oglądać, wiedzieć, widzieć, spać, chcieć, myśleć, mieć, pić, gotować, kupić, zadzwonić and the irregular iść (szedłem/szłam), jeść (jadł-), móc (mogłem, mógł); genders of noc, rzecz, kość, wieś, mysz, gość, muzeum; genitive/accusative of ser, sok, klucz, kurczak, szwagier, makaron, telefon, samochód, pies, teść, czas, chleb, obiad, kot, rower, sól, pomysł, dziadek, wujek, kuzyn, pytanie; czekać na + acc., tęsknić za + instr., słuchać + gen.
 - *Not individually looked up:* the common feminine and neuter genitives (kawy, wody, herbaty, mamy, babci, mięsa, piwa, mleka, wina, ciasta …), brat → brata, film → filmu, and the adjective endings.
 - *Simplifications kept on purpose:* masculine inanimate nouns "stay the same" in the accusative (colloquial *jem banana* is not mentioned); partitive genitive after *chcę* is explained but only accepted where it is common.
+
+**Vocabulary batch 2:** 6 topics (health, weather, work and studies, hobbies, holidays, at the table), 170 words, each reviewed separately: 20 small fixes to notes, translations and accepted answers, including one real error (22–24 take *stopnie*, not *stopni*). Verified on Wiktionary: the genders and case forms of nearly all health and weather nouns, plecy, kaszel, doktorant, promotor, studia, stypendium, hobby, szachy, sylwester, opłatek, święconka, Wielkanoc, Wigilia, widelec, and the verbs kichać, wziąć, wiać, biegać, zdać, zarabiać, interesować się, częstować, nalać, usiąść, wznieść, świętować.
+
+**Conversations:** 8 dialogues, 80 lines, reviewed separately (no grammar, case, gender or pan/pani errors found; 13 wording improvements, pan/pani written lower case, the learner's job set to a PhD). The reviewer did not need to look anything up; the writers checked uszko/uszkami, pokazać, gwiazdka, najedzony, głośnik, napić się and nałożyć. Wigilia customs in d-07 are kept to well-known ones.
+- *Known duplicate:* *o której* exists in both Time and Question words (both IDs released, so both are kept).

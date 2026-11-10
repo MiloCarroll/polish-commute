@@ -8086,6 +8086,4534 @@
       ]
     },
     {
+      "id": "v-health",
+      "title": "Health and how people feel physically",
+      "items": [
+        {
+          "id": "v-1301",
+          "pl": "co ci jest?",
+          "en": "what's wrong (with you)?",
+          "pos": "phrase",
+          "rank": 600,
+          "alts": [],
+          "prodHint": null,
+          "note": "Literally 'what is to you?'. Co mu jest? = What's wrong with him?",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Kochanie, co ci jest?",
+              "en": "Darling, what's wrong?",
+              "gap": "ci"
+            }
+          ]
+        },
+        {
+          "id": "v-1302",
+          "pl": "boleć",
+          "en": "to hurt; to ache",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 500,
+          "alts": [],
+          "prodHint": null,
+          "note": "The person is in the accusative: boli mnie, boli cię. Plural body parts: bolą.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Co cię boli?",
+              "en": "What hurts?",
+              "gap": "boli"
+            },
+            {
+              "pl": "Bolą mnie nogi.",
+              "en": "My legs hurt.",
+              "gap": "Bolą"
+            }
+          ]
+        },
+        {
+          "id": "v-1303",
+          "pl": "brzuch",
+          "en": "stomach; belly",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 900,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Boli mnie brzuch.",
+              "en": "My stomach hurts.",
+              "gap": "brzuch"
+            }
+          ]
+        },
+        {
+          "id": "v-1304",
+          "pl": "gardło",
+          "en": "throat",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1200,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Boli cię gardło?",
+              "en": "Do you have a sore throat?",
+              "gap": "gardło"
+            }
+          ]
+        },
+        {
+          "id": "v-1305",
+          "pl": "przeziębiony",
+          "en": "having a cold",
+          "pos": "adjective",
+          "rank": 1500,
+          "alts": [
+            "przeziębiona"
+          ],
+          "prodHint": "adjective: jestem …",
+          "note": "Feminine: przeziębiona. Jestem przeziębiony = I've got a cold.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Chyba jestem przeziębiony.",
+                  "en": "I think I've got a cold.",
+                  "gap": "przeziębiony"
+                },
+                "mm": {
+                  "pl": "Chyba jestem przeziębiony.",
+                  "en": "I think I've got a cold.",
+                  "gap": "przeziębiony"
+                },
+                "ff": {
+                  "pl": "Chyba jestem przeziębiona.",
+                  "en": "I think I've got a cold.",
+                  "gap": "przeziębiona"
+                },
+                "fm": {
+                  "pl": "Chyba jestem przeziębiona.",
+                  "en": "I think I've got a cold.",
+                  "gap": "przeziębiona"
+                }
+              }
+            },
+            {
+              "pl": "Tata jest przeziębiony.",
+              "en": "Dad has a cold.",
+              "gap": "przeziębiony"
+            }
+          ]
+        },
+        {
+          "id": "v-1306",
+          "pl": "mam katar",
+          "en": "I have a runny nose",
+          "pos": "phrase",
+          "rank": 1400,
+          "alts": [],
+          "prodHint": null,
+          "note": "Katar (m) = runny nose, a head cold. Masz katar? = Have you got a runny nose?",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Od wczoraj mam katar.",
+              "en": "I've had a runny nose since yesterday.",
+              "gap": "katar"
+            }
+          ]
+        },
+        {
+          "id": "v-1307",
+          "pl": "kaszel",
+          "en": "cough",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1600,
+          "alts": [],
+          "prodHint": null,
+          "note": "Genitive: kaszlu (nie mam kaszlu). To cough = kaszleć.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Dziadek ma okropny kaszel.",
+              "en": "Grandad has a terrible cough.",
+              "gap": "kaszel"
+            }
+          ]
+        },
+        {
+          "id": "v-1308",
+          "pl": "gorączka",
+          "en": "fever; temperature",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1300,
+          "alts": [],
+          "prodHint": null,
+          "note": "After mam / masz it becomes gorączkę. Also called temperatura.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Masz gorączkę?",
+              "en": "Have you got a temperature?",
+              "gap": "gorączkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1309",
+          "pl": "lekarz",
+          "en": "doctor",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 700,
+          "alts": [],
+          "prodHint": null,
+          "note": "After do: do lekarza. A female doctor: lekarka. Polite address: panie doktorze / pani doktor.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Musisz iść do lekarza.",
+              "en": "You need to go to the doctor.",
+              "gap": "lekarza"
+            }
+          ]
+        },
+        {
+          "id": "v-1310",
+          "pl": "apteka",
+          "en": "pharmacy; chemist's",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1100,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Idę do apteki.",
+              "en": "I'm going to the pharmacy.",
+              "gap": "apteki"
+            },
+            {
+              "pl": "Apteka jest zamknięta.",
+              "en": "The pharmacy is closed.",
+              "gap": "Apteka"
+            }
+          ]
+        },
+        {
+          "id": "v-1311",
+          "pl": "lekarstwo",
+          "en": "medicine (a drug)",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1000,
+          "alts": [
+            "lek"
+          ],
+          "prodHint": null,
+          "note": "Also lek (m), plural leki. Wziąć lekarstwo = to take medicine.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Wzięłaś lekarstwo?",
+                  "en": "Did you take your medicine?",
+                  "gap": "lekarstwo"
+                },
+                "mm": {
+                  "pl": "Wziąłeś lekarstwo?",
+                  "en": "Did you take your medicine?",
+                  "gap": "lekarstwo"
+                },
+                "ff": {
+                  "pl": "Wzięłaś lekarstwo?",
+                  "en": "Did you take your medicine?",
+                  "gap": "lekarstwo"
+                },
+                "fm": {
+                  "pl": "Wziąłeś lekarstwo?",
+                  "en": "Did you take your medicine?",
+                  "gap": "lekarstwo"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1312",
+          "pl": "tabletka",
+          "en": "pill; tablet",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "alts": [],
+          "prodHint": null,
+          "note": "Tabletka na ból głowy = a pill for a headache (na + accusative).",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Weź tabletkę na ból głowy.",
+              "en": "Take a pill for your headache.",
+              "gap": "tabletkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1313",
+          "pl": "ból",
+          "en": "pain; ache",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 900,
+          "alts": [],
+          "prodHint": null,
+          "note": "Followed by the genitive: ból głowy = headache, ból zęba = toothache, ból brzucha = stomach ache.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Ból już minął.",
+              "en": "The pain has gone now.",
+              "gap": "Ból"
+            }
+          ]
+        },
+        {
+          "id": "v-1314",
+          "pl": "niedobrze mi",
+          "en": "I feel sick (nauseous)",
+          "pos": "phrase",
+          "rank": 1400,
+          "alts": [],
+          "prodHint": "nauseous",
+          "note": "Literally 'it's not good to me'. Niedobrze ci? = Do you feel sick?",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Niedobrze mi po tej rybie.",
+              "en": "I feel sick after that fish.",
+              "gap": "Niedobrze"
+            }
+          ]
+        },
+        {
+          "id": "v-1315",
+          "pl": "słabo mi",
+          "en": "I feel faint; I feel weak",
+          "pos": "phrase",
+          "rank": 1600,
+          "alts": [],
+          "prodHint": null,
+          "note": "Literally 'it's weak to me'. Same pattern as zimno mi.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Słabo mi, muszę usiąść.",
+              "en": "I feel faint, I need to sit down.",
+              "gap": "Słabo"
+            }
+          ]
+        },
+        {
+          "id": "v-1316",
+          "pl": "wracaj do zdrowia",
+          "en": "get well soon",
+          "pos": "phrase",
+          "rank": 1700,
+          "alts": [],
+          "prodHint": null,
+          "note": "Literally 'come back to health'. To an older relative: Niech pani wraca do zdrowia.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Wracaj szybko do zdrowia, kochanie!",
+              "en": "Get well soon, darling!",
+              "gap": "zdrowia"
+            }
+          ]
+        },
+        {
+          "id": "v-1317",
+          "pl": "uważaj na siebie",
+          "en": "take care (of yourself)",
+          "pos": "phrase",
+          "rank": 1300,
+          "alts": [],
+          "prodHint": null,
+          "note": "Uważać = to be careful. Uważaj! on its own = Watch out!",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Pa, uważaj na siebie!",
+              "en": "Bye, take care!",
+              "gap": "siebie"
+            }
+          ]
+        },
+        {
+          "id": "v-1318",
+          "pl": "zdrowy",
+          "en": "healthy; well",
+          "pos": "adjective",
+          "rank": 800,
+          "alts": [
+            "zdrowa"
+          ],
+          "prodHint": null,
+          "note": "Feminine: zdrowa.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Dzieci są zdrowe.",
+              "en": "The children are healthy.",
+              "gap": "zdrowe"
+            },
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Już jestem zdrowy.",
+                  "en": "I'm well again now.",
+                  "gap": "zdrowy"
+                },
+                "mm": {
+                  "pl": "Już jestem zdrowy.",
+                  "en": "I'm well again now.",
+                  "gap": "zdrowy"
+                },
+                "ff": {
+                  "pl": "Już jestem zdrowa.",
+                  "en": "I'm well again now.",
+                  "gap": "zdrowa"
+                },
+                "fm": {
+                  "pl": "Już jestem zdrowa.",
+                  "en": "I'm well again now.",
+                  "gap": "zdrowa"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1319",
+          "pl": "zdrowie",
+          "en": "health",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 700,
+          "alts": [],
+          "prodHint": null,
+          "note": "Jak zdrowie? is a friendly question, especially to older relatives.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jak zdrowie?",
+              "en": "How's your health?",
+              "gap": "zdrowie"
+            },
+            {
+              "pl": "Zdrowie jest najważniejsze.",
+              "en": "Health is the most important thing.",
+              "gap": "Zdrowie"
+            }
+          ]
+        },
+        {
+          "id": "v-1320",
+          "pl": "grypa",
+          "en": "flu",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1800,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Babcia ma grypę.",
+              "en": "Grandma has the flu.",
+              "gap": "grypę"
+            }
+          ]
+        },
+        {
+          "id": "v-1321",
+          "pl": "ząb",
+          "en": "tooth",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1200,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural: zęby. Myć zęby = to brush your teeth. A dentist: dentysta.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Boli mnie ząb.",
+              "en": "I have toothache.",
+              "gap": "ząb"
+            },
+            {
+              "pl": "Umyj zęby!",
+              "en": "Brush your teeth!",
+              "gap": "zęby"
+            }
+          ]
+        },
+        {
+          "id": "v-1322",
+          "pl": "plecy",
+          "en": "back (of the body)",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 1500,
+          "alts": [],
+          "prodHint": "body part",
+          "note": "Plural only, so bolą (not boli) mnie plecy.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Bolą mnie plecy.",
+              "en": "My back hurts.",
+              "gap": "plecy"
+            }
+          ]
+        },
+        {
+          "id": "v-1323",
+          "pl": "noga",
+          "en": "leg; foot",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 900,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural: nogi. The foot specifically is stopa.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Boli mnie noga.",
+              "en": "My leg hurts.",
+              "gap": "noga"
+            }
+          ]
+        },
+        {
+          "id": "v-1324",
+          "pl": "ręka",
+          "en": "hand; arm",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 600,
+          "alts": [],
+          "prodHint": null,
+          "note": "Irregular plural: ręce. Covers both the hand and the arm.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Umyj ręce przed obiadem.",
+              "en": "Wash your hands before lunch.",
+              "gap": "ręce"
+            }
+          ]
+        },
+        {
+          "id": "v-1325",
+          "pl": "oko",
+          "en": "eye",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 800,
+          "alts": [],
+          "prodHint": null,
+          "note": "Irregular plural: oczy.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Bolą mnie oczy.",
+              "en": "My eyes hurt.",
+              "gap": "oczy"
+            }
+          ]
+        },
+        {
+          "id": "v-1326",
+          "pl": "chce mi się spać",
+          "en": "I'm sleepy",
+          "pos": "phrase",
+          "rank": 1100,
+          "alts": [],
+          "prodHint": null,
+          "note": "Literally 'it wants itself to me to sleep' (the dative mi is the person who feels it). Chce ci się spać? = Are you sleepy?",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Chce mi się spać, idę do łóżka.",
+              "en": "I'm sleepy, I'm going to bed.",
+              "gap": "spać"
+            }
+          ]
+        },
+        {
+          "id": "v-1327",
+          "pl": "szpital",
+          "en": "hospital",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1300,
+          "alts": [],
+          "prodHint": null,
+          "note": "Locative after w: w szpitalu.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Dziadek jest w szpitalu.",
+              "en": "Grandad is in hospital.",
+              "gap": "szpitalu"
+            }
+          ]
+        },
+        {
+          "id": "v-1328",
+          "pl": "ciśnienie",
+          "en": "blood pressure; pressure",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1900,
+          "alts": [],
+          "prodHint": null,
+          "note": "Mierzyć ciśnienie = to take your blood pressure.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Babcia ma wysokie ciśnienie.",
+              "en": "Grandma has high blood pressure.",
+              "gap": "ciśnienie"
+            }
+          ]
+        },
+        {
+          "id": "v-1329",
+          "pl": "alergia",
+          "en": "allergy",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2000,
+          "alts": [],
+          "prodHint": null,
+          "note": "Alergia na + accusative: na koty, na orzechy.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Mam alergię na koty.",
+              "en": "I'm allergic to cats.",
+              "gap": "alergię"
+            }
+          ]
+        },
+        {
+          "id": "v-1330",
+          "pl": "kichać",
+          "en": "to sneeze",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "kichnąć",
+          "rank": 2200,
+          "alts": [],
+          "prodHint": null,
+          "note": "When someone sneezes, say: Na zdrowie!",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Ciągle kicham.",
+              "en": "I keep sneezing.",
+              "gap": "kicham"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v-weather",
+      "title": "Weather and seasons",
+      "items": [
+        {
+          "id": "v-1401",
+          "pl": "pogoda",
+          "en": "weather",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 500,
+          "alts": [],
+          "prodHint": null,
+          "note": "Ładna pogoda = nice weather; brzydka pogoda = bad weather.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Dzisiaj jest ładna pogoda.",
+              "en": "The weather is nice today.",
+              "gap": "pogoda"
+            }
+          ]
+        },
+        {
+          "id": "v-1402",
+          "pl": "zimno",
+          "en": "cold (it's cold)",
+          "pos": "adverb",
+          "rank": 600,
+          "alts": [],
+          "prodHint": "the weather: it's …",
+          "note": "Jest zimno = it's cold. About yourself: zimno mi (literally 'it's cold to me') = I'm cold.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Dzisiaj jest bardzo zimno.",
+              "en": "It's very cold today.",
+              "gap": "zimno"
+            }
+          ]
+        },
+        {
+          "id": "v-1403",
+          "pl": "ciepło",
+          "en": "warm (it's warm)",
+          "pos": "adverb",
+          "rank": 700,
+          "alts": [],
+          "prodHint": "the weather: it's …",
+          "note": "Na dworze = outside, outdoors (around Kraków people say na polu). Ciepło mi = I'm warm.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Na dworze jest ciepło.",
+              "en": "It's warm outside.",
+              "gap": "ciepło"
+            }
+          ]
+        },
+        {
+          "id": "v-1404",
+          "pl": "gorąco",
+          "en": "hot (it's hot)",
+          "pos": "adverb",
+          "rank": 800,
+          "alts": [],
+          "prodHint": "the weather: it's …",
+          "note": "Gorąco mi = I'm hot.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Ale dzisiaj gorąco!",
+              "en": "It's so hot today!",
+              "gap": "gorąco"
+            }
+          ]
+        },
+        {
+          "id": "v-1405",
+          "pl": "pada deszcz",
+          "en": "it's raining",
+          "pos": "phrase",
+          "rank": 700,
+          "alts": [
+            "pada"
+          ],
+          "prodHint": null,
+          "note": "Deszcz (m) = rain; pada = falls. Often just: pada.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Pada deszcz, weź parasol.",
+              "en": "It's raining, take an umbrella.",
+              "gap": "deszcz"
+            }
+          ]
+        },
+        {
+          "id": "v-1406",
+          "pl": "pada śnieg",
+          "en": "it's snowing",
+          "pos": "phrase",
+          "rank": 1000,
+          "alts": [],
+          "prodHint": null,
+          "note": "Śnieg (m) = snow. Past: padał śnieg.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "W nocy padał śnieg.",
+              "en": "It snowed in the night.",
+              "gap": "śnieg"
+            }
+          ]
+        },
+        {
+          "id": "v-1407",
+          "pl": "słońce",
+          "en": "sun",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 900,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Świeci słońce.",
+              "en": "The sun is shining.",
+              "gap": "słońce"
+            }
+          ]
+        },
+        {
+          "id": "v-1408",
+          "pl": "wiatr",
+          "en": "wind",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1100,
+          "alts": [],
+          "prodHint": null,
+          "note": "Wiać (wieje) = to blow.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Dzisiaj wieje silny wiatr.",
+              "en": "There's a strong wind today.",
+              "gap": "wiatr"
+            }
+          ]
+        },
+        {
+          "id": "v-1409",
+          "pl": "parasol",
+          "en": "umbrella",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1700,
+          "alts": [
+            "parasolka"
+          ],
+          "prodHint": null,
+          "note": "Parasolka (f) is also common, especially for a small umbrella.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Gdzie jest mój parasol?",
+              "en": "Where's my umbrella?",
+              "gap": "parasol"
+            }
+          ]
+        },
+        {
+          "id": "v-1410",
+          "pl": "zima",
+          "en": "winter",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 800,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Zima w Polsce jest długa.",
+              "en": "Winter in Poland is long.",
+              "gap": "Zima"
+            }
+          ]
+        },
+        {
+          "id": "v-1411",
+          "pl": "zimą",
+          "en": "in winter",
+          "pos": "adverb",
+          "rank": 1000,
+          "alts": [
+            "w zimie"
+          ],
+          "prodHint": null,
+          "note": "Zimą and w zimie both mean 'in winter'.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Zimą często pada śnieg.",
+              "en": "It often snows in winter.",
+              "gap": "Zimą"
+            }
+          ]
+        },
+        {
+          "id": "v-1412",
+          "pl": "lato",
+          "en": "summer",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 800,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Lato było bardzo gorące.",
+              "en": "The summer was very hot.",
+              "gap": "Lato"
+            }
+          ]
+        },
+        {
+          "id": "v-1413",
+          "pl": "latem",
+          "en": "in summer",
+          "pos": "adverb",
+          "rank": 1000,
+          "alts": [
+            "w lecie"
+          ],
+          "prodHint": null,
+          "note": "Also w lecie (lato → w lecie).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Latem jeździmy nad morze.",
+              "en": "In summer we go to the seaside.",
+              "gap": "Latem"
+            }
+          ]
+        },
+        {
+          "id": "v-1414",
+          "pl": "wiosna",
+          "en": "spring (the season)",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1000,
+          "alts": [],
+          "prodHint": "season",
+          "note": "In spring: wiosną (or na wiosnę).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Lubię wiosnę.",
+              "en": "I like spring.",
+              "gap": "wiosnę"
+            },
+            {
+              "pl": "Wiosną wszystko jest zielone.",
+              "en": "In spring everything is green.",
+              "gap": "Wiosną"
+            }
+          ]
+        },
+        {
+          "id": "v-1415",
+          "pl": "jesień",
+          "en": "autumn",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1000,
+          "alts": [],
+          "prodHint": null,
+          "note": "In autumn: jesienią.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Jesień w tym roku jest ciepła.",
+              "en": "This autumn is warm.",
+              "gap": "Jesień"
+            },
+            {
+              "pl": "Jesienią często pada.",
+              "en": "It often rains in autumn.",
+              "gap": "Jesienią"
+            }
+          ]
+        },
+        {
+          "id": "v-1416",
+          "pl": "pora roku",
+          "en": "season",
+          "pos": "phrase",
+          "rank": 1500,
+          "alts": [],
+          "prodHint": "spring, summer…",
+          "note": "Literally 'time of the year'. Cztery pory roku = the four seasons.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jaka jest twoja ulubiona pora roku?",
+              "en": "What's your favourite season?",
+              "gap": "pora"
+            }
+          ]
+        },
+        {
+          "id": "v-1417",
+          "pl": "pochmurno",
+          "en": "cloudy (it's cloudy)",
+          "pos": "adverb",
+          "rank": 1600,
+          "alts": [],
+          "prodHint": "the weather: it's …",
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Od rana jest pochmurno.",
+              "en": "It's been cloudy since the morning.",
+              "gap": "pochmurno"
+            }
+          ]
+        },
+        {
+          "id": "v-1418",
+          "pl": "słonecznie",
+          "en": "sunny (it's sunny)",
+          "pos": "adverb",
+          "rank": 1600,
+          "alts": [],
+          "prodHint": "the weather: it's …",
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Jutro będzie słonecznie.",
+              "en": "It will be sunny tomorrow.",
+              "gap": "słonecznie"
+            }
+          ]
+        },
+        {
+          "id": "v-1419",
+          "pl": "burza",
+          "en": "storm; thunderstorm",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1400,
+          "alts": [],
+          "prodHint": null,
+          "note": "Usually means a thunderstorm.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "W nocy była burza.",
+              "en": "There was a storm in the night.",
+              "gap": "burza"
+            }
+          ]
+        },
+        {
+          "id": "v-1420",
+          "pl": "stopień",
+          "en": "degree",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1300,
+          "alts": [],
+          "prodHint": null,
+          "note": "Jeden stopień; dwa, trzy, cztery stopnie (also 22–24); pięć to dwadzieścia jeden stopni (genitive plural).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Dzisiaj jest dwadzieścia stopni.",
+              "en": "It's twenty degrees today.",
+              "gap": "stopni"
+            }
+          ]
+        },
+        {
+          "id": "v-1421",
+          "pl": "mróz",
+          "en": "frost; freezing cold",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1700,
+          "alts": [],
+          "prodHint": null,
+          "note": "Pięć stopni mrozu = minus five degrees.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Rano był mróz.",
+              "en": "There was a frost this morning.",
+              "gap": "mróz"
+            }
+          ]
+        },
+        {
+          "id": "v-1422",
+          "pl": "prognoza pogody",
+          "en": "weather forecast",
+          "pos": "phrase",
+          "rank": 1800,
+          "alts": [],
+          "prodHint": null,
+          "note": "Pogody is the genitive of pogoda.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Co mówi prognoza pogody?",
+              "en": "What does the weather forecast say?",
+              "gap": "prognoza"
+            }
+          ]
+        },
+        {
+          "id": "v-1423",
+          "pl": "kurtka",
+          "en": "jacket",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "alts": [],
+          "prodHint": null,
+          "note": "A long coat is płaszcz (m).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Weź kurtkę, jest zimno.",
+              "en": "Take a jacket, it's cold.",
+              "gap": "kurtkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1424",
+          "pl": "mokry",
+          "en": "wet",
+          "pos": "adjective",
+          "rank": 1600,
+          "alts": [
+            "mokra"
+          ],
+          "prodHint": null,
+          "note": "Feminine: mokra. Cały mokry = soaking wet (literally 'all wet').",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Jestem cały mokry.",
+                  "en": "I'm soaking wet.",
+                  "gap": "mokry"
+                },
+                "mm": {
+                  "pl": "Jestem cały mokry.",
+                  "en": "I'm soaking wet.",
+                  "gap": "mokry"
+                },
+                "ff": {
+                  "pl": "Jestem cała mokra.",
+                  "en": "I'm soaking wet.",
+                  "gap": "mokra"
+                },
+                "fm": {
+                  "pl": "Jestem cała mokra.",
+                  "en": "I'm soaking wet.",
+                  "gap": "mokra"
+                }
+              }
+            },
+            {
+              "pl": "Ulica jest mokra.",
+              "en": "The street is wet.",
+              "gap": "mokra"
+            }
+          ]
+        },
+        {
+          "id": "v-1425",
+          "pl": "ślisko",
+          "en": "slippery (it's slippery)",
+          "pos": "adverb",
+          "rank": 2000,
+          "alts": [],
+          "prodHint": "the ground: it's …",
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Uważaj, jest ślisko!",
+              "en": "Careful, it's slippery!",
+              "gap": "ślisko"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v-work",
+      "title": "Work and studies",
+      "items": [
+        {
+          "id": "v-1501",
+          "pl": "praca",
+          "en": "work; job",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 80,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "do pracy = to work (genitive), w pracy = at work (locative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Idę do pracy.",
+              "en": "I'm going to work.",
+              "gap": "pracy"
+            },
+            {
+              "pl": "Jak było w pracy?",
+              "en": "How was work?",
+              "gap": "pracy"
+            }
+          ]
+        },
+        {
+          "id": "v-1502",
+          "pl": "zajęty",
+          "en": "busy",
+          "pos": "adjective",
+          "rank": 600,
+          "register": null,
+          "alts": [
+            "zajęta"
+          ],
+          "prodHint": null,
+          "note": "Feminine: zajęta. Also 'taken' (of a seat).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Jestem dziś zajęty.",
+                  "en": "I'm busy today.",
+                  "gap": "zajęty"
+                },
+                "mm": {
+                  "pl": "Jestem dziś zajęty.",
+                  "en": "I'm busy today.",
+                  "gap": "zajęty"
+                },
+                "ff": {
+                  "pl": "Jestem dziś zajęta.",
+                  "en": "I'm busy today.",
+                  "gap": "zajęta"
+                },
+                "fm": {
+                  "pl": "Jestem dziś zajęta.",
+                  "en": "I'm busy today.",
+                  "gap": "zajęta"
+                }
+              }
+            },
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Jesteś teraz zajęta?",
+                  "en": "Are you busy right now?",
+                  "gap": "zajęta"
+                },
+                "mm": {
+                  "pl": "Jesteś teraz zajęty?",
+                  "en": "Are you busy right now?",
+                  "gap": "zajęty"
+                },
+                "ff": {
+                  "pl": "Jesteś teraz zajęta?",
+                  "en": "Are you busy right now?",
+                  "gap": "zajęta"
+                },
+                "fm": {
+                  "pl": "Jesteś teraz zajęty?",
+                  "en": "Are you busy right now?",
+                  "gap": "zajęty"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1503",
+          "pl": "doktorat",
+          "en": "PhD; doctorate",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Poles say robić doktorat (do a PhD) or pisać doktorat (write a PhD).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Robię doktorat.",
+              "en": "I'm doing a PhD.",
+              "gap": "doktorat"
+            },
+            {
+              "pl": "Jak ci idzie doktorat?",
+              "en": "How's the PhD going?",
+              "gap": "doktorat"
+            }
+          ]
+        },
+        {
+          "id": "v-1504",
+          "pl": "doktorant",
+          "en": "PhD student",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2500,
+          "register": null,
+          "alts": [],
+          "prodHint": "male",
+          "note": "A woman is doktorantka. After jestem use the instrumental: jestem doktorantem.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Jestem doktorantem.",
+                  "en": "I'm a PhD student.",
+                  "gap": "doktorantem"
+                },
+                "mm": {
+                  "pl": "Jestem doktorantem.",
+                  "en": "I'm a PhD student.",
+                  "gap": "doktorantem"
+                },
+                "ff": {
+                  "pl": "Jestem doktorantką.",
+                  "en": "I'm a PhD student.",
+                  "gap": "doktorantką"
+                },
+                "fm": {
+                  "pl": "Jestem doktorantką.",
+                  "en": "I'm a PhD student.",
+                  "gap": "doktorantką"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1505",
+          "pl": "uniwersytet",
+          "en": "university",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 900,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "At the university: na uniwersytecie (locative). Uczelnia is the general word for any higher-education school.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Pracuję na uniwersytecie.",
+              "en": "I work at the university.",
+              "gap": "uniwersytecie"
+            }
+          ]
+        },
+        {
+          "id": "v-1506",
+          "pl": "studia",
+          "en": "(university) studies; uni",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 700,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural only. At uni = na studiach; after uni = po studiach.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Po studiach chcę pracować w Polsce.",
+              "en": "After my studies I want to work in Poland.",
+              "gap": "studiach"
+            },
+            {
+              "pl": "Mój brat jest jeszcze na studiach.",
+              "en": "My brother is still at university.",
+              "gap": "studiach"
+            }
+          ]
+        },
+        {
+          "id": "v-1507",
+          "pl": "promotor",
+          "en": "(thesis) supervisor",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "The academic who supervises your thesis. A female supervisor is usually called pani promotor.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Mam jutro spotkanie z promotorem.",
+              "en": "I have a meeting with my supervisor tomorrow.",
+              "gap": "promotorem"
+            }
+          ]
+        },
+        {
+          "id": "v-1508",
+          "pl": "badania",
+          "en": "research",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural of badanie (n). Prowadzić badania = to do research. Badania can also mean medical tests.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Prowadzę badania na uniwersytecie.",
+              "en": "I do research at the university.",
+              "gap": "badania"
+            },
+            {
+              "pl": "Jak idą twoje badania?",
+              "en": "How's your research going?",
+              "gap": "badania"
+            }
+          ]
+        },
+        {
+          "id": "v-1509",
+          "pl": "praca doktorska",
+          "en": "PhD thesis; dissertation",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Both words change: piszę pracę doktorską (accusative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Piszę pracę doktorską.",
+              "en": "I'm writing my PhD thesis.",
+              "gap": "pracę doktorską"
+            }
+          ]
+        },
+        {
+          "id": "v-1510",
+          "pl": "mieć wolne",
+          "en": "to have time off; to have a day off",
+          "pos": "phrase",
+          "rank": 900,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Wolne doesn't change here: mam wolne, masz wolne.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Mam jutro wolne.",
+              "en": "I have the day off tomorrow.",
+              "gap": "wolne"
+            },
+            {
+              "pl": "Masz wolne w sobotę?",
+              "en": "Are you off on Saturday?",
+              "gap": "wolne"
+            }
+          ]
+        },
+        {
+          "id": "v-1511",
+          "pl": "spotkanie",
+          "en": "meeting",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "From spotkać się (to meet).",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Mam spotkanie o dziesiątej.",
+              "en": "I have a meeting at ten.",
+              "gap": "spotkanie"
+            }
+          ]
+        },
+        {
+          "id": "v-1512",
+          "pl": "szef",
+          "en": "boss",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1000,
+          "register": null,
+          "alts": [],
+          "prodHint": "male",
+          "note": "A female boss is szefowa.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Mój szef jest w porządku.",
+              "en": "My boss is OK.",
+              "gap": "szef"
+            }
+          ]
+        },
+        {
+          "id": "v-1513",
+          "pl": "biuro",
+          "en": "office",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "In the office: w biurze (locative).",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Jestem jeszcze w biurze.",
+              "en": "I'm still at the office.",
+              "gap": "biurze"
+            }
+          ]
+        },
+        {
+          "id": "v-1514",
+          "pl": "kolega",
+          "en": "friend; colleague",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 400,
+          "register": null,
+          "alts": [],
+          "prodHint": "male",
+          "note": "Female: koleżanka. A colleague is kolega z pracy / koleżanka z pracy.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "To jest kolega z pracy.",
+              "en": "This is a colleague from work.",
+              "gap": "kolega"
+            }
+          ]
+        },
+        {
+          "id": "v-1515",
+          "pl": "zawód",
+          "en": "profession; occupation",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "To an older man: Kim pan jest z zawodu? (literally 'Who are you by profession?').",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Kim jesteś z zawodu?",
+              "en": "What do you do for a living?",
+              "gap": "zawodu"
+            }
+          ]
+        },
+        {
+          "id": "v-1516",
+          "pl": "firma",
+          "en": "company; firm",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 700,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Wujek pracuje w dużej firmie.",
+              "en": "My uncle works for a big company.",
+              "gap": "firmie"
+            }
+          ]
+        },
+        {
+          "id": "v-1517",
+          "pl": "emerytura",
+          "en": "retirement; pension",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Na emeryturze = retired. A retired person: emeryt (m), emerytka (f).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Tata jest już na emeryturze.",
+              "en": "Dad is already retired.",
+              "gap": "emeryturze"
+            }
+          ]
+        },
+        {
+          "id": "v-1518",
+          "pl": "studiować",
+          "en": "to study (at university)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "For studying for an exam or learning a language use uczyć się.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Co studiowałaś?",
+                  "en": "What did you study?",
+                  "gap": "studiowałaś"
+                },
+                "mm": {
+                  "pl": "Co studiowałeś?",
+                  "en": "What did you study?",
+                  "gap": "studiowałeś"
+                },
+                "ff": {
+                  "pl": "Co studiowałaś?",
+                  "en": "What did you study?",
+                  "gap": "studiowałaś"
+                },
+                "fm": {
+                  "pl": "Co studiowałeś?",
+                  "en": "What did you study?",
+                  "gap": "studiowałeś"
+                }
+              }
+            },
+            {
+              "pl": "Mój brat studiuje w Krakowie.",
+              "en": "My brother studies in Kraków.",
+              "gap": "studiuje"
+            }
+          ]
+        },
+        {
+          "id": "v-1519",
+          "pl": "obrona",
+          "en": "(thesis) defence; viva",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Also 'defence' in general. Obrona doktoratu = PhD defence.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Kiedy masz obronę?",
+              "en": "When is your defence?",
+              "gap": "obronę"
+            }
+          ]
+        },
+        {
+          "id": "v-1520",
+          "pl": "wykład",
+          "en": "lecture",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Idę na wykład.",
+              "en": "I'm going to a lecture.",
+              "gap": "wykład"
+            },
+            {
+              "pl": "Mam jutro wykład.",
+              "en": "I have a lecture tomorrow.",
+              "gap": "wykład"
+            }
+          ]
+        },
+        {
+          "id": "v-1521",
+          "pl": "zajęcia",
+          "en": "classes",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural of zajęcie (n). Prowadzić zajęcia = to teach classes.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Prowadzę zajęcia ze studentami.",
+              "en": "I teach classes to students.",
+              "gap": "zajęcia"
+            },
+            {
+              "pl": "Mam zajęcia do szóstej.",
+              "en": "I have classes until six.",
+              "gap": "zajęcia"
+            }
+          ]
+        },
+        {
+          "id": "v-1522",
+          "pl": "egzamin",
+          "en": "exam",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Zdawać egzamin = to take an exam; zdać egzamin = to pass it.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Jutro mam ważny egzamin.",
+              "en": "I have an important exam tomorrow.",
+              "gap": "egzamin"
+            }
+          ]
+        },
+        {
+          "id": "v-1523",
+          "pl": "zdać",
+          "en": "to pass (an exam)",
+          "pos": "verb",
+          "aspect": "pf",
+          "aspectPair": "zdawać",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Careful: the imperfective zdawać means to take (sit) an exam, not to pass it.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Zdałem egzamin!",
+                  "en": "I passed the exam!",
+                  "gap": "Zdałem"
+                },
+                "mm": {
+                  "pl": "Zdałem egzamin!",
+                  "en": "I passed the exam!",
+                  "gap": "Zdałem"
+                },
+                "ff": {
+                  "pl": "Zdałam egzamin!",
+                  "en": "I passed the exam!",
+                  "gap": "Zdałam"
+                },
+                "fm": {
+                  "pl": "Zdałam egzamin!",
+                  "en": "I passed the exam!",
+                  "gap": "Zdałam"
+                }
+              }
+            },
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Zdałaś?",
+                  "en": "Did you pass?",
+                  "gap": "Zdałaś"
+                },
+                "mm": {
+                  "pl": "Zdałeś?",
+                  "en": "Did you pass?",
+                  "gap": "Zdałeś"
+                },
+                "ff": {
+                  "pl": "Zdałaś?",
+                  "en": "Did you pass?",
+                  "gap": "Zdałaś"
+                },
+                "fm": {
+                  "pl": "Zdałeś?",
+                  "en": "Did you pass?",
+                  "gap": "Zdałeś"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1524",
+          "pl": "skończyć",
+          "en": "to finish",
+          "pos": "verb",
+          "aspect": "pf",
+          "aspectPair": "kończyć",
+          "rank": 400,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Kiedy skończysz doktorat?",
+              "en": "When will you finish your PhD?",
+              "gap": "skończysz"
+            },
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Skończyłem pracę o piątej.",
+                  "en": "I finished work at five.",
+                  "gap": "Skończyłem"
+                },
+                "mm": {
+                  "pl": "Skończyłem pracę o piątej.",
+                  "en": "I finished work at five.",
+                  "gap": "Skończyłem"
+                },
+                "ff": {
+                  "pl": "Skończyłam pracę o piątej.",
+                  "en": "I finished work at five.",
+                  "gap": "Skończyłam"
+                },
+                "fm": {
+                  "pl": "Skończyłam pracę o piątej.",
+                  "en": "I finished work at five.",
+                  "gap": "Skończyłam"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1525",
+          "pl": "zarabiać",
+          "en": "to earn",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "zarobić",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Doktoranci mało zarabiają.",
+              "en": "PhD students don't earn much.",
+              "gap": "zarabiają"
+            }
+          ]
+        },
+        {
+          "id": "v-1526",
+          "pl": "stypendium",
+          "en": "scholarship; stipend",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 2500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "The singular never changes its ending.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Dostaję stypendium.",
+              "en": "I get a stipend.",
+              "gap": "stypendium"
+            }
+          ]
+        },
+        {
+          "id": "v-1527",
+          "pl": "konferencja",
+          "en": "conference",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "W maju jadę na konferencję.",
+              "en": "I'm going to a conference in May.",
+              "gap": "konferencję"
+            }
+          ]
+        },
+        {
+          "id": "v-1528",
+          "pl": "artykuł",
+          "en": "article; (research) paper",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Pracować nad + instrumental = to work on something.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Piszę teraz artykuł.",
+              "en": "I'm writing a paper at the moment.",
+              "gap": "artykuł"
+            },
+            {
+              "pl": "Pracuję nad artykułem.",
+              "en": "I'm working on a paper.",
+              "gap": "artykułem"
+            }
+          ]
+        },
+        {
+          "id": "v-1529",
+          "pl": "temat",
+          "en": "topic; subject",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jaki jest temat twojego doktoratu?",
+              "en": "What's the topic of your PhD?",
+              "gap": "temat"
+            }
+          ]
+        },
+        {
+          "id": "v-1530",
+          "pl": "nauczyciel",
+          "en": "teacher",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1000,
+          "register": null,
+          "alts": [],
+          "prodHint": "male",
+          "note": "Female: nauczycielka.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Wujek jest nauczycielem.",
+              "en": "My uncle is a teacher.",
+              "gap": "nauczycielem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v-hobbies",
+      "title": "Free time and hobbies",
+      "items": [
+        {
+          "id": "v-1601",
+          "pl": "wolny czas",
+          "en": "free time",
+          "pos": "phrase",
+          "rank": 800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Also czas wolny. In your free time: w wolnym czasie (locative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Co robisz w wolnym czasie?",
+              "en": "What do you do in your free time?",
+              "gap": "wolnym czasie"
+            }
+          ]
+        },
+        {
+          "id": "v-1602",
+          "pl": "hobby",
+          "en": "hobby",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Never changes its ending, even in the plural.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jakie masz hobby?",
+              "en": "What are your hobbies?",
+              "gap": "hobby"
+            },
+            {
+              "pl": "Moje hobby to gotowanie.",
+              "en": "My hobby is cooking.",
+              "gap": "hobby"
+            }
+          ]
+        },
+        {
+          "id": "v-1603",
+          "pl": "mieć ochotę",
+          "en": "to feel like (doing or having something)",
+          "pos": "phrase",
+          "rank": 600,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Mieć ochotę na + accusative (na kawę) or + infinitive. After nie: ochoty (genitive).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Masz ochotę na spacer?",
+              "en": "Do you feel like a walk?",
+              "gap": "ochotę"
+            },
+            {
+              "pl": "Nie mam ochoty.",
+              "en": "I don't feel like it.",
+              "gap": "ochoty"
+            }
+          ]
+        },
+        {
+          "id": "v-1604",
+          "pl": "spacer",
+          "en": "walk; stroll",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Idziemy na spacer?",
+              "en": "Shall we go for a walk?",
+              "gap": "spacer"
+            }
+          ]
+        },
+        {
+          "id": "v-1605",
+          "pl": "film",
+          "en": "film; movie",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 600,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Obejrzeć (perfective of oglądać) = to watch something to the end.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Obejrzymy dziś film?",
+              "en": "Shall we watch a film today?",
+              "gap": "film"
+            }
+          ]
+        },
+        {
+          "id": "v-1606",
+          "pl": "kino",
+          "en": "cinema",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "do kina (genitive), w kinie (locative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Pójdziemy do kina?",
+              "en": "Shall we go to the cinema?",
+              "gap": "kina"
+            },
+            {
+              "pl": "Co grają w kinie?",
+              "en": "What's on at the cinema?",
+              "gap": "kinie"
+            }
+          ]
+        },
+        {
+          "id": "v-1607",
+          "pl": "grać",
+          "en": "to play (a game, sport or instrument)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "zagrać",
+          "forms": {
+            "ja": "gram",
+            "ty": "grasz",
+            "on": "gra",
+            "my": "gramy",
+            "wy": "gracie",
+            "oni": "grają"
+          },
+          "rank": 500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Games and sports: w + accusative (grać w karty). Instruments: na + locative (grać na gitarze).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Grasz w szachy?",
+              "en": "Do you play chess?",
+              "gap": "Grasz"
+            },
+            {
+              "pl": "Babcia gra na pianinie.",
+              "en": "Grandma plays the piano.",
+              "gap": "gra"
+            }
+          ]
+        },
+        {
+          "id": "v-1608",
+          "pl": "książka",
+          "en": "book",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Czytam bardzo dobrą książkę.",
+              "en": "I'm reading a very good book.",
+              "gap": "książkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1609",
+          "pl": "muzyka",
+          "en": "music",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 700,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Słuchać takes the genitive: słucham muzyki.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jakiej muzyki słuchasz?",
+              "en": "What music do you listen to?",
+              "gap": "muzyki"
+            }
+          ]
+        },
+        {
+          "id": "v-1610",
+          "pl": "serial",
+          "en": "TV series",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Oglądamy serial?",
+              "en": "Shall we watch the series?",
+              "gap": "serial"
+            }
+          ]
+        },
+        {
+          "id": "v-1611",
+          "pl": "ulubiony",
+          "en": "favourite",
+          "pos": "adjective",
+          "rank": 900,
+          "register": null,
+          "alts": [
+            "ulubiona"
+          ],
+          "prodHint": null,
+          "note": "Agrees with the noun: ulubiony film, ulubiona książka, ulubione miejsce.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jaki jest twój ulubiony film?",
+              "en": "What's your favourite film?",
+              "gap": "ulubiony"
+            },
+            {
+              "pl": "To moja ulubiona książka.",
+              "en": "This is my favourite book.",
+              "gap": "ulubiona"
+            }
+          ]
+        },
+        {
+          "id": "v-1612",
+          "pl": "interesować się",
+          "en": "to be interested in",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "zainteresować się",
+          "forms": {
+            "ja": "interesuję się",
+            "ty": "interesujesz się",
+            "on": "interesuje się",
+            "my": "interesujemy się",
+            "wy": "interesujecie się",
+            "oni": "interesują się"
+          },
+          "rank": 1000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Takes the instrumental: interesuję się muzyką.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Interesuję się historią.",
+              "en": "I'm interested in history.",
+              "gap": "Interesuję się"
+            },
+            {
+              "pl": "Czym się interesujesz?",
+              "en": "What are you interested in?",
+              "gap": "interesujesz"
+            }
+          ]
+        },
+        {
+          "id": "v-1613",
+          "pl": "sport",
+          "en": "sport",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 900,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Uprawiać sport = to do sport.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Uprawiasz jakiś sport?",
+              "en": "Do you do any sport?",
+              "gap": "sport"
+            }
+          ]
+        },
+        {
+          "id": "v-1614",
+          "pl": "piłka nożna",
+          "en": "football (soccer)",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Piłka alone = ball. Grać w piłkę = to play football (accusative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Lubisz piłkę nożną?",
+              "en": "Do you like football?",
+              "gap": "piłkę nożną"
+            },
+            {
+              "pl": "W sobotę gramy w piłkę.",
+              "en": "We're playing football on Saturday.",
+              "gap": "piłkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1615",
+          "pl": "mecz",
+          "en": "match; game",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Oglądamy dziś mecz.",
+              "en": "We're watching the match today.",
+              "gap": "mecz"
+            }
+          ]
+        },
+        {
+          "id": "v-1616",
+          "pl": "karty",
+          "en": "cards (playing cards)",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 1800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural of karta (f, card). Grać w karty = to play cards.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Zagramy w karty?",
+              "en": "Shall we play cards?",
+              "gap": "karty"
+            }
+          ]
+        },
+        {
+          "id": "v-1617",
+          "pl": "szachy",
+          "en": "chess",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 2000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural only. Grać w szachy = to play chess.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Dziadek dobrze gra w szachy.",
+              "en": "Grandpa plays chess well.",
+              "gap": "szachy"
+            }
+          ]
+        },
+        {
+          "id": "v-1618",
+          "pl": "gitara",
+          "en": "guitar",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2000,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Instruments: grać na + locative.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Grasz na gitarze?",
+              "en": "Do you play the guitar?",
+              "gap": "gitarze"
+            }
+          ]
+        },
+        {
+          "id": "v-1619",
+          "pl": "rower",
+          "en": "bike; bicycle",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Jeździć na rowerze = to cycle (locative).",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jeździsz na rowerze?",
+              "en": "Do you ride a bike?",
+              "gap": "rowerze"
+            }
+          ]
+        },
+        {
+          "id": "v-1620",
+          "pl": "biegać",
+          "en": "to run; to go running",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "forms": {
+            "ja": "biegam",
+            "ty": "biegasz",
+            "on": "biega",
+            "my": "biegamy",
+            "wy": "biegacie",
+            "oni": "biegają"
+          },
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Running as a habit or for exercise. For running somewhere right now, Poles use biec.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Biegam trzy razy w tygodniu.",
+              "en": "I go running three times a week.",
+              "gap": "Biegam"
+            }
+          ]
+        },
+        {
+          "id": "v-1621",
+          "pl": "pływać",
+          "en": "to swim",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Umieć = to know how to (umiesz pływać?).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Umiesz pływać?",
+              "en": "Can you swim?",
+              "gap": "pływać"
+            },
+            {
+              "pl": "Latem pływamy w jeziorze.",
+              "en": "In summer we swim in the lake.",
+              "gap": "pływamy"
+            }
+          ]
+        },
+        {
+          "id": "v-1622",
+          "pl": "siłownia",
+          "en": "gym",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1800,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Going: na siłownię (accusative). Being there: na siłowni (locative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Chodzę na siłownię.",
+              "en": "I go to the gym.",
+              "gap": "siłownię"
+            },
+            {
+              "pl": "Jestem na siłowni.",
+              "en": "I'm at the gym.",
+              "gap": "siłowni"
+            }
+          ]
+        },
+        {
+          "id": "v-1623",
+          "pl": "podróżować",
+          "en": "to travel",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "forms": {
+            "ja": "podróżuję",
+            "ty": "podróżujesz",
+            "on": "podróżuje",
+            "my": "podróżujemy",
+            "wy": "podróżujecie",
+            "oni": "podróżują"
+          },
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "A journey is podróż (f).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Lubię podróżować.",
+              "en": "I like travelling.",
+              "gap": "podróżować"
+            },
+            {
+              "pl": "Dużo podróżujesz?",
+              "en": "Do you travel a lot?",
+              "gap": "podróżujesz"
+            }
+          ]
+        },
+        {
+          "id": "v-1624",
+          "pl": "wycieczka",
+          "en": "trip; outing",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "W sobotę jedziemy na wycieczkę.",
+              "en": "On Saturday we're going on a trip.",
+              "gap": "wycieczkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1625",
+          "pl": "morze",
+          "en": "sea",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Going: nad morze (accusative). Being there: nad morzem (instrumental).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Latem jedziemy nad morze.",
+              "en": "In summer we go to the seaside.",
+              "gap": "morze"
+            },
+            {
+              "pl": "Dom babci jest nad morzem.",
+              "en": "Grandma's house is by the sea.",
+              "gap": "morzem"
+            }
+          ]
+        },
+        {
+          "id": "v-1626",
+          "pl": "góry",
+          "en": "mountains",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 1200,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Plural of góra (f). Going: w góry (accusative). Being there: w górach (locative).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Jedziemy w góry.",
+              "en": "We're going to the mountains.",
+              "gap": "góry"
+            },
+            {
+              "pl": "Wujek ma dom w górach.",
+              "en": "My uncle has a house in the mountains.",
+              "gap": "górach"
+            }
+          ]
+        },
+        {
+          "id": "v-1627",
+          "pl": "na grzyby",
+          "en": "(to go) mushroom picking",
+          "pos": "phrase",
+          "rank": 2500,
+          "register": null,
+          "alts": [
+            "iść na grzyby"
+          ],
+          "prodHint": null,
+          "note": "A favourite Polish autumn pastime. Grzyb = mushroom, las = forest.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Jutro idziemy do lasu na grzyby.",
+              "en": "Tomorrow we're going to the forest to pick mushrooms.",
+              "gap": "na grzyby"
+            }
+          ]
+        },
+        {
+          "id": "v-1628",
+          "pl": "zdjęcie",
+          "en": "photo; picture",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 700,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": "Robić zdjęcia = to take photos.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Zrobisz nam zdjęcie?",
+              "en": "Will you take a photo of us?",
+              "gap": "zdjęcie"
+            },
+            {
+              "pl": "Lubię robić zdjęcia.",
+              "en": "I like taking photos.",
+              "gap": "zdjęcia"
+            }
+          ]
+        },
+        {
+          "id": "v-1629",
+          "pl": "tańczyć",
+          "en": "to dance",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "zatańczyć",
+          "rank": 1500,
+          "register": null,
+          "alts": [],
+          "prodHint": null,
+          "note": null,
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Lubisz tańczyć?",
+              "en": "Do you like dancing?",
+              "gap": "tańczyć"
+            },
+            {
+              "pl": "Zatańczysz ze mną?",
+              "en": "Will you dance with me?"
+            }
+          ]
+        },
+        {
+          "id": "v-1630",
+          "pl": "ciekawy",
+          "en": "interesting",
+          "pos": "adjective",
+          "rank": 700,
+          "register": null,
+          "alts": [
+            "ciekawa"
+          ],
+          "prodHint": null,
+          "note": "Agrees with the noun. Jestem ciekawy (f: ciekawa) means 'I'm curious'.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Ten film był bardzo ciekawy.",
+              "en": "That film was very interesting.",
+              "gap": "ciekawy"
+            },
+            {
+              "pl": "To ciekawa książka.",
+              "en": "It's an interesting book.",
+              "gap": "ciekawa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v-holidays",
+      "title": "Holidays, celebrations and traditions",
+      "items": [
+        {
+          "id": "v-1701",
+          "pl": "święta",
+          "en": "holidays (Christmas or Easter)",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 400,
+          "prodHint": "Christmas or Easter, plural",
+          "note": "Plural in this sense. Means Christmas or Easter, depending on the time of year.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Na święta jedziemy do dziadków.",
+              "en": "For the holidays we're going to Grandma and Grandpa's.",
+              "gap": "święta"
+            },
+            {
+              "pl": "Gdzie spędzamy święta?",
+              "en": "Where are we spending the holidays?",
+              "gap": "święta"
+            }
+          ]
+        },
+        {
+          "id": "v-1702",
+          "pl": "wesołych świąt",
+          "en": "Merry Christmas; Happy Easter",
+          "pos": "phrase",
+          "rank": 900,
+          "note": "Literally \"(I wish you) merry holidays\". Used at both Christmas and Easter. Often written Wesołych Świąt in cards.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Wesołych świąt, babciu!",
+              "en": "Merry Christmas, Grandma!",
+              "gap": "Wesołych świąt"
+            }
+          ]
+        },
+        {
+          "id": "v-1703",
+          "pl": "urodziny",
+          "en": "birthday",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 500,
+          "note": "Plural only: urodziny są (not jest). O twoich urodzinach = about your birthday.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Kiedy masz urodziny?",
+              "en": "When is your birthday?",
+              "gap": "urodziny"
+            },
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Pamiętałem o twoich urodzinach!",
+                  "en": "I remembered your birthday!",
+                  "gap": "urodzinach"
+                },
+                "mm": {
+                  "pl": "Pamiętałem o twoich urodzinach!",
+                  "en": "I remembered your birthday!",
+                  "gap": "urodzinach"
+                },
+                "ff": {
+                  "pl": "Pamiętałam o twoich urodzinach!",
+                  "en": "I remembered your birthday!",
+                  "gap": "urodzinach"
+                },
+                "fm": {
+                  "pl": "Pamiętałam o twoich urodzinach!",
+                  "en": "I remembered your birthday!",
+                  "gap": "urodzinach"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1704",
+          "pl": "prezent",
+          "en": "present; gift",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 700,
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Mam dla ciebie prezent.",
+              "en": "I have a present for you.",
+              "gap": "prezent"
+            },
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Kupiłem ci mały prezent.",
+                  "en": "I bought you a little present.",
+                  "gap": "prezent"
+                },
+                "mm": {
+                  "pl": "Kupiłem ci mały prezent.",
+                  "en": "I bought you a little present.",
+                  "gap": "prezent"
+                },
+                "ff": {
+                  "pl": "Kupiłam ci mały prezent.",
+                  "en": "I bought you a little present.",
+                  "gap": "prezent"
+                },
+                "fm": {
+                  "pl": "Kupiłam ci mały prezent.",
+                  "en": "I bought you a little present.",
+                  "gap": "prezent"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1705",
+          "pl": "Boże Narodzenie",
+          "en": "Christmas",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 1200,
+          "prodHint": "the name of the feast",
+          "note": "Literally \"God's Birth\". In everyday speech people often just say święta.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Boże Narodzenie spędzamy w domu.",
+              "en": "We spend Christmas at home.",
+              "gap": "Boże Narodzenie"
+            }
+          ]
+        },
+        {
+          "id": "v-1706",
+          "pl": "Wigilia",
+          "en": "Christmas Eve (and its supper)",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "note": "24 December: the main family celebration, with a meatless supper. Accusative: w Wigilię.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "W Wigilię jemy kolację z całą rodziną.",
+              "en": "On Christmas Eve we have supper with the whole family.",
+              "gap": "Wigilię"
+            },
+            {
+              "pl": "W tym roku Wigilia jest u nas.",
+              "en": "This year Christmas Eve is at our place.",
+              "gap": "Wigilia"
+            }
+          ]
+        },
+        {
+          "id": "v-1707",
+          "pl": "Wielkanoc",
+          "en": "Easter",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "note": "Genitive and locative: Wielkanocy. Adjective: wielkanocny.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Na Wielkanoc jedziemy do babci.",
+              "en": "For Easter we're going to Grandma's.",
+              "gap": "Wielkanoc"
+            },
+            {
+              "pl": "W tym roku Wielkanoc jest w kwietniu.",
+              "en": "This year Easter is in April.",
+              "gap": "Wielkanoc"
+            }
+          ]
+        },
+        {
+          "id": "v-1708",
+          "pl": "sto lat",
+          "en": "the birthday song (lit. a hundred years)",
+          "pos": "phrase",
+          "rank": 1500,
+          "prodHint": "the song sung on birthdays",
+          "note": "The song everyone sings for birthdays and name days, wishing you a hundred years of life. Also sung at weddings and with toasts.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Zaśpiewajmy babci sto lat!",
+              "en": "Let's sing \"Sto lat\" for Grandma!",
+              "gap": "sto lat"
+            }
+          ]
+        },
+        {
+          "id": "v-1709",
+          "pl": "imieniny",
+          "en": "name day",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 2000,
+          "note": "Plural only. The feast day of the saint you're named after; for many older Poles as important as a birthday.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Dzisiaj są imieniny babci.",
+              "en": "Today is Grandma's name day.",
+              "gap": "imieniny"
+            }
+          ]
+        },
+        {
+          "id": "v-1710",
+          "pl": "życzenia",
+          "en": "wishes; greetings (for a holiday or birthday)",
+          "pos": "noun",
+          "gender": "npl",
+          "rank": 1200,
+          "note": "Plural of życzenie. Składać życzenia = to offer good wishes.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Dziękuję za życzenia!",
+              "en": "Thanks for the wishes!",
+              "gap": "życzenia"
+            },
+            {
+              "pl": "Babcia zawsze składa nam życzenia.",
+              "en": "Grandma always gives us her good wishes.",
+              "gap": "życzenia"
+            }
+          ]
+        },
+        {
+          "id": "v-1711",
+          "pl": "życzyć",
+          "en": "to wish (someone something)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 900,
+          "note": "Person in the dative, thing wished in the genitive: życzę ci zdrowia, szczęścia.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Życzę ci dużo zdrowia!",
+              "en": "I wish you lots of health!",
+              "gap": "Życzę"
+            }
+          ]
+        },
+        {
+          "id": "v-1712",
+          "pl": "świętować",
+          "en": "to celebrate",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 2000,
+          "note": "Present: świętuję, świętujesz, świętujemy.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Jak świętujecie urodziny?",
+              "en": "How do you celebrate birthdays?",
+              "gap": "świętujecie"
+            },
+            {
+              "pl": "Dzisiaj świętujemy!",
+              "en": "Today we're celebrating!",
+              "gap": "świętujemy"
+            }
+          ]
+        },
+        {
+          "id": "v-1713",
+          "pl": "spędzać",
+          "en": "to spend (time)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "spędzić",
+          "rank": 1000,
+          "note": "Used for time, not money (money is wydawać). Spędzać święta = to spend the holidays.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Lubię spędzać czas z twoją rodziną.",
+              "en": "I like spending time with your family.",
+              "gap": "spędzać"
+            }
+          ]
+        },
+        {
+          "id": "v-1714",
+          "pl": "tort",
+          "en": "(layered) cake; birthday cake",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2000,
+          "prodHint": "a birthday-style layered cake, not ciasto",
+          "note": "A cream-layered cake for birthdays and celebrations. Everyday cake is ciasto.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Kto zrobił ten tort?",
+              "en": "Who made this cake?",
+              "gap": "tort"
+            }
+          ]
+        },
+        {
+          "id": "v-1715",
+          "pl": "szczęśliwego Nowego Roku",
+          "en": "Happy New Year",
+          "pos": "phrase",
+          "rank": 2000,
+          "note": "Said at midnight on New Year's Eve and in the first days of January.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Szczęśliwego Nowego Roku, kochanie!",
+              "en": "Happy New Year, darling!",
+              "gap": "Szczęśliwego Nowego Roku"
+            }
+          ]
+        },
+        {
+          "id": "v-1716",
+          "pl": "sylwester",
+          "en": "New Year's Eve; New Year's Eve party",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2000,
+          "note": "Accusative: sylwestra (w sylwestra, na sylwestra). Named after St Sylvester, whose day is 31 December.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Co robimy w sylwestra?",
+              "en": "What are we doing on New Year's Eve?",
+              "gap": "sylwestra"
+            },
+            {
+              "pl": "Idziemy na sylwestra do Kasi.",
+              "en": "We're going to Kasia's for New Year's Eve.",
+              "gap": "sylwestra"
+            }
+          ]
+        },
+        {
+          "id": "v-1717",
+          "pl": "choinka",
+          "en": "Christmas tree",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2000,
+          "note": "Ubierać choinkę = to decorate the tree.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Kiedy ubieramy choinkę?",
+              "en": "When are we decorating the tree?",
+              "gap": "choinkę"
+            },
+            {
+              "pl": "Pod choinką są prezenty.",
+              "en": "The presents are under the tree.",
+              "gap": "choinką"
+            }
+          ]
+        },
+        {
+          "id": "v-1718",
+          "pl": "opłatek",
+          "en": "Christmas wafer",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 3000,
+          "note": "At Christmas Eve supper everyone breaks off a piece of each other's wafer and exchanges good wishes.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Dzielimy się opłatkiem.",
+              "en": "We share the Christmas wafer.",
+              "gap": "opłatkiem"
+            }
+          ]
+        },
+        {
+          "id": "v-1719",
+          "pl": "pierwsza gwiazdka",
+          "en": "the first star (on Christmas Eve)",
+          "pos": "phrase",
+          "rank": 3000,
+          "note": "Traditionally Christmas Eve supper starts when the first star appears in the sky. Gwiazdka (capitalised) can also mean Christmas.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Czekamy na pierwszą gwiazdkę.",
+              "en": "We're waiting for the first star.",
+              "gap": "pierwszą gwiazdkę"
+            }
+          ]
+        },
+        {
+          "id": "v-1720",
+          "pl": "Mikołaj",
+          "en": "Santa Claus; St Nicholas",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1500,
+          "note": "Also Święty Mikołaj. On 6 December (mikołajki) children get small presents.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Co przyniósł ci Mikołaj?",
+              "en": "What did Santa bring you?",
+              "gap": "Mikołaj"
+            }
+          ]
+        },
+        {
+          "id": "v-1721",
+          "pl": "zapraszać",
+          "en": "to invite",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "zaprosić",
+          "rank": 900,
+          "note": "Zapraszam! on its own is a warm \"come in\" or \"please, go ahead\".",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Zapraszamy na Wigilię!",
+              "en": "You're invited to Christmas Eve supper!",
+              "gap": "Zapraszamy"
+            },
+            {
+              "pl": "Mama zaprasza nas na obiad.",
+              "en": "Mum is inviting us for lunch.",
+              "gap": "zaprasza"
+            }
+          ]
+        },
+        {
+          "id": "v-1722",
+          "pl": "gość",
+          "en": "guest",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 900,
+          "note": "Plural: goście. A well-known saying: Gość w dom, Bóg w dom (a guest in the house is God in the house).",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Goście już są!",
+              "en": "The guests are here!",
+              "gap": "Goście"
+            }
+          ]
+        },
+        {
+          "id": "v-1723",
+          "pl": "rocznica",
+          "en": "anniversary",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2500,
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Jutro jest nasza rocznica.",
+              "en": "Tomorrow is our anniversary.",
+              "gap": "rocznica"
+            },
+            {
+              "pl": "Dziadkowie mają dzisiaj rocznicę ślubu.",
+              "en": "Grandma and Grandpa have their wedding anniversary today.",
+              "gap": "rocznicę"
+            }
+          ]
+        },
+        {
+          "id": "v-1724",
+          "pl": "ślub",
+          "en": "wedding (ceremony)",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1200,
+          "prodHint": "the ceremony",
+          "note": "Brać ślub = to get married. The party afterwards is wesele.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Kiedy jest ślub?",
+              "en": "When is the wedding?",
+              "gap": "ślub"
+            },
+            {
+              "pl": "Mój kuzyn bierze ślub w maju.",
+              "en": "My cousin is getting married in May.",
+              "gap": "ślub"
+            }
+          ]
+        },
+        {
+          "id": "v-1725",
+          "pl": "wesele",
+          "en": "wedding reception; wedding party",
+          "pos": "noun",
+          "gender": "n",
+          "rank": 2000,
+          "prodHint": "the party after the ceremony",
+          "note": "A Polish wesele usually lasts long into the night, with food, vodka and dancing.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Wesele jest w sobotę.",
+              "en": "The wedding reception is on Saturday.",
+              "gap": "Wesele"
+            }
+          ]
+        },
+        {
+          "id": "v-1726",
+          "pl": "wszystkiego dobrego",
+          "en": "all the best",
+          "pos": "phrase",
+          "rank": 1500,
+          "prodHint": "general good wishes, any occasion (not the birthday one)",
+          "note": "Lighter than wszystkiego najlepszego. Fine for any occasion or when saying goodbye.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Wszystkiego dobrego, do zobaczenia!",
+              "en": "All the best, see you!",
+              "gap": "Wszystkiego dobrego"
+            }
+          ]
+        },
+        {
+          "id": "v-1727",
+          "pl": "pisanka",
+          "en": "decorated Easter egg",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 3000,
+          "note": "Plural: pisanki. Painted before Easter and put in the Easter basket.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Robimy pisanki z babcią.",
+              "en": "We're making Easter eggs with Grandma.",
+              "gap": "pisanki"
+            }
+          ]
+        },
+        {
+          "id": "v-1728",
+          "pl": "święconka",
+          "en": "Easter food basket (blessed on Holy Saturday)",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 3000,
+          "note": "On Holy Saturday (Wielka Sobota) people take a small basket of eggs, bread, salt and sausage to church to be blessed.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "W sobotę idziemy ze święconką do kościoła.",
+              "en": "On Saturday we take the Easter basket to church.",
+              "gap": "święconką"
+            }
+          ]
+        },
+        {
+          "id": "v-1729",
+          "pl": "lany poniedziałek",
+          "en": "Easter Monday (water-splashing day)",
+          "pos": "phrase",
+          "rank": 3000,
+          "note": "On Easter Monday people splash each other with water. Also called śmigus-dyngus.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "W lany poniedziałek wszyscy są mokrzy.",
+              "en": "On Easter Monday everyone gets wet.",
+              "gap": "lany poniedziałek"
+            }
+          ]
+        },
+        {
+          "id": "v-1730",
+          "pl": "Wszystkich Świętych",
+          "en": "All Saints' Day (1 November)",
+          "pos": "phrase",
+          "rank": 2500,
+          "note": "A public holiday when families visit graves and light candles (znicze).",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Na Wszystkich Świętych jedziemy na cmentarz.",
+              "en": "On All Saints' Day we go to the cemetery.",
+              "gap": "Wszystkich Świętych"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v-table",
+      "title": "At the table: manners and phrases",
+      "items": [
+        {
+          "id": "v-1801",
+          "pl": "podać",
+          "en": "to pass; to hand",
+          "pos": "verb",
+          "aspect": "pf",
+          "aspectPair": "podawać",
+          "rank": 600,
+          "prodHint": "to pass something at the table",
+          "note": "Podasz mi...? (will you pass me...?) is the easy everyday way. To her dad: Czy może mi pan podać...?",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Podasz mi sól?",
+              "en": "Can you pass me the salt?",
+              "gap": "Podasz"
+            },
+            {
+              "pl": "Czy może mi pan podać chleb?",
+              "en": "Could you pass me the bread? (formal, to a man)",
+              "gap": "podać"
+            }
+          ]
+        },
+        {
+          "id": "v-1802",
+          "pl": "mogę prosić",
+          "en": "could I have; may I ask for",
+          "pos": "phrase",
+          "rank": 500,
+          "prodHint": "polite request, followed by o",
+          "note": "Mogę prosić o + accusative. A polite request, good with her parents.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Mogę prosić o wodę?",
+              "en": "Could I have some water?",
+              "gap": "prosić"
+            }
+          ]
+        },
+        {
+          "id": "v-1803",
+          "pl": "jeszcze",
+          "en": "more; another; still",
+          "pos": "adverb",
+          "rank": 80,
+          "prodHint": "as in \"some more?\"",
+          "note": "Jeszcze + genitive = some more: jeszcze zupy. Jeszcze jeden = one more.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Chcesz jeszcze zupy?",
+              "en": "Do you want some more soup?",
+              "gap": "jeszcze"
+            },
+            {
+              "pl": "Jeszcze herbaty?",
+              "en": "More tea?",
+              "gap": "Jeszcze"
+            }
+          ]
+        },
+        {
+          "id": "v-1804",
+          "pl": "trochę",
+          "en": "a little; a bit; some",
+          "pos": "adverb",
+          "rank": 150,
+          "note": "Followed by the genitive: trochę wody, trochę chleba.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Tylko trochę, dziękuję.",
+              "en": "Just a little, thanks.",
+              "gap": "trochę"
+            },
+            {
+              "pl": "Daj mi trochę chleba.",
+              "en": "Give me a bit of bread.",
+              "gap": "trochę"
+            }
+          ]
+        },
+        {
+          "id": "v-1805",
+          "pl": "nie, dziękuję",
+          "en": "no, thank you",
+          "pos": "phrase",
+          "rank": 300,
+          "note": "The polite way to decline. Polish hosts often offer again; a smile and dziękuję, naprawdę (thanks, really) helps.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Nie, dziękuję, jestem już najedzony.",
+                  "en": "No, thank you, I'm already full.",
+                  "gap": "dziękuję"
+                },
+                "mm": {
+                  "pl": "Nie, dziękuję, jestem już najedzony.",
+                  "en": "No, thank you, I'm already full.",
+                  "gap": "dziękuję"
+                },
+                "ff": {
+                  "pl": "Nie, dziękuję, jestem już najedzona.",
+                  "en": "No, thank you, I'm already full.",
+                  "gap": "dziękuję"
+                },
+                "fm": {
+                  "pl": "Nie, dziękuję, jestem już najedzona.",
+                  "en": "No, thank you, I'm already full.",
+                  "gap": "dziękuję"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1806",
+          "pl": "już nie mogę",
+          "en": "I can't eat any more; I can't any more",
+          "pos": "phrase",
+          "rank": 800,
+          "prodHint": "when you're too full",
+          "note": "Literally \"I can't any more\". The usual answer when offered a third helping.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Dziękuję, już nie mogę!",
+              "en": "Thank you, I can't eat any more!",
+              "gap": "mogę"
+            },
+            {
+              "pl": "To było pyszne, ale już nie mogę.",
+              "en": "That was delicious, but I can't eat any more.",
+              "gap": "już"
+            }
+          ]
+        },
+        {
+          "id": "v-1807",
+          "pl": "wystarczy",
+          "en": "that's enough; that'll do",
+          "pos": "phrase",
+          "rank": 900,
+          "prodHint": "when someone is pouring or serving you",
+          "note": "From wystarczyć (to be enough).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Wystarczy, dziękuję!",
+              "en": "That's enough, thanks!",
+              "gap": "Wystarczy"
+            }
+          ]
+        },
+        {
+          "id": "v-1808",
+          "pl": "spróbować",
+          "en": "to try; to taste",
+          "pos": "verb",
+          "aspect": "pf",
+          "aspectPair": "próbować",
+          "rank": 700,
+          "note": "Takes the genitive: spróbuj tego, spróbuj pierogów.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Spróbuj tego!",
+              "en": "Try this!",
+              "gap": "Spróbuj"
+            },
+            {
+              "pl": "Mogę spróbować?",
+              "en": "Can I try it?",
+              "gap": "spróbować"
+            }
+          ]
+        },
+        {
+          "id": "v-1809",
+          "pl": "smakować",
+          "en": "to taste (good); to like (food)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 1500,
+          "note": "The food is the subject, the person is in the dative: smakuje mi = I like it (the taste). Formal: Smakuje pani?",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Smakuje ci?",
+              "en": "Do you like it? (the food)",
+              "gap": "Smakuje"
+            },
+            {
+              "pl": "Bardzo mi smakuje.",
+              "en": "I really like it. (the food)",
+              "gap": "smakuje"
+            }
+          ]
+        },
+        {
+          "id": "v-1810",
+          "pl": "częstować się",
+          "en": "to help oneself (to food)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": "poczęstować się",
+          "rank": 2500,
+          "note": "Częstuj się! to one person; Częstujcie się! to several; Proszę się częstować is polite.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Częstuj się!",
+              "en": "Help yourself!",
+              "gap": "Częstuj"
+            },
+            {
+              "pl": "Proszę się częstować.",
+              "en": "Please help yourself. (polite)",
+              "gap": "częstować"
+            }
+          ]
+        },
+        {
+          "id": "v-1811",
+          "pl": "proszę do stołu",
+          "en": "please come to the table",
+          "pos": "phrase",
+          "rank": 1500,
+          "prodHint": "the host calling everyone to eat",
+          "note": "Do stołu = to the table (genitive of stół).",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Obiad gotowy, proszę do stołu!",
+              "en": "Lunch is ready, please come to the table!",
+              "gap": "stołu"
+            }
+          ]
+        },
+        {
+          "id": "v-1812",
+          "pl": "usiąść",
+          "en": "to sit down",
+          "pos": "verb",
+          "aspect": "pf",
+          "aspectPair": "siadać",
+          "rank": 600,
+          "note": "Imperative: usiądź (to one person), usiądźcie (to several).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Gdzie mam usiąść?",
+              "en": "Where should I sit?",
+              "gap": "usiąść"
+            },
+            {
+              "pl": "Usiądź obok mnie.",
+              "en": "Sit next to me.",
+              "gap": "Usiądź"
+            }
+          ]
+        },
+        {
+          "id": "v-1813",
+          "pl": "nalać",
+          "en": "to pour",
+          "pos": "verb",
+          "aspect": "pf",
+          "aspectPair": "nalewać",
+          "rank": 1500,
+          "note": "The drink is in the genitive when it means \"some\": nalać wina, wody.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Nalać ci wina?",
+              "en": "Shall I pour you some wine?",
+              "gap": "Nalać"
+            },
+            {
+              "pl": "Nalej mi trochę wody.",
+              "en": "Pour me a little water.",
+              "gap": "Nalej"
+            }
+          ]
+        },
+        {
+          "id": "v-1814",
+          "pl": "za twoje zdrowie",
+          "en": "to your health; cheers (to you)",
+          "pos": "phrase",
+          "rank": 1500,
+          "prodHint": "a toast to one person, informal",
+          "note": "Formal to her parents: Za pana zdrowie! / Za pani zdrowie! Za + accusative is \"to\" in toasts: za nas!",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Za twoje zdrowie, kochanie!",
+              "en": "To your health, darling!",
+              "gap": "zdrowie"
+            },
+            {
+              "pl": "Za pani zdrowie!",
+              "en": "To your health! (formal, to a woman)",
+              "gap": "zdrowie"
+            }
+          ]
+        },
+        {
+          "id": "v-1815",
+          "pl": "wznieść toast",
+          "en": "to propose a toast; to raise a toast",
+          "pos": "phrase",
+          "rank": 2500,
+          "note": "Wznieść toast za + accusative. Gospodarze = the hosts.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "speaker": "learner",
+              "v": {
+                "mf": {
+                  "pl": "Chciałbym wznieść toast za gospodarzy.",
+                  "en": "I'd like to propose a toast to the hosts.",
+                  "gap": "toast"
+                },
+                "mm": {
+                  "pl": "Chciałbym wznieść toast za gospodarzy.",
+                  "en": "I'd like to propose a toast to the hosts.",
+                  "gap": "toast"
+                },
+                "ff": {
+                  "pl": "Chciałabym wznieść toast za gospodarzy.",
+                  "en": "I'd like to propose a toast to the hosts.",
+                  "gap": "toast"
+                },
+                "fm": {
+                  "pl": "Chciałabym wznieść toast za gospodarzy.",
+                  "en": "I'd like to propose a toast to the hosts.",
+                  "gap": "toast"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "v-1816",
+          "pl": "kawałek",
+          "en": "piece; slice",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 900,
+          "note": "Genitive: kawałka. Kawałek ciasta = a piece of cake.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Poproszę mały kawałek.",
+              "en": "A small piece, please.",
+              "gap": "kawałek"
+            },
+            {
+              "pl": "Weź jeszcze kawałek!",
+              "en": "Have another piece!",
+              "gap": "kawałek"
+            }
+          ]
+        },
+        {
+          "id": "v-1817",
+          "pl": "pani świetnie gotuje",
+          "en": "you're a great cook (to an older woman)",
+          "pos": "phrase",
+          "rank": 2000,
+          "register": "formal",
+          "prodHint": "formal, to an older woman",
+          "note": "Informal: świetnie gotujesz! To a man: pan świetnie gotuje.",
+          "cards": [
+            "rec",
+            "prod",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Pani naprawdę świetnie gotuje!",
+              "en": "You're a really great cook!",
+              "gap": "świetnie"
+            }
+          ]
+        },
+        {
+          "id": "v-1818",
+          "pl": "pachnieć",
+          "en": "to smell (of)",
+          "pos": "verb",
+          "aspect": "impf",
+          "aspectPair": null,
+          "rank": 1500,
+          "note": "Pachnie + instrumental: pachnie kawą (smells of coffee).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Ale ładnie pachnie!",
+              "en": "That smells lovely!",
+              "gap": "pachnie"
+            },
+            {
+              "pl": "Cały dom pachnie ciastem.",
+              "en": "The whole house smells of cake.",
+              "gap": "pachnie"
+            }
+          ]
+        },
+        {
+          "id": "v-1819",
+          "pl": "przepis",
+          "en": "recipe",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 1500,
+          "note": "Asking for the recipe is a lovely compliment to the cook. Also means a rule or regulation.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap",
+            "listen"
+          ],
+          "examples": [
+            {
+              "pl": "Czy mogę prosić o przepis?",
+              "en": "Could I have the recipe?",
+              "gap": "przepis"
+            }
+          ]
+        },
+        {
+          "id": "v-1820",
+          "pl": "nie przepadam za",
+          "en": "I'm not keen on; I don't really like",
+          "pos": "phrase",
+          "rank": 2500,
+          "note": "Za + instrumental: nie przepadam za rybą. A gentle way to turn down a dish.",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Szczerze mówiąc, nie przepadam za rybą.",
+              "en": "To be honest, I'm not keen on fish.",
+              "gap": "przepadam"
+            }
+          ]
+        },
+        {
+          "id": "v-1821",
+          "pl": "kieliszek",
+          "en": "(wine or vodka) glass",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2000,
+          "prodHint": "a stemmed glass for wine or vodka",
+          "note": "Genitive: kieliszka. A glass for water or juice is szklanka.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Mogę prosić o kieliszek wina?",
+              "en": "Could I have a glass of wine?",
+              "gap": "kieliszek"
+            }
+          ]
+        },
+        {
+          "id": "v-1822",
+          "pl": "szklanka",
+          "en": "glass (tumbler)",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 1500,
+          "prodHint": "for water or juice, no stem",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Poproszę szklankę wody.",
+              "en": "A glass of water, please.",
+              "gap": "szklankę"
+            }
+          ]
+        },
+        {
+          "id": "v-1823",
+          "pl": "widelec",
+          "en": "fork",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2500,
+          "note": "Genitive: widelca (the e drops out).",
+          "cards": [
+            "rec",
+            "prod",
+            "gap"
+          ],
+          "examples": [
+            {
+              "pl": "Nie mam widelca.",
+              "en": "I don't have a fork.",
+              "gap": "widelca"
+            }
+          ]
+        },
+        {
+          "id": "v-1824",
+          "pl": "nóż",
+          "en": "knife",
+          "pos": "noun",
+          "gender": "m",
+          "rank": 2000,
+          "note": "Genitive: noża.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Gdzie jest nóż do chleba?",
+              "en": "Where's the bread knife?",
+              "gap": "nóż"
+            }
+          ]
+        },
+        {
+          "id": "v-1825",
+          "pl": "łyżka",
+          "en": "spoon",
+          "pos": "noun",
+          "gender": "f",
+          "rank": 2500,
+          "note": "Łyżeczka = teaspoon. Potrzebować takes the genitive: łyżki.",
+          "cards": [
+            "rec",
+            "prod"
+          ],
+          "examples": [
+            {
+              "pl": "Potrzebuję łyżki do zupy.",
+              "en": "I need a spoon for the soup.",
+              "gap": "łyżki"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v-mine",
       "title": "My phrases",
       "emptyNote": "Add your own phrases here. The \"Add phrase\" form arrives in stage 5.",
