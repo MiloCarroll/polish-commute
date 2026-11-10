@@ -5,6 +5,7 @@ import { loadSettings, settings } from './settings.js';
 import { loadContent } from './content.js';
 import { dayStart } from './day.js';
 import { esc } from './ui.js';
+import { hideAccentBar } from './accentbar.js';
 import { homeView } from './views/home.js';
 import { moduleView, topicView } from './views/module.js';
 import { studyView } from './views/study.js';
@@ -49,6 +50,7 @@ const routes = [
 
 async function route() {
   tts.stop();
+  hideAccentBar();
   await refreshToday();
   const hash = location.hash || '#/';
   if (!settings().firstRunDone && hash !== '#/welcome' && hash !== '#/settings') {

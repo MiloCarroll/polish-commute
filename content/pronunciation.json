@@ -1,19 +1,4853 @@
 {
   "module": "pronunciation",
   "title": "Pronunciation",
-  "status": "Lessons and exercises arrive in stage 2.",
   "topics": [
-    { "id": "pr-01", "title": "The alphabet and the six oral vowels", "items": [] },
-    { "id": "pr-02", "title": "y versus i; ó and u sound the same", "items": [] },
-    { "id": "pr-03", "title": "ł and w", "items": [] },
-    { "id": "pr-04", "title": "Nasal vowels ą and ę", "items": [] },
-    { "id": "pr-05", "title": "sz, cz, rz/ż", "items": [] },
-    { "id": "pr-06", "title": "ś, ć, ź, ń and si, ci, zi, ni", "items": [] },
-    { "id": "pr-07", "title": "Telling the two “sh / ch / zh” series apart", "items": [] },
-    { "id": "pr-08", "title": "dz, dź, dż", "items": [] },
-    { "id": "pr-09", "title": "ch and h", "items": [] },
-    { "id": "pr-10", "title": "Consonant clusters", "items": [] },
-    { "id": "pr-11", "title": "Devoicing at word end and in clusters", "items": [] },
-    { "id": "pr-12", "title": "Stress on the second-to-last syllable", "items": [] }
+    {
+      "id": "pr-01",
+      "title": "The alphabet and the six oral vowels",
+      "lesson": {
+        "summary": "How Polish letters map to sounds, the six plain vowels, and the three consonants that surprise English speakers: c, j and w.",
+        "body": [
+          "Polish spelling is very regular. Once you know what each letter stands for, you can read almost any word aloud, even one you have never seen. Most consonants sound roughly as they do in English; the main surprises are c ({{noc}}), j ({{jajo}}) and w ({{woda}}).",
+          "Polish has six plain vowels: a, e, i, o, u and y. Each is short and pure: it keeps the same sound from start to finish, with none of the gliding you hear in English \"go\" or \"day\". Vowels are never swallowed into an \"uh\" sound either: in {{woda}} and {{okno}} every vowel is said clearly.",
+          "Most Polish words are stressed on the second-to-last syllable: {{woda}}, {{jutro}}, {{ulica}}. Short two-syllable words are therefore stressed on the first syllable."
+        ],
+        "letters": [
+          {
+            "spelling": "a",
+            "sound": "Like the \"a\" in \"father\", but short.",
+            "examples": [
+              "tak",
+              "las"
+            ]
+          },
+          {
+            "spelling": "e",
+            "sound": "Like the \"e\" in \"bed\". It never sounds like \"ee\".",
+            "examples": [
+              "ser",
+              "cena"
+            ]
+          },
+          {
+            "spelling": "i",
+            "sound": "Like the \"ee\" in \"see\", but short.",
+            "examples": [
+              "kino",
+              "wino"
+            ]
+          },
+          {
+            "spelling": "o",
+            "sound": "Roughly like the \"o\" in British \"hot\": short and round, never the \"oh\" glide of \"go\".",
+            "examples": [
+              "dom",
+              "kot"
+            ]
+          },
+          {
+            "spelling": "u",
+            "sound": "Like the \"oo\" in \"food\", but short.",
+            "examples": [
+              "jutro",
+              "ulica"
+            ]
+          },
+          {
+            "spelling": "y",
+            "sound": "No exact English equivalent. Roughly like the \"i\" in \"bit\", with the tongue pulled a little further back. Never \"ee\" and never \"why\".",
+            "examples": [
+              "syn",
+              "dobry"
+            ]
+          },
+          {
+            "spelling": "c",
+            "sound": "Always \"ts\", as in \"cats\", even at the start of a word. Never \"k\" or \"s\".",
+            "examples": [
+              "noc",
+              "cena"
+            ]
+          },
+          {
+            "spelling": "j",
+            "sound": "Like the English \"y\" in \"yes\". Never the \"j\" of \"jam\".",
+            "examples": [
+              "jajo",
+              "jutro"
+            ]
+          },
+          {
+            "spelling": "w",
+            "sound": "Like the English \"v\" in \"van\". Never the English \"w\".",
+            "examples": [
+              "woda",
+              "wino"
+            ]
+          },
+          {
+            "spelling": "r",
+            "sound": "A tapped or lightly rolled r, made with the tip of the tongue, roughly like a Scottish r.",
+            "examples": [
+              "ser",
+              "rok"
+            ]
+          }
+        ],
+        "more": [
+          "The Polish alphabet has 32 letters, including nine with marks (ą ć ę ł ń ó ś ź ż). The letters q, v and x appear only in foreign words and names. Later topics cover the marked letters and the letter pairs such as sz, cz and ch.",
+          "Polish p, t and k are said with less of a puff of air than in English, so {{kot}} sounds a little softer than English \"cot\". Polish t and d are made with the tongue touching the back of the upper teeth.",
+          "Because there are no silent vowels, a Polish word has as many syllables as it has vowels (the main exception, covered later: an i before another vowel usually just softens the consonant). {{ulica}} has three: u-li-ca."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-01-001",
+          "pl": "dom",
+          "en": "house",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "dom",
+              "dam",
+              "dym"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-002",
+          "pl": "kot",
+          "en": "cat",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "kot",
+              "kat",
+              "kit"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-003",
+          "pl": "tak",
+          "en": "yes",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "tak",
+              "tek",
+              "tyk"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-004",
+          "pl": "nos",
+          "en": "nose",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "nos",
+              "nas",
+              "nus"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-005",
+          "pl": "las",
+          "en": "forest",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "las",
+              "los",
+              "les"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-006",
+          "pl": "ser",
+          "en": "cheese",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "ser",
+              "sar",
+              "sur"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-007",
+          "pl": "syn",
+          "en": "son",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "syn",
+              "sen",
+              "son"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-008",
+          "pl": "noc",
+          "en": "night",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "noc",
+              "nos",
+              "nok"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-009",
+          "pl": "cena",
+          "en": "price",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "cena",
+              "sena",
+              "kena"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-010",
+          "pl": "ulica",
+          "en": "street",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "ulica",
+              "ulika",
+              "ulisa"
+            ]
+          },
+          "syll": [
+            "u",
+            "li",
+            "ca"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-01-011",
+          "pl": "owoc",
+          "en": "fruit",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "owoc",
+              "owok",
+              "owos"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-012",
+          "pl": "woda",
+          "en": "water",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "woda",
+              "łoda",
+              "foda"
+            ]
+          },
+          "syll": [
+            "wo",
+            "da"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-01-013",
+          "pl": "wino",
+          "en": "wine",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "wino",
+              "fino",
+              "bino"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-014",
+          "pl": "jajo",
+          "en": "egg",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "jajo",
+              "jaja",
+              "dżadżo"
+            ]
+          }
+        },
+        {
+          "id": "pr-01-015",
+          "pl": "jutro",
+          "en": "tomorrow",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "jutro",
+              "dżutro",
+              "jetro"
+            ]
+          },
+          "syll": [
+            "ju",
+            "tro"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-01-016",
+          "pl": "okno",
+          "en": "window",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "okno",
+              "ekno",
+              "okna"
+            ]
+          },
+          "syll": [
+            "o",
+            "kno"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-01-017",
+          "pl": "lato",
+          "en": "summer",
+          "cards": [
+            "stress",
+            "dict"
+          ],
+          "syll": [
+            "la",
+            "to"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-01-018",
+          "pl": "mama",
+          "en": "mum",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-01-019",
+          "pl": "kino",
+          "en": "cinema",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-01-020",
+          "pl": "noga",
+          "en": "leg",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-01-021",
+          "pl": "jak",
+          "en": "how",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-01-022",
+          "pl": "rok",
+          "en": "year",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-01-023",
+          "pl": "banan",
+          "en": "banana",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "ba",
+            "nan"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-01-024",
+          "pl": "dobry",
+          "en": "good",
+          "cards": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-02",
+      "title": "y versus i; ó and u sound the same",
+      "lesson": {
+        "summary": "Hearing the difference between y and i, and learning that ó and u are two spellings of one sound.",
+        "body": [
+          "Polish i and y are two different vowels, and swapping them can change the word: {{być}} means \"to be\" but {{bić}} means \"to beat\"; {{my}} is \"we\" but {{mi}} is \"to me\". The i is a short \"ee\". The y has no exact English match: it is roughly like the \"i\" in \"bit\", but said further back in the mouth, and it sounds a little duller and deeper than i.",
+          "An i also softens the consonant in front of it, almost as if a faint \"y\" sound slipped in, so {{pić}} and {{piwo}} start differently from a plain p. That softening is part of what you hear when you compare {{mysz}} with \"misz\".",
+          "The letters ó and u are the opposite case: two spellings, one sound, a short \"oo\" as in \"food\". {{góra}} sounds exactly as if it were spelled \"gura\". You cannot hear which spelling a word uses, so ó words simply have to be learned by sight."
+        ],
+        "letters": [
+          {
+            "spelling": "i",
+            "sound": "Like a short \"ee\" in \"see\". It also softens the consonant before it.",
+            "examples": [
+              "pić",
+              "piwo"
+            ]
+          },
+          {
+            "spelling": "y",
+            "sound": "No exact English equivalent. Roughly like the \"i\" in \"bit\", with the tongue pulled back; duller than Polish i.",
+            "examples": [
+              "być",
+              "ryba"
+            ]
+          },
+          {
+            "spelling": "ó",
+            "sound": "Exactly the same sound as Polish u: a short \"oo\" as in \"food\". Never an \"o\" sound.",
+            "examples": [
+              "góra",
+              "mój"
+            ]
+          },
+          {
+            "spelling": "u",
+            "sound": "A short \"oo\" as in \"food\".",
+            "examples": [
+              "mu",
+              "lud"
+            ]
+          }
+        ],
+        "more": [
+          "After k and g, Polish normally writes i, not y ({{kino}}), so you will rarely see \"ky\" or \"gy\". After l, Polish writes i; after ł, it usually writes y ({{mały}}).",
+          "A useful spelling tip: ó often appears where related forms of the same word have o. Compare {{mój}} (my, masculine) with {{moja}} (my, feminine), {{ból}} (pain) with {{boli}} (it hurts), and {{lód}} (ice) with {{lody}} (ice cream).",
+          "Because ó and u sound alike, a few words are pronounced the same: {{lód}} (ice) and {{lud}} (a people, nation) both sound like \"lut\" (the final d is said as t, which a later topic explains)."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-02-001",
+          "pl": "być",
+          "en": "to be",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "być",
+              "bić",
+              "bać"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-002",
+          "pl": "my",
+          "en": "we",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "my",
+              "mi",
+              "mu"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-003",
+          "pl": "był",
+          "en": "he was",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "był",
+              "bił",
+              "buł"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-004",
+          "pl": "miły",
+          "en": "nice, kind",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "miły",
+              "mili",
+              "mały"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-005",
+          "pl": "dym",
+          "en": "smoke",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dym",
+              "dim",
+              "dam"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-006",
+          "pl": "mysz",
+          "en": "mouse",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "mysz",
+              "misz",
+              "masz"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-007",
+          "pl": "pić",
+          "en": "to drink",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "pić",
+              "pyć",
+              "pać"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-008",
+          "pl": "ryba",
+          "en": "fish",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ryba",
+              "riba",
+              "reba"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-009",
+          "pl": "dobry",
+          "en": "good",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dobry",
+              "dobri",
+              "dobre"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-010",
+          "pl": "myć",
+          "en": "to wash",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "myć",
+              "mić",
+              "mać"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-011",
+          "pl": "piwo",
+          "en": "beer",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "piwo",
+              "pywo",
+              "pewo"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-012",
+          "pl": "ty",
+          "en": "you (one person)",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-02-013",
+          "pl": "wy",
+          "en": "you (more than one person)",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-02-014",
+          "pl": "góra",
+          "en": "mountain",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "góra",
+              "gora",
+              "gara"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-015",
+          "pl": "córka",
+          "en": "daughter",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "córka",
+              "corka",
+              "carka"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-016",
+          "pl": "mój",
+          "en": "my, mine",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "mój",
+              "moj",
+              "maj"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-017",
+          "pl": "stół",
+          "en": "table",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "stół",
+              "stoł",
+              "stał"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-018",
+          "pl": "sól",
+          "en": "salt",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "sól",
+              "sol",
+              "sal"
+            ]
+          }
+        },
+        {
+          "id": "pr-02-019",
+          "pl": "ból",
+          "en": "pain",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-02-020",
+          "pl": "król",
+          "en": "king",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-02-021",
+          "pl": "lód",
+          "en": "ice",
+          "cards": [
+            "dict"
+          ],
+          "alts": [
+            "lud"
+          ]
+        },
+        {
+          "id": "pr-02-022",
+          "pl": "ogórek",
+          "en": "cucumber",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-02-023",
+          "pl": "pół",
+          "en": "half",
+          "cards": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-03",
+      "title": "ł and w",
+      "lesson": {
+        "summary": "Polish ł sounds like English w, Polish w sounds like English v, and l is a clear l.",
+        "body": [
+          "Two letters look familiar but sound different from what an English speaker expects. The crossed ł is pronounced like the English \"w\" in \"wet\": {{łapa}} (paw) starts with the same sound as English \"wonder\". The plain w is pronounced like English \"v\": {{woda}} sounds like \"voda\".",
+          "Polish l (without the stroke) is a clear, light l, made with the tip of the tongue on the ridge behind the upper teeth, like the l in \"leaf\" rather than the darker l at the end of \"ball\". So the words to tell apart are l (an l sound), ł (a w sound) and w (a v sound): {{lalka}} (doll) and {{walka}} (fight) differ only in the first letter."
+        ],
+        "letters": [
+          {
+            "spelling": "ł",
+            "sound": "Like English \"w\" in \"wet\".",
+            "examples": [
+              "łapa",
+              "mały"
+            ]
+          },
+          {
+            "spelling": "w",
+            "sound": "Like English \"v\" in \"van\".",
+            "examples": [
+              "kawa",
+              "nowy"
+            ]
+          },
+          {
+            "spelling": "l",
+            "sound": "Roughly like the clear English l in \"leaf\", made with the tongue tip just behind the upper teeth.",
+            "examples": [
+              "lody",
+              "mleko"
+            ]
+          }
+        ],
+        "more": [
+          "Older and stage pronunciation used a dark \"l\" for ł, which is why it looks like an l. You may still hear it from some older speakers, but the w sound is standard today.",
+          "In a few common words ł between consonants is barely said or dropped in normal speech: {{jabłko}} (apple) usually sounds like \"japko\".",
+          "At the end of a word, and before sounds like p, t, k, s, the letter w loses its voice and sounds like f: {{krew}} (blood) sounds like \"kref\", {{wtorek}} (Tuesday) like \"ftorek\". A later topic covers this."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-03-001",
+          "pl": "ładny",
+          "en": "pretty, nice-looking",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ładny",
+              "ladny",
+              "wadny"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-002",
+          "pl": "łapa",
+          "en": "paw",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "łapa",
+              "lapa",
+              "wapa"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-003",
+          "pl": "mały",
+          "en": "small",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "mały",
+              "mali",
+              "mawy"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-004",
+          "pl": "biały",
+          "en": "white",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-03-005",
+          "pl": "głowa",
+          "en": "head",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "głowa",
+              "glowa",
+              "głoła"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-006",
+          "pl": "słowo",
+          "en": "word",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "słowo",
+              "slowo",
+              "słoło"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-007",
+          "pl": "szkoła",
+          "en": "school",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "szkoła",
+              "szkola",
+              "szkowa"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-008",
+          "pl": "ołówek",
+          "en": "pencil",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ołówek",
+              "olówek",
+              "owówek"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-009",
+          "pl": "lalka",
+          "en": "doll",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "lalka",
+              "łałka",
+              "walka"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-010",
+          "pl": "włosy",
+          "en": "hair",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "włosy",
+              "wlosy",
+              "losy"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-011",
+          "pl": "mleko",
+          "en": "milk",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "mleko",
+              "młeko",
+              "mlako"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-012",
+          "pl": "lody",
+          "en": "ice cream",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-03-013",
+          "pl": "lampa",
+          "en": "lamp",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "lampa",
+              "łampa",
+              "wampa"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-014",
+          "pl": "kawa",
+          "en": "coffee",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "kawa",
+              "kafa",
+              "kaba"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-015",
+          "pl": "sowa",
+          "en": "owl",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "sowa",
+              "soła",
+              "sofa"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-016",
+          "pl": "nowy",
+          "en": "new",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "nowy",
+              "noły",
+              "nofy"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-017",
+          "pl": "mało",
+          "en": "a little, not much",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "mało",
+              "malo",
+              "mawo"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-018",
+          "pl": "ławka",
+          "en": "bench",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ławka",
+              "lawka",
+              "wawka"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-019",
+          "pl": "pole",
+          "en": "field",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pole",
+              "połe",
+              "powe"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-020",
+          "pl": "dwa",
+          "en": "two",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-03-021",
+          "pl": "łatwy",
+          "en": "easy",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "łatwy",
+              "latwy",
+              "watwy"
+            ]
+          }
+        },
+        {
+          "id": "pr-03-022",
+          "pl": "mydło",
+          "en": "soap",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "mydło",
+              "mydlo",
+              "mydwo"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pr-04",
+      "title": "Nasal vowels ą and ę",
+      "lesson": {
+        "summary": "How ą and ę are pronounced, and how their sound changes with the letter that follows.",
+        "body": [
+          "The letters ą and ę are nasal vowels: ą is an \"o\" and ę an \"e\" with some air going through the nose. English has nothing quite like them. The good news is that most of the time they are said as a plain vowel plus an m, n or \"ng\" sound, and which one you hear depends on the next letter.",
+          "Before p or b they sound like \"om\" and \"em\": {{ząb}} (tooth) sounds like \"zomp\". Before t, d, c or cz they sound like \"on\" and \"en\": {{mądry}}, {{piątek}}. Before k or g they sound like \"on\" and \"en\" with the \"ng\" of English \"bank\": {{ręka}}, {{mąka}}. Before s, z, sz, ż, ś, ź, w, f or ch the vowel itself is nasal, with no full m or n: {{mięso}}, {{wąsy}}.",
+          "At the end of a word, ą keeps a clear nasal sound, roughly \"o\" sliding into a nasal \"w\": {{są}}, {{mają}}. Final ę, by contrast, is usually said almost like a plain e: {{idę}}, {{imię}}."
+        ],
+        "letters": [
+          {
+            "spelling": "ą (at the end of a word)",
+            "sound": "An \"o\" said through the nose, gliding towards a nasal \"w\". No English equivalent.",
+            "examples": [
+              "są",
+              "mają"
+            ]
+          },
+          {
+            "spelling": "ę (at the end of a word)",
+            "sound": "Usually just a plain Polish e, sometimes with a slight nasal touch.",
+            "examples": [
+              "idę",
+              "imię"
+            ]
+          },
+          {
+            "spelling": "ą, ę + p, b",
+            "sound": "Like \"om\", \"em\".",
+            "examples": [
+              "ząb",
+              "zęby"
+            ]
+          },
+          {
+            "spelling": "ą, ę + t, d, c, cz",
+            "sound": "Like \"on\", \"en\". Before ć or dź the n becomes a soft ń, as in {{pięć}}.",
+            "examples": [
+              "mądry",
+              "piątek"
+            ]
+          },
+          {
+            "spelling": "ą, ę + k, g",
+            "sound": "Like \"on\", \"en\" with the \"ng\" sound of English \"bank\".",
+            "examples": [
+              "ręka",
+              "mąka"
+            ]
+          },
+          {
+            "spelling": "ą, ę + s, z, sz, ż, ś, ź, w, f, ch",
+            "sound": "A truly nasal vowel: the mouth never closes for an m or n.",
+            "examples": [
+              "mięso",
+              "wąsy"
+            ]
+          }
+        ],
+        "more": [
+          "Before l or ł, ą and ę lose their nasal sound completely: {{wziął}} (he took) sounds like \"wzioł\", and {{zaczęli}} (they began) like \"zaczeli\".",
+          "Because ą before t sounds like \"on\", a word such as {{kąt}} (corner, angle) sounds the same as it would if spelled \"kont\". Spelling with ą or ę has to be learned word by word.",
+          "In careful or formal speech, and sometimes in the phone's voice, final ę is pronounced with a light nasal sound. In everyday speech it is mostly a plain e."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-04-001",
+          "pl": "są",
+          "en": "they are",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "są",
+              "się",
+              "sa"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-002",
+          "pl": "ręka",
+          "en": "hand",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "ręka",
+              "rąka",
+              "reka"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-003",
+          "pl": "mąka",
+          "en": "flour",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "mąka",
+              "męka",
+              "maka"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-004",
+          "pl": "ząb",
+          "en": "tooth",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "ząb",
+              "zęb",
+              "zab"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-005",
+          "pl": "zęby",
+          "en": "teeth",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "zęby",
+              "ząby",
+              "zeby"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-006",
+          "pl": "dąb",
+          "en": "oak",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dąb",
+              "dęb",
+              "dab"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-007",
+          "pl": "pięć",
+          "en": "five",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pięć",
+              "piąć",
+              "pieć"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-008",
+          "pl": "piątek",
+          "en": "Friday",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "piątek",
+              "piętek",
+              "piatek"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-009",
+          "pl": "mądry",
+          "en": "clever, wise",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "mądry",
+              "mędry",
+              "madry"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-010",
+          "pl": "pająk",
+          "en": "spider",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pająk",
+              "pajęk",
+              "pajak"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-011",
+          "pl": "język",
+          "en": "tongue; language",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "język",
+              "jązyk",
+              "jezyk"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-012",
+          "pl": "mięso",
+          "en": "meat",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "mięso",
+              "miąso",
+              "mieso"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-013",
+          "pl": "wąsy",
+          "en": "moustache",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "wąsy",
+              "węsy",
+              "wasy"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-014",
+          "pl": "gęś",
+          "en": "goose",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "gęś",
+              "gąś",
+              "geś"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-015",
+          "pl": "mają",
+          "en": "they have",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "mają",
+              "maję",
+              "maja"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-016",
+          "pl": "dziękuję",
+          "en": "thank you",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dziękuję",
+              "dziąkuję",
+              "dziekuję"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-017",
+          "pl": "będę",
+          "en": "I will be",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "będę",
+              "bądę",
+              "bodę"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-018",
+          "pl": "idę",
+          "en": "I'm going (on foot)",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-04-019",
+          "pl": "łąka",
+          "en": "meadow",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "łąka",
+              "łęka",
+              "łaka"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-020",
+          "pl": "wąski",
+          "en": "narrow",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "wąski",
+              "węski",
+              "waski"
+            ]
+          }
+        },
+        {
+          "id": "pr-04-021",
+          "pl": "imię",
+          "en": "first name",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-04-022",
+          "pl": "proszę",
+          "en": "please",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "proszę",
+              "proszą",
+              "prosza"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pr-05",
+      "title": "sz, cz, rz/ż",
+      "lesson": {
+        "summary": "The \"hard\" hushing sounds sz, cz and ż, and why rz is just another way to write ż.",
+        "body": [
+          "Polish has a family of three \"hard\" hushing sounds: sz as in {{szafa}}, cz as in {{czas}}, and ż as in {{żaba}}. They are close to English \"sh\", \"ch\" and the \"s\" in \"measure\", but darker and firmer: the tip of the tongue is raised a little further back, behind the ridge above your top teeth, and the tongue stays fairly flat. Listen for a deep, low hiss rather than a soft, bright one.",
+          "The spelling rz is pronounced exactly like ż, so {{morze}} (sea) and {{może}} (maybe) sound the same. Only memory tells you which spelling a word uses. After p, t, k and ch, rz loses its voice and sounds like sz: {{trzy}} is said as if spelled \"tszy\", and {{krzesło}} as \"kszesło\".",
+          "After these letters Polish writes y, not i: {{czy}}, {{szyja}}, {{duży}}. In native words you will almost never see \"szi\" or \"czi\"."
+        ],
+        "letters": [
+          {
+            "spelling": "sz",
+            "sound": "Roughly like English \"sh\" in \"shop\", but harder and lower, with the tongue tip raised further back. No exact English match.",
+            "examples": [
+              "szafa",
+              "szary",
+              "mysz"
+            ]
+          },
+          {
+            "spelling": "cz",
+            "sound": "Roughly like \"ch\" in \"church\", but harder and lower in the same way as sz.",
+            "examples": [
+              "czas",
+              "czarny",
+              "klucz"
+            ]
+          },
+          {
+            "spelling": "ż",
+            "sound": "Roughly like the \"s\" in \"measure\", but harder and lower. The voiced partner of sz.",
+            "examples": [
+              "żaba",
+              "żona",
+              "róża"
+            ]
+          },
+          {
+            "spelling": "rz",
+            "sound": "Exactly the same sound as ż. After p, t, k, ch it sounds like sz.",
+            "examples": [
+              "rzeka",
+              "morze",
+              "trzy"
+            ]
+          }
+        ],
+        "more": [
+          "At the end of a word, ż and rz lose their voice and sound like sz, just as every voiced consonant does in Polish: {{lekarz}} (doctor) ends with the same sound as {{kapelusz}} (hat). Topic 11 covers this in detail.",
+          "The rz spelling exists because it was once a different sound, a kind of buzzing r. That sound disappeared from standard Polish centuries ago, but the spelling stayed, which is why some words are written with ż and others with rz."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-05-001",
+          "pl": "szafa",
+          "en": "wardrobe",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "szafa",
+              "siafa",
+              "safa"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-002",
+          "pl": "szary",
+          "en": "grey",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "szary",
+              "siary",
+              "sary"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-003",
+          "pl": "szynka",
+          "en": "ham",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "szynka",
+              "synka",
+              "sinka"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-004",
+          "pl": "mysz",
+          "en": "mouse",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "mysz",
+              "myś",
+              "mys"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-005",
+          "pl": "kapelusz",
+          "en": "hat",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-006",
+          "pl": "proszę",
+          "en": "please",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-007",
+          "pl": "szkoła",
+          "en": "school",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-008",
+          "pl": "koszula",
+          "en": "shirt",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "koszula",
+              "kosiula",
+              "kosula"
+            ]
+          },
+          "syll": [
+            "ko",
+            "szu",
+            "la"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-05-009",
+          "pl": "czas",
+          "en": "time",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "czas",
+              "cias",
+              "cas"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-010",
+          "pl": "czarny",
+          "en": "black",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "czarny",
+              "ciarny",
+              "carny"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-011",
+          "pl": "czekać",
+          "en": "to wait",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "czekać",
+              "ciekać",
+              "cekać"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-012",
+          "pl": "czytać",
+          "en": "to read",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "czytać",
+              "cytać",
+              "szytać"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-013",
+          "pl": "oczy",
+          "en": "eyes",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-014",
+          "pl": "klucz",
+          "en": "key",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "klucz",
+              "kluć",
+              "kluc"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-015",
+          "pl": "czapka",
+          "en": "cap, hat",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-016",
+          "pl": "żaba",
+          "en": "frog",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "żaba",
+              "ziaba",
+              "zaba"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-017",
+          "pl": "żona",
+          "en": "wife",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "żona",
+              "ziona",
+              "zona"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-018",
+          "pl": "duży",
+          "en": "big",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-019",
+          "pl": "rzeka",
+          "en": "river",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "rzeka",
+              "zieka",
+              "zeka"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-020",
+          "pl": "morze",
+          "en": "sea",
+          "cards": [
+            "dict"
+          ],
+          "alts": [
+            "może"
+          ]
+        },
+        {
+          "id": "pr-05-021",
+          "pl": "może",
+          "en": "maybe",
+          "cards": [
+            "dict"
+          ],
+          "alts": [
+            "morze"
+          ]
+        },
+        {
+          "id": "pr-05-022",
+          "pl": "róża",
+          "en": "rose",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "róża",
+              "rózia",
+              "róza"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-023",
+          "pl": "burza",
+          "en": "storm",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "burza",
+              "buzia",
+              "buza"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-024",
+          "pl": "plaża",
+          "en": "beach",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "plaża",
+              "plazia",
+              "plaza"
+            ]
+          }
+        },
+        {
+          "id": "pr-05-025",
+          "pl": "trzy",
+          "en": "three",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-026",
+          "pl": "krzesło",
+          "en": "chair",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-05-027",
+          "pl": "przepraszam",
+          "en": "sorry, excuse me",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "prze",
+            "pra",
+            "szam"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-05-028",
+          "pl": "lekarz",
+          "en": "doctor",
+          "cards": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-06",
+      "title": "ś, ć, ź, ń and si, ci, zi, ni",
+      "lesson": {
+        "summary": "The \"soft\" sounds ś, ć, ź and ń, and the rule for when they are written with an i instead of an accent.",
+        "body": [
+          "The \"soft\" series is ś, ć, ź and ń. To make them, keep the tip of your tongue down behind your lower teeth and push the middle of the tongue up against the roof of your mouth, with the lips spread slightly, as if smiling. The result is a light, bright, high hiss. English has no exact equivalent for ś, ć or ź, so give your ear time to learn them.",
+          "Each soft sound has two spellings. Before a consonant or at the end of a word you write the accent: {{środa}}, {{ktoś}}, {{być}}, {{źle}}, {{koń}}. Before a vowel you write the plain letter plus i instead: {{siostra}}, {{ciocia}}, {{zielony}}, {{niebo}}. Here the i is not a separate vowel, it only softens the consonant. Before the vowel i itself, you just write si, ci, zi, ni: {{zima}}, {{cicho}}.",
+          "So ś and si are one sound written two ways, depending on what follows. Polish never writes ś, ć, ź or ń directly before a vowel."
+        ],
+        "letters": [
+          {
+            "spelling": "ś / si",
+            "sound": "A soft, bright hiss with the middle of the tongue raised; no English equivalent. Softer and higher than sz, and close to the \"x\" of Mandarin \"xie\".",
+            "examples": [
+              "środa",
+              "ktoś",
+              "siostra"
+            ]
+          },
+          {
+            "spelling": "ć / ci",
+            "sound": "The soft partner of cz; no English equivalent. Roughly a very light, \"smiling\" version of \"ch\" in \"cheese\".",
+            "examples": [
+              "być",
+              "pięć",
+              "ciocia"
+            ]
+          },
+          {
+            "spelling": "ź / zi",
+            "sound": "The voiced partner of ś; no English equivalent. Softer and higher than ż.",
+            "examples": [
+              "źle",
+              "późno",
+              "zima"
+            ]
+          },
+          {
+            "spelling": "ń / ni",
+            "sound": "Roughly like \"ny\" in \"canyon\" or \"ni\" in \"onion\", said as one sound.",
+            "examples": [
+              "koń",
+              "jesień",
+              "niebo"
+            ]
+          }
+        ],
+        "more": [
+          "The i-spelling only softens the consonant when a vowel follows. In {{siostra}} the i is silent softening; in {{zima}} and {{cicho}} the i is a real vowel, and the consonant before it is soft too.",
+          "At the end of a word ź loses its voice and sounds like ś, so the soft series at word end is mostly ś, ć and ń.",
+          "Soft and hard sounds can both appear in one word: {{cieszę}} has a soft ć at the start and a hard sz in the middle. Topic 7 trains your ear to tell them apart."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-06-001",
+          "pl": "śnieg",
+          "en": "snow",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "śnieg",
+              "sznieg",
+              "żnieg"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-002",
+          "pl": "środa",
+          "en": "Wednesday",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "środa",
+              "szroda",
+              "sroda"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-003",
+          "pl": "ktoś",
+          "en": "someone",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ktoś",
+              "ktosz",
+              "ktos"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-004",
+          "pl": "świat",
+          "en": "world",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "świat",
+              "szwiat",
+              "swiat"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-005",
+          "pl": "jeść",
+          "en": "to eat",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-006",
+          "pl": "siostra",
+          "en": "sister",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "siostra",
+              "szostra",
+              "sostra"
+            ]
+          },
+          "syll": [
+            "sio",
+            "stra"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-06-007",
+          "pl": "siedem",
+          "en": "seven",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "siedem",
+              "szedem",
+              "sedem"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-008",
+          "pl": "być",
+          "en": "to be",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "być",
+              "bycz",
+              "byc"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-009",
+          "pl": "pić",
+          "en": "to drink",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-010",
+          "pl": "pięć",
+          "en": "five",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pięć",
+              "pięcz",
+              "pięc"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-011",
+          "pl": "ciocia",
+          "en": "aunt",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ciocia",
+              "czocia",
+              "cocia"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-012",
+          "pl": "ciepło",
+          "en": "warm, warmth",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ciepło",
+              "czepło",
+              "cepło"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-013",
+          "pl": "ciasto",
+          "en": "cake",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ciasto",
+              "czasto",
+              "casto"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-014",
+          "pl": "cicho",
+          "en": "quietly",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-015",
+          "pl": "źle",
+          "en": "badly",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "źle",
+              "żle",
+              "zle"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-016",
+          "pl": "późno",
+          "en": "late",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "późno",
+              "póżno",
+              "pózno"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-017",
+          "pl": "zima",
+          "en": "winter",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "zima",
+              "żyma",
+              "zyma"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-018",
+          "pl": "zielony",
+          "en": "green",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "zielony",
+              "żelony",
+              "zelony"
+            ]
+          },
+          "syll": [
+            "zie",
+            "lo",
+            "ny"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-06-019",
+          "pl": "zimno",
+          "en": "cold",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-020",
+          "pl": "koń",
+          "en": "horse",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "koń",
+              "kon",
+              "koc"
+            ]
+          }
+        },
+        {
+          "id": "pr-06-021",
+          "pl": "jesień",
+          "en": "autumn",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-022",
+          "pl": "słońce",
+          "en": "sun",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-023",
+          "pl": "niebo",
+          "en": "sky",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-06-024",
+          "pl": "kuchnia",
+          "en": "kitchen",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "kuch",
+            "nia"
+          ],
+          "stress": 0
+        }
+      ]
+    },
+    {
+      "id": "pr-07",
+      "title": "Telling the two “sh / ch / zh” series apart",
+      "lesson": {
+        "summary": "Ear training: hear the difference between hard sz/cz/ż, soft ś/ć/ź, and plain s/c/z.",
+        "body": [
+          "Polish has three sets of hissing sounds where English has roughly two. The plain set s, c, z is like English s, ts, z. The hard set sz, cz, ż sounds low, dark and firm. The soft set ś, ć, ź sounds high, light and \"smiley\". To an English ear the hard and soft sets both sound like \"sh\", \"ch\" and \"zh\", so this topic is pure listening practice.",
+          "A useful trick: think of pitch. Plain s is the sharpest and highest, soft ś is a little lower and fuzzy, hard sz is the lowest and darkest. Many pairs of real words differ only in this: {{kasza}} (kasha) and {{kasa}} (till), {{czy}} (question word) and {{ci}} (to you), {{proszę}} (please) and {{prosię}} (piglet), {{wiesz}} (you know) and {{wieś}} (village).",
+          "Remember the spelling rule from topic 6: the soft sounds are written si, ci, zi before a vowel. So {{prosię}} has the same soft sound as {{ktoś}}."
+        ],
+        "letters": [
+          {
+            "spelling": "s / sz / ś",
+            "sound": "Plain English-like s; hard, dark sz; soft, bright ś (written si before a vowel).",
+            "examples": [
+              "kasa",
+              "kasza",
+              "wieś"
+            ]
+          },
+          {
+            "spelling": "c / cz / ć",
+            "sound": "Plain ts; hard, dark cz; soft, bright ć (written ci before a vowel).",
+            "examples": [
+              "noc",
+              "czy",
+              "ci"
+            ]
+          },
+          {
+            "spelling": "z / ż / ź",
+            "sound": "Plain English-like z; hard, dark ż (also spelled rz); soft, bright ź (written zi before a vowel).",
+            "examples": [
+              "zupa",
+              "może",
+              "buzia"
+            ]
+          }
+        ],
+        "more": [
+          "If it helps to feel the difference: for the hard set, the tongue tip is up and slightly back and the lips push forward a little. For the soft set, the tongue tip is down behind the lower teeth, the middle of the tongue is pressed up, and the lips are spread.",
+          "At the end of a word the voiced sounds lose their voice (ż sounds like sz, ź like ś, z like s), so at the end of a word you only need to tell s / sz / ś and c / cz / ć apart."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-07-001",
+          "pl": "kasza",
+          "en": "kasha (cooked grain)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "kasza",
+              "kasa",
+              "kacza"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-002",
+          "pl": "kasa",
+          "en": "till, cash desk",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "kasa",
+              "kasza",
+              "kaca"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-003",
+          "pl": "czy",
+          "en": "question word; whether",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "czy",
+              "ci",
+              "cy"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-004",
+          "pl": "ci",
+          "en": "to you",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ci",
+              "czy",
+              "szy"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-005",
+          "pl": "proszę",
+          "en": "please",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "proszę",
+              "prosię",
+              "prosę"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-006",
+          "pl": "prosię",
+          "en": "piglet",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "prosię",
+              "proszę",
+              "prosę"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-007",
+          "pl": "nasz",
+          "en": "our",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "nasz",
+              "nas",
+              "naś"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-008",
+          "pl": "nas",
+          "en": "us",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "nas",
+              "nasz",
+              "naś"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-009",
+          "pl": "wieś",
+          "en": "village",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "wieś",
+              "wiesz",
+              "wies"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-010",
+          "pl": "wiesz",
+          "en": "you know",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "wiesz",
+              "wieś",
+              "wies"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-011",
+          "pl": "kosz",
+          "en": "basket",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "kosz",
+              "kos",
+              "koś"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-012",
+          "pl": "cieszę się",
+          "en": "I'm glad",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "cieszę się",
+              "czeszę się",
+              "ceszę się"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-013",
+          "pl": "czeszę się",
+          "en": "I comb my hair",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "czeszę się",
+              "cieszę się",
+              "czesę się"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-014",
+          "pl": "buzia",
+          "en": "face (informal)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "buzia",
+              "burza",
+              "buza"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-015",
+          "pl": "może",
+          "en": "maybe",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "może",
+              "mozie",
+              "moze"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-016",
+          "pl": "noc",
+          "en": "night",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "noc",
+              "nocz",
+              "noć"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-017",
+          "pl": "ser",
+          "en": "cheese",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ser",
+              "szer",
+              "sier"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-018",
+          "pl": "pies",
+          "en": "dog",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pies",
+              "piesz",
+              "pieś"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-019",
+          "pl": "ulica",
+          "en": "street",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ulica",
+              "ulicza",
+              "ulicia"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-020",
+          "pl": "zupa",
+          "en": "soup",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "zupa",
+              "żupa",
+              "ziupa"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-021",
+          "pl": "koza",
+          "en": "goat",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "koza",
+              "koża",
+              "kozia"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-022",
+          "pl": "córka",
+          "en": "daughter",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "córka",
+              "czórka",
+              "ciórka"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-023",
+          "pl": "osiem",
+          "en": "eight",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "osiem",
+              "oszem",
+              "osem"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-024",
+          "pl": "sześć",
+          "en": "six",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "sześć",
+              "sieść",
+              "seść"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-025",
+          "pl": "cisza",
+          "en": "silence",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "cisza",
+              "czysza",
+              "cisa"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-026",
+          "pl": "siano",
+          "en": "hay",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "siano",
+              "szano",
+              "sano"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-027",
+          "pl": "ziemniak",
+          "en": "potato",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "ziemniak",
+              "żemniak",
+              "zemniak"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-028",
+          "pl": "miś",
+          "en": "teddy bear",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "miś",
+              "misz",
+              "mis"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-029",
+          "pl": "żółty",
+          "en": "yellow",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "żółty",
+              "ziółty",
+              "zółty"
+            ]
+          }
+        },
+        {
+          "id": "pr-07-030",
+          "pl": "cukier",
+          "en": "sugar",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "cukier",
+              "czukier",
+              "ciukier"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pr-08",
+      "title": "dz, dź, dż",
+      "lesson": {
+        "summary": "The three \"d + hiss\" sounds dz, dź (dzi) and dż, the voiced partners of c, ć and cz.",
+        "body": [
+          "Each of the three hissing families has a \"d\" version, written with two or three letters but said as one quick sound. dz is the voiced partner of c: like the \"ds\" at the end of \"kids\", but it can also start a word, as in {{dzwon}} (bell). dż is the voiced partner of cz: roughly the \"j\" in \"jam\", but harder and darker, as in {{dżem}} (jam).",
+          "dź is the voiced partner of ć, from the soft family. It follows the same spelling rule: dź before a consonant or at the end of a word, dzi before a vowel. It is very common, because dzi appears in everyday words such as {{dzień}} (day), {{dziecko}} (child) and {{gdzie}} (where). English has no exact equivalent; it is softer and brighter than the \"j\" in \"jeep\".",
+          "dż is the rarest of the three and mostly appears in borrowed words like {{dżem}}, {{dżungla}} and {{dżinsy}}."
+        ],
+        "letters": [
+          {
+            "spelling": "dz",
+            "sound": "Like \"ds\" in \"kids\", said as one sound. Voiced partner of c.",
+            "examples": [
+              "dzwon",
+              "bardzo",
+              "jedzenie"
+            ]
+          },
+          {
+            "spelling": "dź / dzi",
+            "sound": "Soft and bright; no English equivalent, roughly a softer \"j\" in \"jeep\". Voiced partner of ć.",
+            "examples": [
+              "dzień",
+              "dziecko",
+              "gdzie"
+            ]
+          },
+          {
+            "spelling": "dż",
+            "sound": "Roughly like \"j\" in \"jam\", but harder and darker. Voiced partner of cz.",
+            "examples": [
+              "dżem",
+              "dżungla"
+            ]
+          }
+        ],
+        "more": [
+          "At the end of a word these sounds lose their voice: dz sounds like c, dź like ć, and dż like cz. So {{łódź}} (boat) ends with the same sound as {{być}}.",
+          "Occasionally d and z belong to different parts of a word (a prefix ending in d followed by z) and are then said as two separate sounds. This is rare and does not affect the words in this topic."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-08-001",
+          "pl": "dzwon",
+          "en": "bell",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dzwon",
+              "dźwon",
+              "dżwon"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-002",
+          "pl": "bardzo",
+          "en": "very",
+          "cards": [
+            "listen",
+            "stress"
+          ],
+          "listen": {
+            "options": [
+              "bardzo",
+              "bardzio",
+              "bardżo"
+            ]
+          },
+          "syll": [
+            "bar",
+            "dzo"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-08-003",
+          "pl": "pieniądze",
+          "en": "money",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pieniądze",
+              "pieniądzie",
+              "pieniądże"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-004",
+          "pl": "jedzenie",
+          "en": "food",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "jedzenie",
+              "jedzienie",
+              "jedżenie"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-005",
+          "pl": "widzę",
+          "en": "I see",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-08-006",
+          "pl": "dzwonić",
+          "en": "to ring, to phone",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-08-007",
+          "pl": "dzień",
+          "en": "day",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "dzień",
+              "dzeń",
+              "dżeń"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-008",
+          "pl": "dziecko",
+          "en": "child",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dziecko",
+              "dzecko",
+              "dżecko"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-009",
+          "pl": "dziś",
+          "en": "today",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-08-010",
+          "pl": "dzięki",
+          "en": "thanks",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dzięki",
+              "dzęki",
+              "dżęki"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-011",
+          "pl": "dziadek",
+          "en": "grandfather",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dziadek",
+              "dzadek",
+              "dżadek"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-012",
+          "pl": "gdzie",
+          "en": "where",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "gdzie",
+              "gdze",
+              "gdże"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-013",
+          "pl": "niedziela",
+          "en": "Sunday",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "nie",
+            "dzie",
+            "la"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-08-014",
+          "pl": "dziesięć",
+          "en": "ten",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-08-015",
+          "pl": "rodzina",
+          "en": "family",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "rodzina",
+              "rodzyna",
+              "rodżyna"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-016",
+          "pl": "chodzić",
+          "en": "to walk, to go (on foot)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chodzić",
+              "chodzyć",
+              "chodżyć"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-017",
+          "pl": "dziewczyna",
+          "en": "girl, girlfriend",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "dziew",
+            "czy",
+            "na"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-08-018",
+          "pl": "łódź",
+          "en": "boat",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-08-019",
+          "pl": "dżem",
+          "en": "jam",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "dżem",
+              "dzem",
+              "dziem"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-020",
+          "pl": "dżungla",
+          "en": "jungle",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dżungla",
+              "dzungla",
+              "dziungla"
+            ]
+          }
+        },
+        {
+          "id": "pr-08-021",
+          "pl": "dżinsy",
+          "en": "jeans",
+          "cards": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-09",
+      "title": "ch and h",
+      "lesson": {
+        "summary": "Polish ch and h are the same sound, a rough breathy sound made at the back of the mouth, and it must not turn into k.",
+        "body": [
+          "In standard Polish, ch and h are two spellings of one sound. It is not the soft English h of \"hat\": it is rougher, made by pushing air through a narrow gap between the back of your tongue and the soft palate. It is close to the ch in Scottish \"loch\" or German \"Bach\". English has no exact equivalent.",
+          "Because the two spellings sound the same, you cannot hear which one a word uses: {{chleb}} and {{herbata}} start with the same sound. You simply have to learn the spelling of each word. Polish ch is never like the ch in English \"church\" (that sound is written cz).",
+          "The sound you must not confuse it with is k. In k the tongue closes completely and then releases; in ch/h the air never stops. Listen for that continuous hiss in {{ucho}} (ear) compared with a k sound."
+        ],
+        "letters": [
+          {
+            "spelling": "ch",
+            "sound": "Rough, breathy sound at the back of the mouth, roughly like Scottish \"loch\". Also clearly audible at the end of a word.",
+            "examples": [
+              "chleb",
+              "ucho",
+              "dach"
+            ]
+          },
+          {
+            "spelling": "h",
+            "sound": "Exactly the same sound as ch in standard Polish. Only the spelling differs.",
+            "examples": [
+              "herbata",
+              "hotel",
+              "hałas"
+            ]
+          }
+        ],
+        "more": [
+          "Some speakers, especially in eastern Poland, still pronounce h as a voiced, softer sound and ch as voiceless, but standard Polish (and the app's voice) makes no difference.",
+          "In English, h is never heard at the end of a word, and almost never before another consonant. In Polish the sound appears everywhere: at the end ({{dach}}, {{brzuch}}) and before other consonants ({{chmura}}, {{chcieć}}). Keep the air flowing and don't let it fade out."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-09-001",
+          "pl": "chleb",
+          "en": "bread",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "chleb",
+              "kleb",
+              "szleb"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-002",
+          "pl": "dach",
+          "en": "roof",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "dach",
+              "dak",
+              "dasz"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-003",
+          "pl": "ucho",
+          "en": "ear",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "ucho",
+              "uko",
+              "uszo"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-004",
+          "pl": "mucha",
+          "en": "fly (insect)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "mucha",
+              "muka",
+              "musza"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-005",
+          "pl": "herbata",
+          "en": "tea",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "herbata",
+              "kerbata",
+              "erbata"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-006",
+          "pl": "hotel",
+          "en": "hotel",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "hotel",
+              "kotel",
+              "otel"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-007",
+          "pl": "chory",
+          "en": "ill, sick",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chory",
+              "kory",
+              "szory"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-008",
+          "pl": "chodzić",
+          "en": "to walk, to go (on foot)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chodzić",
+              "kodzić",
+              "szodzić"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-009",
+          "pl": "chłopiec",
+          "en": "boy",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chłopiec",
+              "kłopiec",
+              "słopiec"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-010",
+          "pl": "cichy",
+          "en": "quiet",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-09-011",
+          "pl": "suchy",
+          "en": "dry",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-09-012",
+          "pl": "ruch",
+          "en": "movement, traffic",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-09-013",
+          "pl": "hałas",
+          "en": "noise",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "hałas",
+              "kałas",
+              "ałas"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-014",
+          "pl": "historia",
+          "en": "history, story",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "historia",
+              "kistoria",
+              "istoria"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-015",
+          "pl": "chcieć",
+          "en": "to want",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chcieć",
+              "kcieć",
+              "cieć"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-016",
+          "pl": "chmura",
+          "en": "cloud",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chmura",
+              "kmura",
+              "szmura"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-017",
+          "pl": "duch",
+          "en": "ghost, spirit",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-09-018",
+          "pl": "kochać",
+          "en": "to love",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "kochać",
+              "kokać",
+              "koszać"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-019",
+          "pl": "jechać",
+          "en": "to go (by vehicle)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "jechać",
+              "jekać",
+              "jeszać"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-020",
+          "pl": "kuchnia",
+          "en": "kitchen",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "kuchnia",
+              "kuknia",
+              "kusznia"
+            ]
+          }
+        },
+        {
+          "id": "pr-09-021",
+          "pl": "brzuch",
+          "en": "belly",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-09-022",
+          "pl": "schody",
+          "en": "stairs",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-09-023",
+          "pl": "humor",
+          "en": "humour, mood",
+          "cards": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-10",
+      "title": "Consonant clusters",
+      "lesson": {
+        "summary": "Polish often puts three or four consonants in a row; you read them one after another without adding vowels.",
+        "body": [
+          "Polish words often start or end with several consonants together: {{sklep}}, {{trzy}}, {{wszystko}}, {{deszcz}}. They look scary, but each letter or letter pair (sz, cz, rz, ch…) is still just one sound you already know. Say them in order, quickly, and do not slip an extra \"uh\" vowel between them.",
+          "The most common cluster is szcz: sz followed straight away by cz, as in {{szczęście}} (happiness) and {{deszcz}} (rain). Roughly like the middle of English \"fresh cheese\" said fast, though Polish sz and cz are harder than English sh and ch.",
+          "A few clusters sound different from their letters: after p, t or k, rz sounds like sz ({{trzy}}, {{krzesło}}), and w at the start of {{wszystko}} sounds like f. The next topic explains why."
+        ],
+        "letters": [
+          {
+            "spelling": "szcz",
+            "sound": "sz then cz with no gap. Roughly like the \"sh ch\" in \"fresh cheese\", but harder.",
+            "examples": [
+              "szczęście",
+              "deszcz",
+              "pszczoła"
+            ]
+          },
+          {
+            "spelling": "trz, krz, prz",
+            "sound": "rz after p, t or k sounds like sz: trzy is roughly \"tshy\".",
+            "examples": [
+              "trzy",
+              "krzesło",
+              "trzeba"
+            ]
+          },
+          {
+            "spelling": "wsz",
+            "sound": "w before sz sounds like f: wszystko is roughly \"fshystko\".",
+            "examples": [
+              "wszystko",
+              "wszyscy",
+              "pierwszy"
+            ]
+          },
+          {
+            "spelling": "źdź",
+            "sound": "ź then dź, both soft. A famously hard cluster.",
+            "examples": [
+              "źdźbło"
+            ]
+          }
+        ],
+        "more": [
+          "Some spoken shortcuts are normal: {{jabłko}} (apple) is usually said like \"japko\", with no ł at all. The app's voice may say it either way, but the spelling always keeps the ł.",
+          "Tip for listening: when you hear a cluster, count the separate sounds. {{chrząszcz}} (beetle) is ch + rz + ą + sz + cz. Native speakers find words like this hard too, so you only need to recognise them, not say them perfectly."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-10-001",
+          "pl": "szczęście",
+          "en": "happiness, luck",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "szczęście",
+              "ścięście",
+              "szczęszcze"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-002",
+          "pl": "wszystko",
+          "en": "everything",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "wszystko",
+              "wsistko",
+              "wsystko"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-003",
+          "pl": "pszczoła",
+          "en": "bee",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pszczoła",
+              "pczoła",
+              "psioła"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-004",
+          "pl": "chrząszcz",
+          "en": "beetle",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "chrząszcz",
+              "krząszcz",
+              "chrzęszcz"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-005",
+          "pl": "źdźbło",
+          "en": "blade (of grass)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "źdźbło",
+              "żdżbło",
+              "zdbło"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-006",
+          "pl": "trzy",
+          "en": "three",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "trzy",
+              "try",
+              "ty"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-007",
+          "pl": "krzesło",
+          "en": "chair",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "krzesło",
+              "kresło",
+              "krzeszło"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-008",
+          "pl": "sklep",
+          "en": "shop",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-009",
+          "pl": "zdjęcie",
+          "en": "photo",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "zdjęcie",
+              "zgięcie",
+              "ścięcie"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-010",
+          "pl": "drzwi",
+          "en": "door",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-011",
+          "pl": "brzeg",
+          "en": "shore, edge",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-012",
+          "pl": "mgła",
+          "en": "fog",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-013",
+          "pl": "dźwięk",
+          "en": "sound",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "dźwięk",
+              "dzwięk",
+              "dżwięk"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-014",
+          "pl": "szkoła",
+          "en": "school",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "szkoła",
+              "skoła",
+              "śkoła"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-015",
+          "pl": "szklanka",
+          "en": "glass (for drinking)",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-016",
+          "pl": "deszcz",
+          "en": "rain",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "options": [
+              "deszcz",
+              "desz",
+              "deść"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-017",
+          "pl": "jabłko",
+          "en": "apple",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-018",
+          "pl": "trzeba",
+          "en": "it is necessary, one needs to",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "trzeba",
+              "treba",
+              "szeba"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-019",
+          "pl": "wszyscy",
+          "en": "everyone, all (people)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "wszyscy",
+              "wsiscy",
+              "wszyszczy"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-020",
+          "pl": "gwiazda",
+          "en": "star",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-021",
+          "pl": "zdrowie",
+          "en": "health",
+          "cards": [
+            "dict"
+          ]
+        },
+        {
+          "id": "pr-10-022",
+          "pl": "pierwszy",
+          "en": "first",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "pierwszy",
+              "pierwsi",
+              "pierwczy"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-023",
+          "pl": "czwartek",
+          "en": "Thursday",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "czwartek",
+              "cwartek",
+              "ćwiartek"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-024",
+          "pl": "szczotka",
+          "en": "brush",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "options": [
+              "szczotka",
+              "sztotka",
+              "ściotka"
+            ]
+          }
+        },
+        {
+          "id": "pr-10-025",
+          "pl": "mleko",
+          "en": "milk",
+          "cards": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-11",
+      "title": "Devoicing at word end and in clusters",
+      "lesson": {
+        "summary": "At the end of a word, and next to voiceless consonants, Polish b d g w z ż turn into p t k f s sz, so spelling and sound don't always match.",
+        "body": [
+          "Many consonants come in pairs: the same mouth position, once with the voice buzzing (b, d, g, w, z, ż) and once without (p, t, k, f, s, sz). At the very end of a word Polish always uses the voiceless one. So {{chleb}} (bread) sounds like \"chlep\", {{lód}} (ice) like \"lut\" and {{nóż}} (knife) like \"nusz\". The spelling keeps the original letter, which shows up again in other forms of the word.",
+          "The same thing happens inside a word when two consonants meet: they match each other. Before a voiceless consonant a voiced one becomes voiceless ({{łódka}} sounds like \"łutka\", {{książka}} like \"ksiąszka\"). After p, t or k, the letters w and rz also lose their voice ({{twój}} sounds like \"tfuj\", {{trzy}} like \"tszy\").",
+          "It also works the other way: a voiceless consonant before b, d, g or ż usually becomes voiced. {{prośba}} (request) sounds like \"proźba\" and {{także}} (also) like \"tagże\". For listening, the rule is simple: trust your ears, then learn the spelling."
+        ],
+        "letters": [
+          {
+            "spelling": "b → p",
+            "sound": "At the end or before a voiceless consonant, b sounds like p.",
+            "examples": [
+              "chleb",
+              "ząb",
+              "grzyb"
+            ]
+          },
+          {
+            "spelling": "d → t",
+            "sound": "d sounds like t.",
+            "examples": [
+              "obiad",
+              "lód",
+              "łódka"
+            ]
+          },
+          {
+            "spelling": "g → k",
+            "sound": "g sounds like k.",
+            "examples": [
+              "śnieg",
+              "róg"
+            ]
+          },
+          {
+            "spelling": "w → f",
+            "sound": "w sounds like f, also after p, t, k, s, sz.",
+            "examples": [
+              "krew",
+              "wtorek",
+              "twój"
+            ]
+          },
+          {
+            "spelling": "z → s",
+            "sound": "z sounds like s.",
+            "examples": [
+              "raz"
+            ]
+          },
+          {
+            "spelling": "ż, rz → sz",
+            "sound": "ż and rz sound like sz, also rz after p, t, k.",
+            "examples": [
+              "nóż",
+              "też",
+              "książka"
+            ]
+          }
+        ],
+        "more": [
+          "The full list of pairs is b/p, d/t, g/k, w/f, z/s, ż(rz)/sz, ź/ś, dz/c, dź/ć, dż/cz. The soft and dz-type pairs behave the same way, for example {{liczba}} (number) sounds like \"lidżba\".",
+          "Because of devoicing, some different words sound identical: {{kot}} (cat) and {{kod}} (code) are both \"kot\"; {{lód}} (ice) and {{lud}} (people, nation) are both \"lut\". Context tells them apart.",
+          "The same matching also happens across word boundaries in fast speech, but you don't need to worry about that yet."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-11-001",
+          "pl": "chleb",
+          "en": "bread",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of chleb?",
+            "options": [
+              "p",
+              "b"
+            ],
+            "answer": "p"
+          }
+        },
+        {
+          "id": "pr-11-002",
+          "pl": "ząb",
+          "en": "tooth",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of ząb?",
+            "options": [
+              "p",
+              "b"
+            ],
+            "answer": "p"
+          }
+        },
+        {
+          "id": "pr-11-003",
+          "pl": "grzyb",
+          "en": "mushroom",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of grzyb?",
+            "options": [
+              "p",
+              "b"
+            ],
+            "answer": "p"
+          }
+        },
+        {
+          "id": "pr-11-004",
+          "pl": "obiad",
+          "en": "dinner (main midday meal)",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of obiad?",
+            "options": [
+              "t",
+              "d"
+            ],
+            "answer": "t"
+          }
+        },
+        {
+          "id": "pr-11-005",
+          "pl": "lód",
+          "en": "ice",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of lód?",
+            "options": [
+              "t",
+              "d"
+            ],
+            "answer": "t"
+          },
+          "alts": [
+            "lud"
+          ]
+        },
+        {
+          "id": "pr-11-006",
+          "pl": "miód",
+          "en": "honey",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of miód?",
+            "options": [
+              "t",
+              "d"
+            ],
+            "answer": "t"
+          }
+        },
+        {
+          "id": "pr-11-007",
+          "pl": "ogród",
+          "en": "garden",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of ogród?",
+            "options": [
+              "t",
+              "d"
+            ],
+            "answer": "t"
+          }
+        },
+        {
+          "id": "pr-11-008",
+          "pl": "kot",
+          "en": "cat",
+          "cards": [
+            "dict"
+          ],
+          "alts": [
+            "kod"
+          ]
+        },
+        {
+          "id": "pr-11-009",
+          "pl": "śnieg",
+          "en": "snow",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of śnieg?",
+            "options": [
+              "k",
+              "g"
+            ],
+            "answer": "k"
+          }
+        },
+        {
+          "id": "pr-11-010",
+          "pl": "róg",
+          "en": "corner, horn",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of róg?",
+            "options": [
+              "k",
+              "g"
+            ],
+            "answer": "k"
+          }
+        },
+        {
+          "id": "pr-11-011",
+          "pl": "krew",
+          "en": "blood",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of krew?",
+            "options": [
+              "f",
+              "w"
+            ],
+            "answer": "f"
+          }
+        },
+        {
+          "id": "pr-11-012",
+          "pl": "nóż",
+          "en": "knife",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of nóż?",
+            "options": [
+              "sz",
+              "ż"
+            ],
+            "answer": "sz"
+          }
+        },
+        {
+          "id": "pr-11-013",
+          "pl": "też",
+          "en": "also, too",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of też?",
+            "options": [
+              "sz",
+              "ż"
+            ],
+            "answer": "sz"
+          }
+        },
+        {
+          "id": "pr-11-014",
+          "pl": "mąż",
+          "en": "husband",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of mąż?",
+            "options": [
+              "sz",
+              "ż"
+            ],
+            "answer": "sz"
+          }
+        },
+        {
+          "id": "pr-11-015",
+          "pl": "raz",
+          "en": "once, one time",
+          "cards": [
+            "listen",
+            "dict"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the end of raz?",
+            "options": [
+              "s",
+              "z"
+            ],
+            "answer": "s"
+          },
+          "alts": [
+            "ras"
+          ]
+        },
+        {
+          "id": "pr-11-016",
+          "pl": "łódka",
+          "en": "small boat",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the k in łódka?",
+            "options": [
+              "t",
+              "d"
+            ],
+            "answer": "t"
+          }
+        },
+        {
+          "id": "pr-11-017",
+          "pl": "wszystko",
+          "en": "everything",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the start of wszystko?",
+            "options": [
+              "f",
+              "w"
+            ],
+            "answer": "f"
+          }
+        },
+        {
+          "id": "pr-11-018",
+          "pl": "wtorek",
+          "en": "Tuesday",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear at the start of wtorek?",
+            "options": [
+              "f",
+              "w"
+            ],
+            "answer": "f"
+          }
+        },
+        {
+          "id": "pr-11-019",
+          "pl": "twój",
+          "en": "your (to one person)",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear after the t in twój?",
+            "options": [
+              "f",
+              "w"
+            ],
+            "answer": "f"
+          }
+        },
+        {
+          "id": "pr-11-020",
+          "pl": "ławka",
+          "en": "bench",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the k in ławka?",
+            "options": [
+              "f",
+              "w"
+            ],
+            "answer": "f"
+          }
+        },
+        {
+          "id": "pr-11-021",
+          "pl": "książka",
+          "en": "book",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the k in książka?",
+            "options": [
+              "sz",
+              "ż"
+            ],
+            "answer": "sz"
+          }
+        },
+        {
+          "id": "pr-11-022",
+          "pl": "łyżka",
+          "en": "spoon",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the k in łyżka?",
+            "options": [
+              "sz",
+              "ż"
+            ],
+            "answer": "sz"
+          }
+        },
+        {
+          "id": "pr-11-023",
+          "pl": "trzy",
+          "en": "three",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear after the t in trzy?",
+            "options": [
+              "sz",
+              "ż"
+            ],
+            "answer": "sz"
+          }
+        },
+        {
+          "id": "pr-11-024",
+          "pl": "prośba",
+          "en": "request",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the b in prośba?",
+            "options": [
+              "ź",
+              "ś"
+            ],
+            "answer": "ź"
+          }
+        },
+        {
+          "id": "pr-11-025",
+          "pl": "liczba",
+          "en": "number",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the b in liczba?",
+            "options": [
+              "dż",
+              "cz"
+            ],
+            "answer": "dż"
+          }
+        },
+        {
+          "id": "pr-11-026",
+          "pl": "także",
+          "en": "also",
+          "cards": [
+            "listen"
+          ],
+          "listen": {
+            "q": "Which sound do you hear before the ż in także?",
+            "options": [
+              "g",
+              "k"
+            ],
+            "answer": "g"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pr-12",
+      "title": "Stress on the second-to-last syllable, and common exceptions",
+      "lesson": {
+        "summary": "Polish words are almost always stressed on the second-to-last syllable; a few small groups of words stress the syllable before that.",
+        "body": [
+          "Polish stress is very regular: count the syllables from the end and stress the second-to-last one. {{woda}} is WO-da, {{telefon}} is te-LE-fon, {{telewizor}} is te-le-WI-zor. When a word gets longer, the stress moves with it, so it always stays second from the end.",
+          "To count syllables, count the vowels (a, ą, e, ę, i, o, ó, u, y). One catch: an i directly before another vowel is not a vowel of its own, it only softens the consonant. So {{kobieta}} has three syllables (ko-BIE-ta), not four.",
+          "A few groups break the rule and stress the third syllable from the end: words ending in -yka/-ika that come from Greek or Latin ({{muzyka}} is MU-zy-ka), the \"we\" and \"you all\" forms of the past tense ({{byliśmy}} is BY-li-śmy), and the hundreds with three syllables ({{siedemset}} is SIE-dem-set). Forms with -by- (\"would\") keep the stress of the word in front of it: {{chciałabym}} is CHCIA-ła-bym."
+        ],
+        "letters": [
+          {
+            "spelling": "regular",
+            "sound": "Stress on the second-to-last syllable.",
+            "examples": [
+              "woda",
+              "telefon",
+              "nauczyciel"
+            ]
+          },
+          {
+            "spelling": "-yka, -ika",
+            "sound": "Many words of Greek or Latin origin: stress on the third syllable from the end.",
+            "examples": [
+              "muzyka",
+              "matematyka",
+              "polityka"
+            ]
+          },
+          {
+            "spelling": "-liśmy, -liście",
+            "sound": "Past tense \"we\" and \"you all\": the ending -śmy/-ście doesn't count, so the stress is third from the end.",
+            "examples": [
+              "byliśmy",
+              "byliście",
+              "robiliśmy"
+            ]
+          },
+          {
+            "spelling": "-bym, -byśmy…",
+            "sound": "\"Would\" forms: the stress stays where it is in the word before -by-.",
+            "examples": [
+              "chciałbym",
+              "chciałabym",
+              "chcielibyśmy"
+            ]
+          },
+          {
+            "spelling": "-set, -sta",
+            "sound": "Hundreds: stress on the first part.",
+            "examples": [
+              "czterysta",
+              "siedemset",
+              "dziewięćset"
+            ]
+          }
+        ],
+        "more": [
+          "In everyday speech many Poles regularise these exceptions and say mu-ZY-ka, by-LI-śmy or sie-DEM-set. You will hear both. The forms in this topic are the standard ones, and the app's voice may use either.",
+          "With conditional forms, think of -bym, -byś, -by, -byśmy, -byście as a tail that is added to the past tense and never takes stress. {{chciałbym}} (CHCIAŁ-bym) and {{zrobiłbym}} (zro-BIŁ-bym) happen to look regular; the exception only becomes visible in longer forms such as {{chciałabym}} (CHCIA-ła-bym) and {{chcielibyśmy}} (CHCIE-li-by-śmy)."
+        ]
+      },
+      "items": [
+        {
+          "id": "pr-12-001",
+          "pl": "woda",
+          "en": "water",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "wo",
+            "da"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-12-002",
+          "pl": "szkoła",
+          "en": "school",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "szko",
+            "ła"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-12-003",
+          "pl": "dziękuję",
+          "en": "thank you",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "dzię",
+            "ku",
+            "ję"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-004",
+          "pl": "telefon",
+          "en": "phone",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "te",
+            "le",
+            "fon"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-005",
+          "pl": "kobieta",
+          "en": "woman",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "ko",
+            "bie",
+            "ta"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-006",
+          "pl": "samochód",
+          "en": "car",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "sa",
+            "mo",
+            "chód"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-007",
+          "pl": "rodzina",
+          "en": "family",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "ro",
+            "dzi",
+            "na"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-008",
+          "pl": "pieniądze",
+          "en": "money",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "pie",
+            "nią",
+            "dze"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-009",
+          "pl": "przyjaciel",
+          "en": "friend",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "przy",
+            "ja",
+            "ciel"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-010",
+          "pl": "nauczyciel",
+          "en": "teacher",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "na",
+            "u",
+            "czy",
+            "ciel"
+          ],
+          "stress": 2
+        },
+        {
+          "id": "pr-12-011",
+          "pl": "telewizor",
+          "en": "television set",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "te",
+            "le",
+            "wi",
+            "zor"
+          ],
+          "stress": 2
+        },
+        {
+          "id": "pr-12-012",
+          "pl": "muzyka",
+          "en": "music",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "mu",
+            "zy",
+            "ka"
+          ],
+          "stress": 0,
+          "stressNote": "Greek/Latin -yka word: stress on the third syllable from the end (colloquially often mu-ZY-ka)."
+        },
+        {
+          "id": "pr-12-013",
+          "pl": "fizyka",
+          "en": "physics",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "fi",
+            "zy",
+            "ka"
+          ],
+          "stress": 0,
+          "stressNote": "Greek/Latin -yka word: stress on the third syllable from the end (colloquially often fi-ZY-ka)."
+        },
+        {
+          "id": "pr-12-014",
+          "pl": "polityka",
+          "en": "politics",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "po",
+            "li",
+            "ty",
+            "ka"
+          ],
+          "stress": 1,
+          "stressNote": "Greek/Latin -yka word: stress on the third syllable from the end (colloquially often po-li-TY-ka)."
+        },
+        {
+          "id": "pr-12-015",
+          "pl": "matematyka",
+          "en": "mathematics",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "ma",
+            "te",
+            "ma",
+            "ty",
+            "ka"
+          ],
+          "stress": 2,
+          "stressNote": "Greek/Latin -yka word: stress on the third syllable from the end (colloquially often ma-te-ma-TY-ka)."
+        },
+        {
+          "id": "pr-12-016",
+          "pl": "byliśmy",
+          "en": "we were",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "by",
+            "li",
+            "śmy"
+          ],
+          "stress": 0,
+          "stressNote": "Past tense \"we\" form: -śmy doesn't count, so stress stays on BY-li (colloquially often by-LI-śmy)."
+        },
+        {
+          "id": "pr-12-017",
+          "pl": "byliście",
+          "en": "you (all) were",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "by",
+            "li",
+            "ście"
+          ],
+          "stress": 0,
+          "stressNote": "Past tense \"you all\" form: -ście doesn't count, so stress stays on BY-li (colloquially often by-LI-ście)."
+        },
+        {
+          "id": "pr-12-018",
+          "pl": "robiliśmy",
+          "en": "we were doing, we did",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "ro",
+            "bi",
+            "li",
+            "śmy"
+          ],
+          "stress": 1,
+          "stressNote": "Past tense \"we\" form: -śmy doesn't count, so stress stays on ro-BI-li (colloquially often ro-bi-LI-śmy)."
+        },
+        {
+          "id": "pr-12-019",
+          "pl": "chciałbym",
+          "en": "I would like (said by a man)",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "chciał",
+            "bym"
+          ],
+          "stress": 0
+        },
+        {
+          "id": "pr-12-020",
+          "pl": "zrobiłbym",
+          "en": "I would do (said by a man)",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "zro",
+            "bił",
+            "bym"
+          ],
+          "stress": 1
+        },
+        {
+          "id": "pr-12-021",
+          "pl": "chciałabym",
+          "en": "I would like (said by a woman)",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "chcia",
+            "ła",
+            "bym"
+          ],
+          "stress": 0,
+          "stressNote": "Conditional: -bym never takes stress, so the stress stays on CHCIA-ła."
+        },
+        {
+          "id": "pr-12-022",
+          "pl": "zrobiłabym",
+          "en": "I would do (said by a woman)",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "zro",
+            "bi",
+            "ła",
+            "bym"
+          ],
+          "stress": 1,
+          "stressNote": "Conditional: -bym never takes stress, so the stress stays on zro-BI-ła."
+        },
+        {
+          "id": "pr-12-023",
+          "pl": "chcielibyśmy",
+          "en": "we would like",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "chcie",
+            "li",
+            "by",
+            "śmy"
+          ],
+          "stress": 0,
+          "stressNote": "Conditional: -byśmy never takes stress, so the stress stays on CHCIE-li (fourth syllable from the end)."
+        },
+        {
+          "id": "pr-12-024",
+          "pl": "czterysta",
+          "en": "four hundred",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "czte",
+            "ry",
+            "sta"
+          ],
+          "stress": 0,
+          "stressNote": "Hundreds are stressed on the first part: CZTE-ry-sta."
+        },
+        {
+          "id": "pr-12-025",
+          "pl": "siedemset",
+          "en": "seven hundred",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "sie",
+            "dem",
+            "set"
+          ],
+          "stress": 0,
+          "stressNote": "Hundreds are stressed on the first part: SIE-dem-set."
+        },
+        {
+          "id": "pr-12-026",
+          "pl": "osiemset",
+          "en": "eight hundred",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "o",
+            "siem",
+            "set"
+          ],
+          "stress": 0,
+          "stressNote": "Hundreds are stressed on the first part: O-siem-set."
+        },
+        {
+          "id": "pr-12-027",
+          "pl": "dziewięćset",
+          "en": "nine hundred",
+          "cards": [
+            "stress"
+          ],
+          "syll": [
+            "dzie",
+            "więć",
+            "set"
+          ],
+          "stress": 0,
+          "stressNote": "Hundreds are stressed on the first part: DZIE-więć-set."
+        }
+      ]
+    }
   ]
 }

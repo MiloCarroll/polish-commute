@@ -16,7 +16,7 @@ const FILES = ['index.html', 'manifest.webmanifest'];
 function walk(dir) {
   return readdirSync(dir).flatMap((name) => {
     const p = join(dir, name);
-    if (name.startsWith('.')) return [];
+    if (name.startsWith('.') || name === 'drafts') return [];
     return statSync(p).isDirectory() ? walk(p) : [p];
   });
 }

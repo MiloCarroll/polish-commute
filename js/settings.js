@@ -11,6 +11,7 @@ export const DEFAULTS = Object.freeze({
   autoplay: true,       // speak the Polish when a card appears
   timerMinutes: 40,     // session timer (stage 5); 0 = off
   firstRunDone: false,  // first-run audio screen completed
+  lessonsSeen: [],      // topic ids whose lesson has been shown before their first new card
 });
 
 let cache = null;

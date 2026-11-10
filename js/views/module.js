@@ -2,7 +2,8 @@ import { state } from '../app.js';
 import { settings } from '../settings.js';
 import { countCards, newRemaining, isUnlocked } from '../scheduler.js';
 import { render, esc, plural, speakerIcon, onAction } from '../ui.js';
-import * as tts from '../tts.js';
+import { lessonHtml, lessonHandlers } from '../lesson.js';
+import { markLessonSeen } from './study.js';
 
 /** First topic (in suggested order) that still has unstudied cards. */
 export function nextSuggestedTopic(mod, records) {
@@ -54,7 +55,7 @@ export function topicView(m, topicId) {
 
   const items = topic.items.map((it) => `
     <li class="word">
-      <button class="icon-btn" data-action="say" data-text="${esc(it.pl)}" aria-label="Play ${esc(it.pl)}">${speakerIcon}</button>
+      <button class="icon-btn small" data-action="say" data-text="${esc(it.pl)}" aria-label="Play ${esc(it.pl)}">${speakerIcon}</button>
       <span><span class="pl" lang="pl">${esc(it.pl)}</span> <span class="muted">${esc(it.en)}</span></span>
     </li>`).join('');
 
@@ -62,12 +63,16 @@ export function topicView(m, topicId) {
     title: topic.title,
     back: `#/module/${m}`,
     body: topic.items.length
-      ? `<p class="muted">${c.learned}/${c.total} learned · ${c.due} due · ${c.newAvailable} new</p>
+      ? `${lessonHtml(topic.lesson)}
+         <h2 class="section-title">Words in this topic</h2>
+         <p class="muted small">${c.learned}/${c.total} cards learned · ${c.due} due · ${c.newAvailable} new</p>
          <ul class="words">${items}</ul>`
       : `<p class="notice">${esc(mod.status || 'This topic is coming soon.')}</p>`,
     actions: topic.cards.length && (c.due || c.newAvailable)
       ? `<a class="btn primary" href="#/study/${m}/${topic.id}">Study this topic</a>`
       : '',
   });
-  onAction({ say: (el) => tts.speak(el.dataset.text) });
+  onAction({ ...lessonHandlers });
+  // Reading the lesson here counts: Continue won't show it again before the first new card.
+  if (topic.lesson) markLessonSeen(topic.id);
 }

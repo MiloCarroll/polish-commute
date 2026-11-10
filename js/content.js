@@ -3,11 +3,17 @@
 
 export const MODULES = ['pronunciation', 'vocabulary', 'grammar'];
 
+/** Order in which card kinds are introduced within a topic. */
+export const KIND_ORDER = ['rec', 'listen', 'stress', 'dict'];
+
 /** Card kinds generated for each module's items. Later stages add kinds here. */
 export function cardsForItem(module, topic, item) {
   switch (module) {
     case 'vocabulary':
       return [{ id: `${item.id}-rec`, module, topic: topic.id, item: item.id, kind: 'rec' }];
+    case 'pronunciation':
+      // One card per listed exercise: listen (listen and choose), dict (dictation), stress.
+      return (item.cards ?? []).map((kind) => ({ id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind }));
     default:
       return [];
   }
@@ -20,11 +26,13 @@ export function buildModule(json) {
     topic.cards = [];
     for (const item of topic.items) {
       items.set(item.id, item);
-      for (const def of cardsForItem(json.module, topic, item)) {
-        topic.cards.push(def);
-        defs.push(def);
-      }
+      topic.cards.push(...cardsForItem(json.module, topic, item));
     }
+    // New cards are introduced in this order. Within a topic, all listening cards come
+    // before dictation, so a word's spelling isn't shown just before you have to type it.
+    const rank = (d) => KIND_ORDER.indexOf(d.kind);
+    topic.cards.sort((a, b) => rank(a) - rank(b)); // stable: item order kept within a kind
+    defs.push(...topic.cards);
   }
   return { ...json, defs, items };
 }

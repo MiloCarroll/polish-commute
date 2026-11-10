@@ -2,7 +2,7 @@
 
 A personal, offline web app for learning conversational Polish on a 40-minute train commute, used one-handed on an iPhone. No accounts, ads, streaks, points, notifications or microphone. Progress stays on the phone.
 
-**Status: stage 1 (foundation).** Home screen, storage, FSRS scheduling, offline support, settings and the first-run audio screen are in place, with 8 starter vocabulary cards to exercise the whole loop. Pronunciation (stage 2), the full vocabulary module (stage 3), grammar (stage 4) and stats, own cards, flags and export (stage 5) follow.
+**Status: stage 2 (pronunciation).** All 12 pronunciation topics have a lesson and exercises (listen and choose, dictation, stress spotting), with typed-answer grading and the accent bar. Vocabulary has 8 starter words; the full vocabulary module (stage 3), grammar (stage 4) and stats, own cards, flags and export (stage 5) follow.
 
 ## How it works
 
@@ -28,8 +28,12 @@ js/day.js          04:00 study-day arithmetic (pure, unit-tested)
 js/content.js      loads content/*.json and builds card definitions
 js/settings.js     settings with defaults
 js/tts.js          speech synthesis
+js/grading.js      typed-answer normalising and grading (pure, unit-tested)
+js/accentbar.js    ą ć ę ł ń ó ś ź ż buttons above the iOS keyboard
+js/exercises.js    card screens: recognition, listen and choose, dictation, stress
+js/lesson.js       topic lessons with tap-to-hear words
 js/views/          home, module/topic, study, settings, first-run (welcome)
-content/           course content (JSON)
+content/           course content (JSON); how to write it: docs/content-pronunciation.md
 tools/             validate-content.js, update-sw.js, released-ids.json
 tests/             node --test unit tests
 ```
@@ -87,6 +91,11 @@ node tools/validate-content.js --release
 No native speaker reviews this content, so it follows the safeguards in the project brief (kept private): common textbook Polish, inflections checked against Wiktionary, and a separate error-hunting review pass per content file.
 
 **Stage 1 starter words** (cześć, dzień dobry, dziękuję, proszę, przepraszam, do zobaczenia, tak, nie) and their example sentences are basic, invariable or fixed phrases; they were checked by a review pass but not yet against Wiktionary. Items that could not be verified will be listed here.
+
+**Pronunciation (stage 2):** 12 topics, 295 items, 367 cards. Drafted to `docs/content-pronunciation.md`, then given a separate full error-hunting review that fixed 5 issues (one near-homophone distractor, one missing homophone in `alts`, three overstated lesson claims), plus 3 follow-up fixes to borderline distractors and glosses.
+- *Verified on Wiktionary:* every stress exception in pr-12 (muzyka, fizyka, polityka, matematyka, byliśmy, byliście, robiliśmy, chciałabym, zrobiłabym, chcielibyśmy, czterysta, siedemset, osiemset, dziewięćset); every assimilation answer in pr-11 (prośba, liczba, także, łyżka, książka, łódka, ławka, twój, wtorek); and the phonetic claims for wziął, zaczęli, kąt, jabłko, wszystko, źdźbło, chrząszcz, zdjęcie, pszczoła, dzwon, dżinsy, czeszę, prosię, buzia, obiad.
+- *Not individually looked up:* the remaining basic high-frequency words in pr-01 to pr-08 (checked from knowledge during review), made-up distractor spellings (can't be verified by nature), and three historical notes in `more` sections (rz was once a distinct sound; some older speakers keep a dark ł; some eastern speakers voice h).
+- *Subtlest listening contrasts, worth checking by ear on the phone:* pszczoła / pczoła (pr-10-003), wieś (pr-07-009; the rare command form wieź sounds identical and is not in `alts`).
 
 ## iPhone test checklists
 
