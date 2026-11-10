@@ -3,7 +3,7 @@ import { render, esc, onAction, $ } from '../ui.js';
 import * as tts from '../tts.js';
 import * as db from '../db.js';
 import { DEFAULTS } from '../settings.js';
-import { makeBackup, parseBackup, describeBackup, backupFilename } from '../backup.js';
+import { makeBackup, parseBackup, describeBackup, backupFilename, lastBackupText } from '../backup.js';
 import { loadFlags, flagsAsText } from '../flags.js';
 import { timerSettingsChanged } from '../timer.js';
 
@@ -76,6 +76,7 @@ export function settingsView() {
         <section>
           <h2>Back up your progress</h2>
           <p class="muted small">Progress lives only on this phone. Export a file now and then (e.g. to Files or iCloud Drive) so you can restore it.</p>
+          <p id="last-backup" class="small">${lastBackupText(s.lastBackup)}</p>
           <button type="button" class="btn" data-action="export">Export progress</button>
           <label class="btn file-btn">Import from file…<input type="file" id="import-file" accept="application/json,.json" hidden></label>
           <p id="backup-msg" class="small" hidden></p>
@@ -125,9 +126,13 @@ export function settingsView() {
   onAction({
     test: () => tts.speak(TEST_PHRASE),
     export: async () => {
+      // Record the export first, so the file itself carries the date of the last backup.
+      await setSetting('lastBackup', Date.now());
+      await setSetting('backupSnoozeUntil', null);
       const data = makeBackup(await db.dumpAll());
       download(backupFilename(), JSON.stringify(data), 'application/json');
       message(`Exported ${describeBackup(data)}.`);
+      const lb = document.getElementById('last-backup'); if (lb) lb.textContent = lastBackupText(settings().lastBackup);
     },
     reset: async () => {
       if (!confirm('Reset all progress? Every card goes back to new and your review history is deleted.')) return;

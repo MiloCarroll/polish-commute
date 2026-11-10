@@ -24,7 +24,7 @@ const audioRow = (label = 'Play') => `
     <button class="text-btn" data-action="slow">Slow</button>
   </div>`;
 
-const noVoiceNote = () => (tts.bestVoice() ? '' :
+const noVoiceNote = (text) => (tts.canSpeak(text ?? '') ? '' :
   `<p class="warn small">No Polish voice available, so this card can't play audio.</p>`);
 
 function lessonLink(ctx) {
@@ -262,7 +262,7 @@ function vlisten(ctx) {
       <div class="card study">
         <p class="question">Listen. What does it mean?</p>
         ${audioRow()}
-        ${noVoiceNote()}
+        ${noVoiceNote(item.pl)}
         <div id="answer" hidden class="details">
           <p class="sentence pl" lang="pl">${esc(ex.pl)}</p>
           <p class="answer">${esc(ex.en)}</p>
@@ -303,7 +303,7 @@ function listen(ctx) {
       <div class="card study">
         <p class="question">${esc(spec.q ?? 'Which word did you hear?')}</p>
         ${audioRow()}
-        ${noVoiceNote()}
+        ${noVoiceNote(item.pl)}
         <div id="feedback" hidden></div>
       </div>`,
     actions: `<div class="options">${options.map((o) =>
@@ -342,7 +342,7 @@ function dict(ctx) {
     body: `
       <p class="question">Type what you hear</p>
       ${audioRow()}
-      ${noVoiceNote()}
+      ${noVoiceNote(item.pl)}
       <p class="muted hint">Meaning: ${esc(item.en)}</p>`,
     answers: [item.pl, ...(item.alts ?? [])],
     homophones: true,

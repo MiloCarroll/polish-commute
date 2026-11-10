@@ -81,23 +81,100 @@ export function configure({ voiceURI, rate }) {
 
 export function isUnlocked() { return unlocked; }
 
-/** Call from inside a user gesture handler. */
+// ---- Bundled audio clips --------------------------------------------------------
+// content/audio/manifest.json maps exact Polish text → an audio file. When a clip exists
+// it is played through an <audio> element (better voice; also plays with the phone on
+// silent on most iOS versions); otherwise speech synthesis is used.
+
+const clips = new Map();
+let audioEl = null;
+
+const clipKey = (text) => String(text).normalize('NFC').replace(/\s+/g, ' ').trim();
+
+export async function loadClips() {
+  try {
+    const res = await fetch('content/audio/manifest.json');
+    if (!res.ok) return 0;
+    const m = await res.json();
+    for (const [text, file] of Object.entries(m.clips ?? {})) clips.set(clipKey(text), `content/audio/${file}`);
+  } catch { /* no clips: speech synthesis only */ }
+  return clips.size;
+}
+
+export const clipCount = () => clips.size;
+export const hasClip = (text) => clips.has(clipKey(text));
+export const canSpeak = (text) => hasClip(text) || !!bestVoice();
+
+function audio() {
+  if (!audioEl) {
+    audioEl = new Audio();
+    audioEl.setAttribute('playsinline', '');
+    audioEl.preload = 'auto';
+  }
+  return audioEl;
+}
+
+/** Play an audio file. Resolves true when it finishes, false on error. */
+export function playFile(src, { slow = false } = {}) {
+  const a = audio();
+  if (supported) speechSynthesis.cancel();
+  a.pause();
+  a.src = src;
+  a.preservesPitch = true;
+  a.playbackRate = slow ? 0.75 : (rateName === 'slow' ? 0.85 : 1);
+  return new Promise((resolve) => {
+    a.onended = () => resolve(true);
+    a.onerror = () => resolve(false);
+    const p = a.play();
+    if (p) p.catch(() => resolve(false));
+  });
+}
+
+/** A tiny silent WAV built in memory, used to unlock the <audio> element on iOS. */
+function silentWavUrl() {
+  const n = 800;
+  const buf = new ArrayBuffer(44 + n);
+  const v = new DataView(buf);
+  const str = (o, t) => [...t].forEach((c, i) => v.setUint8(o + i, c.charCodeAt(0)));
+  str(0, 'RIFF'); v.setUint32(4, 36 + n, true); str(8, 'WAVE');
+  str(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, 8000, true); v.setUint32(28, 8000, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+  str(36, 'data'); v.setUint32(40, n, true);
+  new Uint8Array(buf, 44).fill(128);
+  return URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
+}
+
+/** Call from inside a user gesture handler: unlocks both speech and the audio element. */
 export function unlock() {
-  if (!supported || unlocked) return;
+  if (unlocked) return;
   unlocked = true;
-  const u = new SpeechSynthesisUtterance(' ');
-  u.volume = 0;
-  speechSynthesis.speak(u);
+  try {
+    const a = audio();
+    a.src = silentWavUrl();
+    a.play()?.catch(() => {});
+  } catch { /* ignore */ }
+  if (supported) {
+    const u = new SpeechSynthesisUtterance(' ');
+    u.volume = 0;
+    speechSynthesis.speak(u);
+  }
 }
 
 /**
- * Speak Polish text. Returns a promise that resolves when speech ends (or fails).
- * Resolves false if there is no Polish voice.
+ * Speak Polish text: a bundled clip if there is one, otherwise the Polish voice.
+ * Resolves when playback ends; false if nothing could be played.
  */
 export function speak(text, { slow = false } = {}) {
+  const clip = clips.get(clipKey(text));
+  if (clip) return playFile(clip, { slow }).then((ok) => ok || speakVoice(text, { slow }));
+  return speakVoice(text, { slow });
+}
+
+function speakVoice(text, { slow = false } = {}) {
   if (!supported) return Promise.resolve(false);
   const voice = bestVoice();
   if (!voice) return Promise.resolve(false);
+  audioEl?.pause();
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.voice = voice;
@@ -117,4 +194,7 @@ export function autoSpeak(text) {
   return speak(text);
 }
 
-export function stop() { if (supported) speechSynthesis.cancel(); }
+export function stop() {
+  audioEl?.pause();
+  if (supported) speechSynthesis.cancel();
+}

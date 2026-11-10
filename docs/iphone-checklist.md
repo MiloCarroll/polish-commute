@@ -148,3 +148,11 @@ Tap the **Update available** banner first.
 
 **Update banner**
 - [ ] (Next time I deploy a change) reopening the app shows *Update available, tap to reload*, and tapping it keeps all progress.
+
+## Additions: today's session, backup reminder, sound-file test
+
+Tap the **Update available** banner first.
+
+- [ ] Home's main button is now **Today's session** (with "N due · N new"). It runs your due reviews first, then new cards taking turns between pronunciation, vocabulary and grammar. *Review all due only* is the smaller button below it.
+- [ ] Settings → *Back up your progress* shows "Last export: …". After you export, it says "today".
+- [ ] **Silent-mode test** (the important one): Settings → *About the Polish voice* → **Sound-file test**. With the phone **on silent** and **no headphones**, tap *Play test clip*. Tell me whether you hear "Dzień dobry! To jest test dźwięku." (It's the same basic voice as now; this only checks whether recorded clips get through silent mode.)

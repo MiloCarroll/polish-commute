@@ -49,3 +49,27 @@ export function describeBackup(data) {
   return `${(s.cards ?? []).length} studied cards, ${(s.reviews ?? []).length} reviews, ` +
     `${(s.own ?? []).length} own phrases, ${(s.flags ?? []).length} flags (exported ${new Date(data.exported).toLocaleString()})`;
 }
+
+const DAY = 86400000;
+export const REMIND_AFTER_DAYS = 14;   // since the last export
+export const FIRST_REMIND_DAYS = 7;    // since the first review, if never exported
+
+/**
+ * Should Home nudge you to export? Returns { daysSince, never } or null.
+ *   lastBackup / firstStudy / snoozeUntil: epoch ms or null
+ */
+export function backupReminder({ lastBackup, firstStudy, snoozeUntil }, now = Date.now()) {
+  if (snoozeUntil && now < snoozeUntil) return null;
+  if (lastBackup) {
+    const days = Math.floor((now - lastBackup) / DAY);
+    return days >= REMIND_AFTER_DAYS ? { daysSince: days, never: false } : null;
+  }
+  if (firstStudy && now - firstStudy >= FIRST_REMIND_DAYS * DAY) return { daysSince: null, never: true };
+  return null;
+}
+
+export function lastBackupText(lastBackup, now = Date.now()) {
+  if (!lastBackup) return 'Never exported.';
+  const days = Math.floor((now - lastBackup) / DAY);
+  return `Last export: ${days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`}.`;
+}

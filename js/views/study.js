@@ -2,7 +2,8 @@
 // renders the exercise for the card's kind, and records the grade.
 import { state, recordReview } from '../app.js';
 import { settings, setSetting } from '../settings.js';
-import { allDefs } from '../content.js';
+import { allDefs, MODULES } from '../content.js';
+import { pickToday } from '../session.js';
 import { pickNext, applyReview, newRemaining, countCards } from '../scheduler.js';
 import { render, onAction, esc } from '../ui.js';
 import { exerciseFor } from '../exercises.js';
@@ -13,7 +14,7 @@ import { flagButton } from '../flags.js';
 import { resolveDrill } from '../variants.js';
 
 function scopeDefs(scope, topicId) {
-  if (scope === 'all') return allDefs(state.content);
+  if (scope === 'all' || scope === 'today') return allDefs(state.content);
   const mod = state.content[scope];
   if (!mod) return null;
   if (topicId) return mod.topics.find((t) => t.id === topicId)?.cards ?? null;
@@ -28,8 +29,12 @@ export async function markLessonSeen(topicId) {
 export function studyView(scope, topicId) {
   const defs = scopeDefs(scope, topicId);
   if (!defs) { location.replace('#/'); return; }
-  const back = scope === 'all' ? '#/' : topicId ? `#/topic/${scope}/${topicId}` : `#/module/${scope}`;
-  const title = scope === 'all' ? 'Review' : state.content[scope].title;
+  const back = scope === 'all' || scope === 'today' ? '#/' : topicId ? `#/topic/${scope}/${topicId}` : `#/module/${scope}`;
+  const title = scope === 'today' ? "Today's session" : scope === 'all' ? 'Review' : state.content[scope].title;
+  const byModule = () => Object.fromEntries(MODULES.map((m) => [m, state.content[m].defs]));
+  const pick = (newLeft, now, skip) => (scope === 'today'
+    ? pickToday(byModule(), state.records, newLeft, state.todayLogs, now, skip)
+    : pickNext(defs, state.records, newLeft, now, skip));
   const route = location.hash;
   let lastId = null;
   let timer = null;
@@ -42,15 +47,15 @@ export function studyView(scope, topicId) {
     const now = new Date();
     // "Review all due" shows only due cards; new cards come from a module's Continue.
     const newLeft = scope === 'all' ? 0 : newRemaining(settings().newPerDay, state.todayLogs, now);
-    let pick = pickNext(defs, state.records, newLeft, now, new Set(lastId ? [lastId] : []));
-    if (!pick.def && lastId) pick = pickNext(defs, state.records, newLeft, now);
-    if (!pick.def) return finished(pick.waitUntil);
+    let p = pick(newLeft, now, new Set(lastId ? [lastId] : []));
+    if (!p.def && lastId) p = pick(newLeft, now, new Set());
+    if (!p.def) return finished(p.waitUntil);
 
-    const topic = state.content[pick.def.module].topics.find((t) => t.id === pick.def.topic);
-    if (pick.isNew && topic.lesson && !(settings().lessonsSeen ?? []).includes(topic.id)) {
+    const topic = state.content[p.def.module].topics.find((t) => t.id === p.def.topic);
+    if (p.isNew && topic.lesson && !(settings().lessonsSeen ?? []).includes(topic.id)) {
       return showLesson(topic);
     }
-    showCard(pick.def, pick.isNew, topic);
+    showCard(p.def, p.isNew, topic);
   }
 
   function showLesson(topic) {
@@ -73,7 +78,7 @@ export function studyView(scope, topicId) {
         <h2>All done for now</h2>
         <p>${waitUntil
           ? `A card you are still learning comes back in about ${mins} minute${mins === 1 ? '' : 's'}.`
-          : 'Nothing else is due in this section today.'}</p>
+          : scope === 'today' ? "That's today's session done: nothing else is due and today's new cards are used up." : 'Nothing else is due in this section today.'}</p>
       </div>`,
       actions: `<a class="btn primary" href="${back}">Back</a>`,
     });

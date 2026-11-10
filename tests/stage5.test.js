@@ -113,3 +113,16 @@ test('flags export as plain text, sorted by card id', async () => {
   ]);
   assert.equal(text, 'Polski flagged cards (2)\ncard id | card text | note\ng-08-004 | Wczoraj byłem w domu. | Should this be byłam?\nv-0002-rec | dzień dobry\n');
 });
+
+test('backup reminder: after 14 days since the last export, or 7 days of study without one', async () => {
+  const { backupReminder, lastBackupText } = await import('../js/backup.js');
+  const DAY = 86400000, now = Date.UTC(2026, 10, 30);
+  assert.equal(backupReminder({ lastBackup: now - 13 * DAY }, now), null);
+  assert.deepEqual(backupReminder({ lastBackup: now - 15 * DAY }, now), { daysSince: 15, never: false });
+  assert.equal(backupReminder({ firstStudy: now - 6 * DAY }, now), null);
+  assert.deepEqual(backupReminder({ firstStudy: now - 8 * DAY }, now), { daysSince: null, never: true });
+  assert.equal(backupReminder({ firstStudy: now - 30 * DAY, snoozeUntil: now + DAY }, now), null, 'snoozed');
+  assert.equal(backupReminder({}, now), null, 'nothing studied yet');
+  assert.equal(lastBackupText(null, now), 'Never exported.');
+  assert.equal(lastBackupText(now - 2 * DAY, now), 'Last export: 2 days ago.');
+});

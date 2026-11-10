@@ -12,6 +12,9 @@ export const DEFAULTS = Object.freeze({
   timerMinutes: 40,     // session timer (stage 5); 0 = off
   firstRunDone: false,  // first-run audio screen completed
   lessonsSeen: [],      // topic ids whose lesson has been shown before their first new card
+  firstStudy: null,     // epoch ms of the first review ever (for the backup reminder)
+  lastBackup: null,     // epoch ms of the last export
+  backupSnoozeUntil: null, // "Remind me later" on the Home backup notice
 });
 
 let cache = null;

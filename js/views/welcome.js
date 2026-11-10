@@ -51,12 +51,26 @@ export function welcomeView() {
           <button class="btn" data-action="test">${speakerIcon}<span>Test: “<span lang="pl">${TEST_WORD}</span>”</span></button>
         </div>
         <p class="muted small">Hear nothing? Plug in headphones, or turn silent off, and check the volume.</p>
+      </section>
+      <section class="card">
+        <h2>Sound-file test</h2>
+        <p class="small">Plays a short recorded clip instead of the live voice. With the phone <strong>on silent</strong> and
+          no headphones, tap it: if you hear "<span lang="pl">Dzień dobry! To jest test dźwięku.</span>", recorded clips
+          would work on silent.</p>
+        <div class="audio-row"><button class="btn" data-action="file-test">${speakerIcon}<span>Play test clip</span></button></div>
+        <p id="file-test-result" class="small" hidden></p>
       </section>`,
     actions: first ? `<button class="btn primary" data-action="done">Start learning</button>` : '',
   });
 
   onAction({
     test: () => tts.speak(TEST_WORD),
+    'file-test': async () => {
+      const ok = await tts.playFile('content/audio/test.m4a');
+      const el = $('#file-test-result');
+      el.hidden = false;
+      el.textContent = ok ? 'The clip played to the end. Did you hear it?' : 'The clip could not be played.';
+    },
     done: async () => { await setSetting('firstRunDone', true); location.hash = '#/'; },
   });
 

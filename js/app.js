@@ -1,7 +1,7 @@
 // App entry: loads data, routes between views, registers the service worker.
 import * as db from './db.js';
 import * as tts from './tts.js';
-import { loadSettings, settings } from './settings.js';
+import { loadSettings, settings, setSetting } from './settings.js';
 import { loadContent } from './content.js';
 import { dayStart } from './day.js';
 import { esc } from './ui.js';
@@ -44,6 +44,7 @@ export async function reloadOwnPhrases() {
 
 export async function recordReview(record, log) {
   await db.saveReview(record, log);
+  if (!settings().firstStudy) setSetting('firstStudy', log.review);
   state.records.set(record.id, record);
   const reloaded = await refreshToday();
   if (!reloaded && log.review >= state.todayStart) state.todayLogs.push(log);
@@ -129,9 +130,15 @@ async function start() {
     const [s, records, content] = await Promise.all([loadSettings(), db.getAll('cards'), loadContent()]);
     tts.configure({ voiceURI: s.voiceURI, rate: s.rate });
     tts.ready();
+    tts.loadClips();
     state.content = content;
     state.records = new Map(records.map((r) => [r.id, r]));
     await reloadOwnPhrases();
+    if (!s.firstStudy && records.length) {
+      // Progress from before the backup reminder existed: take the first review's date.
+      const first = (await db.getAll('reviews')).reduce((m, r) => Math.min(m, r.review), Infinity);
+      if (Number.isFinite(first)) await setSetting('firstStudy', first);
+    }
     db.requestPersistence();
   } catch (err) {
     document.getElementById('view').innerHTML =

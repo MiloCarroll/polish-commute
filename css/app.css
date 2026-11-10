@@ -426,3 +426,8 @@ textarea.answer-input { resize: vertical; min-height: 64px; }
 .acc .num { text-align: right; white-space: nowrap; }
 .session-counts > span, .flag-btn { white-space: nowrap; }
 .session-counts .topic-tag { flex: 1; min-width: 0; }
+.btn.primary.today { flex-direction: column; gap: 0; min-height: 60px; }
+.btn.primary.today .small { font-weight: 500; opacity: 0.85; }
+.btn.secondary { min-height: 48px; font-weight: 600; }
+.backup-note { margin: 0 0 14px; }
+.backup-note p { margin-top: 0; }
