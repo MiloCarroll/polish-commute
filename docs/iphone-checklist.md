@@ -118,3 +118,33 @@ Tap the **Update available** banner first. (If a module says *All done for now*,
 
 **Offline**
 - [ ] In Flight Mode, grammar explanations and drills still work.
+
+## Stage 5: finishing
+
+Tap the **Update available** banner first.
+
+**Stats**
+- [ ] Home → *Stats*: days studied, cards learned, cards due in the next 7 days (with a small bar chart, readable in light and dark mode) and accuracy per module. No streaks.
+
+**My phrases**
+- [ ] Home → *Add phrase*: type Polish (accent bar appears), English and an optional note; *Hear it* speaks the Polish. *Add phrase* saves it.
+- [ ] Vocabulary → *My phrases* lists it with *Edit*; *Study* shows it as a Polish → English card with audio.
+- [ ] Edit it (change the English) and save; delete another one (it asks first).
+
+**Flags**
+- [ ] On any card, tap *⚑ Flag* (top right of the card), add a note, *Save flag*. The button now says *Flagged*.
+- [ ] Settings → *Flagged cards* lists it; *Copy* and *Export as text* both work; *Remove* takes it off the list.
+
+**Session timer**
+- [ ] A thin bar appears at the very top (under the Dynamic Island, not hidden by it) once you start studying, and slowly fills.
+- [ ] Settings → *Session timer*: try 20 minutes, or Off (the bar disappears). When the time is up, a small message says so and you can carry on.
+
+**Backup** (the important one)
+- [ ] Settings → *Export progress*: iOS offers to save the file; save it to Files.
+- [ ] *Import from file…* → pick that file: it shows a summary (cards, reviews, phrases, flags) and asks before replacing. After it reloads, Home shows the same due counts and new-card allowance as before, and Stats shows the same numbers.
+
+**Reset**
+- [ ] *Reset all progress* asks twice; tapping Cancel on either keeps everything. (Only go through with it after exporting, if at all.)
+
+**Update banner**
+- [ ] (Next time I deploy a change) reopening the app shows *Update available, tap to reload*, and tapping it keeps all progress.

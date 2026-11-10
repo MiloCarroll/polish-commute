@@ -4,6 +4,8 @@ import { countCards, newRemaining, isUnlocked } from '../scheduler.js';
 import { render, esc, plural, speakerIcon, onAction } from '../ui.js';
 import { lessonHtml, lessonHandlers } from '../lesson.js';
 import { markLessonSeen } from './study.js';
+import { OWN_TOPIC } from '../own.js';
+import { ownTopicView } from './phrases.js';
 
 /** First topic (in suggested order) that still has unstudied cards. */
 export function nextSuggestedTopic(mod, records) {
@@ -51,6 +53,7 @@ export function topicView(m, topicId) {
   const mod = state.content[m];
   const topic = mod?.topics.find((t) => t.id === topicId);
   if (!topic) { location.replace(`#/module/${m}`); return; }
+  if (topic.id === OWN_TOPIC) return ownTopicView(topic);
   const c = countCards(topic.cards, state.records);
 
   const items = m === 'grammar' ? '' : topic.items.map((it) => `

@@ -11,10 +11,16 @@ import { moduleView, topicView } from './views/module.js';
 import { studyView } from './views/study.js';
 import { settingsView } from './views/settings.js';
 import { welcomeView } from './views/welcome.js';
+import { statsView } from './views/stats.js';
+import { phraseFormView } from './views/phrases.js';
+import { withOwnPhrases } from './own.js';
+import { initFlags } from './flags.js';
+import { initTimer, timerOnRoute } from './timer.js';
 
 /** Shared in-memory state. Views read from it; study writes reviews through `recordReview`. */
 export const state = {
   content: null,
+  own: [],            // the owner's phrases (IndexedDB "own" store)
   records: new Map(), // card id → FSRS record
   todayLogs: [],      // review-log entries since the start of the current study day
   todayStart: 0,
@@ -28,6 +34,12 @@ export async function refreshToday() {
     return true; // reloaded from the database
   }
   return false;
+}
+
+/** Re-read the owner's phrases and rebuild the vocabulary module's My phrases topic. */
+export async function reloadOwnPhrases() {
+  state.own = await db.getAll('own');
+  state.content.vocabulary = withOwnPhrases(state.content.vocabulary, state.own);
 }
 
 export async function recordReview(record, log) {
@@ -46,6 +58,8 @@ const routes = [
   [/^#\/study\/(\w+)(?:\/([\w-]+))?$/, (m) => studyView(m[1], m[2])],
   [/^#\/settings$/, () => settingsView()],
   [/^#\/welcome$/, () => welcomeView()],
+  [/^#\/stats$/, () => statsView()],
+  [/^#\/phrase\/(new|u-[\w]+)$/, (m) => phraseFormView(m[1])],
 ];
 
 async function route() {
@@ -53,6 +67,7 @@ async function route() {
   hideAccentBar();
   await refreshToday();
   const hash = location.hash || '#/';
+  timerOnRoute(hash);
   if (!settings().firstRunDone && hash !== '#/welcome' && hash !== '#/settings') {
     location.replace('#/welcome');
     return;
@@ -116,12 +131,15 @@ async function start() {
     tts.ready();
     state.content = content;
     state.records = new Map(records.map((r) => [r.id, r]));
+    await reloadOwnPhrases();
     db.requestPersistence();
   } catch (err) {
     document.getElementById('view').innerHTML =
       `<div class="card"><h2>Could not start</h2><p>${esc(err.message)}</p></div>`;
     throw err;
   }
+  initFlags();
+  initTimer();
   window.addEventListener('hashchange', route);
   await route();
   registerServiceWorker();

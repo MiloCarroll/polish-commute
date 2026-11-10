@@ -3,7 +3,7 @@
 // A new version installs in the background and waits; the app shows an "Update available"
 // banner, and tapping it sends SKIP_WAITING.
 
-const VERSION = '69fe9c2b496d';
+const VERSION = 'daa296f7d270';
 const ASSETS = [
   './',
   'content/grammar.json',
@@ -17,20 +17,27 @@ const ASSETS = [
   'index.html',
   'js/accentbar.js',
   'js/app.js',
+  'js/backup.js',
   'js/content.js',
   'js/day.js',
   'js/db.js',
   'js/exercises.js',
+  'js/flags.js',
   'js/grading.js',
   'js/lesson.js',
+  'js/own.js',
   'js/scheduler.js',
   'js/settings.js',
+  'js/stats.js',
+  'js/timer.js',
   'js/tts.js',
   'js/ui.js',
   'js/variants.js',
   'js/views/home.js',
   'js/views/module.js',
+  'js/views/phrases.js',
   'js/views/settings.js',
+  'js/views/stats.js',
   'js/views/study.js',
   'js/views/welcome.js',
   'manifest.webmanifest',

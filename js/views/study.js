@@ -9,6 +9,8 @@ import { exerciseFor } from '../exercises.js';
 import { lessonHtml, lessonHandlers } from '../lesson.js';
 import { hideAccentBar } from '../accentbar.js';
 import * as tts from '../tts.js';
+import { flagButton } from '../flags.js';
+import { resolveDrill } from '../variants.js';
 
 function scopeDefs(scope, topicId) {
   if (scope === 'all') return allDefs(state.content);
@@ -84,11 +86,15 @@ export function studyView(scope, topicId) {
     const exercise = exerciseFor(def);
     const shownAt = Date.now();
     const counts = countCards(defs, state.records);
-    const head = `<p class="session-counts muted small">
+    const shown = item.v
+      ? resolveDrill(item, { learnerGender: settings().learnerGender, partnerGender: settings().partnerGender }).pl
+      : item.pl;
+    const head = `<div class="session-counts muted small">
         ${isNew ? '<span class="pill new">New</span>' : ''}
         <span>${counts.due} due</span>
         ${!topicId ? `<span class="topic-tag">${esc(topic.title)}</span>` : ''}
-      </p>`;
+        ${flagButton(def.id, shown)}
+      </div>`;
 
     exercise({
       def, item, topic, head, title, back,

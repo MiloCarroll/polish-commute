@@ -2,16 +2,31 @@
 
 A personal, offline web app for learning conversational Polish on a 40-minute train commute, used one-handed on an iPhone. No accounts, ads, streaks, points, notifications or microphone. Progress stays on the phone.
 
-**Status: stage 4 (grammar).** Pronunciation: 12 topics with lessons and three exercise types. Vocabulary: 12 topics, about 300 words, four exercise types with gender-aware sentences. Grammar: 8 topics with plain-English explanations and tables, choose-the-form drills followed by typed drills, and a reason plus a link back to the explanation after every wrong answer. Stats, own cards, flags, export/import and the session timer (stage 5) follow.
+**Status: version 1 complete (stages 1–5).**
+
+- **Pronunciation:** 12 topics with lessons; listen and choose, dictation, stress spotting.
+- **Vocabulary:** 12 topics, about 300 words; Polish → English, English → Polish, listening and sentence gaps, with gender-aware example sentences; plus *My phrases* for your own cards.
+- **Grammar:** 8 topics with plain-English explanations and tables; choose-the-form then typed drills, each wrong answer showing a reason and a link back to the explanation.
+- **Around it:** a shared daily allowance of new cards, Stats, a Flag button on every card, export/import of all progress, a session timer and an offline update banner.
 
 ## How it works
 
 - Plain HTML, CSS and JavaScript ES modules. No framework, no build step, no runtime network requests.
 - **Scheduling:** [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs) **5.4.2** (MIT, published 2026-09-01), vendored unmodified as `vendor/ts-fsrs-5.4.2.js` (licence in `vendor/ts-fsrs-LICENSE.txt`). Default FSRS parameters, target retention 0.90 (changeable in Settings), fuzz on.
-- **Storage:** IndexedDB database `polski` with stores `cards` (FSRS state per studied card), `reviews` (the full review log, never pruned, so parameters can be optimised later), `settings`, and `flags` / `own` (used from stage 5).
+- **Storage:** IndexedDB database `polski` with stores `cards` (FSRS state per studied card), `reviews` (the full review log, never pruned, so parameters can be optimised later), `settings`, `flags` (cards marked as possibly wrong, with a note) and `own` (your own phrases).
 - **Daily allowance:** 15 new cards per day shared across all modules. A card counts against the allowance when it is first reviewed. The study day resets at 04:00 local time.
 - **Offline:** `sw.js` caches every app file under a versioned cache, cache-first. A new deployment shows "Update available, tap to reload" instead of reloading by itself.
 - **Audio:** the Web Speech API with Polish (`pl-PL`) voices only. The first tap in each session unlocks auto-play (an iOS requirement).
+
+## Your data
+
+Everything stays in the browser storage of the phone that uses the app; nothing is sent anywhere.
+
+- **Back up:** Settings → *Export progress* saves a `polski-progress-YYYY-MM-DD.json` file (save it to Files or iCloud Drive). It contains every card's state, the full review log, settings, flags and your own phrases.
+- **Restore:** Settings → *Import from file…* shows what the file contains and asks before replacing everything. The import is all-or-nothing, and restores the data exactly (checked by unit tests and an in-browser round trip).
+- **Flags:** tap ⚑ *Flag* on any card whose content looks wrong. Settings lists them; *Copy* or *Export as text* gives a plain list (card ID, card text, note) to send back for fixing.
+- **Reset:** Settings → *Reset all progress* (asks twice) forgets card progress and the review log, keeping settings, own phrases and flags.
+- Safari can clear website data for apps that go unused for weeks; the app asks for persistent storage, but export a backup now and then.
 
 ### Known iPhone audio limits (tested on the owner's iPhone 15 Pro, November 2026)
 
@@ -33,7 +48,12 @@ js/variants.js     gender variants of example sentences (pure, unit-tested)
 js/accentbar.js    ą ć ę ł ń ó ś ź ż buttons above the iOS keyboard
 js/exercises.js    card screens: recognition, listen and choose, dictation, stress
 js/lesson.js       topic lessons with tap-to-hear words
-js/views/          home, module/topic, study, settings, first-run (welcome)
+js/stats.js        stats calculations (pure, unit-tested)
+js/backup.js       export/import file format (pure, unit-tested)
+js/own.js          My phrases: IDs and cards (pure, unit-tested)
+js/flags.js        Flag button, flag dialog, text export
+js/timer.js        session timer bar and message
+js/views/          home, module/topic, study, stats, phrases, settings, first-run (welcome)
 content/           course content (JSON); how to write it: docs/content-pronunciation.md, docs/content-vocabulary.md, docs/content-grammar.md
 tools/             validate-content.js, update-sw.js, released-ids.json
 tests/             node --test unit tests

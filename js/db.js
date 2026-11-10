@@ -90,3 +90,69 @@ export async function requestPersistence() {
     if (navigator.storage?.persist && !(await navigator.storage.persisted())) await navigator.storage.persist();
   } catch { /* not supported */ }
 }
+
+// ---- Backup, restore and reset ------------------------------------------------
+
+const ALL = ['cards', 'reviews', 'settings', 'flags', 'own'];
+
+/** Every store's contents. The review log keeps its keys so a restore is exact. */
+export async function dumpAll() {
+  const db = await openDB();
+  const tx = db.transaction(ALL, 'readonly');
+  const out = {};
+  const jobs = ALL.filter((s) => s !== 'reviews').map(async (s) => { out[s] = await req(tx.objectStore(s).getAll()); });
+  jobs.push(new Promise((resolve, reject) => {
+    const rows = [];
+    const c = tx.objectStore('reviews').openCursor();
+    c.onsuccess = () => {
+      const cur = c.result;
+      if (!cur) { out.reviews = rows; resolve(); return; }
+      rows.push({ key: cur.key, value: cur.value });
+      cur.continue();
+    };
+    c.onerror = () => reject(c.error);
+  }));
+  await Promise.all(jobs);
+  return out;
+}
+
+/** Replace everything with the given stores, in one transaction (all or nothing). */
+export async function restoreAll(stores) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(ALL, 'readwrite');
+    for (const s of ALL) tx.objectStore(s).clear();
+    for (const c of stores.cards ?? []) tx.objectStore('cards').put(c);
+    for (const r of stores.reviews ?? []) tx.objectStore('reviews').put(r.value, r.key);
+    for (const x of stores.settings ?? []) tx.objectStore('settings').put(x);
+    for (const f of stores.flags ?? []) tx.objectStore('flags').put(f);
+    for (const o of stores.own ?? []) tx.objectStore('own').put(o);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error ?? new Error('Import was cancelled.'));
+  });
+}
+
+/** Forget all study progress (card states, review log, lessons seen). Settings, own phrases and flags stay. */
+export async function resetProgress() {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(['cards', 'reviews', 'settings'], 'readwrite');
+    tx.objectStore('cards').clear();
+    tx.objectStore('reviews').clear();
+    tx.objectStore('settings').delete('lessonsSeen');
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+/** Delete one card's FSRS state (used when an own phrase is deleted). The review log is kept. */
+export async function deleteCards(ids) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('cards', 'readwrite');
+    for (const id of ids) tx.objectStore('cards').delete(id);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}

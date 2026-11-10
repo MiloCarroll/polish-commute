@@ -37,8 +37,9 @@ export function homeView() {
         : `No new cards left today. Reviews are unlimited.`}</p>
       <div class="tiles">${tiles}</div>
       <nav class="links">
+        <a href="#/stats">Stats</a>
+        <a href="#/phrase/new">Add phrase</a>
         <a href="#/settings">Settings</a>
-        <span class="muted">Stats arrive in stage 5</span>
       </nav>`,
     actions: totalDue
       ? `<a class="btn primary" href="#/study/all">Review all due (${totalDue})</a>`
