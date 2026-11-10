@@ -11,7 +11,12 @@ A personal, offline web app for learning conversational Polish on a 40-minute tr
 - **Storage:** IndexedDB database `polski` with stores `cards` (FSRS state per studied card), `reviews` (the full review log, never pruned, so parameters can be optimised later), `settings`, and `flags` / `own` (used from stage 5).
 - **Daily allowance:** 15 new cards per day shared across all modules. A card counts against the allowance when it is first reviewed. The study day resets at 04:00 local time.
 - **Offline:** `sw.js` caches every app file under a versioned cache, cache-first. A new deployment shows "Update available, tap to reload" instead of reloading by itself.
-- **Audio:** the Web Speech API with Polish (`pl-PL`) voices only. Enhanced and Premium voices are preferred automatically. The first tap in each session unlocks auto-play (an iOS requirement).
+- **Audio:** the Web Speech API with Polish (`pl-PL`) voices only. The first tap in each session unlocks auto-play (an iOS requirement).
+
+### Known iPhone audio limits (tested on the owner's iPhone 15 Pro, November 2026)
+
+- **No sound on silent.** Speech is muted while the phone is on silent; asking iOS for a "playback" audio session did not change this. Use headphones or turn silent off.
+- **Built-in voice only.** Safari offers web apps only the built-in compact Polish voice ("Zosia"). Enhanced and Premium voices downloaded in iPhone Settings are not exposed, so the first-run screen no longer suggests downloading one (a deliberate departure from the brief). The app still prefers an Enhanced or Premium voice if a future iOS lists one.
 
 ```
 index.html, manifest.webmanifest, sw.js

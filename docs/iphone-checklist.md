@@ -10,10 +10,9 @@ Use Safari on the iPhone 15 Pro. Tick each item, and note anything odd so it can
 - [ ] Open it from the Home Screen. It opens full screen, with no Safari address bar.
 
 **First run and audio**
-- [ ] The Welcome screen appears and names a Polish voice (for example "Zosia").
-- [ ] Optional: download an Enhanced or Premium Polish voice (Settings → Accessibility → Read & Speak → Voices → Polish). Fully close Polski (swipe it away) and reopen it, then open Polski's Settings → "How to get a better Polish voice". Expand **Polish voices this app can see** and check the new voice is listed and marked *in use*. Picking a voice in iPhone Settings does not change the app's voice; use Voice in Polski's own Settings.
+- [ ] The Welcome screen appears and says it is using a Polish voice (for example "Zosia").
 - [ ] With **headphones**: tap *Test*. You hear "Dzień dobry".
-- [ ] With the **phone on silent** and no headphones: tap *Test*. Note whether you hear it. (Fix attempt 1, 10 Nov: the app now asks iOS for "playback" audio like a music app. If it is still silent, iOS is not letting web speech through, and the answer is headphones or silent off.)
+- Known limits, no need to re-test: speech is muted on silent, and Enhanced/Premium voices from iPhone Settings can't be used (only the built-in "Zosia").
 - [ ] Tap **Start learning**.
 
 **Layout**

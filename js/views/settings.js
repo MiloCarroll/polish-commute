@@ -51,7 +51,7 @@ export function settingsView() {
           <label class="field check"><span>Play audio when a card appears</span>
             <input type="checkbox" name="autoplay" ${s.autoplay ? 'checked' : ''}></label>
           <button type="button" class="btn" data-action="test">Test voice</button>
-          <p class="muted small"><a href="#/welcome">How to get a better Polish voice</a></p>
+          <p class="muted small"><a href="#/welcome">About the Polish voice</a></p>
         </section>
 
         <p class="muted small">Session timer, export/import, flagged cards and reset arrive in stage 5.</p>

@@ -1,4 +1,4 @@
-// First-run screen: explains how to get a good Polish voice and tests playback.
+// First-run screen: explains how audio works on iPhone and tests playback.
 import { settings, setSetting } from '../settings.js';
 import { render, esc, onAction, speakerIcon, $ } from '../ui.js';
 import * as tts from '../tts.js';
@@ -11,19 +11,19 @@ function voiceStatus() {
   }
   const v = tts.bestVoice();
   if (!v) {
-    return `<p class="warn"><strong>No Polish voice found.</strong> Download one using the steps above,
-      then reopen the app. Everything works without audio, but listening exercises will be hard.</p>`;
+    return `<p class="warn"><strong>No Polish voice found.</strong> On iPhone, open Settings → Accessibility →
+      Read &amp; Speak → Voices → Polish and download a voice, then fully close and reopen Polski.
+      Everything works without audio, but listening exercises will be hard.</p>`;
   }
   const q = tts.voiceQuality(v);
   const all = tts.rankedVoices();
   return `${q >= 2
       ? `<p class="ok">Using <strong>${esc(tts.voiceLabel(v))}</strong>, a high-quality voice. You're all set.</p>`
-      : `<p>Using <strong>${esc(tts.voiceLabel(v))}</strong>, the basic voice. An Enhanced or Premium voice sounds much more natural.</p>`}
+      : `<p class="ok">Using <strong>${esc(tts.voiceLabel(v))}</strong>.</p>`}
     <details class="voices">
       <summary>Polish voices this app can see (${all.length})</summary>
       <ul>${all.map((x) => `<li>${esc(tts.voiceLabel(x))}${x === v ? ' · <strong>in use</strong>' : ''}
         <br><span class="muted small">${esc(x.voiceURI)}</span></li>`).join('')}</ul>
-      <p class="muted small">If a voice you downloaded is missing here, fully close Polski (swipe it away) and reopen it.</p>
     </details>`;
 }
 
@@ -36,17 +36,13 @@ export function welcomeView() {
       ${first ? `<p class="lead">Polski is a quiet, offline trainer for your commute. No microphone, no accounts, no streaks.
         Everything stays on this phone.</p>` : ''}
       <section class="card">
-        <h2>Get a better Polish voice</h2>
-        <p>Audio comes from your iPhone's own voices. The best ones are a free download:</p>
-        <ol class="steps">
-          <li>Open <strong>Settings</strong> → <strong>Accessibility</strong> → <strong>Read &amp; Speak</strong>
-            (called <strong>Spoken Content</strong> on older iOS) → <strong>Voices</strong>.</li>
-          <li>Choose <strong>Polish</strong>.</li>
-          <li>Download a voice marked <strong>Enhanced</strong> or <strong>Premium</strong> (Wi-Fi recommended).</li>
-          <li>Fully close Polski (swipe it away in the app switcher) and reopen it, then tap <em>Test</em>.</li>
-        </ol>
-        <p class="muted small">Choosing a voice in iPhone Settings doesn't change the voice here: the app picks the
-          best Polish voice it can see. To choose one yourself, use <strong>Voice</strong> in Polski's Settings.</p>
+        <h2>About the voice</h2>
+        <p>Polski speaks using your iPhone's built-in Polish voice. There's nothing to set up.</p>
+        <ul class="steps">
+          <li><strong>Use headphones.</strong> Audio does not play out loud while the phone is on silent.</li>
+          <li>Voices downloaded in iPhone Settings (Enhanced or Premium) aren't available to web apps,
+            so changing the voice there won't change it here.</li>
+        </ul>
       </section>
       <section class="card">
         <h2>Test playback</h2>
@@ -54,8 +50,7 @@ export function welcomeView() {
         <div class="audio-row">
           <button class="btn" data-action="test">${speakerIcon}<span>Test: “<span lang="pl">${TEST_WORD}</span>”</span></button>
         </div>
-        <p class="muted small">Audio is best through headphones. If you hear nothing without headphones,
-          check the volume and whether the phone is on silent.</p>
+        <p class="muted small">Hear nothing? Plug in headphones, or turn silent off, and check the volume.</p>
       </section>`,
     actions: first ? `<button class="btn primary" data-action="done">Start learning</button>` : '',
   });
