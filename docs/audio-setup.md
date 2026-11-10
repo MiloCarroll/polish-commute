@@ -48,7 +48,15 @@ Optional extra pass: Marek for every sentence that doesn't depend on gender, for
 node tools/make-audio.js --pass extra
 ```
 
-You can stop either with Ctrl-C and run it again later; it skips clips it has already made. When it finishes, publish:
+Or both in one go, e.g. overnight (about 3 hours for the whole course):
+
+```bash
+node tools/make-audio.js --pass all
+```
+
+For an overnight run: keep the Mac plugged in with the lid open and the Terminal window open. The script keeps the Mac from sleeping while it runs (the screen can still turn off and lock). It waits and retries through Wi-Fi drops and Azure hiccups for up to about 45 minutes per clip, skips any single text Azure can't read (listed in `tools/audio-skipped.txt`), and refuses to start if another run is already going.
+
+You can stop any run with Ctrl-C and run it again later; it skips clips it has already made. When it finishes, publish:
 
 ```bash
 node tools/update-sw.js && node --test tests/

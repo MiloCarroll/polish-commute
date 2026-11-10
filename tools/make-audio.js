@@ -7,6 +7,7 @@
 //   node tools/make-audio.js --dry-run            # what would be generated, no key needed
 //   node tools/make-audio.js                      # main pass: every text in a matching voice
 //   node tools/make-audio.js --pass extra         # extra voices for listening variety
+//   node tools/make-audio.js --pass all           # both, e.g. overnight
 //
 // It is safe to stop (Ctrl-C) and run again: existing clips are skipped. Usage per calendar
 // month is recorded in tools/audio-usage.json and the run stops before a self-imposed cap
@@ -17,6 +18,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { collectSpeech } from './audio-texts.js';
+import { spawn } from 'node:child_process';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const AUDIO = join(ROOT, 'content', 'audio');
@@ -158,21 +160,67 @@ async function main() {
   const missing = Object.values(VOICES).filter((v) => !available.has(v));
   if (missing.length) throw new Error(`These voices are not available in ${region}: ${missing.join(', ')}`);
 
+  acquireLock();
+  keepAwake();
+
   let made = 0, spent = 0;
+  const skipped = [];
+  const started = Date.now();
   const save = () => {
     usage[monthKey()] = (usage[monthKey()] ?? 0) + spent;
     writeFileSync(USAGE, JSON.stringify(usage, null, 2) + '\n');
     spent = 0;
     writeManifest(speech);
   };
-  process.on('SIGINT', () => { save(); console.log(`\nStopped after ${made} clips. Run again to continue.`); process.exit(130); });
+  const stop = (code, msg) => { save(); releaseLock(); if (msg) console.log(msg); process.exit(code); };
+  process.on('SIGINT', () => stop(130, `\nStopped after ${made} clips. Run the same command again to continue.`));
+  process.on('SIGTERM', () => stop(143, `\nStopped after ${made} clips.`));
 
   for (const job of todo) {
     const c = cost(job.text);
     if ((usage[monthKey()] ?? 0) + spent + c > cap) { console.log(`Reached the monthly cap of ${cap.toLocaleString()} characters; stopping. Run again next month.`); break; }
-    let tries = 0;
-    while (true) {
-      const res = await fetch(`${base}/v1`, {
+    const result = await synthesise(base, key, job);
+    if (result.ok) {
+      const out = join(AUDIO, job.file);
+      mkdirSync(dirname(out), { recursive: true });
+      writeFileSync(out, result.audio);
+      spent += c;
+      made++;
+    } else if (result.fatal) {
+      stop(1, result.message);
+    } else {
+      skipped.push(`${job.voice}: ${job.text} (${result.message})`);
+      console.log(`Skipped one clip: ${result.message}`);
+    }
+    if (made && made % 25 === 0) {
+      save();
+      const mins = (Date.now() - started) / 60000;
+      const left = Math.round(((todo.length - made - skipped.length) * mins) / Math.max(1, made + skipped.length));
+      console.log(`${new Date().toLocaleTimeString()}  ${made}/${todo.length} clips, about ${left} min left`);
+    }
+    await sleep(GAP_MS);
+  }
+  save();
+  releaseLock();
+  if (skipped.length) {
+    writeFileSync(join(ROOT, 'tools', 'audio-skipped.txt'), skipped.join('\n') + '\n');
+    console.log(`${skipped.length} clips could not be made (listed in tools/audio-skipped.txt); the app uses the phone voice for those.`);
+  }
+  console.log(`Done: ${made} clips made. Manifest updated. Next: tell Claude, or run node tools/update-sw.js`);
+}
+
+/**
+ * One request, retried through the night: network drops, timeouts, 5xx and 429 wait and
+ * try again (30 s, 1 min, 2 min, 5 min… up to about 45 minutes in total). A 400 (Azure
+ * can't read that text) skips just that clip. 401/403 stop the run.
+ */
+export async function synthesise(base, key, job) {
+  const waits = [30, 60, 120, 300, 300, 600, 600, 600]; // seconds
+  const scale = Number(process.env.MAKE_AUDIO_WAIT_SCALE ?? 1); // tests only
+  for (let attempt = 0; ; attempt++) {
+    let res;
+    try {
+      res = await fetch(`${base}/v1`, {
         method: 'POST',
         headers: {
           'Ocp-Apim-Subscription-Key': key,
@@ -181,25 +229,53 @@ async function main() {
           'User-Agent': 'polski-audio-generator',
         },
         body: ssml(job.voice, job.text),
+        signal: AbortSignal.timeout(30000),
       });
-      if (res.ok) {
-        const out = join(AUDIO, job.file);
-        mkdirSync(dirname(out), { recursive: true });
-        writeFileSync(out, Buffer.from(await res.arrayBuffer()));
-        spent += c;
-        made++;
-        break;
-      }
-      if (res.status === 429 && tries < 6) { tries++; process.stdout.write(' (busy, waiting a minute)'); await sleep(60000); continue; }
-      if (res.status === 401 || res.status === 403) { save(); throw new Error(`Azure refused the request (${res.status}). If the free quota is used up, wait until next month.`); }
-      save();
-      throw new Error(`Azure returned ${res.status} for "${job.text}": ${await res.text()}`);
+    } catch (e) {
+      res = { ok: false, status: 0, text: async () => e.message };
     }
-    if (made % 25 === 0) { save(); console.log(`${made}/${todo.length} clips`); }
-    await sleep(GAP_MS);
+    if (res.ok) {
+      const audio = Buffer.from(await res.arrayBuffer());
+      if (audio.length > 500) return { ok: true, audio };
+      res = { ok: false, status: 0, text: async () => 'empty audio' };
+    }
+    if (res.status === 401 || res.status === 403) {
+      return { ok: false, fatal: true, message: `Azure refused the request (${res.status}). Check the key, or if the free quota is used up, wait until next month.` };
+    }
+    if (res.status === 400) return { ok: false, message: `Azure could not read "${job.text}" (400)` };
+    if (attempt >= waits.length) return { ok: false, message: `gave up after repeated errors (${res.status || 'network'})` };
+    const why = res.status === 429 ? 'Azure is busy' : res.status ? `Azure error ${res.status}` : `network problem (${await res.text()})`;
+    console.log(`${new Date().toLocaleTimeString()}  ${why}; waiting ${waits[attempt] >= 60 ? `${waits[attempt] / 60} min` : `${waits[attempt]} s`} and trying again`);
+    await sleep(waits[attempt] * 1000 * scale);
   }
-  save();
-  console.log(`Done: ${made} clips made. Manifest updated. Now run: node tools/update-sw.js`);
+}
+
+// ---- One run at a time; keep the Mac awake ------------------------------------
+
+const LOCK = join(ROOT, 'tools', '.audio-lock');
+
+function acquireLock() {
+  if (existsSync(LOCK)) {
+    const pid = Number(readFileSync(LOCK, 'utf8'));
+    let alive = false;
+    try { process.kill(pid, 0); alive = true; } catch { /* not running */ }
+    if (alive) throw new Error(`Another make-audio run is already going (process ${pid}). Stop it with Ctrl-C first; two at once would exceed the free-tier rate.`);
+  }
+  writeFileSync(LOCK, String(process.pid));
+}
+
+function releaseLock() {
+  try { if (Number(readFileSync(LOCK, 'utf8')) === process.pid) unlinkSync(LOCK); } catch { /* already gone */ }
+}
+
+/** On macOS, stop the Mac sleeping while this run is going (the screen may still turn off). */
+function keepAwake() {
+  if (process.platform !== 'darwin') return;
+  try {
+    const c = spawn('caffeinate', ['-i', '-w', String(process.pid)], { stdio: 'ignore', detached: true });
+    c.unref();
+    console.log('Keeping the Mac awake until this run finishes (it can still lock the screen).');
+  } catch { /* caffeinate not available */ }
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

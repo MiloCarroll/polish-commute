@@ -3,3 +3,5 @@
 node_modules/
 PROJECT_BRIEF.md
 tools/audio-samples/
+tools/.audio-lock
+tools/audio-skipped.txt
