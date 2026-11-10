@@ -337,3 +337,18 @@ body.typing .actions { visibility: hidden; }
 .more { margin: 12px 0; }
 .more summary { min-height: 44px; display: flex; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
 .row2 .btn { padding: 10px 8px; white-space: nowrap; }
+
+/* ---- Stage 3: vocabulary --------------------------------------------- */
+.details { text-align: left; }
+.details .answer { text-align: center; }
+.details .answer-word, .details .meta { text-align: center; }
+.icon-btn.inline { width: 36px; height: 36px; vertical-align: middle; margin-left: 4px; }
+.icon-btn.inline svg { width: 18px; height: 18px; }
+.pill.reg { background: var(--surface-2); color: var(--muted); font-size: 0.8rem; font-weight: 600; }
+.sentence { font-size: 1.35rem; line-height: 1.5; margin: 10px 0 6px; }
+.blank { display: inline-block; min-width: 3em; border-bottom: 3px solid var(--accent); color: var(--accent); text-align: center; }
+.forms { margin: 10px 0; }
+.forms summary { min-height: 44px; display: flex; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
+.forms table { border-collapse: collapse; width: 100%; }
+.forms td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
+.forms .say-word { background: none; border-bottom: none; padding: 0; }

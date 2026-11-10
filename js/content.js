@@ -4,13 +4,20 @@
 export const MODULES = ['pronunciation', 'vocabulary', 'grammar'];
 
 /** Order in which card kinds are introduced within a topic. */
-export const KIND_ORDER = ['rec', 'listen', 'stress', 'dict'];
+export const KIND_ORDER = ['rec', 'listen', 'stress', 'dict', 'gap', 'prod'];
 
 /** Card kinds generated for each module's items. Later stages add kinds here. */
 export function cardsForItem(module, topic, item) {
   switch (module) {
-    case 'vocabulary':
-      return [{ id: `${item.id}-rec`, module, topic: topic.id, item: item.id, kind: 'rec' }];
+    case 'vocabulary': {
+      // Recognition first; the other directions unlock after its first successful review.
+      const rec = `${item.id}-rec`;
+      const kinds = item.cards ?? ['rec'];
+      return kinds.map((kind) => ({
+        id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind,
+        ...(kind === 'rec' ? {} : { requires: rec }),
+      }));
+    }
     case 'pronunciation':
       // One card per listed exercise: listen (listen and choose), dict (dictation), stress.
       return (item.cards ?? []).map((kind) => ({ id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind }));

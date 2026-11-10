@@ -2,7 +2,7 @@
 
 A personal, offline web app for learning conversational Polish on a 40-minute train commute, used one-handed on an iPhone. No accounts, ads, streaks, points, notifications or microphone. Progress stays on the phone.
 
-**Status: stage 2 (pronunciation).** All 12 pronunciation topics have a lesson and exercises (listen and choose, dictation, stress spotting), with typed-answer grading and the accent bar. Vocabulary has 8 starter words; the full vocabulary module (stage 3), grammar (stage 4) and stats, own cards, flags and export (stage 5) follow.
+**Status: stage 3 (vocabulary).** Pronunciation: 12 topics with lessons, listen and choose, dictation and stress spotting. Vocabulary: 12 topics, about 300 words with Polish → English, English → Polish, listening and sentence-gap cards, gender-aware example sentences, and typed-answer grading with the accent bar. Grammar (stage 4) and stats, own cards, flags and export (stage 5) follow.
 
 ## How it works
 
@@ -29,11 +29,12 @@ js/content.js      loads content/*.json and builds card definitions
 js/settings.js     settings with defaults
 js/tts.js          speech synthesis
 js/grading.js      typed-answer normalising and grading (pure, unit-tested)
+js/variants.js     gender variants of example sentences (pure, unit-tested)
 js/accentbar.js    ą ć ę ł ń ó ś ź ż buttons above the iOS keyboard
 js/exercises.js    card screens: recognition, listen and choose, dictation, stress
 js/lesson.js       topic lessons with tap-to-hear words
 js/views/          home, module/topic, study, settings, first-run (welcome)
-content/           course content (JSON); how to write it: docs/content-pronunciation.md
+content/           course content (JSON); how to write it: docs/content-pronunciation.md, docs/content-vocabulary.md
 tools/             validate-content.js, update-sw.js, released-ids.json
 tests/             node --test unit tests
 ```
@@ -97,6 +98,7 @@ No native speaker reviews this content, so it follows the safeguards in the proj
 - *Not individually looked up:* the remaining basic high-frequency words in pr-01 to pr-08 (checked from knowledge during review), made-up distractor spellings (can't be verified by nature), and three historical notes in `more` sections (rz was once a distinct sound; some older speakers keep a dark ł; some eastern speakers voice h).
 - *Subtlest listening contrasts, worth checking by ear on the phone:* pszczoła / pczoła (pr-10-003), wieś (pr-07-009; the rare command form wieź sounds identical and is not in `alts`).
 
-## iPhone test checklists
-
-See [`docs/iphone-checklist.md`](docs/iphone-checklist.md).
+**Vocabulary (stage 3):** 12 topics, 301 words, 870 cards (Polish → English, English → Polish, 158 sentence gaps, 110 listening), 35 example sentences with all four gender variants. Drafted to `docs/content-vocabulary.md`, then three separate reviewers checked every item and variant (agreement, case after prepositions, negation and numbers, aspect, gendered forms, Pan/Pani, diacritics, phrasing): 13 small fixes (more accepted answers, hints for ambiguous English, two word-order improvements), plus 3 follow-up fixes (an unfair perfective gap, an ambiguous translation, present-for-future replaced with *będę*).
+- *Verified on Wiktionary:* the present tense and aspect pair of all 35 core verbs and the pairs of kroić, kłaść, piec, czuć, bać się, smażyć, martwić, budzić, ubierać, cieszyć, zmywać, pozdrowić, przytulić; vocatives misiu, kotku, skarbie; buziak (acc. buziaka), dokładka, kanapa, ogród, stopień, szwagier/szwagierka, teść, rodzeństwo, państwo, wyspany, najedzony.
+- *Not individually looked up* (checked from standard grammar by the reviewers): very common nouns such as dom, pokój, kuchnia, stół, drzwi, sól, tydzień and the days of the week; common pairs wstawać/wstać, myć/umyć, gotować/ugotować, oglądać/obejrzeć; teściowa, dziadkowie, narzeczona/narzeczony; kochanie and słoneczko as vocatives.
+- *Judgement calls:* sprzątać is paired with posprzątać (the everyday "clean up"), although Wiktionary lists sprzątnąć; lubić, kochać and pamiętać have no aspect pair (polubić/pokochać/zapamiętać change the meaning); pytać/zapytać is given as the textbook pair. Sentences mentioning "my girlfriend/boyfriend" are avoided because gender variants only cover the speaker and listener.

@@ -8,6 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildModule, MODULES } from '../js/content.js';
 import { normalise } from '../js/grading.js';
+import { VARIANT_KEYS, countWhole } from '../js/variants.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const RELEASED = join(ROOT, 'tools', 'released-ids.json');
@@ -120,6 +121,86 @@ function validatePronunciation(json, err, checkPolish) {
   }
 }
 
+// ---- Vocabulary -------------------------------------------------------------
+
+const POS = ['noun', 'verb', 'adjective', 'adverb', 'pronoun', 'numeral', 'preposition', 'conjunction', 'particle', 'interjection', 'phrase'];
+const VOCAB_CARDS = ['rec', 'prod', 'gap', 'listen'];
+const PERSON_KEYS = ['ja', 'ty', 'on', 'my', 'wy', 'oni'];
+
+function validateExample(ex, w, err, checkPolish) {
+  const check = (e, where) => {
+    if (!e || typeof e !== 'object') return err(where, 'missing example');
+    checkPolish(where, e.pl);
+    if (typeof e.en !== 'string' || !e.en) err(where, 'missing translation');
+    if (e.gap !== undefined) {
+      if (typeof e.gap !== 'string' || !e.gap) err(where, 'empty gap');
+      else {
+        const n = countWhole(e.pl ?? '', e.gap);
+        if (n !== 1) err(where, `gap "${e.gap}" must appear exactly once as a whole word in "${e.pl}" (found ${n})`);
+      }
+      (e.gapAlts ?? []).forEach((a) => checkPolish(`${where}/gapAlts`, a));
+    }
+  };
+  if (ex?.v) {
+    if (ex.speaker !== undefined && !['learner', 'partner'].includes(ex.speaker)) err(w, 'speaker must be learner or partner');
+    for (const k of VARIANT_KEYS) check(ex.v[k], `${w}/${k}`);
+    const extra = Object.keys(ex.v).filter((k) => !VARIANT_KEYS.includes(k));
+    if (extra.length) err(w, `unknown variant keys ${extra.join(', ')}`);
+    const gaps = VARIANT_KEYS.map((k) => ex.v[k]?.gap !== undefined);
+    if (gaps.some(Boolean) && !gaps.every(Boolean)) err(w, 'either every variant has a gap or none does');
+  } else check(ex, w);
+}
+
+function validateVocabItem(it, w, topic, err, checkPolish) {
+  checkPolish(w, it.pl);
+  if (typeof it.en !== 'string' || !it.en) err(w, 'missing English');
+  if (!POS.includes(it.pos)) err(w, `pos must be one of ${POS.join(', ')}`);
+  if (!Number.isInteger(it.rank) || it.rank < 1) err(w, 'missing frequency rank');
+  if (it.register != null && !['formal', 'colloquial'].includes(it.register)) err(w, 'register must be formal or colloquial');
+  if (it.pos === 'noun' && !['m', 'f', 'n', 'mpl', 'npl'].includes(it.gender)) err(w, 'noun needs gender');
+  if (it.pos === 'verb') {
+    if (!('aspectPair' in it)) err(w, 'verb needs aspectPair (null if none)');
+    else if (it.aspectPair !== null) checkPolish(`${w}/aspectPair`, it.aspectPair);
+    if (!['impf', 'pf'].includes(it.aspect)) err(w, 'verb needs aspect impf or pf');
+    if (topic.id === 'v-verbs' && !it.forms) err(w, 'core verb needs present-tense forms');
+  }
+  if (it.forms) {
+    for (const k of PERSON_KEYS) checkPolish(`${w}/forms/${k}`, it.forms[k]);
+  }
+  (it.alts ?? []).forEach((a) => checkPolish(`${w}/alts`, a));
+  const cards = it.cards ?? ['rec'];
+  if (!cards.includes('rec') || cards.some((k) => !VOCAB_CARDS.includes(k)) || new Set(cards).size !== cards.length) {
+    err(w, `cards must include rec and only ${VOCAB_CARDS.join('/')}`);
+  }
+  if (!Array.isArray(it.examples) || !it.examples.length || it.examples.length > 3) err(w, 'needs 1–3 examples');
+  for (const [i, ex] of (it.examples ?? []).entries()) validateExample(ex, `${w}/ex${i}`, err, checkPolish);
+  if (cards.includes('gap')) {
+    const hasGap = (it.examples ?? []).some((ex) => (ex.v ? ex.v.mf?.gap : ex.gap));
+    if (!hasGap) err(w, 'gap card needs an example with a gap');
+  }
+}
+
+/** English → Polish must be answerable: identical English glosses need a hint or each other as alternatives. */
+function validateVocabModule(json, err) {
+  const byEn = new Map();
+  for (const t of json.topics) for (const it of t.items) {
+    if (!(it.cards ?? []).includes('prod')) continue;
+    const key = normalise(it.en.replace(/\(.*?\)/g, ''));
+    if (!byEn.has(key)) byEn.set(key, []);
+    byEn.get(key).push(it);
+  }
+  for (const [en, items] of byEn) {
+    if (items.length < 2) continue;
+    for (const it of items) {
+      const others = items.filter((o) => o !== it);
+      const covered = others.every((o) => (it.alts ?? []).includes(o.pl));
+      if (!it.prodHint && !covered) {
+        err(`vocabulary/${it.id}`, `English "${en}" is shared with ${others.map((o) => o.id).join(', ')}: add prodHint or accept the other word in alts`);
+      }
+    }
+  }
+}
+
 export function validate(contents) {
   const errors = [];
   const warnings = [];
@@ -155,22 +236,11 @@ export function validate(contents) {
         if (!ID_PATTERNS[m].test(it.id ?? '')) err(w, 'bad item id');
         if (itemIds.has(it.id)) err(w, 'duplicate item id');
         itemIds.add(it.id);
-        if (m === 'vocabulary') {
-          checkPolish(w, it.pl);
-          if (typeof it.en !== 'string' || !it.en) err(w, 'missing English');
-          if (typeof it.pos !== 'string' || !it.pos) err(w, 'missing part of speech');
-          if (!Number.isInteger(it.rank)) err(w, 'missing frequency rank');
-          if (it.pos === 'noun' && !['m', 'f', 'n', 'mpl', 'npl'].includes(it.gender)) err(w, 'noun needs gender');
-          if (it.pos === 'verb' && !('aspectPair' in it)) err(w, 'verb needs aspectPair (null if none)');
-          if (!Array.isArray(it.examples) || !it.examples.length) err(w, 'needs at least one example');
-          for (const [i, ex] of (it.examples ?? []).entries()) {
-            checkPolish(`${w}/ex${i}`, ex.pl);
-            if (typeof ex.en !== 'string' || !ex.en) err(`${w}/ex${i}`, 'missing translation');
-          }
-        }
+        if (m === 'vocabulary') validateVocabItem(it, w, t, err, checkPolish);
       }
     }
     if (m === 'pronunciation') validatePronunciation(json, err, checkPolish);
+    if (m === 'vocabulary') validateVocabModule(json, err);
     for (const def of buildModule(structuredClone(json)).defs) {
       if (cardIds.has(def.id)) err(def.id, 'duplicate card id');
       cardIds.add(def.id);

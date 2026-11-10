@@ -59,3 +59,23 @@ test('validator catches pronunciation mistakes', () => {
   assert.ok(errors.some((e) => e.includes('pr-01-002') && e.includes('stressNote')), 'unexplained exception');
   assert.ok(errors.some((e) => e.includes('pr-01-003') && e.includes('do not spell')), 'bad syllables');
 });
+
+test('validator catches vocabulary mistakes', () => {
+  const empty = (m) => ({ module: m, title: m, topics: [] });
+  const ok = { pl: 'Mam kota.', en: 'I have a cat.', gap: 'kota' };
+  const vocab = { module: 'vocabulary', title: 'V', topics: [{ id: 'v-verbs', title: 'T', items: [
+    { id: 'v-1001', pl: 'kot', en: 'cat', pos: 'noun', gender: 'm', rank: 1, cards: ['rec', 'gap'],
+      examples: [{ pl: 'Mam kota.', en: 'I have a cat.', gap: 'kot' }] },
+    { id: 'v-1002', pl: 'mieć', en: 'to have', pos: 'verb', aspect: 'impf', aspectPair: null, rank: 2, cards: ['rec', 'prod'], examples: [ok] },
+    { id: 'v-1003', pl: 'zmęczony', en: 'tired', pos: 'adjective', rank: 3, cards: ['rec'],
+      examples: [{ v: { mf: { pl: 'Jestem zmęczony.', en: 'I am tired.' }, mm: { pl: 'Jestem zmęczony.', en: 'I am tired.' }, ff: { pl: 'Jestem zmęczona.', en: 'I am tired.' } } }] },
+    { id: 'v-1004', pl: 'posiadać', en: 'to have', pos: 'verb', aspect: 'impf', aspectPair: null, rank: 4, cards: ['rec', 'prod'], examples: [ok],
+      forms: { ja: 'posiadam', ty: 'posiadasz', on: 'posiada', my: 'posiadamy', wy: 'posiadacie', oni: 'posiadają' } },
+  ] }] };
+  const { errors } = validate({ pronunciation: empty('pronunciation'), grammar: empty('grammar'), vocabulary: vocab });
+  const has = (id, text) => errors.some((e) => e.includes(id) && e.includes(text));
+  assert.ok(has('v-1001', 'exactly once'), 'gap must fit its sentence as a whole word');
+  assert.ok(has('v-1002', 'present-tense forms'), 'core verbs need forms');
+  assert.ok(has('v-1003/ex0/fm', 'missing example'), 'all four gender variants required');
+  assert.ok(has('v-1002', 'shared with') && has('v-1004', 'shared with'), 'same English needs a hint or alternatives');
+});

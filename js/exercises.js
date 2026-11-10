@@ -1,10 +1,12 @@
 // Exercise renderers. Each takes a context and calls ctx.done(rating) when the card is finished.
-//   ctx = { def, item, topic, head, title, back, done(rating), retention }
+//   ctx = { def, item, topic, head, title, back, done(rating) }
 // `head` is the small counts line shown above every card.
+// Lookup: EXERCISES[`${module}/${kind}`] first, then EXERCISES[kind].
 import { Rating, previewIntervals } from './scheduler.js';
-import { grade, diffExpected, MESSAGES } from './grading.js';
+import { grade, diffExpected, normalise, MESSAGES } from './grading.js';
 import { render, esc, speakerIcon, onAction, $ } from './ui.js';
 import { attachAccentBar, hideAccentBar } from './accentbar.js';
+import { resolveExample, gapExample, splitGap } from './variants.js';
 import { settings } from './settings.js';
 import { state } from './app.js';
 import * as tts from './tts.js';
@@ -55,25 +57,147 @@ function guard(fn) {
   return (...args) => { if (busy) return; busy = true; fn(...args); };
 }
 
-// ---- Vocabulary recognition (self-graded) ---------------------------------
+const genders = () => ({ learnerGender: settings().learnerGender, partnerGender: settings().partnerGender });
+
+// ---- Vocabulary item details (shown on reveal / after answering) ------------
+
+const GENDER_NAMES = { m: 'masculine', f: 'feminine', n: 'neuter', mpl: 'plural (masculine-personal)', npl: 'plural' };
+const PERSONS = [['ja', 'I'], ['ty', 'you'], ['on', 'he/she/it'], ['my', 'we'], ['wy', 'you all'], ['oni', 'they']];
+
+function registerPill(item) {
+  if (item.register === 'formal') return '<span class="pill reg">formal</span>';
+  if (item.register === 'colloquial') return '<span class="pill reg">colloquial</span>';
+  return '';
+}
+
+export function metaLine(item) {
+  const bits = [];
+  if (item.pos === 'noun' && item.gender) bits.push(`${GENDER_NAMES[item.gender] ?? item.gender} noun`);
+  else if (item.pos) bits.push(item.pos);
+  if (item.pos === 'verb' && item.aspect) {
+    const a = item.aspect === 'pf' ? 'perfective' : 'imperfective';
+    bits.push(item.aspectPair ? `${a}; pair: <span class="pl" lang="pl">${esc(item.aspectPair)}</span>` : a);
+  }
+  return `<p class="meta muted small">${bits.join(' · ')} ${registerPill(item)}</p>`;
+}
+
+function exampleHtml(ex, highlight) {
+  let pl = esc(ex.pl);
+  if (highlight && ex.gap) {
+    const parts = splitGap(ex.pl, ex.gap);
+    if (parts) pl = `${esc(parts.before)}<strong>${esc(ex.gap)}</strong>${esc(parts.after)}`;
+  }
+  return `<div class="example">
+    <button class="icon-btn small" data-action="say" data-text="${esc(ex.pl)}" aria-label="Play example">${speakerIcon}</button>
+    <div><p class="pl" lang="pl">${pl}</p><p class="muted">${esc(ex.en)}${ex.speaker === 'partner' ? ' <span class="small">(your partner says)</span>' : ''}</p></div>
+  </div>`;
+}
+
+function formsTable(item) {
+  if (!item.forms) return '';
+  return `<details class="forms"><summary>Present tense</summary>
+    <table>${PERSONS.map(([p, en]) => `<tr><td class="muted">${p} <span class="small">(${en})</span></td>
+      <td class="pl" lang="pl"><button class="say-word" data-action="say" data-text="${esc(item.forms[p])}">${esc(item.forms[p])}</button></td></tr>`).join('')}</table>
+  </details>`;
+}
+
+/** Full details: word, meaning, meta, note, forms, examples (resolved for gender settings). */
+export function itemDetails(item, { showWord = true } = {}) {
+  const exs = (item.examples ?? []).map((e) => resolveExample(e, genders()));
+  return `
+    ${showWord ? `<p class="answer-word pl" lang="pl">${esc(item.pl)}
+      <button class="icon-btn small inline" data-action="say" data-text="${esc(item.pl)}" aria-label="Play word">${speakerIcon}</button></p>` : ''}
+    <p class="answer">${esc(item.en)}</p>
+    ${metaLine(item)}
+    ${item.note ? `<p class="note">${esc(item.note)}</p>` : ''}
+    ${formsTable(item)}
+    ${exs.map((e) => exampleHtml(e, true)).join('')}`;
+}
+
+// ---- Shared typed-answer flow ---------------------------------------------
+
+/**
+ * Renders a card with a text input and the accent bar, grades with the brief's table,
+ * then shows the outcome.
+ *   body:      HTML above the input
+ *   answers:   accepted answers (first is the main one)
+ *   homophones: accept same-sounding spellings as Hard (dictation)
+ *   afterHtml(g): extra HTML shown after grading
+ *   speak:     text to speak after grading
+ */
+function typedCard(ctx, { body, answers, homophones = false, afterHtml = () => '', speak, autoplayText, handlers = {} }) {
+  let attempt = 1;
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}
+      <div class="card study">
+        ${body}
+        <form id="typed-form" class="answer-form" autocomplete="off">
+          <input id="typed-input" class="answer-input" type="text" lang="pl" enterkeyhint="go"
+            autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"
+            aria-label="Your answer">
+        </form>
+        <div id="feedback" hidden></div>
+      </div>`,
+    actions: `<button class="btn primary" data-action="check">Check</button>`,
+  });
+  if (autoplayText && settings().autoplay) tts.autoSpeak(autoplayText);
+
+  const input = $('#typed-input');
+  const detach = attachAccentBar(input, () => check());
+  $('#typed-form').addEventListener('submit', (e) => { e.preventDefault(); check(); });
+
+  function check() {
+    if (input.disabled) return;
+    if (!input.value.trim()) { input.focus(); return; }
+    const g = grade(input.value, answers, { homophones, attempt });
+    const fb = $('#feedback');
+    fb.hidden = false;
+    if (g.retry) {
+      attempt = 2;
+      fb.innerHTML = `<p class="verdict warn">${MESSAGES.typo}</p>`;
+      input.focus();
+      input.select();
+      return;
+    }
+    detach();
+    input.blur();
+    hideAccentBar();
+    input.disabled = true;
+    const correct = g.result === 'correct';
+    const shown = correct ? esc(g.expected)
+      : diffExpected(input.value, g.expected).map((s) => (s.type === 'diff' ? `<mark>${esc(s.text)}</mark>` : esc(s.text))).join('');
+    fb.innerHTML = `
+      <p class="verdict ${correct ? 'ok' : g.result === 'wrong' ? 'bad' : 'warn'}">${MESSAGES[g.result]}</p>
+      <p class="answer-word pl" lang="pl">${shown}</p>
+      ${g.result === 'homophone' ? `<p class="small muted">Both spellings sound the same; this word is written with the letters highlighted.</p>` : ''}
+      ${afterHtml(g)}`;
+    document.getElementById('actions').innerHTML = outcomeActions(g.rating, correct);
+    if (speak) tts.speak(typeof speak === 'function' ? speak(g) : speak);
+    fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    onAction({
+      ...handlers,
+      say: (el) => tts.speak(el.dataset.text),
+      finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+    });
+  }
+
+  onAction({ ...handlers, say: (el) => tts.speak(el.dataset.text), check: () => check() });
+}
+
+// ---- Vocabulary: recognition (Polish → English, self-graded) --------------
 
 function rec(ctx) {
   const { item } = ctx;
-  const ex = item.examples?.[0];
+  const ex = resolveExample(item.examples?.[0], genders());
   render({
     title: ctx.title, back: ctx.back,
     body: `${ctx.head}
       <div class="card study">
         <p class="prompt pl" lang="pl">${esc(item.pl)}</p>
+        ${registerPill(item)}
         ${audioRow()}
-        <div id="answer" hidden>
-          <p class="answer">${esc(item.en)}</p>
-          ${item.note ? `<p class="note">${esc(item.note)}</p>` : ''}
-          ${ex ? `<div class="example">
-              <button class="icon-btn small" data-action="say" data-text="${esc(ex.pl)}" aria-label="Play example">${speakerIcon}</button>
-              <div><p class="pl" lang="pl">${esc(ex.pl)}</p><p class="muted">${esc(ex.en)}</p></div>
-            </div>` : ''}
-        </div>
+        <div id="answer" hidden class="details">${itemDetails(item, { showWord: false })}</div>
       </div>`,
     actions: `<button class="btn primary" data-action="reveal">Show answer</button>`,
   });
@@ -91,7 +215,76 @@ function rec(ctx) {
   });
 }
 
-// ---- Listen and choose -----------------------------------------------------
+// ---- Vocabulary: production (English → Polish, typed) ----------------------
+
+function prod(ctx) {
+  const { item } = ctx;
+  typedCard(ctx, {
+    body: `
+      <p class="question">How do you say…</p>
+      <p class="prompt">${esc(item.en)}</p>
+      <p class="muted small">${esc(item.pos ?? '')}${item.prodHint ? ` · ${esc(item.prodHint)}` : ''} ${registerPill(item)}</p>`,
+    answers: [item.pl, ...(item.alts ?? [])],
+    speak: (g) => g.expected,
+    afterHtml: () => `<div class="details">${itemDetails(item, { showWord: false })}</div>`,
+  });
+}
+
+// ---- Vocabulary: sentence gap (typed) -------------------------------------
+
+function gap(ctx) {
+  const { item } = ctx;
+  const ex = gapExample(item, genders());
+  if (!ex) return rec(ctx); // content guarantees a gap; fall back gracefully
+  const parts = splitGap(ex.pl, ex.gap);
+  const hint = normalise(ex.gap) !== normalise(item.pl) ? ` <span class="muted">(${esc(item.pl)})</span>` : '';
+  typedCard(ctx, {
+    body: `
+      <p class="question">Fill the gap${hint}</p>
+      <p class="sentence pl" lang="pl">${esc(parts.before)}<span class="blank">&nbsp;?&nbsp;</span>${esc(parts.after)}</p>
+      <p class="muted">${esc(ex.en)}${ex.speaker === 'partner' ? ' <span class="small">(your partner says)</span>' : ''}</p>`,
+    answers: [ex.gap, ...(ex.gapAlts ?? [])],
+    speak: ex.pl,
+    afterHtml: () => `
+      <p class="pl" lang="pl">${esc(parts.before)}<strong>${esc(ex.gap)}</strong>${esc(parts.after)}</p>
+      <details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`,
+  });
+}
+
+// ---- Vocabulary: listening (hear a sentence, then self-grade) --------------
+
+function vlisten(ctx) {
+  const { item } = ctx;
+  const ex = resolveExample(item.examples?.[0], genders()) ?? { pl: item.pl, en: item.en };
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}
+      <div class="card study">
+        <p class="question">Listen. What does it mean?</p>
+        ${audioRow()}
+        ${noVoiceNote()}
+        <div id="answer" hidden class="details">
+          <p class="sentence pl" lang="pl">${esc(ex.pl)}</p>
+          <p class="answer">${esc(ex.en)}</p>
+          <details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>
+        </div>
+      </div>`,
+    actions: `<button class="btn primary" data-action="reveal">Show text</button>`,
+  });
+  if (settings().autoplay) tts.autoSpeak(ex.pl);
+  onAction({
+    play: () => tts.speak(ex.pl),
+    slow: () => tts.speak(ex.pl, { slow: true }),
+    say: (el) => tts.speak(el.dataset.text),
+    reveal: () => {
+      $('#answer').hidden = false;
+      document.getElementById('actions').innerHTML = gradeButtons(ctx);
+    },
+    grade: guard((el) => ctx.done(Number(el.dataset.rating))),
+  });
+}
+
+// ---- Pronunciation: listen and choose --------------------------------------
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -141,77 +334,29 @@ function listen(ctx) {
   });
 }
 
-// ---- Dictation -------------------------------------------------------------
+// ---- Pronunciation: dictation ---------------------------------------------
 
 function dict(ctx) {
   const { item } = ctx;
-  const answers = [item.pl, ...(item.alts ?? [])];
-  let attempt = 1;
-  render({
-    title: ctx.title, back: ctx.back,
-    body: `${ctx.head}
-      <div class="card study">
-        <p class="question">Type what you hear</p>
-        ${audioRow()}
-        ${noVoiceNote()}
-        <p class="muted hint">Meaning: ${esc(item.en)}</p>
-        <form id="dict-form" class="answer-form" autocomplete="off">
-          <input id="dict-input" class="answer-input" type="text" lang="pl" enterkeyhint="go"
-            autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"
-            aria-label="Your answer">
-        </form>
-        <div id="feedback" hidden></div>
-      </div>`,
-    actions: `<button class="btn primary" data-action="check">Check</button>`,
-  });
-  if (settings().autoplay) tts.autoSpeak(item.pl);
-
-  const input = $('#dict-input');
-  const detach = attachAccentBar(input, () => check());
-  $('#dict-form').addEventListener('submit', (e) => { e.preventDefault(); check(); });
-
-  function check() {
-    if (!input.value.trim()) { input.focus(); return; }
-    const g = grade(input.value, answers, { homophones: true, attempt });
-    const fb = $('#feedback');
-    fb.hidden = false;
-    if (g.retry) {
-      attempt = 2;
-      fb.innerHTML = `<p class="verdict warn">${MESSAGES.typo}</p>`;
-      input.focus();
-      input.select();
-      return;
-    }
-    detach();
-    input.blur();
-    hideAccentBar();
-    input.disabled = true;
-    const correct = g.result === 'correct';
-    const segs = diffExpected(input.value, g.expected);
-    const shown = correct ? esc(g.expected)
-      : segs.map((s) => (s.type === 'diff' ? `<mark>${esc(s.text)}</mark>` : esc(s.text))).join('');
-    fb.innerHTML = `
-      <p class="verdict ${correct ? 'ok' : g.result === 'wrong' ? 'bad' : 'warn'}">${MESSAGES[g.result]}</p>
-      <p class="answer-word pl" lang="pl">${shown}</p>
-      ${g.result === 'homophone' ? `<p class="small muted">Both spellings sound the same; this word is written with the letters highlighted.</p>` : ''}
-      ${g.result === 'wrong' ? `<p class="small">${lessonLink(ctx)}</p>` : ''}`;
-    document.getElementById('actions').innerHTML = outcomeActions(g.rating, correct);
-    tts.speak(g.expected);
-    onAction({
+  typedCard(ctx, {
+    body: `
+      <p class="question">Type what you hear</p>
+      ${audioRow()}
+      ${noVoiceNote()}
+      <p class="muted hint">Meaning: ${esc(item.en)}</p>`,
+    answers: [item.pl, ...(item.alts ?? [])],
+    homophones: true,
+    autoplayText: item.pl,
+    speak: (g) => g.expected,
+    afterHtml: (g) => (g.result === 'wrong' ? `<p class="small">${lessonLink(ctx)}</p>` : ''),
+    handlers: {
       play: () => tts.speak(item.pl),
       slow: () => tts.speak(item.pl, { slow: true }),
-      finish: guard((b) => ctx.done(Number(b.dataset.rating))),
-    });
-  }
-
-  onAction({
-    play: () => tts.speak(item.pl),
-    slow: () => tts.speak(item.pl, { slow: true }),
-    check: () => check(),
+    },
   });
 }
 
-// ---- Stress spotting -------------------------------------------------------
+// ---- Pronunciation: stress spotting ---------------------------------------
 
 function stress(ctx) {
   const { item } = ctx;
@@ -251,4 +396,16 @@ function stress(ctx) {
   });
 }
 
-export const EXERCISES = { rec, listen, dict, stress };
+export const EXERCISES = {
+  'vocabulary/rec': rec,
+  'vocabulary/prod': prod,
+  'vocabulary/gap': gap,
+  'vocabulary/listen': vlisten,
+  'pronunciation/listen': listen,
+  'pronunciation/dict': dict,
+  'pronunciation/stress': stress,
+};
+
+export function exerciseFor(def) {
+  return EXERCISES[`${def.module}/${def.kind}`] ?? EXERCISES[`vocabulary/${def.kind}`];
+}

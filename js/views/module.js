@@ -28,7 +28,7 @@ export function moduleView(m) {
           <span class="topic-title">${esc(t.title)}</span>
           <span class="muted small">${t.cards.length
             ? `${tc.learned}/${tc.total} learned${tc.due ? ` · ${tc.due} due` : ''}`
-            : 'Coming soon'}${isNext ? ' · <strong>Up next</strong>' : ''}</span>
+            : esc(t.emptyNote ? 'Your own phrases' : 'Coming soon')}${isNext ? ' · <strong>Up next</strong>' : ''}</span>
         </span>
       </a></li>`;
   }).join('');
@@ -67,7 +67,7 @@ export function topicView(m, topicId) {
          <h2 class="section-title">Words in this topic</h2>
          <p class="muted small">${c.learned}/${c.total} cards learned · ${c.due} due · ${c.newAvailable} new</p>
          <ul class="words">${items}</ul>`
-      : `<p class="notice">${esc(mod.status || 'This topic is coming soon.')}</p>`,
+      : `<p class="notice">${esc(topic.emptyNote || mod.status || 'This topic is coming soon.')}</p>`,
     actions: topic.cards.length && (c.due || c.newAvailable)
       ? `<a class="btn primary" href="#/study/${m}/${topic.id}">Study this topic</a>`
       : '',

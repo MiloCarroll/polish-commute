@@ -71,3 +71,28 @@ Tap the **Update available** banner first (or fully close and reopen the app unt
 
 **Content**
 - If a word, sound description or answer looks wrong, note the topic and word. (A Flag button on each card arrives in stage 5.)
+
+## Stage 3: vocabulary
+
+Tap the **Update available** banner first. Your 8 starter words keep their progress.
+
+**Topics**
+- [ ] Vocabulary shows 12 topics plus *My phrases* (empty until stage 5). The first topic with new words is marked *Up next*.
+- [ ] Open a topic: its words are listed, and each plays when tapped.
+
+**Exercises** (use headphones)
+- [ ] **Polish → English:** the word plays on its own; *Show answer* shows the meaning, word type (e.g. "feminine noun", "imperfective; pair: zrobić"), a note where there is one, and example sentences you can play. Formal and colloquial words carry a small label.
+- [ ] Core verbs (e.g. *być*, *mieć*): *Present tense* opens a small table of forms.
+- [ ] **English → Polish** (only appears after you've got the Polish → English card right once): type the word with the accent bar; marking works like dictation (accents, typo retry, *I was right*).
+- [ ] **Listening:** a sentence plays with no text; *Show text* reveals it and its translation; grade yourself.
+- [ ] **Sentence gaps:** a sentence with a blank, its translation, and the word's dictionary form as a hint when the gap needs a different form (e.g. *kot* → *kota*).
+
+**Gender**
+- [ ] With the default settings, your own sentences say e.g. *byłem / jestem zmęczony*, and questions to your partner say e.g. *jesteś zmęczona?*. Lines your partner says are marked "(your partner says)".
+- [ ] In Settings, switch *I am* to Female, then look at the same kind of sentence: it now says *byłam / zmęczona*. Switch it back.
+
+**Keyboard**
+- [ ] The accent bar sits directly on the keyboard on both typed card types, and nothing is autocorrected or capitalised.
+
+**Content**
+- If a word, translation or sentence looks wrong or unnatural, note the topic and the Polish. (Flag buttons arrive in stage 5.)

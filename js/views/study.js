@@ -5,7 +5,7 @@ import { settings, setSetting } from '../settings.js';
 import { allDefs } from '../content.js';
 import { pickNext, applyReview, newRemaining, countCards } from '../scheduler.js';
 import { render, onAction, esc } from '../ui.js';
-import { EXERCISES } from '../exercises.js';
+import { exerciseFor } from '../exercises.js';
 import { lessonHtml, lessonHandlers } from '../lesson.js';
 import { hideAccentBar } from '../accentbar.js';
 import * as tts from '../tts.js';
@@ -81,7 +81,7 @@ export function studyView(scope, topicId) {
   function showCard(def, isNew, topic) {
     const mod = state.content[def.module];
     const item = mod.items.get(def.item);
-    const exercise = EXERCISES[def.kind];
+    const exercise = exerciseFor(def);
     const shownAt = Date.now();
     const counts = countCards(defs, state.records);
     const head = `<p class="session-counts muted small">
