@@ -322,8 +322,10 @@ body.typing .actions { visibility: hidden; }
   background: var(--accent-soft); color: inherit; font: inherit; font-weight: 600; cursor: pointer;
 }
 .letters { display: grid; gap: 10px; margin: 16px 0; }
-.letter-row { display: flex; gap: 14px; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
-.letter { flex: none; min-width: 52px; font-size: 1.6rem; font-weight: 700; color: var(--accent); text-align: center; }
+/* Label stacked above its description, so long labels ("ą (at the end of a word)") never squeeze the text. */
+.letter-row { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.letter { font-size: 1.35rem; font-weight: 700; line-height: 1.25; color: var(--accent); overflow-wrap: anywhere; }
+.letter-body { min-width: 0; }
 .letter-body p { margin: 0 0 6px; }
 .examples { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
