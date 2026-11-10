@@ -2,7 +2,7 @@
 
 A personal, offline web app for learning conversational Polish on a 40-minute train commute, used one-handed on an iPhone. No accounts, ads, streaks, points, notifications or microphone. Progress stays on the phone.
 
-**Status: stage 3 (vocabulary).** Pronunciation: 12 topics with lessons, listen and choose, dictation and stress spotting. Vocabulary: 12 topics, about 300 words with Polish → English, English → Polish, listening and sentence-gap cards, gender-aware example sentences, and typed-answer grading with the accent bar. Grammar (stage 4) and stats, own cards, flags and export (stage 5) follow.
+**Status: stage 4 (grammar).** Pronunciation: 12 topics with lessons and three exercise types. Vocabulary: 12 topics, about 300 words, four exercise types with gender-aware sentences. Grammar: 8 topics with plain-English explanations and tables, choose-the-form drills followed by typed drills, and a reason plus a link back to the explanation after every wrong answer. Stats, own cards, flags, export/import and the session timer (stage 5) follow.
 
 ## How it works
 
@@ -34,7 +34,7 @@ js/accentbar.js    ą ć ę ł ń ó ś ź ż buttons above the iOS keyboard
 js/exercises.js    card screens: recognition, listen and choose, dictation, stress
 js/lesson.js       topic lessons with tap-to-hear words
 js/views/          home, module/topic, study, settings, first-run (welcome)
-content/           course content (JSON); how to write it: docs/content-pronunciation.md, docs/content-vocabulary.md
+content/           course content (JSON); how to write it: docs/content-pronunciation.md, docs/content-vocabulary.md, docs/content-grammar.md
 tools/             validate-content.js, update-sw.js, released-ids.json
 tests/             node --test unit tests
 ```
@@ -77,7 +77,7 @@ node tools/update-sw.js && node tools/validate-content.js && node --test tests/
 
 Progress is stored against **card IDs**, so released IDs must never change.
 
-- Item IDs: `pr-NN-NNN` (pronunciation), `v-NNNN` (vocabulary), `g-NN-NNN` (grammar). Card IDs add the exercise, e.g. `v-0001-rec`. User-made cards start with `u-`.
+- Item IDs: `pr-NN-NNN` (pronunciation), `v-NNNN` (vocabulary), `g-NN-NNN` (grammar). Card IDs add the exercise, e.g. `pr-05-003-listen`, `v-0001-rec`; a grammar drill's ID is its card ID (`g-03-017`). User-made cards start with `u-`.
 - To fix a typo or translation, edit the item in place and keep its `id`.
 - To add items, give them new IDs (the next unused number). Never reuse or renumber an ID, even if you delete an item.
 - Order within a topic is the order cards are introduced; you can reorder freely because IDs do not encode position.
@@ -102,3 +102,8 @@ No native speaker reviews this content, so it follows the safeguards in the proj
 - *Verified on Wiktionary:* the present tense and aspect pair of all 35 core verbs and the pairs of kroić, kłaść, piec, czuć, bać się, smażyć, martwić, budzić, ubierać, cieszyć, zmywać, pozdrowić, przytulić; vocatives misiu, kotku, skarbie; buziak (acc. buziaka), dokładka, kanapa, ogród, stopień, szwagier/szwagierka, teść, rodzeństwo, państwo, wyspany, najedzony.
 - *Not individually looked up* (checked from standard grammar by the reviewers): very common nouns such as dom, pokój, kuchnia, stół, drzwi, sól, tydzień and the days of the week; common pairs wstawać/wstać, myć/umyć, gotować/ugotować, oglądać/obejrzeć; teściowa, dziadkowie, narzeczona/narzeczony; kochanie and słoneczko as vocatives.
 - *Judgement calls:* sprzątać is paired with posprzątać (the everyday "clean up"), although Wiktionary lists sprzątnąć; lubić, kochać and pamiętać have no aspect pair (polubić/pokochać/zapamiętać change the meaning); pytać/zapytać is given as the textbook pair. Sentences mentioning "my girlfriend/boyfriend" are avoided because gender variants only cover the speaker and listener.
+
+**Grammar (stage 4):** 8 topics, 273 drills (about 40% choose-the-form, then typed), 48 with all four gender variants (mostly the past tense). Drafted to `docs/content-grammar.md`, then three separate reviewers checked every drill and variant: fixes were the explanation wording (124 past-tense reasons that had been left unfinished, four lesson sentences that were imprecise, czyj added to the question-words lesson), *Jesteś przystojna* → *Jesteś ładna* (przystojny is "handsome" of a man), one translation, plus follow-ups (perfective *zadzwoniłaś* accepted, the album exception to -um, the -owa- → -uj- rule stated exactly).
+- *Verified on Wiktionary:* present tense of być, mieć, znać, czekać, mieszkać, słuchać, mówić, robić, lubić, widzieć, myśleć, tęsknić, uczyć się, pracować, gotować, rozumieć, pisać, jechać, iść, pić, słyszeć; past tense of być, robić, pracować, tęsknić, dzwonić, sprzątać, oglądać, wiedzieć, widzieć, spać, chcieć, myśleć, mieć, pić, gotować, kupić, zadzwonić and the irregular iść (szedłem/szłam), jeść (jadł-), móc (mogłem, mógł); genders of noc, rzecz, kość, wieś, mysz, gość, muzeum; genitive/accusative of ser, sok, klucz, kurczak, szwagier, makaron, telefon, samochód, pies, teść, czas, chleb, obiad, kot, rower, sól, pomysł, dziadek, wujek, kuzyn, pytanie; czekać na + acc., tęsknić za + instr., słuchać + gen.
+- *Not individually looked up:* the common feminine and neuter genitives (kawy, wody, herbaty, mamy, babci, mięsa, piwa, mleka, wina, ciasta …), brat → brata, film → filmu, and the adjective endings.
+- *Simplifications kept on purpose:* masculine inanimate nouns "stay the same" in the accusative (colloquial *jem banana* is not mentioned); partitive genitive after *chcę* is explained but only accepted where it is common.

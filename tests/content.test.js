@@ -31,3 +31,10 @@ test('vocabulary cards: recognition first, other directions locked until it succ
   records.set(rec.id, applyReview(rec, undefined, Rating.Good, new Date()).record);
   assert.equal(isUnlocked(prod, records), true);
 });
+
+test('grammar: one card per drill, the drill id is the card id, order kept', () => {
+  const mod = buildModule({ module: 'grammar', title: 'G', topics: [{ id: 'g-01', title: 'T', items: [
+    { id: 'g-01-001', type: 'choose' }, { id: 'g-01-002', type: 'choose' }, { id: 'g-01-003', type: 'type' },
+  ] }] });
+  assert.deepEqual(mod.defs.map((d) => [d.id, d.kind]), [['g-01-001', 'choose'], ['g-01-002', 'choose'], ['g-01-003', 'type']]);
+});

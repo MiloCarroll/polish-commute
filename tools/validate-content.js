@@ -201,6 +201,67 @@ function validateVocabModule(json, err) {
   }
 }
 
+// ---- Grammar ------------------------------------------------------------------
+
+function validateGrammarDrill(d, w, err, checkPolish) {
+  checkPolish(w, d.pl);
+  if (typeof d.en !== 'string' || !d.en) err(w, 'missing English');
+  if (typeof d.gap !== 'string' || !d.gap) err(w, 'missing gap');
+  else {
+    const n = countWhole(d.pl ?? '', d.gap);
+    if (n !== 1) err(w, `gap "${d.gap}" must appear exactly once as a whole word in "${d.pl}" (found ${n})`);
+  }
+  if (typeof d.reason !== 'string' || !d.reason) err(w, 'needs a one-line reason');
+  if (d.hint !== undefined && d.hint !== null) checkPolish(`${w}/hint`, d.hint);
+  (d.alts ?? []).forEach((a) => checkPolish(`${w}/alts`, a));
+  if (d.type === 'choose') {
+    const o = d.options;
+    if (!Array.isArray(o) || o.length < 3 || o.length > 4) err(w, 'choose needs 3–4 options');
+    else {
+      if (o.filter((x) => x === d.gap).length !== 1) err(w, `options must contain the answer "${d.gap}" exactly once`);
+      if (new Set(o.map((x) => normalise(x))).size !== o.length) err(w, 'duplicate options');
+      for (const a of d.alts ?? []) if (o.includes(a)) err(w, `option "${a}" is also an accepted answer`);
+      o.forEach((x) => checkPolish(`${w}/options`, x));
+    }
+  }
+}
+
+function validateGrammar(json, err, checkPolish) {
+  for (const t of json.topics) {
+    const tw = `grammar/${t.id}`;
+    if (!t.items.length) continue;
+    const L = t.lesson;
+    if (!L || typeof L.summary !== 'string' || !Array.isArray(L.body) || L.body.length < 1 || L.body.length > 2) {
+      err(tw, 'lesson needs a summary and one or two body paragraphs');
+    }
+    if (L?.table) {
+      const { head, rows } = L.table;
+      if (!Array.isArray(rows) || !rows.length) err(tw, 'table needs rows');
+      else if (head && rows.some((r) => r.length !== head.length)) err(tw, 'table rows must match the header length');
+    }
+    const words = [L?.summary, ...(L?.body ?? []), ...(L?.more ?? []), ...(L?.table?.rows?.flat() ?? []), ...(L?.table?.head ?? [])]
+      .filter(Boolean).flatMap((x) => [...String(x).matchAll(/\{\{(.+?)\}\}/g)].map((m) => m[1]));
+    words.forEach((x) => checkPolish(`${tw}/lesson`, x));
+    if (t.items.length < 25 || t.items.length > 40) err(tw, `has ${t.items.length} drills; aim for 25–40`);
+    let seenType = false;
+    for (const it of t.items) {
+      const w = `${tw}/${it.id}`;
+      if (!['choose', 'type'].includes(it.type)) { err(w, 'type must be choose or type'); continue; }
+      if (it.type === 'type') seenType = true;
+      else if (seenType) err(w, 'choose drills must all come before type drills');
+      if (it.v) {
+        if (it.speaker !== undefined && !['learner', 'partner'].includes(it.speaker)) err(w, 'speaker must be learner or partner');
+        for (const k of VARIANT_KEYS) {
+          if (!it.v[k]) { err(`${w}/${k}`, 'missing variant'); continue; }
+          const { v, ...base } = it;
+          validateGrammarDrill({ ...base, ...v[k] }, `${w}/${k}`, err, checkPolish);
+        }
+      } else validateGrammarDrill(it, w, err, checkPolish);
+    }
+  }
+}
+
+
 export function validate(contents) {
   const errors = [];
   const warnings = [];
@@ -241,6 +302,7 @@ export function validate(contents) {
     }
     if (m === 'pronunciation') validatePronunciation(json, err, checkPolish);
     if (m === 'vocabulary') validateVocabModule(json, err);
+    if (m === 'grammar') validateGrammar(json, err, checkPolish);
     for (const def of buildModule(structuredClone(json)).defs) {
       if (cardIds.has(def.id)) err(def.id, 'duplicate card id');
       cardIds.add(def.id);

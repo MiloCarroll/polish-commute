@@ -1,15 +1,5387 @@
 {
   "module": "grammar",
   "title": "Grammar",
-  "status": "Explanations and drills arrive in stage 4.",
   "topics": [
-    { "id": "g-01", "title": "Być and personal pronouns", "items": [] },
-    { "id": "g-02", "title": "Noun gender from word endings", "items": [] },
-    { "id": "g-03", "title": "Present-tense conjugation groups", "items": [] },
-    { "id": "g-04", "title": "Accusative after mam, lubię, chcę, widzę", "items": [] },
-    { "id": "g-05", "title": "Negation and the genitive", "items": [] },
-    { "id": "g-06", "title": "Adjective agreement", "items": [] },
-    { "id": "g-07", "title": "Questions and question words", "items": [] },
-    { "id": "g-08", "title": "Past tense: “I was”, “you were”", "items": [] }
+    {
+      "id": "g-01",
+      "title": "Być and personal pronouns",
+      "lesson": {
+        "summary": "How to say \"I am\", \"you are\", \"she is\" and so on with być (to be), and when to use the little words ja, ty, on, ona.",
+        "body": [
+          "{{Być}} means \"to be\", and it changes its ending for each person: {{jestem}} (I am), {{jesteś}} (you are), {{jest}} (he, she or it is), {{jesteśmy}} (we are), {{jesteście}} (you all are), {{są}} (they are). Because the ending already tells you who is meant, Polish usually drops the pronoun: {{Jestem w domu.}} is \"I'm at home\". Saying {{Ja jestem w domu.}} is not wrong, but it sounds like you are stressing \"I\".",
+          "So keep the pronoun only for contrast or emphasis: {{Ja jestem w domu, a ty?}} (\"I'm at home, and you?\"). The pronouns are {{ja}} (I), {{ty}} (you, one person), {{on}} (he), {{ona}} (she), {{ono}} (it), {{my}} (we), {{wy}} (you, more than one), and two words for \"they\": {{oni}} and {{one}}."
+        ],
+        "table": {
+          "caption": "Być in the present tense",
+          "head": [
+            "Who",
+            "Być",
+            "English"
+          ],
+          "rows": [
+            [
+              "{{ja}}",
+              "{{jestem}}",
+              "I am"
+            ],
+            [
+              "{{ty}}",
+              "{{jesteś}}",
+              "you are (one person)"
+            ],
+            [
+              "{{on}}, {{ona}}, {{ono}}",
+              "{{jest}}",
+              "he / she / it is"
+            ],
+            [
+              "{{my}}",
+              "{{jesteśmy}}",
+              "we are"
+            ],
+            [
+              "{{wy}}",
+              "{{jesteście}}",
+              "you are (two or more)"
+            ],
+            [
+              "{{oni}}, {{one}}",
+              "{{są}}",
+              "they are"
+            ]
+          ]
+        },
+        "more": [
+          "{{Oni}} is \"they\" for any group with at least one man in it ({{rodzice}}, {{brat i siostra}}). {{One}} is for groups with no men: women only, children, animals or things ({{mama i babcia}}, {{klucze}}).",
+          "Polish has no word for the \"it\" in \"it's cold\": just say {{Jest zimno.}} The same goes for {{Jest późno.}} (\"It's late\").",
+          "To introduce people or things, use {{to jest}} (\"this is\") for one and {{to są}} (\"these are\") for more: {{To jest moja mama.}}, {{To są moi rodzice.}} The word {{to}} here never changes.",
+          "With her parents and other older people you may use the polite {{pan}} (sir) and {{pani}} (madam) instead of {{ty}}. They take the \"he/she\" form of the verb: {{Pani jest bardzo miła.}} (\"You are very kind\").",
+          "When \"to be\" is followed by a noun on its own, as in \"I am a teacher\", Polish puts that noun in a different case (the instrumental), which comes later. Until then, stick to {{być}} with places ({{w domu}}), describing words ({{zmęczony}}) and {{to jest}}."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-01-001",
+          "type": "choose",
+          "pl": "Jestem w domu.",
+          "en": "I'm at home.",
+          "gap": "Jestem",
+          "hint": "ja",
+          "options": [
+            "Jestem",
+            "Jesteś",
+            "Jest"
+          ],
+          "alts": [],
+          "reason": "For ja (I), być is jestem."
+        },
+        {
+          "id": "g-01-002",
+          "type": "choose",
+          "pl": "Gdzie jesteś?",
+          "en": "Where are you?",
+          "gap": "jesteś",
+          "hint": "ty",
+          "options": [
+            "jestem",
+            "jesteś",
+            "jest",
+            "są"
+          ],
+          "alts": [],
+          "reason": "For ty (you, one person), być is jesteś."
+        },
+        {
+          "id": "g-01-003",
+          "type": "choose",
+          "pl": "Mama jest w kuchni.",
+          "en": "Mum is in the kitchen.",
+          "gap": "jest",
+          "hint": "ona",
+          "options": [
+            "jestem",
+            "jest",
+            "są"
+          ],
+          "alts": [],
+          "reason": "One person who is not you or me (she) takes jest."
+        },
+        {
+          "id": "g-01-004",
+          "type": "choose",
+          "pl": "Jesteśmy w domu.",
+          "en": "We're at home.",
+          "gap": "Jesteśmy",
+          "hint": "my",
+          "options": [
+            "Jesteśmy",
+            "Jesteście",
+            "Są"
+          ],
+          "alts": [],
+          "reason": "For my (we), być is jesteśmy."
+        },
+        {
+          "id": "g-01-005",
+          "type": "choose",
+          "pl": "Gdzie jesteście?",
+          "en": "Where are you all?",
+          "gap": "jesteście",
+          "hint": "wy",
+          "options": [
+            "jesteś",
+            "jesteście",
+            "jesteśmy"
+          ],
+          "alts": [],
+          "reason": "Talking to more than one person (wy) takes jesteście."
+        },
+        {
+          "id": "g-01-006",
+          "type": "choose",
+          "pl": "Rodzice są w ogrodzie.",
+          "en": "My parents are in the garden.",
+          "gap": "są",
+          "hint": "oni",
+          "options": [
+            "jest",
+            "są",
+            "jesteście"
+          ],
+          "alts": [],
+          "reason": "Parents are \"they\", so być is są."
+        },
+        {
+          "id": "g-01-007",
+          "type": "choose",
+          "pl": "Tata? On jest w pracy.",
+          "en": "Dad? He's at work.",
+          "gap": "On",
+          "options": [
+            "On",
+            "Ona",
+            "Ono"
+          ],
+          "alts": [],
+          "reason": "Dad is a man, so \"he\" is on.",
+          "prompt": "Choose the pronoun"
+        },
+        {
+          "id": "g-01-008",
+          "type": "choose",
+          "pl": "Babcia? Ona jest w ogrodzie.",
+          "en": "Grandma? She's in the garden.",
+          "gap": "Ona",
+          "options": [
+            "On",
+            "Ona",
+            "Ono"
+          ],
+          "alts": [],
+          "reason": "Grandma is a woman, so \"she\" is ona.",
+          "prompt": "Choose the pronoun"
+        },
+        {
+          "id": "g-01-009",
+          "type": "choose",
+          "pl": "Mama i babcia? One są w kuchni.",
+          "en": "Mum and Grandma? They're in the kitchen.",
+          "gap": "One",
+          "options": [
+            "Oni",
+            "One",
+            "Ona"
+          ],
+          "alts": [],
+          "reason": "A group with no men is one.",
+          "prompt": "Choose the pronoun"
+        },
+        {
+          "id": "g-01-010",
+          "type": "choose",
+          "pl": "Brat i siostra? Oni są w domu.",
+          "en": "My brother and sister? They're at home.",
+          "gap": "Oni",
+          "options": [
+            "Oni",
+            "One",
+            "On"
+          ],
+          "alts": [],
+          "reason": "A group with at least one man is oni.",
+          "prompt": "Choose the pronoun"
+        },
+        {
+          "id": "g-01-011",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jestem zmęczony.",
+              "en": "I'm tired.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            },
+            "mm": {
+              "pl": "Jestem zmęczony.",
+              "en": "I'm tired.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            },
+            "ff": {
+              "pl": "Jestem zmęczona.",
+              "en": "I'm tired.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            },
+            "fm": {
+              "pl": "Jestem zmęczona.",
+              "en": "I'm tired.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            }
+          }
+        },
+        {
+          "id": "g-01-012",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś głodna?",
+              "en": "Are you hungry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "mm": {
+              "pl": "Jesteś głodny?",
+              "en": "Are you hungry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "ff": {
+              "pl": "Jesteś głodna?",
+              "en": "Are you hungry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "fm": {
+              "pl": "Jesteś głodny?",
+              "en": "Are you hungry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "options": [
+                "Jestem",
+                "Jesteś",
+                "Jest"
+              ],
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            }
+          }
+        },
+        {
+          "id": "g-01-013",
+          "type": "choose",
+          "pl": "Ja jestem w domu, a ty?",
+          "en": "I'm at home, and you?",
+          "gap": "Ja",
+          "options": [
+            "Ja",
+            "Ty",
+            "On"
+          ],
+          "alts": [],
+          "reason": "jestem goes with ja; here ja is kept to contrast \"I\" with \"you\".",
+          "prompt": "Choose the pronoun"
+        },
+        {
+          "id": "g-01-014",
+          "type": "type",
+          "pl": "Jestem w pracy.",
+          "en": "I'm at work.",
+          "gap": "Jestem",
+          "hint": "ja",
+          "alts": [],
+          "reason": "For ja (I), być is jestem."
+        },
+        {
+          "id": "g-01-015",
+          "type": "type",
+          "pl": "Jesteś w domu?",
+          "en": "Are you at home?",
+          "gap": "Jesteś",
+          "hint": "ty",
+          "alts": [],
+          "reason": "For ty (you, one person), być is jesteś."
+        },
+        {
+          "id": "g-01-016",
+          "type": "type",
+          "pl": "Gdzie jest klucz?",
+          "en": "Where is the key?",
+          "gap": "jest",
+          "hint": "on",
+          "alts": [],
+          "reason": "One thing (it) takes jest."
+        },
+        {
+          "id": "g-01-017",
+          "type": "type",
+          "pl": "Obiad jest gotowy.",
+          "en": "Dinner is ready.",
+          "gap": "jest",
+          "hint": "on",
+          "alts": [],
+          "reason": "One thing takes jest."
+        },
+        {
+          "id": "g-01-018",
+          "type": "type",
+          "pl": "Klucze są na stole.",
+          "en": "The keys are on the table.",
+          "gap": "są",
+          "hint": "one",
+          "alts": [],
+          "reason": "Several things are \"they\", so być is są."
+        },
+        {
+          "id": "g-01-019",
+          "type": "type",
+          "pl": "Jesteśmy w kuchni.",
+          "en": "We're in the kitchen.",
+          "gap": "Jesteśmy",
+          "hint": "my",
+          "alts": [],
+          "reason": "For my (we), być is jesteśmy."
+        },
+        {
+          "id": "g-01-020",
+          "type": "type",
+          "pl": "Jesteście w domu?",
+          "en": "Are you all at home?",
+          "gap": "Jesteście",
+          "hint": "wy",
+          "alts": [],
+          "reason": "Talking to more than one person (wy) takes jesteście."
+        },
+        {
+          "id": "g-01-021",
+          "type": "type",
+          "pl": "Oni są w pracy.",
+          "en": "They're at work.",
+          "gap": "są",
+          "hint": "oni",
+          "alts": [],
+          "reason": "For oni (they), być is są."
+        },
+        {
+          "id": "g-01-022",
+          "type": "type",
+          "pl": "To jest moja mama.",
+          "en": "This is my mum.",
+          "gap": "jest",
+          "hint": "to",
+          "alts": [],
+          "reason": "To introduce one person or thing, say to jest."
+        },
+        {
+          "id": "g-01-023",
+          "type": "type",
+          "pl": "To są moi rodzice.",
+          "en": "These are my parents.",
+          "gap": "są",
+          "hint": "to",
+          "alts": [],
+          "reason": "To introduce more than one, say to są."
+        },
+        {
+          "id": "g-01-024",
+          "type": "type",
+          "pl": "Pani jest bardzo miła.",
+          "en": "You are very kind. (polite, to a woman)",
+          "gap": "jest",
+          "hint": "pani",
+          "alts": [],
+          "reason": "Polite pani takes the \"she\" form: jest."
+        },
+        {
+          "id": "g-01-025",
+          "type": "type",
+          "pl": "Jest zimno.",
+          "en": "It's cold.",
+          "gap": "Jest",
+          "hint": "być",
+          "alts": [],
+          "reason": "There is no word for \"it\" here: just jest."
+        },
+        {
+          "id": "g-01-026",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Nie jestem głodny.",
+              "en": "I'm not hungry.",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; nie goes in front."
+            },
+            "mm": {
+              "pl": "Nie jestem głodny.",
+              "en": "I'm not hungry.",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; nie goes in front."
+            },
+            "ff": {
+              "pl": "Nie jestem głodna.",
+              "en": "I'm not hungry.",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; nie goes in front."
+            },
+            "fm": {
+              "pl": "Nie jestem głodna.",
+              "en": "I'm not hungry.",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; nie goes in front."
+            }
+          }
+        },
+        {
+          "id": "g-01-027",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś zła?",
+              "en": "Are you angry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "mm": {
+              "pl": "Jesteś zły?",
+              "en": "Are you angry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "ff": {
+              "pl": "Jesteś zła?",
+              "en": "Are you angry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "fm": {
+              "pl": "Jesteś zły?",
+              "en": "Are you angry?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            }
+          }
+        },
+        {
+          "id": "g-01-028",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Ja jestem gotowy, a ty?",
+              "en": "I'm ready, and you?",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; ja is kept for contrast."
+            },
+            "mm": {
+              "pl": "Ja jestem gotowy, a ty?",
+              "en": "I'm ready, and you?",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; ja is kept for contrast."
+            },
+            "ff": {
+              "pl": "Ja jestem gotowa, a ty?",
+              "en": "I'm ready, and you?",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; ja is kept for contrast."
+            },
+            "fm": {
+              "pl": "Ja jestem gotowa, a ty?",
+              "en": "I'm ready, and you?",
+              "gap": "jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem; ja is kept for contrast."
+            }
+          }
+        },
+        {
+          "id": "g-01-029",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś zmęczona?",
+              "en": "Are you tired?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "mm": {
+              "pl": "Jesteś zmęczony?",
+              "en": "Are you tired?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "ff": {
+              "pl": "Jesteś zmęczona?",
+              "en": "Are you tired?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            },
+            "fm": {
+              "pl": "Jesteś zmęczony?",
+              "en": "Are you tired?",
+              "gap": "Jesteś",
+              "hint": "ty",
+              "alts": [],
+              "reason": "For ty (you), być is jesteś."
+            }
+          }
+        },
+        {
+          "id": "g-01-030",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Jestem szczęśliwy.",
+              "en": "I'm happy.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            },
+            "mm": {
+              "pl": "Jestem szczęśliwy.",
+              "en": "I'm happy.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            },
+            "ff": {
+              "pl": "Jestem szczęśliwa.",
+              "en": "I'm happy.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            },
+            "fm": {
+              "pl": "Jestem szczęśliwa.",
+              "en": "I'm happy.",
+              "gap": "Jestem",
+              "hint": "ja",
+              "alts": [],
+              "reason": "For ja (I), być is jestem."
+            }
+          }
+        },
+        {
+          "id": "g-01-031",
+          "type": "type",
+          "pl": "Ty jesteś w pracy, a ja w domu.",
+          "en": "You're at work, and I'm at home.",
+          "gap": "Ty",
+          "hint": "you",
+          "alts": [],
+          "reason": "Keep the pronoun ty here to contrast \"you\" with \"I\".",
+          "prompt": "Fill in the pronoun"
+        },
+        {
+          "id": "g-01-032",
+          "type": "type",
+          "pl": "My jesteśmy w domu, a wy?",
+          "en": "We're at home, and you all?",
+          "gap": "jesteśmy",
+          "hint": "my",
+          "alts": [],
+          "reason": "For my (we), być is jesteśmy."
+        }
+      ]
+    },
+    {
+      "id": "g-02",
+      "title": "Noun gender from word endings",
+      "lesson": {
+        "summary": "Every Polish noun is masculine, feminine or neuter, and you can usually tell which from its last letter.",
+        "body": [
+          "Gender matters because the little words around a noun change to match it: \"my\" is {{mój}}, {{moja}} or {{moje}}, \"this\" is {{ten}}, {{ta}} or {{to}}, and describing words end in -y/-i, -a or -e. Luckily the ending of the noun (in its dictionary form) usually tells you the gender. A consonant at the end means masculine: {{dom}}, {{stół}}, {{chleb}}. An -a means feminine: {{kawa}}, {{kuchnia}}, {{mama}}. An -o, -e, -ę or -um means neuter: {{piwo}}, {{mieszkanie}}, {{imię}}, {{muzeum}}.",
+          "There are a few exceptions worth learning now. Words for men are masculine even when they end in -a: {{mężczyzna}} (man), {{tata}} (dad), and men's names like {{Kuba}}. And some feminine nouns end in a consonant, for example {{noc}} (night), {{rzecz}} (thing), {{wieś}} (village), {{mysz}} (mouse) and {{kość}} (bone)."
+        ],
+        "table": {
+          "caption": "Ending, gender, and the words that match",
+          "head": [
+            "Ending",
+            "Gender",
+            "\"my\"",
+            "\"this\""
+          ],
+          "rows": [
+            [
+              "consonant",
+              "masculine",
+              "{{mój dom}}",
+              "{{ten dom}}"
+            ],
+            [
+              "-a",
+              "feminine",
+              "{{moja kawa}}",
+              "{{ta kawa}}"
+            ],
+            [
+              "-o, -e, -ę, -um",
+              "neuter",
+              "{{moje piwo}}",
+              "{{to piwo}}"
+            ]
+          ]
+        },
+        "more": [
+          "\"Your\" (to one person) works the same way as \"my\": {{twój}}, {{twoja}}, {{twoje}}.",
+          "Describing words follow the same three-way pattern: {{dobry chleb}}, {{dobra kawa}}, {{dobre piwo}}. Some masculine forms end in -i instead of -y, such as {{wysoki}} (tall), but the feminine is still -a ({{wysoka}}) and the neuter -e ({{wysokie}}).",
+          "Nouns ending in -ość are feminine: {{miłość}} (love), {{radość}} (joy). The one everyday exception is {{gość}} (guest), which is masculine. A few nouns that end in -i are feminine too, the most useful being {{pani}}.",
+          "Don't mix up {{to}} meaning \"this\" with a neuter noun ({{to piwo}}) and {{to jest}} meaning \"this is\". In {{To jest moja mama.}} the {{to}} never changes, whatever the gender.",
+          "If you meet a noun ending in a soft consonant (like -ć, -ść, -ń or -ś) and are not sure, check the dictionary: some are masculine ({{dzień}}, {{gość}}) and some feminine ({{kość}}, {{wieś}}).",
+          "A few words break the -um rule: {{album}} is masculine (mój album)."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-02-001",
+          "type": "choose",
+          "pl": "To jest mój dom.",
+          "en": "This is my house.",
+          "gap": "mój",
+          "hint": "mój",
+          "options": [
+            "mój",
+            "moja",
+            "moje"
+          ],
+          "alts": [],
+          "reason": "Dom ends in a consonant, so it is masculine: mój."
+        },
+        {
+          "id": "g-02-002",
+          "type": "choose",
+          "pl": "To jest moja kuchnia.",
+          "en": "This is my kitchen.",
+          "gap": "moja",
+          "hint": "mój",
+          "options": [
+            "mój",
+            "moja",
+            "moje"
+          ],
+          "alts": [],
+          "reason": "Kuchnia ends in -a, so it is feminine: moja."
+        },
+        {
+          "id": "g-02-003",
+          "type": "choose",
+          "pl": "To jest moje łóżko.",
+          "en": "This is my bed.",
+          "gap": "moje",
+          "hint": "mój",
+          "options": [
+            "mój",
+            "moja",
+            "moje"
+          ],
+          "alts": [],
+          "reason": "Łóżko ends in -o, so it is neuter: moje."
+        },
+        {
+          "id": "g-02-004",
+          "type": "choose",
+          "pl": "Ta kawa jest zimna.",
+          "en": "This coffee is cold.",
+          "gap": "Ta",
+          "hint": "ten",
+          "options": [
+            "Ten",
+            "Ta",
+            "To"
+          ],
+          "alts": [],
+          "reason": "Kawa ends in -a, so it is feminine: ta."
+        },
+        {
+          "id": "g-02-005",
+          "type": "choose",
+          "pl": "Ten ser jest pyszny.",
+          "en": "This cheese is delicious.",
+          "gap": "Ten",
+          "hint": "ten",
+          "options": [
+            "Ten",
+            "Ta",
+            "To"
+          ],
+          "alts": [],
+          "reason": "Ser ends in a consonant, so it is masculine: ten."
+        },
+        {
+          "id": "g-02-006",
+          "type": "choose",
+          "pl": "To piwo jest zimne.",
+          "en": "This beer is cold.",
+          "gap": "To",
+          "hint": "ten",
+          "options": [
+            "Ten",
+            "Ta",
+            "To"
+          ],
+          "alts": [],
+          "reason": "Piwo ends in -o, so it is neuter: to."
+        },
+        {
+          "id": "g-02-007",
+          "type": "choose",
+          "pl": "To jest dobre mleko.",
+          "en": "This is good milk.",
+          "gap": "dobre",
+          "hint": "dobry",
+          "options": [
+            "dobry",
+            "dobra",
+            "dobre"
+          ],
+          "alts": [],
+          "reason": "Mleko ends in -o, so it is neuter: dobre."
+        },
+        {
+          "id": "g-02-008",
+          "type": "choose",
+          "pl": "Ten mężczyzna jest miły.",
+          "en": "This man is nice.",
+          "gap": "Ten",
+          "hint": "ten",
+          "options": [
+            "Ten",
+            "Ta",
+            "To"
+          ],
+          "alts": [],
+          "reason": "Mężczyzna ends in -a but means a man, so it is masculine: ten."
+        },
+        {
+          "id": "g-02-009",
+          "type": "choose",
+          "pl": "Mój tata jest w pracy.",
+          "en": "My dad is at work.",
+          "gap": "Mój",
+          "hint": "mój",
+          "options": [
+            "Mój",
+            "Moja",
+            "Moje"
+          ],
+          "alts": [],
+          "reason": "Tata ends in -a but is a man, so it is masculine: mój."
+        },
+        {
+          "id": "g-02-010",
+          "type": "choose",
+          "pl": "Kuba jest miły.",
+          "en": "Kuba is nice.",
+          "gap": "miły",
+          "hint": "miły",
+          "options": [
+            "miły",
+            "miła",
+            "miłe"
+          ],
+          "alts": [],
+          "reason": "Kuba is a man's name, so it is masculine despite the -a: miły."
+        },
+        {
+          "id": "g-02-011",
+          "type": "choose",
+          "pl": "Dzisiaj jest zimna noc.",
+          "en": "It's a cold night tonight.",
+          "gap": "zimna",
+          "hint": "zimny",
+          "options": [
+            "zimny",
+            "zimna",
+            "zimne"
+          ],
+          "alts": [],
+          "reason": "Noc is one of the feminine nouns ending in a consonant: zimna."
+        },
+        {
+          "id": "g-02-012",
+          "type": "choose",
+          "pl": "Ta rzecz jest moja.",
+          "en": "This thing is mine.",
+          "gap": "Ta",
+          "hint": "ten",
+          "options": [
+            "Ten",
+            "Ta",
+            "To"
+          ],
+          "alts": [],
+          "reason": "Rzecz is feminine even though it ends in a consonant: ta."
+        },
+        {
+          "id": "g-02-013",
+          "type": "choose",
+          "pl": "To jest moje imię.",
+          "en": "This is my name.",
+          "gap": "moje",
+          "hint": "mój",
+          "options": [
+            "mój",
+            "moja",
+            "moje"
+          ],
+          "alts": [],
+          "reason": "Imię ends in -ę, so it is neuter: moje."
+        },
+        {
+          "id": "g-02-014",
+          "type": "type",
+          "pl": "Moja mama jest w domu.",
+          "en": "My mum is at home.",
+          "gap": "Moja",
+          "hint": "mój",
+          "alts": [],
+          "reason": "Mama ends in -a, so it is feminine: moja."
+        },
+        {
+          "id": "g-02-015",
+          "type": "type",
+          "pl": "Mój brat jest w pracy.",
+          "en": "My brother is at work.",
+          "gap": "Mój",
+          "hint": "mój",
+          "alts": [],
+          "reason": "Brat ends in a consonant, so it is masculine: mój."
+        },
+        {
+          "id": "g-02-016",
+          "type": "type",
+          "pl": "To jest moje mieszkanie.",
+          "en": "This is my flat.",
+          "gap": "moje",
+          "hint": "mój",
+          "alts": [],
+          "reason": "Mieszkanie ends in -e, so it is neuter: moje."
+        },
+        {
+          "id": "g-02-017",
+          "type": "type",
+          "pl": "To jest moja siostra.",
+          "en": "This is my sister.",
+          "gap": "moja",
+          "hint": "mój",
+          "alts": [],
+          "reason": "Siostra ends in -a, so it is feminine: moja."
+        },
+        {
+          "id": "g-02-018",
+          "type": "type",
+          "pl": "Mój dziadek jest w ogrodzie.",
+          "en": "My grandad is in the garden.",
+          "gap": "Mój",
+          "hint": "mój",
+          "alts": [],
+          "reason": "Dziadek ends in a consonant, so it is masculine: mój."
+        },
+        {
+          "id": "g-02-019",
+          "type": "type",
+          "pl": "Twoja kawa jest gotowa.",
+          "en": "Your coffee is ready.",
+          "gap": "Twoja",
+          "hint": "twój",
+          "alts": [],
+          "reason": "Kawa is feminine, so \"your\" is twoja."
+        },
+        {
+          "id": "g-02-020",
+          "type": "type",
+          "pl": "Twój tata jest miły.",
+          "en": "Your dad is nice.",
+          "gap": "Twój",
+          "hint": "twój",
+          "alts": [],
+          "reason": "Tata is a man, so it is masculine: twój."
+        },
+        {
+          "id": "g-02-021",
+          "type": "type",
+          "pl": "Twoje jajko jest gotowe.",
+          "en": "Your egg is ready.",
+          "gap": "Twoje",
+          "hint": "twój",
+          "alts": [],
+          "reason": "Jajko ends in -o, so it is neuter: twoje."
+        },
+        {
+          "id": "g-02-022",
+          "type": "type",
+          "pl": "Ta zupa jest pyszna.",
+          "en": "This soup is delicious.",
+          "gap": "Ta",
+          "hint": "ten",
+          "alts": [],
+          "reason": "Zupa ends in -a, so it is feminine: ta."
+        },
+        {
+          "id": "g-02-023",
+          "type": "type",
+          "pl": "Ten stół jest duży.",
+          "en": "This table is big.",
+          "gap": "Ten",
+          "hint": "ten",
+          "alts": [],
+          "reason": "Stół ends in a consonant, so it is masculine: ten."
+        },
+        {
+          "id": "g-02-024",
+          "type": "type",
+          "pl": "To okno jest małe.",
+          "en": "This window is small.",
+          "gap": "małe",
+          "hint": "mały",
+          "alts": [],
+          "reason": "Okno ends in -o, so it is neuter: małe."
+        },
+        {
+          "id": "g-02-025",
+          "type": "type",
+          "pl": "Ta herbata jest gorąca.",
+          "en": "This tea is hot.",
+          "gap": "gorąca",
+          "hint": "gorący",
+          "alts": [],
+          "reason": "Herbata ends in -a, so it is feminine: gorąca."
+        },
+        {
+          "id": "g-02-026",
+          "type": "type",
+          "pl": "To dziecko jest głodne.",
+          "en": "This child is hungry.",
+          "gap": "głodne",
+          "hint": "głodny",
+          "alts": [],
+          "reason": "Dziecko ends in -o, so it is neuter: głodne."
+        },
+        {
+          "id": "g-02-027",
+          "type": "type",
+          "pl": "Moja babcia jest bardzo miła.",
+          "en": "My grandma is very nice.",
+          "gap": "miła",
+          "hint": "miły",
+          "alts": [],
+          "reason": "Babcia ends in -a, so it is feminine: miła."
+        },
+        {
+          "id": "g-02-028",
+          "type": "type",
+          "pl": "To muzeum jest duże.",
+          "en": "This museum is big.",
+          "gap": "duże",
+          "hint": "duży",
+          "alts": [],
+          "reason": "Muzeum ends in -um, so it is neuter: duże."
+        },
+        {
+          "id": "g-02-029",
+          "type": "type",
+          "pl": "Ta wieś jest mała.",
+          "en": "This village is small.",
+          "gap": "mała",
+          "hint": "mały",
+          "alts": [],
+          "reason": "Wieś is feminine even though it ends in a consonant: mała."
+        },
+        {
+          "id": "g-02-030",
+          "type": "type",
+          "pl": "Ta mysz jest mała.",
+          "en": "This mouse is small.",
+          "gap": "Ta",
+          "hint": "ten",
+          "alts": [],
+          "reason": "Mysz is feminine even though it ends in a consonant: ta."
+        },
+        {
+          "id": "g-02-031",
+          "type": "type",
+          "pl": "Ta kość jest dla psa.",
+          "en": "This bone is for the dog.",
+          "gap": "Ta",
+          "hint": "ten",
+          "alts": [],
+          "reason": "Kość is feminine even though it ends in a consonant: ta."
+        },
+        {
+          "id": "g-02-032",
+          "type": "type",
+          "pl": "Ten mężczyzna jest wysoki.",
+          "en": "This man is tall.",
+          "gap": "wysoki",
+          "hint": "wysoki",
+          "alts": [],
+          "reason": "Mężczyzna is masculine, so the masculine form wysoki stays."
+        }
+      ]
+    },
+    {
+      "id": "g-03",
+      "title": "Present-tense conjugation groups",
+      "lesson": {
+        "summary": "Most Polish verbs follow one of three patterns in the present tense; learn the \"I\" and \"you\" forms and the rest falls into place.",
+        "body": [
+          "A Polish verb changes its ending to show who is doing something, so the pronoun is usually dropped: {{mam}} is \"I have\", {{masz}} is \"you have\". Most verbs belong to one of three groups. Group one has \"I\" in -am and \"you\" in -asz: {{mam, masz}}, {{czytam, czytasz}}, {{znam, znasz}}. Group two has -ę and -esz: {{piszę, piszesz}}, {{piję, pijesz}}, {{idę, idziesz}}. Group three has -ę and -isz or -ysz: {{mówię, mówisz}}, {{robię, robisz}}, {{słyszę, słyszysz}}.",
+          "The \"he/she\" form is the \"you\" form without the final -sz: {{masz}} → {{ma}}, {{piszesz}} → {{pisze}}, {{mówisz}} → {{mówi}}. \"We\" adds -my and \"you all\" adds -cie to that: {{mamy, macie}}, {{piszemy, piszecie}}, {{mówimy, mówicie}}. \"They\" ends in -ą (or -ają in group one): {{mają}}, {{piszą}}, {{mówią}}."
+        ],
+        "table": {
+          "caption": "One verb from each group",
+          "head": [
+            "Who",
+            "mieć (have)",
+            "pisać (write)",
+            "mówić (speak)"
+          ],
+          "rows": [
+            [
+              "{{ja}}",
+              "{{mam}}",
+              "{{piszę}}",
+              "{{mówię}}"
+            ],
+            [
+              "{{ty}}",
+              "{{masz}}",
+              "{{piszesz}}",
+              "{{mówisz}}"
+            ],
+            [
+              "{{on}}, {{ona}}",
+              "{{ma}}",
+              "{{pisze}}",
+              "{{mówi}}"
+            ],
+            [
+              "{{my}}",
+              "{{mamy}}",
+              "{{piszemy}}",
+              "{{mówimy}}"
+            ],
+            [
+              "{{wy}}",
+              "{{macie}}",
+              "{{piszecie}}",
+              "{{mówicie}}"
+            ],
+            [
+              "{{oni}}, {{one}}",
+              "{{mają}}",
+              "{{piszą}}",
+              "{{mówią}}"
+            ]
+          ]
+        },
+        "more": [
+          "You can't always tell the group from the infinitive, so learn each new verb with its \"I\" and \"you\" forms. Many verbs in -ować change -owa- to -uj-: -uję, -ujesz: {{pracować}} → {{pracuję, pracujesz}}, {{gotować}} → {{gotuję}}, {{kupować}} → {{kupuję}}.",
+          "In group two the stem sometimes changes between \"I\" and \"you\": {{idę, idziesz}} (go on foot), {{jadę, jedziesz}} (go by vehicle), {{biorę, bierzesz}} (take). The \"they\" form goes back to the \"I\" stem: {{idą}}, {{jadą}}, {{biorą}}.",
+          "A few very common verbs have -em, -esz: {{rozumiem, rozumiesz}} (understand), and they work like group one ({{rozumiemy, rozumiecie}}, but \"they\" is {{rozumieją}}). {{Jeść}} (eat) and {{wiedzieć}} (know a fact) are irregular: {{jem, jesz, je}} and {{wiem, wiesz, wie}}.",
+          "Polish has one present tense for both \"I drink\" and \"I'm drinking\": {{Piję kawę.}} covers both."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-03-001",
+          "type": "choose",
+          "pl": "Mam czas.",
+          "en": "I have time.",
+          "gap": "Mam",
+          "hint": "mieć",
+          "options": [
+            "Mam",
+            "Masz",
+            "Ma"
+          ],
+          "alts": [],
+          "reason": "For ja (I), mieć is mam."
+        },
+        {
+          "id": "g-03-002",
+          "type": "choose",
+          "pl": "Masz czas?",
+          "en": "Do you have time?",
+          "gap": "Masz",
+          "hint": "mieć",
+          "options": [
+            "Mam",
+            "Masz",
+            "Ma"
+          ],
+          "alts": [],
+          "reason": "For ty (you), group one ends in -asz: masz."
+        },
+        {
+          "id": "g-03-003",
+          "type": "choose",
+          "pl": "Znasz moją mamę?",
+          "en": "Do you know my mum?",
+          "gap": "Znasz",
+          "hint": "znać",
+          "options": [
+            "Znam",
+            "Znasz",
+            "Zna"
+          ],
+          "alts": [],
+          "reason": "For ty (you), znać is znasz."
+        },
+        {
+          "id": "g-03-004",
+          "type": "choose",
+          "pl": "Piszę wiadomość.",
+          "en": "I'm writing a message.",
+          "gap": "Piszę",
+          "hint": "pisać",
+          "options": [
+            "Piszę",
+            "Piszesz",
+            "Pisze"
+          ],
+          "alts": [],
+          "reason": "For ja (I), group two ends in -ę: piszę."
+        },
+        {
+          "id": "g-03-005",
+          "type": "choose",
+          "pl": "Idę do domu.",
+          "en": "I'm going home.",
+          "gap": "Idę",
+          "hint": "iść",
+          "options": [
+            "Idę",
+            "Idziesz",
+            "Idzie"
+          ],
+          "alts": [],
+          "reason": "For ja (I), iść is idę."
+        },
+        {
+          "id": "g-03-006",
+          "type": "choose",
+          "pl": "Jedziesz do pracy?",
+          "en": "Are you going to work (by car)?",
+          "gap": "Jedziesz",
+          "hint": "jechać",
+          "options": [
+            "Jadę",
+            "Jedziesz",
+            "Jedzie"
+          ],
+          "alts": [],
+          "reason": "For ty (you), jechać (go by vehicle) is jedziesz."
+        },
+        {
+          "id": "g-03-007",
+          "type": "choose",
+          "pl": "Piję kawę.",
+          "en": "I'm drinking coffee.",
+          "gap": "Piję",
+          "hint": "pić",
+          "options": [
+            "Piję",
+            "Pijesz",
+            "Pije"
+          ],
+          "alts": [],
+          "reason": "For ja (I), pić is piję."
+        },
+        {
+          "id": "g-03-008",
+          "type": "choose",
+          "pl": "Mówisz po angielsku?",
+          "en": "Do you speak English?",
+          "gap": "Mówisz",
+          "hint": "mówić",
+          "options": [
+            "Mówię",
+            "Mówisz",
+            "Mówi"
+          ],
+          "alts": [],
+          "reason": "For ty (you), group three ends in -isz: mówisz."
+        },
+        {
+          "id": "g-03-009",
+          "type": "choose",
+          "pl": "Co robisz?",
+          "en": "What are you doing?",
+          "gap": "robisz",
+          "hint": "robić",
+          "options": [
+            "robię",
+            "robisz",
+            "robi"
+          ],
+          "alts": [],
+          "reason": "For ty (you), robić is robisz."
+        },
+        {
+          "id": "g-03-010",
+          "type": "choose",
+          "pl": "Lubię piwo.",
+          "en": "I like beer.",
+          "gap": "Lubię",
+          "hint": "lubić",
+          "options": [
+            "Lubię",
+            "Lubisz",
+            "Lubi"
+          ],
+          "alts": [],
+          "reason": "For ja (I), group three ends in -ę: lubię."
+        },
+        {
+          "id": "g-03-011",
+          "type": "choose",
+          "pl": "Słyszysz mnie?",
+          "en": "Can you hear me?",
+          "gap": "Słyszysz",
+          "hint": "słyszeć",
+          "options": [
+            "Słyszę",
+            "Słyszysz",
+            "Słyszy"
+          ],
+          "alts": [],
+          "reason": "For ty (you), słyszeć is słyszysz (with -ysz after sz)."
+        },
+        {
+          "id": "g-03-012",
+          "type": "choose",
+          "pl": "Mama gotuje obiad.",
+          "en": "Mum is cooking dinner.",
+          "gap": "gotuje",
+          "hint": "gotować",
+          "options": [
+            "gotuję",
+            "gotujesz",
+            "gotuje"
+          ],
+          "alts": [],
+          "reason": "For one other person (she), drop -sz from the \"you\" form: gotuje."
+        },
+        {
+          "id": "g-03-013",
+          "type": "choose",
+          "pl": "Rodzice mają psa.",
+          "en": "My parents have a dog.",
+          "gap": "mają",
+          "hint": "mieć",
+          "options": [
+            "ma",
+            "mamy",
+            "mają"
+          ],
+          "alts": [],
+          "reason": "For oni (they), mieć is mają."
+        },
+        {
+          "id": "g-03-014",
+          "type": "choose",
+          "pl": "Mieszkamy razem.",
+          "en": "We live together.",
+          "gap": "Mieszkamy",
+          "hint": "mieszkać",
+          "options": [
+            "Mieszkam",
+            "Mieszkamy",
+            "Mieszkacie"
+          ],
+          "alts": [],
+          "reason": "For my (we), add -my: mieszkamy."
+        },
+        {
+          "id": "g-03-015",
+          "type": "type",
+          "pl": "Gdzie mieszkasz?",
+          "en": "Where do you live?",
+          "gap": "mieszkasz",
+          "hint": "mieszkać",
+          "alts": [],
+          "reason": "For ty (you), group one ends in -asz: mieszkasz."
+        },
+        {
+          "id": "g-03-016",
+          "type": "type",
+          "pl": "Czekam na ciebie.",
+          "en": "I'm waiting for you.",
+          "gap": "Czekam",
+          "hint": "czekać",
+          "alts": [],
+          "reason": "For ja (I), group one ends in -am: czekam."
+        },
+        {
+          "id": "g-03-017",
+          "type": "type",
+          "pl": "Nie mam czasu.",
+          "en": "I don't have time.",
+          "gap": "mam",
+          "hint": "mieć",
+          "alts": [],
+          "reason": "For ja (I), mieć is mam."
+        },
+        {
+          "id": "g-03-018",
+          "type": "type",
+          "pl": "Znam twojego brata.",
+          "en": "I know your brother.",
+          "gap": "Znam",
+          "hint": "znać",
+          "alts": [],
+          "reason": "For ja (I), znać is znam."
+        },
+        {
+          "id": "g-03-019",
+          "type": "type",
+          "pl": "Nie rozumiem.",
+          "en": "I don't understand.",
+          "gap": "rozumiem",
+          "hint": "rozumieć",
+          "alts": [],
+          "reason": "Rozumieć has -em for ja (I): rozumiem."
+        },
+        {
+          "id": "g-03-020",
+          "type": "type",
+          "pl": "Piszesz do mamy?",
+          "en": "Are you writing to Mum?",
+          "gap": "Piszesz",
+          "hint": "pisać",
+          "alts": [],
+          "reason": "For ty (you), pisać is piszesz."
+        },
+        {
+          "id": "g-03-021",
+          "type": "type",
+          "pl": "Pijesz herbatę?",
+          "en": "Are you drinking tea?",
+          "gap": "Pijesz",
+          "hint": "pić",
+          "alts": [],
+          "reason": "For ty (you), pić is pijesz."
+        },
+        {
+          "id": "g-03-022",
+          "type": "type",
+          "pl": "Jadę do pracy.",
+          "en": "I'm going to work (by car).",
+          "gap": "Jadę",
+          "hint": "jechać",
+          "alts": [],
+          "reason": "For ja (I), jechać (go by vehicle) is jadę."
+        },
+        {
+          "id": "g-03-023",
+          "type": "type",
+          "pl": "Idziemy do babci.",
+          "en": "We're going to Grandma's.",
+          "gap": "Idziemy",
+          "hint": "iść",
+          "alts": [],
+          "reason": "For my (we), iść is idziemy."
+        },
+        {
+          "id": "g-03-024",
+          "type": "type",
+          "pl": "Pracuję w domu.",
+          "en": "I work from home.",
+          "gap": "Pracuję",
+          "hint": "pracować",
+          "alts": [],
+          "reason": "In pracować, -owa- becomes -uj-: for ja (I) it is pracuję."
+        },
+        {
+          "id": "g-03-025",
+          "type": "type",
+          "pl": "Gdzie pracujesz?",
+          "en": "Where do you work?",
+          "gap": "pracujesz",
+          "hint": "pracować",
+          "alts": [],
+          "reason": "For ty (you), pracować is pracujesz."
+        },
+        {
+          "id": "g-03-026",
+          "type": "type",
+          "pl": "Mówię trochę po polsku.",
+          "en": "I speak a little Polish.",
+          "gap": "Mówię",
+          "hint": "mówić",
+          "alts": [],
+          "reason": "For ja (I), mówić is mówię."
+        },
+        {
+          "id": "g-03-027",
+          "type": "type",
+          "pl": "Lubisz kawę?",
+          "en": "Do you like coffee?",
+          "gap": "Lubisz",
+          "hint": "lubić",
+          "alts": [],
+          "reason": "For ty (you), lubić is lubisz."
+        },
+        {
+          "id": "g-03-028",
+          "type": "type",
+          "pl": "Nie widzę klucza.",
+          "en": "I can't see the key.",
+          "gap": "widzę",
+          "hint": "widzieć",
+          "alts": [],
+          "reason": "For ja (I), widzieć is widzę."
+        },
+        {
+          "id": "g-03-029",
+          "type": "type",
+          "pl": "Tęsknię za tobą.",
+          "en": "I miss you.",
+          "gap": "Tęsknię",
+          "hint": "tęsknić",
+          "alts": [],
+          "reason": "For ja (I), tęsknić is tęsknię."
+        },
+        {
+          "id": "g-03-030",
+          "type": "type",
+          "pl": "Myślę, że tak.",
+          "en": "I think so.",
+          "gap": "Myślę",
+          "hint": "myśleć",
+          "alts": [],
+          "reason": "For ja (I), myśleć is myślę."
+        },
+        {
+          "id": "g-03-031",
+          "type": "type",
+          "pl": "Uczę się polskiego.",
+          "en": "I'm learning Polish.",
+          "gap": "Uczę",
+          "hint": "uczyć się",
+          "alts": [],
+          "reason": "For ja (I), uczyć się is uczę się."
+        },
+        {
+          "id": "g-03-032",
+          "type": "type",
+          "pl": "Babcia mówi po angielsku?",
+          "en": "Does Grandma speak English?",
+          "gap": "mówi",
+          "hint": "mówić",
+          "alts": [],
+          "reason": "For one other person (she), mówić is mówi."
+        },
+        {
+          "id": "g-03-033",
+          "type": "type",
+          "pl": "Robimy obiad.",
+          "en": "We're making dinner.",
+          "gap": "Robimy",
+          "hint": "robić",
+          "alts": [],
+          "reason": "For my (we), robić is robimy."
+        },
+        {
+          "id": "g-03-034",
+          "type": "type",
+          "pl": "Co robicie?",
+          "en": "What are you all doing?",
+          "gap": "robicie",
+          "hint": "robić",
+          "alts": [],
+          "reason": "Talking to more than one person (wy), robić is robicie."
+        },
+        {
+          "id": "g-03-035",
+          "type": "type",
+          "pl": "Macie czas?",
+          "en": "Do you all have time?",
+          "gap": "Macie",
+          "hint": "mieć",
+          "alts": [],
+          "reason": "For wy (you all), mieć is macie."
+        },
+        {
+          "id": "g-03-036",
+          "type": "type",
+          "pl": "Oni słuchają muzyki.",
+          "en": "They're listening to music.",
+          "gap": "słuchają",
+          "hint": "słuchać",
+          "alts": [],
+          "reason": "For oni (they), group one ends in -ają: słuchają."
+        }
+      ]
+    },
+    {
+      "id": "g-04",
+      "title": "Accusative after mam, lubię, chcę, widzę",
+      "lesson": {
+        "summary": "After verbs like mam, lubię, chcę and widzę, the thing you have, like, want or see changes its ending (the accusative case).",
+        "body": [
+          "In {{Lubię kawę}} (\"I like coffee\"), {{kawa}} has become {{kawę}}. That is the accusative: the form of a noun when it is the direct object of a verb such as {{mam}} (I have), {{lubię}} (I like), {{chcę}} (I want), {{widzę}} (I see), {{kocham}} (I love), {{jem}} (I eat) or {{piję}} (I drink).",
+          "The good news: only two groups change. Feminine nouns in -a swap it for -ę ({{woda}} → {{wodę}}). Masculine nouns for people and animals add -a ({{brat}} → {{brata}}, {{kot}} → {{kota}}). Masculine things and all neuter nouns stay exactly as they are ({{Mam dom}}, {{Lubię piwo}})."
+        ],
+        "table": {
+          "caption": "Dictionary form → after mam / lubię / chcę / widzę",
+          "head": [
+            "Kind of noun",
+            "Dictionary form",
+            "Accusative"
+          ],
+          "rows": [
+            [
+              "Feminine in -a",
+              "{{kawa}}",
+              "{{Lubię kawę.}}"
+            ],
+            [
+              "Masculine person",
+              "{{brat}}",
+              "{{Mam brata.}}"
+            ],
+            [
+              "Masculine animal",
+              "{{pies}}",
+              "{{Widzę psa.}}"
+            ],
+            [
+              "Masculine thing",
+              "{{dom}}",
+              "{{Mam dom.}}"
+            ],
+            [
+              "Neuter",
+              "{{piwo}}",
+              "{{Chcę piwo.}}"
+            ]
+          ]
+        },
+        "more": [
+          "Some masculine words lose an e when they add an ending: {{pies}} → {{psa}}, {{dziadek}} → {{dziadka}}, {{wujek}} → {{wujka}}. You just learn these as you meet them.",
+          "Men's words that end in -a behave like feminine nouns here: {{tata}} → {{tatę}}. Feminine nouns that do not end in -a usually stay the same: {{Masz sól?}}",
+          "Animals count as \"alive\" even on your plate: {{Jem kurczaka}} (I'm eating chicken).",
+          "With {{chcę}} and with food and drink, Polish often uses a different form meaning \"some\": {{Chcesz ciasta?}} (Do you want some cake?). Both {{Chcesz ciasto?}} and {{Chcesz ciasta?}} are fine; the next topic explains that -a/-y form."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-04-001",
+          "type": "choose",
+          "pl": "Lubię kawę.",
+          "en": "I like coffee.",
+          "gap": "kawę",
+          "hint": "kawa",
+          "options": [
+            "kawa",
+            "kawę",
+            "kawy"
+          ],
+          "alts": [],
+          "reason": "Feminine -a becomes -ę after lubię: kawa → kawę."
+        },
+        {
+          "id": "g-04-002",
+          "type": "choose",
+          "pl": "Mam brata.",
+          "en": "I have a brother.",
+          "gap": "brata",
+          "hint": "brat",
+          "options": [
+            "brat",
+            "brata",
+            "bratu"
+          ],
+          "alts": [],
+          "reason": "A brother is a male person, so add -a: brat → brata."
+        },
+        {
+          "id": "g-04-003",
+          "type": "choose",
+          "pl": "Widzę dom.",
+          "en": "I can see the house.",
+          "gap": "dom",
+          "hint": "dom",
+          "options": [
+            "dom",
+            "domu",
+            "domem"
+          ],
+          "alts": [],
+          "reason": "Dom is a masculine thing, so it does not change."
+        },
+        {
+          "id": "g-04-004",
+          "type": "choose",
+          "pl": "Lubię piwo.",
+          "en": "I like beer.",
+          "gap": "piwo",
+          "hint": "piwo",
+          "options": [
+            "piwo",
+            "piwa",
+            "piwem"
+          ],
+          "alts": [],
+          "reason": "Neuter nouns (here -o) do not change after lubię."
+        },
+        {
+          "id": "g-04-005",
+          "type": "choose",
+          "pl": "Masz psa?",
+          "en": "Do you have a dog?",
+          "gap": "psa",
+          "hint": "pies",
+          "options": [
+            "pies",
+            "psa",
+            "psem"
+          ],
+          "alts": [],
+          "reason": "Pies is a masculine word for an animal, so add -a; the e drops out: pies → psa."
+        },
+        {
+          "id": "g-04-006",
+          "type": "choose",
+          "pl": "Widzę mamę.",
+          "en": "I can see Mum.",
+          "gap": "mamę",
+          "hint": "mama",
+          "options": [
+            "mama",
+            "mamę",
+            "mamy"
+          ],
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: mama → mamę."
+        },
+        {
+          "id": "g-04-007",
+          "type": "choose",
+          "pl": "Chcę herbatę.",
+          "en": "I want tea.",
+          "gap": "herbatę",
+          "hint": "herbata",
+          "options": [
+            "herbata",
+            "herbatę",
+            "herbatą"
+          ],
+          "alts": [],
+          "reason": "Feminine -a becomes -ę after chcę: herbata → herbatę."
+        },
+        {
+          "id": "g-04-008",
+          "type": "choose",
+          "pl": "Widzę kota.",
+          "en": "I can see the cat.",
+          "gap": "kota",
+          "hint": "kot",
+          "options": [
+            "kot",
+            "kota",
+            "kotem"
+          ],
+          "alts": [],
+          "reason": "Kot is a masculine word for an animal, so add -a: kot → kota."
+        },
+        {
+          "id": "g-04-009",
+          "type": "choose",
+          "pl": "Mam klucz.",
+          "en": "I have the key.",
+          "gap": "klucz",
+          "hint": "klucz",
+          "options": [
+            "klucz",
+            "klucza",
+            "kluczem"
+          ],
+          "alts": [],
+          "reason": "A key is a masculine thing, so it stays klucz."
+        },
+        {
+          "id": "g-04-010",
+          "type": "choose",
+          "pl": "Lubię mleko.",
+          "en": "I like milk.",
+          "gap": "mleko",
+          "hint": "mleko",
+          "options": [
+            "mleko",
+            "mleka",
+            "mlekiem"
+          ],
+          "alts": [],
+          "reason": "Neuter nouns do not change: mleko stays mleko."
+        },
+        {
+          "id": "g-04-011",
+          "type": "choose",
+          "pl": "Masz siostrę?",
+          "en": "Do you have a sister?",
+          "gap": "siostrę",
+          "hint": "siostra",
+          "options": [
+            "siostra",
+            "siostrę",
+            "siostry"
+          ],
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: siostra → siostrę."
+        },
+        {
+          "id": "g-04-012",
+          "type": "choose",
+          "pl": "Widzę tatę.",
+          "en": "I can see Dad.",
+          "gap": "tatę",
+          "hint": "tata",
+          "options": [
+            "tata",
+            "tatę",
+            "taty"
+          ],
+          "alts": [],
+          "reason": "Tata is a man, but it ends in -a, so it changes like kawa: tata → tatę."
+        },
+        {
+          "id": "g-04-013",
+          "type": "choose",
+          "pl": "Lubię ser.",
+          "en": "I like cheese.",
+          "gap": "ser",
+          "hint": "ser",
+          "options": [
+            "ser",
+            "sera",
+            "serem"
+          ],
+          "alts": [],
+          "reason": "Cheese is a masculine thing, so ser does not change."
+        },
+        {
+          "id": "g-04-014",
+          "type": "choose",
+          "pl": "Mam samochód.",
+          "en": "I have a car.",
+          "gap": "samochód",
+          "hint": "samochód",
+          "options": [
+            "samochód",
+            "samochodu",
+            "samochodem"
+          ],
+          "alts": [],
+          "reason": "A car is a masculine thing, so samochód does not change."
+        },
+        {
+          "id": "g-04-015",
+          "type": "type",
+          "pl": "Lubię zupę.",
+          "en": "I like soup.",
+          "gap": "zupę",
+          "hint": "zupa",
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: zupa → zupę."
+        },
+        {
+          "id": "g-04-016",
+          "type": "type",
+          "pl": "Piję wodę.",
+          "en": "I'm drinking water.",
+          "gap": "wodę",
+          "hint": "woda",
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: woda → wodę."
+        },
+        {
+          "id": "g-04-017",
+          "type": "type",
+          "pl": "Mam pomysł.",
+          "en": "I have an idea.",
+          "gap": "pomysł",
+          "hint": "pomysł",
+          "alts": [],
+          "reason": "An idea is a masculine thing, so pomysł does not change."
+        },
+        {
+          "id": "g-04-018",
+          "type": "type",
+          "pl": "Widzę dziadka.",
+          "en": "I can see Grandad.",
+          "gap": "dziadka",
+          "hint": "dziadek",
+          "alts": [],
+          "reason": "A male person adds -a, and the e drops out: dziadek → dziadka."
+        },
+        {
+          "id": "g-04-019",
+          "type": "type",
+          "pl": "Jem chleb.",
+          "en": "I'm eating bread.",
+          "gap": "chleb",
+          "hint": "chleb",
+          "alts": [],
+          "reason": "Bread is a masculine thing, so chleb does not change."
+        },
+        {
+          "id": "g-04-020",
+          "type": "type",
+          "pl": "Masz telefon?",
+          "en": "Do you have a phone?",
+          "gap": "telefon",
+          "hint": "telefon",
+          "alts": [],
+          "reason": "A phone is a masculine thing, so telefon does not change."
+        },
+        {
+          "id": "g-04-021",
+          "type": "type",
+          "pl": "Lubię wino.",
+          "en": "I like wine.",
+          "gap": "wino",
+          "hint": "wino",
+          "alts": [],
+          "reason": "Neuter nouns do not change: wino stays wino."
+        },
+        {
+          "id": "g-04-022",
+          "type": "type",
+          "pl": "Widzę wujka.",
+          "en": "I can see my uncle.",
+          "gap": "wujka",
+          "hint": "wujek",
+          "alts": [],
+          "reason": "A male person adds -a, and the e drops out: wujek → wujka."
+        },
+        {
+          "id": "g-04-023",
+          "type": "type",
+          "pl": "Robię kolację.",
+          "en": "I'm making dinner.",
+          "gap": "kolację",
+          "hint": "kolacja",
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: kolacja → kolację."
+        },
+        {
+          "id": "g-04-024",
+          "type": "type",
+          "pl": "Jem kurczaka.",
+          "en": "I'm eating chicken.",
+          "gap": "kurczaka",
+          "hint": "kurczak",
+          "alts": [],
+          "reason": "A chicken is an animal, even as food, so add -a: kurczak → kurczaka."
+        },
+        {
+          "id": "g-04-025",
+          "type": "type",
+          "pl": "Widzę szwagra.",
+          "en": "I can see my brother-in-law.",
+          "gap": "szwagra",
+          "hint": "szwagier",
+          "alts": [],
+          "reason": "A male person adds -a, and the e drops out: szwagier → szwagra."
+        },
+        {
+          "id": "g-04-026",
+          "type": "type",
+          "pl": "Lubię rybę.",
+          "en": "I like fish.",
+          "gap": "rybę",
+          "hint": "ryba",
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: ryba → rybę."
+        },
+        {
+          "id": "g-04-027",
+          "type": "type",
+          "pl": "Mam rower.",
+          "en": "I have a bike.",
+          "gap": "rower",
+          "hint": "rower",
+          "alts": [],
+          "reason": "A bike is a masculine thing, so rower does not change."
+        },
+        {
+          "id": "g-04-028",
+          "type": "type",
+          "pl": "Kocham babcię.",
+          "en": "I love Grandma.",
+          "gap": "babcię",
+          "hint": "babcia",
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: babcia → babcię."
+        },
+        {
+          "id": "g-04-029",
+          "type": "type",
+          "pl": "Mamy czas.",
+          "en": "We have time.",
+          "gap": "czas",
+          "hint": "czas",
+          "alts": [],
+          "reason": "Time is a masculine thing, so czas does not change."
+        },
+        {
+          "id": "g-04-030",
+          "type": "type",
+          "pl": "Chcesz ciasto?",
+          "en": "Do you want some cake?",
+          "gap": "ciasto",
+          "hint": "ciasto",
+          "alts": [
+            "ciasta"
+          ],
+          "reason": "Neuter nouns do not change: ciasto. (Chcesz ciasta? is also fine: it means \"some cake\".)"
+        },
+        {
+          "id": "g-04-031",
+          "type": "type",
+          "pl": "Oglądamy film.",
+          "en": "We're watching a film.",
+          "gap": "film",
+          "hint": "film",
+          "alts": [],
+          "reason": "A film is a masculine thing, so film does not change."
+        },
+        {
+          "id": "g-04-032",
+          "type": "type",
+          "pl": "Pijesz kawę?",
+          "en": "Do you drink coffee?",
+          "gap": "kawę",
+          "hint": "kawa",
+          "alts": [],
+          "reason": "Feminine -a becomes -ę: kawa → kawę."
+        },
+        {
+          "id": "g-04-033",
+          "type": "type",
+          "pl": "Widzę psa.",
+          "en": "I can see the dog.",
+          "gap": "psa",
+          "hint": "pies",
+          "alts": [],
+          "reason": "Pies is a masculine animal word: add -a and drop the e: pies → psa."
+        },
+        {
+          "id": "g-04-034",
+          "type": "type",
+          "pl": "Mam kuzyna.",
+          "en": "I have a cousin.",
+          "gap": "kuzyna",
+          "hint": "kuzyn",
+          "alts": [],
+          "reason": "A male person adds -a: kuzyn → kuzyna."
+        },
+        {
+          "id": "g-04-035",
+          "type": "type",
+          "pl": "Masz sól?",
+          "en": "Do you have the salt?",
+          "gap": "sól",
+          "hint": "sól",
+          "alts": [],
+          "reason": "Sól is feminine but does not end in -a, so it does not change."
+        }
+      ]
+    },
+    {
+      "id": "g-05",
+      "title": "Negation and the genitive",
+      "lesson": {
+        "summary": "When you put nie in front of a verb like mam, lubię or widzę, the object switches to the genitive case, and nie ma means \"there isn't\".",
+        "body": [
+          "To make a sentence negative, put {{nie}} before the verb: {{Mam czas}} → {{Nie mam czasu}}. Notice that the object changed too. After a negated verb, the thing you don't have, like or see goes into the genitive: feminine -a becomes -y or -i ({{kawa}} → {{kawy}}), neuter -o or -e becomes -a ({{mleko}} → {{mleka}}), and masculine nouns add -a or -u ({{brat}} → {{brata}}, {{czas}} → {{czasu}}).",
+          "{{Nie ma}} on its own means \"there isn't\" or \"isn't here\", and it takes the genitive as well: {{Nie ma chleba}} (There's no bread), {{Nie ma taty}} (Dad isn't here)."
+        ],
+        "table": {
+          "head": [
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "{{Mam czas.}}",
+              "{{Nie mam czasu.}}"
+            ],
+            [
+              "{{Lubię kawę.}}",
+              "{{Nie lubię kawy.}}"
+            ],
+            [
+              "{{Piję mleko.}}",
+              "{{Nie piję mleka.}}"
+            ],
+            [
+              "{{Widzę brata.}}",
+              "{{Nie widzę brata.}}"
+            ],
+            [
+              "{{Jest chleb.}}",
+              "{{Nie ma chleba.}}"
+            ]
+          ]
+        },
+        "more": [
+          "Masculine -a or -u? Masculine people and animals always take -a ({{brata}}, {{psa}}, {{kota}}). Men's words ending in -a, like {{tata}}, take -y instead, like feminine nouns ({{taty}}). For things there is no reliable rule: {{chleba}}, {{sera}}, {{klucza}} but {{czasu}}, {{soku}}, {{telefonu}}, {{samochodu}}. Learn each one with its genitive.",
+          "Feminine nouns take -i instead of -y after k, g and soft sounds: {{babcia}} → {{babci}}, {{łazienka}} → {{łazienki}}, {{sól}} → {{soli}}.",
+          "For masculine people and animals the genitive looks the same as the accusative, so {{Widzę brata}} and {{Nie widzę brata}} use the same word.",
+          "Only the direct object switches. Verbs that use another case keep it when negated, and {{nie jestem}} works differently; that comes later."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-05-001",
+          "type": "choose",
+          "pl": "Nie mam czasu.",
+          "en": "I don't have time.",
+          "gap": "czasu",
+          "hint": "czas",
+          "options": [
+            "czas",
+            "czasu",
+            "czasem"
+          ],
+          "alts": [],
+          "reason": "After a negated verb the object goes into the genitive: czas → czasu."
+        },
+        {
+          "id": "g-05-002",
+          "type": "choose",
+          "pl": "Nie lubię kawy.",
+          "en": "I don't like coffee.",
+          "gap": "kawy",
+          "hint": "kawa",
+          "options": [
+            "kawa",
+            "kawę",
+            "kawy"
+          ],
+          "alts": [],
+          "reason": "After nie lubię, feminine -a becomes -y: kawa → kawy."
+        },
+        {
+          "id": "g-05-003",
+          "type": "choose",
+          "pl": "Nie ma chleba.",
+          "en": "There's no bread.",
+          "gap": "chleba",
+          "hint": "chleb",
+          "options": [
+            "chleb",
+            "chleba",
+            "chlebem"
+          ],
+          "alts": [],
+          "reason": "Nie ma (\"there isn't\") takes the genitive: chleb → chleba."
+        },
+        {
+          "id": "g-05-004",
+          "type": "choose",
+          "pl": "Nie widzę brata.",
+          "en": "I can't see my brother.",
+          "gap": "brata",
+          "hint": "brat",
+          "options": [
+            "brat",
+            "brata",
+            "bratu"
+          ],
+          "alts": [],
+          "reason": "Genitive of brat is brata (the same as after widzę without nie)."
+        },
+        {
+          "id": "g-05-005",
+          "type": "choose",
+          "pl": "Nie piję piwa.",
+          "en": "I don't drink beer.",
+          "gap": "piwa",
+          "hint": "piwo",
+          "options": [
+            "piwo",
+            "piwa",
+            "piwem"
+          ],
+          "alts": [],
+          "reason": "After a negated verb, neuter -o becomes -a: piwo → piwa."
+        },
+        {
+          "id": "g-05-006",
+          "type": "choose",
+          "pl": "Nie ma mleka.",
+          "en": "There's no milk.",
+          "gap": "mleka",
+          "hint": "mleko",
+          "options": [
+            "mleko",
+            "mleka",
+            "mlekiem"
+          ],
+          "alts": [],
+          "reason": "Nie ma takes the genitive: mleko → mleka."
+        },
+        {
+          "id": "g-05-007",
+          "type": "choose",
+          "pl": "Nie mam klucza.",
+          "en": "I don't have the key.",
+          "gap": "klucza",
+          "hint": "klucz",
+          "options": [
+            "klucz",
+            "klucza",
+            "kluczem"
+          ],
+          "alts": [],
+          "reason": "After nie mam, the genitive: klucz → klucza."
+        },
+        {
+          "id": "g-05-008",
+          "type": "choose",
+          "pl": "Nie lubię sera.",
+          "en": "I don't like cheese.",
+          "gap": "sera",
+          "hint": "ser",
+          "options": [
+            "ser",
+            "sera",
+            "serem"
+          ],
+          "alts": [],
+          "reason": "After nie lubię, the genitive: ser → sera."
+        },
+        {
+          "id": "g-05-009",
+          "type": "choose",
+          "pl": "Nie ma wody.",
+          "en": "There's no water.",
+          "gap": "wody",
+          "hint": "woda",
+          "options": [
+            "woda",
+            "wodę",
+            "wody"
+          ],
+          "alts": [],
+          "reason": "Nie ma takes the genitive: woda → wody."
+        },
+        {
+          "id": "g-05-010",
+          "type": "choose",
+          "pl": "Nie mam samochodu.",
+          "en": "I don't have a car.",
+          "gap": "samochodu",
+          "hint": "samochód",
+          "options": [
+            "samochód",
+            "samochodu",
+            "samochodem"
+          ],
+          "alts": [],
+          "reason": "After nie mam, the genitive: samochód → samochodu (ó becomes o)."
+        },
+        {
+          "id": "g-05-011",
+          "type": "choose",
+          "pl": "Nie lubisz herbaty?",
+          "en": "Don't you like tea?",
+          "gap": "herbaty",
+          "hint": "herbata",
+          "options": [
+            "herbata",
+            "herbatę",
+            "herbaty"
+          ],
+          "alts": [],
+          "reason": "After nie lubisz, feminine -a becomes -y: herbata → herbaty."
+        },
+        {
+          "id": "g-05-012",
+          "type": "choose",
+          "pl": "Nie ma taty.",
+          "en": "Dad isn't here.",
+          "gap": "taty",
+          "hint": "tata",
+          "options": [
+            "tata",
+            "tatę",
+            "taty"
+          ],
+          "alts": [],
+          "reason": "Nie ma takes the genitive; tata ends in -a, so tata → taty."
+        },
+        {
+          "id": "g-05-013",
+          "type": "choose",
+          "pl": "Nie jem mięsa.",
+          "en": "I don't eat meat.",
+          "gap": "mięsa",
+          "hint": "mięso",
+          "options": [
+            "mięso",
+            "mięsa",
+            "mięsem"
+          ],
+          "alts": [],
+          "reason": "After a negated verb, neuter -o becomes -a: mięso → mięsa."
+        },
+        {
+          "id": "g-05-014",
+          "type": "choose",
+          "pl": "Nie mam pomysłu.",
+          "en": "I don't have any ideas.",
+          "gap": "pomysłu",
+          "hint": "pomysł",
+          "options": [
+            "pomysł",
+            "pomysłu",
+            "pomysłem"
+          ],
+          "alts": [],
+          "reason": "After nie mam, the genitive: pomysł → pomysłu."
+        },
+        {
+          "id": "g-05-015",
+          "type": "type",
+          "pl": "Nie ma soku.",
+          "en": "There's no juice.",
+          "gap": "soku",
+          "hint": "sok",
+          "alts": [],
+          "reason": "Nie ma takes the genitive: sok → soku."
+        },
+        {
+          "id": "g-05-016",
+          "type": "type",
+          "pl": "Nie lubię ryby.",
+          "en": "I don't like fish.",
+          "gap": "ryby",
+          "hint": "ryba",
+          "alts": [],
+          "reason": "After nie lubię, feminine -a becomes -y: ryba → ryby."
+        },
+        {
+          "id": "g-05-017",
+          "type": "type",
+          "pl": "Nie widzę kota.",
+          "en": "I can't see the cat.",
+          "gap": "kota",
+          "hint": "kot",
+          "alts": [],
+          "reason": "After nie widzę, the genitive: kot → kota."
+        },
+        {
+          "id": "g-05-018",
+          "type": "type",
+          "pl": "Nie mam telefonu.",
+          "en": "I don't have a phone.",
+          "gap": "telefonu",
+          "hint": "telefon",
+          "alts": [],
+          "reason": "After nie mam, the genitive: telefon → telefonu."
+        },
+        {
+          "id": "g-05-019",
+          "type": "type",
+          "pl": "Nie piję wina.",
+          "en": "I don't drink wine.",
+          "gap": "wina",
+          "hint": "wino",
+          "alts": [],
+          "reason": "After a negated verb, neuter -o becomes -a: wino → wina."
+        },
+        {
+          "id": "g-05-020",
+          "type": "type",
+          "pl": "Nie ma babci.",
+          "en": "Grandma isn't here.",
+          "gap": "babci",
+          "hint": "babcia",
+          "alts": [],
+          "reason": "Nie ma takes the genitive; after a soft sound -a becomes -i: babcia → babci."
+        },
+        {
+          "id": "g-05-021",
+          "type": "type",
+          "pl": "Nie widzę psa.",
+          "en": "I can't see the dog.",
+          "gap": "psa",
+          "hint": "pies",
+          "alts": [],
+          "reason": "Genitive of pies is psa (the e drops out)."
+        },
+        {
+          "id": "g-05-022",
+          "type": "type",
+          "pl": "Nie jem kurczaka.",
+          "en": "I don't eat chicken.",
+          "gap": "kurczaka",
+          "hint": "kurczak",
+          "alts": [],
+          "reason": "After nie jem, the genitive: kurczak → kurczaka."
+        },
+        {
+          "id": "g-05-023",
+          "type": "type",
+          "pl": "Nie ma soli.",
+          "en": "There's no salt.",
+          "gap": "soli",
+          "hint": "sól",
+          "alts": [],
+          "reason": "Nie ma takes the genitive: sól → soli."
+        },
+        {
+          "id": "g-05-024",
+          "type": "type",
+          "pl": "Nie lubię zupy.",
+          "en": "I don't like soup.",
+          "gap": "zupy",
+          "hint": "zupa",
+          "alts": [],
+          "reason": "After nie lubię, feminine -a becomes -y: zupa → zupy."
+        },
+        {
+          "id": "g-05-025",
+          "type": "type",
+          "pl": "Nie mam roweru.",
+          "en": "I don't have a bike.",
+          "gap": "roweru",
+          "hint": "rower",
+          "alts": [],
+          "reason": "After nie mam, the genitive: rower → roweru."
+        },
+        {
+          "id": "g-05-026",
+          "type": "type",
+          "pl": "Nie ma mamy w domu.",
+          "en": "Mum isn't at home.",
+          "gap": "mamy",
+          "hint": "mama",
+          "alts": [],
+          "reason": "Nie ma takes the genitive: mama → mamy."
+        },
+        {
+          "id": "g-05-027",
+          "type": "type",
+          "pl": "Nie chcę herbaty.",
+          "en": "I don't want tea.",
+          "gap": "herbaty",
+          "hint": "herbata",
+          "alts": [],
+          "reason": "After nie chcę, feminine -a becomes -y: herbata → herbaty."
+        },
+        {
+          "id": "g-05-028",
+          "type": "type",
+          "pl": "Nie widzę wujka.",
+          "en": "I can't see my uncle.",
+          "gap": "wujka",
+          "hint": "wujek",
+          "alts": [],
+          "reason": "Genitive of wujek is wujka (the e drops out)."
+        },
+        {
+          "id": "g-05-029",
+          "type": "type",
+          "pl": "Nie masz czasu?",
+          "en": "Don't you have time?",
+          "gap": "czasu",
+          "hint": "czas",
+          "alts": [],
+          "reason": "After nie masz, the genitive: czas → czasu."
+        },
+        {
+          "id": "g-05-030",
+          "type": "type",
+          "pl": "Nie ma ciasta.",
+          "en": "There's no cake.",
+          "gap": "ciasta",
+          "hint": "ciasto",
+          "alts": [],
+          "reason": "Nie ma takes the genitive: ciasto → ciasta."
+        },
+        {
+          "id": "g-05-031",
+          "type": "type",
+          "pl": "Nie oglądam filmu.",
+          "en": "I'm not watching the film.",
+          "gap": "filmu",
+          "hint": "film",
+          "alts": [],
+          "reason": "After a negated verb, the genitive: film → filmu."
+        },
+        {
+          "id": "g-05-032",
+          "type": "type",
+          "pl": "Nie rozumiem pytania.",
+          "en": "I don't understand the question.",
+          "gap": "pytania",
+          "hint": "pytanie",
+          "alts": [],
+          "reason": "After a negated verb, neuter -e becomes -a: pytanie → pytania."
+        },
+        {
+          "id": "g-05-033",
+          "type": "type",
+          "pl": "Nie mam brata.",
+          "en": "I don't have a brother.",
+          "gap": "brata",
+          "hint": "brat",
+          "alts": [],
+          "reason": "After nie mam, the genitive: brat → brata."
+        },
+        {
+          "id": "g-05-034",
+          "type": "type",
+          "pl": "Nie mam siostry.",
+          "en": "I don't have a sister.",
+          "gap": "siostry",
+          "hint": "siostra",
+          "alts": [],
+          "reason": "After nie mam, feminine -a becomes -y: siostra → siostry."
+        }
+      ]
+    },
+    {
+      "id": "g-06",
+      "title": "Adjective agreement",
+      "lesson": {
+        "summary": "Adjectives change their ending to match the gender of the noun they describe: -y/-i, -a or -e.",
+        "body": [
+          "Polish adjectives match their noun. With a masculine noun they end in -y ({{dobry dom}}), with a feminine noun in -a ({{dobra kawa}}), and with a neuter noun in -e ({{dobre piwo}}). This works whether the adjective comes before the noun or after {{jest}}: {{Zupa jest pyszna}}.",
+          "The same goes for you. A man says {{Jestem zmęczony}} (I'm tired) and a woman says {{Jestem zmęczona}}. So when you ask her, it's {{Jesteś zmęczona?}}, and she'll answer with the feminine form too."
+        ],
+        "table": {
+          "head": [
+            "",
+            "Masculine",
+            "Feminine",
+            "Neuter"
+          ],
+          "rows": [
+            [
+              "good",
+              "{{dobry dom}}",
+              "{{dobra kawa}}",
+              "{{dobre piwo}}"
+            ],
+            [
+              "big",
+              "{{duży pokój}}",
+              "{{duża kuchnia}}",
+              "{{duże mieszkanie}}"
+            ],
+            [
+              "expensive",
+              "{{drogi telefon}}",
+              "{{droga kawa}}",
+              "{{drogie wino}}"
+            ],
+            [
+              "tired",
+              "{{jestem zmęczony}}",
+              "{{jestem zmęczona}}",
+              "—"
+            ]
+          ]
+        },
+        "more": [
+          "After k and g the masculine ending is -i and the neuter ending is -ie: {{drogi}}, {{drogie}}; {{wysoki}}, {{wysokie}}. A few adjectives are soft and keep an i in every form: {{tani}}, {{tania}}, {{tanie}} (cheap).",
+          "Agreement follows the real gender of the word, not just its look: {{tata}} ends in -a but is a man, so {{Tata jest zmęczony}}.",
+          "In the plural, -e is used for everything except groups including men: {{Okna są duże}}, but {{Rodzice są zmęczeni}}. Masculine plurals for people change in other ways too; that comes later."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-06-001",
+          "type": "choose",
+          "pl": "To jest dobra kawa.",
+          "en": "This is good coffee.",
+          "gap": "dobra",
+          "hint": "dobry",
+          "options": [
+            "dobry",
+            "dobra",
+            "dobre"
+          ],
+          "alts": [],
+          "reason": "Kawa is feminine (-a), so the adjective ends in -a: dobra."
+        },
+        {
+          "id": "g-06-002",
+          "type": "choose",
+          "pl": "To jest dobre piwo.",
+          "en": "This is good beer.",
+          "gap": "dobre",
+          "hint": "dobry",
+          "options": [
+            "dobry",
+            "dobra",
+            "dobre"
+          ],
+          "alts": [],
+          "reason": "Piwo is neuter (-o), so the adjective ends in -e: dobre."
+        },
+        {
+          "id": "g-06-003",
+          "type": "choose",
+          "pl": "Dom jest duży.",
+          "en": "The house is big.",
+          "gap": "duży",
+          "hint": "duży",
+          "options": [
+            "duży",
+            "duża",
+            "duże"
+          ],
+          "alts": [],
+          "reason": "Dom is masculine, so the adjective ends in -y: duży."
+        },
+        {
+          "id": "g-06-004",
+          "type": "choose",
+          "pl": "Zupa jest pyszna.",
+          "en": "The soup is delicious.",
+          "gap": "pyszna",
+          "hint": "pyszny",
+          "options": [
+            "pyszny",
+            "pyszna",
+            "pyszne"
+          ],
+          "alts": [],
+          "reason": "Zupa is feminine, so -a: pyszna."
+        },
+        {
+          "id": "g-06-005",
+          "type": "choose",
+          "pl": "Mieszkanie jest małe.",
+          "en": "The flat is small.",
+          "gap": "małe",
+          "hint": "mały",
+          "options": [
+            "mały",
+            "mała",
+            "małe"
+          ],
+          "alts": [],
+          "reason": "Mieszkanie is neuter (-e), so -e: małe."
+        },
+        {
+          "id": "g-06-006",
+          "type": "choose",
+          "pl": "Kuchnia jest nowa.",
+          "en": "The kitchen is new.",
+          "gap": "nowa",
+          "hint": "nowy",
+          "options": [
+            "nowy",
+            "nowa",
+            "nowe"
+          ],
+          "alts": [],
+          "reason": "Kuchnia is feminine, so -a: nowa."
+        },
+        {
+          "id": "g-06-007",
+          "type": "choose",
+          "pl": "Herbata jest gorąca.",
+          "en": "The tea is hot.",
+          "gap": "gorąca",
+          "hint": "gorący",
+          "options": [
+            "gorący",
+            "gorąca",
+            "gorące"
+          ],
+          "alts": [],
+          "reason": "Herbata is feminine, so -a: gorąca."
+        },
+        {
+          "id": "g-06-008",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jestem zmęczony.",
+              "en": "I'm tired.",
+              "gap": "zmęczony",
+              "hint": "zmęczony",
+              "options": [
+                "zmęczony",
+                "zmęczona",
+                "zmęczone"
+              ],
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: zmęczony."
+            },
+            "mm": {
+              "pl": "Jestem zmęczony.",
+              "en": "I'm tired.",
+              "gap": "zmęczony",
+              "hint": "zmęczony",
+              "options": [
+                "zmęczony",
+                "zmęczona",
+                "zmęczone"
+              ],
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: zmęczony."
+            },
+            "ff": {
+              "pl": "Jestem zmęczona.",
+              "en": "I'm tired.",
+              "gap": "zmęczona",
+              "hint": "zmęczony",
+              "options": [
+                "zmęczony",
+                "zmęczona",
+                "zmęczone"
+              ],
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: zmęczona."
+            },
+            "fm": {
+              "pl": "Jestem zmęczona.",
+              "en": "I'm tired.",
+              "gap": "zmęczona",
+              "hint": "zmęczony",
+              "options": [
+                "zmęczony",
+                "zmęczona",
+                "zmęczone"
+              ],
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: zmęczona."
+            }
+          }
+        },
+        {
+          "id": "g-06-009",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś głodna?",
+              "en": "Are you hungry?",
+              "gap": "głodna",
+              "hint": "głodny",
+              "options": [
+                "głodny",
+                "głodna",
+                "głodne"
+              ],
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: głodna."
+            },
+            "mm": {
+              "pl": "Jesteś głodny?",
+              "en": "Are you hungry?",
+              "gap": "głodny",
+              "hint": "głodny",
+              "options": [
+                "głodny",
+                "głodna",
+                "głodne"
+              ],
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: głodny."
+            },
+            "ff": {
+              "pl": "Jesteś głodna?",
+              "en": "Are you hungry?",
+              "gap": "głodna",
+              "hint": "głodny",
+              "options": [
+                "głodny",
+                "głodna",
+                "głodne"
+              ],
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: głodna."
+            },
+            "fm": {
+              "pl": "Jesteś głodny?",
+              "en": "Are you hungry?",
+              "gap": "głodny",
+              "hint": "głodny",
+              "options": [
+                "głodny",
+                "głodna",
+                "głodne"
+              ],
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: głodny."
+            }
+          }
+        },
+        {
+          "id": "g-06-010",
+          "type": "choose",
+          "pl": "Ciasto jest pyszne.",
+          "en": "The cake is delicious.",
+          "gap": "pyszne",
+          "hint": "pyszny",
+          "options": [
+            "pyszny",
+            "pyszna",
+            "pyszne"
+          ],
+          "alts": [],
+          "reason": "Ciasto is neuter (-o), so -e: pyszne."
+        },
+        {
+          "id": "g-06-011",
+          "type": "choose",
+          "pl": "Woda jest zimna.",
+          "en": "The water is cold.",
+          "gap": "zimna",
+          "hint": "zimny",
+          "options": [
+            "zimny",
+            "zimna",
+            "zimne"
+          ],
+          "alts": [],
+          "reason": "Woda is feminine, so -a: zimna."
+        },
+        {
+          "id": "g-06-012",
+          "type": "choose",
+          "pl": "Tata jest zmęczony.",
+          "en": "Dad is tired.",
+          "gap": "zmęczony",
+          "hint": "zmęczony",
+          "options": [
+            "zmęczony",
+            "zmęczona",
+            "zmęczone"
+          ],
+          "alts": [],
+          "reason": "Tata ends in -a but he is a man, so the adjective is masculine: zmęczony."
+        },
+        {
+          "id": "g-06-013",
+          "type": "choose",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Jestem szczęśliwy.",
+              "en": "I'm happy.",
+              "gap": "szczęśliwy",
+              "hint": "szczęśliwy",
+              "options": [
+                "szczęśliwy",
+                "szczęśliwa",
+                "szczęśliwe"
+              ],
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: szczęśliwy."
+            },
+            "mm": {
+              "pl": "Jestem szczęśliwy.",
+              "en": "I'm happy.",
+              "gap": "szczęśliwy",
+              "hint": "szczęśliwy",
+              "options": [
+                "szczęśliwy",
+                "szczęśliwa",
+                "szczęśliwe"
+              ],
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: szczęśliwy."
+            },
+            "ff": {
+              "pl": "Jestem szczęśliwa.",
+              "en": "I'm happy.",
+              "gap": "szczęśliwa",
+              "hint": "szczęśliwy",
+              "options": [
+                "szczęśliwy",
+                "szczęśliwa",
+                "szczęśliwe"
+              ],
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: szczęśliwa."
+            },
+            "fm": {
+              "pl": "Jestem szczęśliwa.",
+              "en": "I'm happy.",
+              "gap": "szczęśliwa",
+              "hint": "szczęśliwy",
+              "options": [
+                "szczęśliwy",
+                "szczęśliwa",
+                "szczęśliwe"
+              ],
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: szczęśliwa."
+            }
+          }
+        },
+        {
+          "id": "g-06-014",
+          "type": "choose",
+          "pl": "Moja siostra jest młodsza.",
+          "en": "My sister is younger.",
+          "gap": "młodsza",
+          "hint": "młodszy",
+          "options": [
+            "młodszy",
+            "młodsza",
+            "młodsze"
+          ],
+          "alts": [],
+          "reason": "Siostra is feminine, so -a: młodsza."
+        },
+        {
+          "id": "g-06-015",
+          "type": "type",
+          "pl": "Kawa jest zimna.",
+          "en": "The coffee is cold.",
+          "gap": "zimna",
+          "hint": "zimny",
+          "alts": [],
+          "reason": "Kawa is feminine, so -a: zimna."
+        },
+        {
+          "id": "g-06-016",
+          "type": "type",
+          "pl": "Mleko jest zimne.",
+          "en": "The milk is cold.",
+          "gap": "zimne",
+          "hint": "zimny",
+          "alts": [],
+          "reason": "Mleko is neuter (-o), so -e: zimne."
+        },
+        {
+          "id": "g-06-017",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś zmęczona?",
+              "en": "Are you tired?",
+              "gap": "zmęczona",
+              "hint": "zmęczony",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: zmęczona."
+            },
+            "mm": {
+              "pl": "Jesteś zmęczony?",
+              "en": "Are you tired?",
+              "gap": "zmęczony",
+              "hint": "zmęczony",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: zmęczony."
+            },
+            "ff": {
+              "pl": "Jesteś zmęczona?",
+              "en": "Are you tired?",
+              "gap": "zmęczona",
+              "hint": "zmęczony",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: zmęczona."
+            },
+            "fm": {
+              "pl": "Jesteś zmęczony?",
+              "en": "Are you tired?",
+              "gap": "zmęczony",
+              "hint": "zmęczony",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: zmęczony."
+            }
+          }
+        },
+        {
+          "id": "g-06-018",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś szczęśliwa?",
+              "en": "Are you happy?",
+              "gap": "szczęśliwa",
+              "hint": "szczęśliwy",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: szczęśliwa."
+            },
+            "mm": {
+              "pl": "Jesteś szczęśliwy?",
+              "en": "Are you happy?",
+              "gap": "szczęśliwy",
+              "hint": "szczęśliwy",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: szczęśliwy."
+            },
+            "ff": {
+              "pl": "Jesteś szczęśliwa?",
+              "en": "Are you happy?",
+              "gap": "szczęśliwa",
+              "hint": "szczęśliwy",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: szczęśliwa."
+            },
+            "fm": {
+              "pl": "Jesteś szczęśliwy?",
+              "en": "Are you happy?",
+              "gap": "szczęśliwy",
+              "hint": "szczęśliwy",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: szczęśliwy."
+            }
+          }
+        },
+        {
+          "id": "g-06-019",
+          "type": "type",
+          "pl": "Kolacja jest gotowa.",
+          "en": "Dinner is ready.",
+          "gap": "gotowa",
+          "hint": "gotowy",
+          "alts": [],
+          "reason": "Kolacja is feminine, so -a: gotowa."
+        },
+        {
+          "id": "g-06-020",
+          "type": "type",
+          "pl": "Śniadanie jest gotowe.",
+          "en": "Breakfast is ready.",
+          "gap": "gotowe",
+          "hint": "gotowy",
+          "alts": [],
+          "reason": "Śniadanie is neuter (-e), so -e: gotowe."
+        },
+        {
+          "id": "g-06-021",
+          "type": "type",
+          "pl": "Sypialnia jest duża.",
+          "en": "The bedroom is big.",
+          "gap": "duża",
+          "hint": "duży",
+          "alts": [],
+          "reason": "Sypialnia is feminine, so -a: duża."
+        },
+        {
+          "id": "g-06-022",
+          "type": "type",
+          "pl": "Łóżko jest wygodne.",
+          "en": "The bed is comfortable.",
+          "gap": "wygodne",
+          "hint": "wygodny",
+          "alts": [],
+          "reason": "Łóżko is neuter (-o), so -e: wygodne."
+        },
+        {
+          "id": "g-06-023",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś piękna.",
+              "en": "You're beautiful.",
+              "gap": "piękna",
+              "hint": "piękny",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: piękna."
+            },
+            "mm": {
+              "pl": "Jesteś piękny.",
+              "en": "You're beautiful.",
+              "gap": "piękny",
+              "hint": "piękny",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: piękny."
+            },
+            "ff": {
+              "pl": "Jesteś piękna.",
+              "en": "You're beautiful.",
+              "gap": "piękna",
+              "hint": "piękny",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: piękna."
+            },
+            "fm": {
+              "pl": "Jesteś piękny.",
+              "en": "You're beautiful.",
+              "gap": "piękny",
+              "hint": "piękny",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: piękny."
+            }
+          }
+        },
+        {
+          "id": "g-06-024",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś ładna.",
+              "en": "You're pretty.",
+              "gap": "ładna",
+              "hint": "ładny",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: ładna."
+            },
+            "mm": {
+              "pl": "Jesteś przystojny.",
+              "en": "You're handsome.",
+              "gap": "przystojny",
+              "hint": "przystojny",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: przystojny."
+            },
+            "ff": {
+              "pl": "Jesteś ładna.",
+              "en": "You're pretty.",
+              "gap": "ładna",
+              "hint": "ładny",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: ładna."
+            },
+            "fm": {
+              "pl": "Jesteś przystojny.",
+              "en": "You're handsome.",
+              "gap": "przystojny",
+              "hint": "przystojny",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: przystojny."
+            }
+          }
+        },
+        {
+          "id": "g-06-025",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Jestem gotowy.",
+              "en": "I'm ready.",
+              "gap": "gotowy",
+              "hint": "gotowy",
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: gotowy."
+            },
+            "mm": {
+              "pl": "Jestem gotowy.",
+              "en": "I'm ready.",
+              "gap": "gotowy",
+              "hint": "gotowy",
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: gotowy."
+            },
+            "ff": {
+              "pl": "Jestem gotowa.",
+              "en": "I'm ready.",
+              "gap": "gotowa",
+              "hint": "gotowy",
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: gotowa."
+            },
+            "fm": {
+              "pl": "Jestem gotowa.",
+              "en": "I'm ready.",
+              "gap": "gotowa",
+              "hint": "gotowy",
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: gotowa."
+            }
+          }
+        },
+        {
+          "id": "g-06-026",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś chora?",
+              "en": "Are you ill?",
+              "gap": "chora",
+              "hint": "chory",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: chora."
+            },
+            "mm": {
+              "pl": "Jesteś chory?",
+              "en": "Are you ill?",
+              "gap": "chory",
+              "hint": "chory",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: chory."
+            },
+            "ff": {
+              "pl": "Jesteś chora?",
+              "en": "Are you ill?",
+              "gap": "chora",
+              "hint": "chory",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: chora."
+            },
+            "fm": {
+              "pl": "Jesteś chory?",
+              "en": "Are you ill?",
+              "gap": "chory",
+              "hint": "chory",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: chory."
+            }
+          }
+        },
+        {
+          "id": "g-06-027",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Jestem zły.",
+              "en": "I'm angry.",
+              "gap": "zły",
+              "hint": "zły",
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: zły."
+            },
+            "mm": {
+              "pl": "Jestem zły.",
+              "en": "I'm angry.",
+              "gap": "zły",
+              "hint": "zły",
+              "alts": [],
+              "reason": "A man talking about himself uses the masculine form: zły."
+            },
+            "ff": {
+              "pl": "Jestem zła.",
+              "en": "I'm angry.",
+              "gap": "zła",
+              "hint": "zły",
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: zła."
+            },
+            "fm": {
+              "pl": "Jestem zła.",
+              "en": "I'm angry.",
+              "gap": "zła",
+              "hint": "zły",
+              "alts": [],
+              "reason": "A woman talking about herself uses the feminine form: zła."
+            }
+          }
+        },
+        {
+          "id": "g-06-028",
+          "type": "type",
+          "pl": "Ta kawa jest tania.",
+          "en": "This coffee is cheap.",
+          "gap": "tania",
+          "hint": "tani",
+          "alts": [],
+          "reason": "Kawa is feminine, so -a; tani is soft, so tania."
+        },
+        {
+          "id": "g-06-029",
+          "type": "type",
+          "pl": "Wino jest drogie.",
+          "en": "The wine is expensive.",
+          "gap": "drogie",
+          "hint": "drogi",
+          "alts": [],
+          "reason": "Wino is neuter, so -e; after g it is -ie: drogie."
+        },
+        {
+          "id": "g-06-030",
+          "type": "type",
+          "pl": "Babcia jest kochana.",
+          "en": "Grandma is lovely.",
+          "gap": "kochana",
+          "hint": "kochany",
+          "alts": [],
+          "reason": "Babcia is feminine, so -a: kochana."
+        },
+        {
+          "id": "g-06-031",
+          "type": "type",
+          "pl": "Dziecko jest spokojne.",
+          "en": "The child is calm.",
+          "gap": "spokojne",
+          "hint": "spokojny",
+          "alts": [],
+          "reason": "Dziecko is neuter (-o), so -e: spokojne."
+        },
+        {
+          "id": "g-06-032",
+          "type": "type",
+          "pl": "Ryba jest świeża.",
+          "en": "The fish is fresh.",
+          "gap": "świeża",
+          "hint": "świeży",
+          "alts": [],
+          "reason": "Ryba is feminine, so -a: świeża."
+        },
+        {
+          "id": "g-06-033",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś wyspana?",
+              "en": "Did you get enough sleep?",
+              "gap": "wyspana",
+              "hint": "wyspany",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: wyspana."
+            },
+            "mm": {
+              "pl": "Jesteś wyspany?",
+              "en": "Did you get enough sleep?",
+              "gap": "wyspany",
+              "hint": "wyspany",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: wyspany."
+            },
+            "ff": {
+              "pl": "Jesteś wyspana?",
+              "en": "Did you get enough sleep?",
+              "gap": "wyspana",
+              "hint": "wyspany",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: wyspana."
+            },
+            "fm": {
+              "pl": "Jesteś wyspany?",
+              "en": "Did you get enough sleep?",
+              "gap": "wyspany",
+              "hint": "wyspany",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: wyspany."
+            }
+          }
+        },
+        {
+          "id": "g-06-034",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jesteś najedzona?",
+              "en": "Are you full?",
+              "gap": "najedzona",
+              "hint": "najedzony",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: najedzona."
+            },
+            "mm": {
+              "pl": "Jesteś najedzony?",
+              "en": "Are you full?",
+              "gap": "najedzony",
+              "hint": "najedzony",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: najedzony."
+            },
+            "ff": {
+              "pl": "Jesteś najedzona?",
+              "en": "Are you full?",
+              "gap": "najedzona",
+              "hint": "najedzony",
+              "alts": [],
+              "reason": "Talking to a woman, use the feminine form: najedzona."
+            },
+            "fm": {
+              "pl": "Jesteś najedzony?",
+              "en": "Are you full?",
+              "gap": "najedzony",
+              "hint": "najedzony",
+              "alts": [],
+              "reason": "Talking to a man, use the masculine form: najedzony."
+            }
+          }
+        },
+        {
+          "id": "g-06-035",
+          "type": "type",
+          "pl": "Mama jest spokojna.",
+          "en": "Mum is calm.",
+          "gap": "spokojna",
+          "hint": "spokojny",
+          "alts": [],
+          "reason": "Mama is feminine, so -a: spokojna."
+        }
+      ]
+    },
+    {
+      "id": "g-07",
+      "title": "Questions and question words",
+      "lesson": {
+        "summary": "How to ask yes/no questions and questions with what, who, where, when, how, why and how much.",
+        "body": [
+          "Yes/no questions are easy in Polish: take an ordinary sentence and either raise your voice at the end ({{Masz czas?}}) or put {{czy}} in front ({{Czy masz czas?}}). There is no \"do\" and no swapping of words: the statement stays exactly as it is.",
+          "For other questions, put the question word first and keep the rest in normal order: {{Gdzie mieszkasz?}} (Where do you live?), {{Co robisz?}} (What are you doing?). Polish has three words for \"where\": {{gdzie}} (at which place), {{skąd}} (from where) and {{dokąd}} (where to)."
+        ],
+        "table": {
+          "caption": "The main question words",
+          "head": [
+            "Polish",
+            "English",
+            "Polish",
+            "English"
+          ],
+          "rows": [
+            [
+              "{{co}}",
+              "what",
+              "{{kto}}",
+              "who"
+            ],
+            [
+              "{{gdzie}}",
+              "where",
+              "{{kiedy}}",
+              "when"
+            ],
+            [
+              "{{skąd}}",
+              "from where",
+              "{{dokąd}}",
+              "where to"
+            ],
+            [
+              "{{jak}}",
+              "how",
+              "{{ile}}",
+              "how much, how many"
+            ],
+            [
+              "{{dlaczego}}",
+              "why",
+              "{{czemu}}",
+              "why (casual)"
+            ]
+          ]
+        },
+        "more": [
+          "In everyday speech {{czy}} is often left out and the rising voice does the work. It is more common in careful or polite speech, and with older relatives: {{Czy mogę pomóc?}}",
+          "Kto and co change form like nouns: {{z kim}} (with whom), {{kogo}} (whom), {{czego}} (of what). For now just learn {{Z kim?}} as a phrase.",
+          "For clock times use {{O której?}} (at what time?) rather than kiedy. {{Jaki}} (what kind of) and {{który}} (which) agree with the noun like adjectives: {{Która godzina?}}, {{Jaki to film?}} {{Czyj}} (whose) agrees in the same way: {{czyj}} with a masculine noun, {{czyja}} with a feminine one.",
+          "You can also tag {{prawda?}} or {{tak?}} onto a statement to check something: {{Jesteś w domu, prawda?}}"
+        ]
+      },
+      "items": [
+        {
+          "id": "g-07-001",
+          "type": "choose",
+          "pl": "Gdzie jest łazienka?",
+          "en": "Where is the bathroom?",
+          "gap": "Gdzie",
+          "options": [
+            "Gdzie",
+            "Kiedy",
+            "Jak",
+            "Kto"
+          ],
+          "reason": "Gdzie = where (at which place).",
+          "alts": []
+        },
+        {
+          "id": "g-07-002",
+          "type": "choose",
+          "pl": "Co robisz?",
+          "en": "What are you doing?",
+          "gap": "Co",
+          "options": [
+            "Co",
+            "Kto",
+            "Jak",
+            "Ile"
+          ],
+          "reason": "Co = what.",
+          "alts": []
+        },
+        {
+          "id": "g-07-003",
+          "type": "choose",
+          "pl": "Kto to jest?",
+          "en": "Who is that?",
+          "gap": "Kto",
+          "options": [
+            "Kto",
+            "Co",
+            "Gdzie",
+            "Czy"
+          ],
+          "reason": "Kto = who. (Co to jest? would be \"What is that?\")",
+          "alts": []
+        },
+        {
+          "id": "g-07-004",
+          "type": "choose",
+          "pl": "Kiedy wracasz?",
+          "en": "When are you coming back?",
+          "gap": "Kiedy",
+          "options": [
+            "Kiedy",
+            "Gdzie",
+            "Dlaczego",
+            "Ile"
+          ],
+          "reason": "Kiedy = when.",
+          "alts": []
+        },
+        {
+          "id": "g-07-005",
+          "type": "choose",
+          "pl": "Jak się masz?",
+          "en": "How are you?",
+          "gap": "Jak",
+          "options": [
+            "Jak",
+            "Co",
+            "Kto",
+            "Gdzie"
+          ],
+          "reason": "Jak = how.",
+          "alts": []
+        },
+        {
+          "id": "g-07-006",
+          "type": "choose",
+          "pl": "Dlaczego nie śpisz?",
+          "en": "Why aren't you sleeping?",
+          "gap": "Dlaczego",
+          "options": [
+            "Dlaczego",
+            "Kiedy",
+            "Gdzie",
+            "Co"
+          ],
+          "alts": [
+            "Czemu"
+          ],
+          "reason": "Dlaczego = why (czemu is a more casual synonym)."
+        },
+        {
+          "id": "g-07-007",
+          "type": "choose",
+          "pl": "Ile to kosztuje?",
+          "en": "How much does it cost?",
+          "gap": "Ile",
+          "options": [
+            "Ile",
+            "Jak",
+            "Co",
+            "Kiedy"
+          ],
+          "reason": "Ile = how much / how many.",
+          "alts": []
+        },
+        {
+          "id": "g-07-008",
+          "type": "choose",
+          "pl": "Czy masz czas?",
+          "en": "Do you have time?",
+          "gap": "Czy",
+          "options": [
+            "Czy",
+            "Co",
+            "Kto",
+            "Jak"
+          ],
+          "reason": "Czy at the start turns a statement into a yes/no question.",
+          "alts": []
+        },
+        {
+          "id": "g-07-009",
+          "type": "choose",
+          "pl": "Skąd jesteś?",
+          "en": "Where are you from?",
+          "gap": "Skąd",
+          "options": [
+            "Skąd",
+            "Gdzie",
+            "Dokąd",
+            "Kiedy"
+          ],
+          "reason": "Skąd = from where.",
+          "alts": []
+        },
+        {
+          "id": "g-07-010",
+          "type": "choose",
+          "pl": "Gdzie mieszkasz?",
+          "en": "Where do you live?",
+          "gap": "Gdzie",
+          "options": [
+            "Gdzie",
+            "Skąd",
+            "Dokąd",
+            "Kiedy"
+          ],
+          "reason": "Gdzie = where (at which place); skąd is \"from where\", dokąd \"where to\".",
+          "alts": []
+        },
+        {
+          "id": "g-07-011",
+          "type": "choose",
+          "pl": "Dokąd idziesz?",
+          "en": "Where are you going?",
+          "gap": "Dokąd",
+          "options": [
+            "Dokąd",
+            "Skąd",
+            "Kiedy",
+            "Kto"
+          ],
+          "reason": "Dokąd = where to. In casual speech many people also say gdzie here.",
+          "alts": []
+        },
+        {
+          "id": "g-07-012",
+          "type": "choose",
+          "pl": "O której jest obiad?",
+          "en": "What time is dinner?",
+          "gap": "O której",
+          "options": [
+            "O której",
+            "Ile",
+            "Jak",
+            "Co"
+          ],
+          "reason": "O której? = at what time? (for clock times).",
+          "alts": []
+        },
+        {
+          "id": "g-07-013",
+          "type": "choose",
+          "pl": "Z kim rozmawiasz?",
+          "en": "Who are you talking to?",
+          "gap": "kim",
+          "hint": "kto",
+          "options": [
+            "kim",
+            "kto",
+            "kogo"
+          ],
+          "reason": "After z (with), kto changes to kim: z kim = with whom.",
+          "alts": []
+        },
+        {
+          "id": "g-07-014",
+          "type": "type",
+          "pl": "Czy masz brata?",
+          "en": "Do you have a brother?",
+          "gap": "Czy",
+          "prompt": "Make it a yes/no question",
+          "reason": "Czy at the start marks a yes/no question.",
+          "alts": []
+        },
+        {
+          "id": "g-07-015",
+          "type": "type",
+          "speaker": "learner",
+          "prompt": "Make it a yes/no question",
+          "v": {
+            "mf": {
+              "pl": "Czy jesteś głodna?",
+              "en": "Are you hungry?",
+              "gap": "Czy",
+              "reason": "Czy at the start marks a yes/no question; the word order stays the same."
+            },
+            "mm": {
+              "pl": "Czy jesteś głodny?",
+              "en": "Are you hungry?",
+              "gap": "Czy",
+              "reason": "Czy at the start marks a yes/no question; the word order stays the same."
+            },
+            "ff": {
+              "pl": "Czy jesteś głodna?",
+              "en": "Are you hungry?",
+              "gap": "Czy",
+              "reason": "Czy at the start marks a yes/no question; the word order stays the same."
+            },
+            "fm": {
+              "pl": "Czy jesteś głodny?",
+              "en": "Are you hungry?",
+              "gap": "Czy",
+              "reason": "Czy at the start marks a yes/no question; the word order stays the same."
+            }
+          }
+        },
+        {
+          "id": "g-07-016",
+          "type": "type",
+          "pl": "Czy to jest twój klucz?",
+          "en": "Is this your key?",
+          "gap": "Czy",
+          "prompt": "Make it a yes/no question",
+          "reason": "Czy + an ordinary statement = a yes/no question.",
+          "alts": []
+        },
+        {
+          "id": "g-07-017",
+          "type": "type",
+          "pl": "Czy mówisz po angielsku?",
+          "en": "Do you speak English?",
+          "gap": "Czy",
+          "prompt": "Make it a yes/no question",
+          "reason": "Polish has no \"do\" for questions: just czy + the statement.",
+          "alts": []
+        },
+        {
+          "id": "g-07-018",
+          "type": "type",
+          "pl": "Czy wszystko w porządku?",
+          "en": "Is everything OK?",
+          "gap": "Czy",
+          "prompt": "Make it a yes/no question",
+          "reason": "Czy introduces a yes/no question.",
+          "alts": []
+        },
+        {
+          "id": "g-07-019",
+          "type": "type",
+          "pl": "Co chcesz pić?",
+          "en": "What do you want to drink?",
+          "gap": "Co",
+          "reason": "Co = what.",
+          "alts": []
+        },
+        {
+          "id": "g-07-020",
+          "type": "type",
+          "pl": "Kto gotuje obiad?",
+          "en": "Who's cooking dinner?",
+          "gap": "Kto",
+          "reason": "Kto = who.",
+          "alts": []
+        },
+        {
+          "id": "g-07-021",
+          "type": "type",
+          "pl": "Gdzie są klucze?",
+          "en": "Where are the keys?",
+          "gap": "Gdzie",
+          "reason": "Gdzie = where.",
+          "alts": []
+        },
+        {
+          "id": "g-07-022",
+          "type": "type",
+          "pl": "Gdzie pracujesz?",
+          "en": "Where do you work?",
+          "gap": "Gdzie",
+          "reason": "Gdzie = where.",
+          "alts": []
+        },
+        {
+          "id": "g-07-023",
+          "type": "type",
+          "pl": "Kiedy jest kolacja?",
+          "en": "When's supper?",
+          "gap": "Kiedy",
+          "reason": "Kiedy = when.",
+          "alts": []
+        },
+        {
+          "id": "g-07-024",
+          "type": "type",
+          "pl": "Kiedy się spotkamy?",
+          "en": "When shall we meet?",
+          "gap": "Kiedy",
+          "reason": "Kiedy = when.",
+          "alts": []
+        },
+        {
+          "id": "g-07-025",
+          "type": "type",
+          "pl": "Jak masz na imię?",
+          "en": "What's your name?",
+          "gap": "Jak",
+          "reason": "Polish asks \"how\" here: Jak masz na imię? (literally \"How do you have as a name?\").",
+          "alts": []
+        },
+        {
+          "id": "g-07-026",
+          "type": "type",
+          "pl": "Jak było w pracy?",
+          "en": "How was work?",
+          "gap": "Jak",
+          "reason": "Jak = how.",
+          "alts": []
+        },
+        {
+          "id": "g-07-027",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Dlaczego jesteś smutna?",
+              "en": "Why are you sad?",
+              "gap": "Dlaczego",
+              "alts": [
+                "Czemu"
+              ],
+              "reason": "Dlaczego = why (czemu also works)."
+            },
+            "mm": {
+              "pl": "Dlaczego jesteś smutny?",
+              "en": "Why are you sad?",
+              "gap": "Dlaczego",
+              "alts": [
+                "Czemu"
+              ],
+              "reason": "Dlaczego = why (czemu also works)."
+            },
+            "ff": {
+              "pl": "Dlaczego jesteś smutna?",
+              "en": "Why are you sad?",
+              "gap": "Dlaczego",
+              "alts": [
+                "Czemu"
+              ],
+              "reason": "Dlaczego = why (czemu also works)."
+            },
+            "fm": {
+              "pl": "Dlaczego jesteś smutny?",
+              "en": "Why are you sad?",
+              "gap": "Dlaczego",
+              "alts": [
+                "Czemu"
+              ],
+              "reason": "Dlaczego = why (czemu also works)."
+            }
+          }
+        },
+        {
+          "id": "g-07-028",
+          "type": "type",
+          "pl": "Ile masz lat?",
+          "en": "How old are you?",
+          "gap": "Ile",
+          "reason": "Polish asks \"how many years do you have?\": Ile masz lat?",
+          "alts": []
+        },
+        {
+          "id": "g-07-029",
+          "type": "type",
+          "pl": "Skąd jest twoja mama?",
+          "en": "Where is your mum from?",
+          "gap": "Skąd",
+          "reason": "Skąd = from where.",
+          "alts": []
+        },
+        {
+          "id": "g-07-030",
+          "type": "type",
+          "pl": "Co to jest?",
+          "en": "What is this?",
+          "gap": "Co",
+          "reason": "Co = what.",
+          "alts": []
+        },
+        {
+          "id": "g-07-031",
+          "type": "type",
+          "pl": "Co u ciebie?",
+          "en": "How's it going with you?",
+          "gap": "Co",
+          "reason": "Co u ciebie? literally \"what at yours?\" is the everyday \"how are you doing?\".",
+          "alts": []
+        },
+        {
+          "id": "g-07-032",
+          "type": "type",
+          "pl": "Która godzina?",
+          "en": "What time is it?",
+          "gap": "Która",
+          "hint": "który",
+          "reason": "Która godzina? = \"which hour?\": która agrees with feminine godzina.",
+          "alts": []
+        },
+        {
+          "id": "g-07-033",
+          "type": "type",
+          "pl": "Czyj to klucz?",
+          "en": "Whose key is this?",
+          "gap": "Czyj",
+          "reason": "Czyj = whose (masculine, agreeing with klucz).",
+          "alts": []
+        }
+      ]
+    },
+    {
+      "id": "g-08",
+      "title": "Past tense: “I was”, “you were”",
+      "lesson": {
+        "summary": "How to say what you did as a man (-łem) and ask her what she did (-łaś).",
+        "body": [
+          "To make the past tense, take the infinitive, drop the -ć and add ł plus an ending: {{robić}} → {{robił}}-. The ending shows both the person and the gender. As a man you say {{byłem}}, {{robiłem}} (I was, I did). When you ask her, it is {{byłaś}}, {{robiłaś}} (you were, you did). She says {{byłam}} about herself and asks you {{byłeś}}?",
+          "Questions need no extra word like English \"did\": {{Spałaś dobrze?}} is literally \"you slept well?\" said with a rising voice. For he, she and it there is no person ending: {{był}}, {{była}}, {{było}}."
+        ],
+        "table": {
+          "caption": "Past tense of być and robić",
+          "head": [
+            "",
+            "man",
+            "woman"
+          ],
+          "rows": [
+            [
+              "I",
+              "{{byłem}}, {{robiłem}}",
+              "{{byłam}}, {{robiłam}}"
+            ],
+            [
+              "you",
+              "{{byłeś}}, {{robiłeś}}",
+              "{{byłaś}}, {{robiłaś}}"
+            ],
+            [
+              "he / she",
+              "{{był}}, {{robił}}",
+              "{{była}}, {{robiła}}"
+            ]
+          ]
+        },
+        "more": [
+          "For \"it\" (neuter nouns like {{wino}}) the ending is -ło: {{Wino było dobre.}}",
+          "In the singular, verbs ending in -eć usually change e to a before the ł: {{myśleć}} → {{myślałem}}, {{widzieć}} → {{widziałem}}, {{chcieć}} → {{chciałem}}, {{mieć}} → {{miałem}}.",
+          "A few common verbs are irregular. {{iść}} (go on foot): {{szedłem}}, {{szłam}}, {{szedłeś}}, {{szłaś}}. {{jeść}} (eat): {{jadłem}}, {{jadłam}}. {{móc}} (can): {{mogłem}}, {{mogłam}}, but he {{mógł}}.",
+          "Most verbs come in pairs. The imperfective ({{robiłem}}, {{dzwoniłem}}) describes an activity or something ongoing or repeated: \"I was doing, I used to call\". The perfective ({{zrobiłem}}, {{zadzwoniłem}}, {{kupiłem}}) describes one finished action: \"I did it, I called, I bought\". Either is a real past tense; you will pick up the pairs over time."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-08-001",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Wczoraj byłem w domu.",
+              "en": "Yesterday I was at home.",
+              "gap": "byłem",
+              "hint": "być",
+              "options": [
+                "byłem",
+                "byłam",
+                "byłeś",
+                "był"
+              ],
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Wczoraj byłem w domu.",
+              "en": "Yesterday I was at home.",
+              "gap": "byłem",
+              "hint": "być",
+              "options": [
+                "byłem",
+                "byłam",
+                "byłeś",
+                "był"
+              ],
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Wczoraj byłam w domu.",
+              "en": "Yesterday I was at home.",
+              "gap": "byłam",
+              "hint": "być",
+              "options": [
+                "byłam",
+                "byłem",
+                "byłaś",
+                "była"
+              ],
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Wczoraj byłam w domu.",
+              "en": "Yesterday I was at home.",
+              "gap": "byłam",
+              "hint": "być",
+              "options": [
+                "byłam",
+                "byłem",
+                "byłaś",
+                "była"
+              ],
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-002",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Byłaś w pracy?",
+              "en": "Were you at work?",
+              "gap": "Byłaś",
+              "hint": "być",
+              "options": [
+                "Byłaś",
+                "Byłeś",
+                "Byłam",
+                "Była"
+              ],
+              "reason": "To a woman: byłaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Byłeś w pracy?",
+              "en": "Were you at work?",
+              "gap": "Byłeś",
+              "hint": "być",
+              "options": [
+                "Byłeś",
+                "Byłaś",
+                "Byłem",
+                "Był"
+              ],
+              "reason": "To a man: byłeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Byłaś w pracy?",
+              "en": "Were you at work?",
+              "gap": "Byłaś",
+              "hint": "być",
+              "options": [
+                "Byłaś",
+                "Byłeś",
+                "Byłam",
+                "Była"
+              ],
+              "reason": "To a woman: byłaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Byłeś w pracy?",
+              "en": "Were you at work?",
+              "gap": "Byłeś",
+              "hint": "być",
+              "options": [
+                "Byłeś",
+                "Byłaś",
+                "Byłem",
+                "Był"
+              ],
+              "reason": "To a man: byłeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-003",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Byłem bardzo zmęczony.",
+              "en": "I was very tired.",
+              "gap": "Byłem",
+              "hint": "być",
+              "options": [
+                "Byłem",
+                "Byłam",
+                "Byłeś",
+                "Był"
+              ],
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Byłem bardzo zmęczony.",
+              "en": "I was very tired.",
+              "gap": "Byłem",
+              "hint": "być",
+              "options": [
+                "Byłem",
+                "Byłam",
+                "Byłeś",
+                "Był"
+              ],
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Byłam bardzo zmęczona.",
+              "en": "I was very tired.",
+              "gap": "Byłam",
+              "hint": "być",
+              "options": [
+                "Byłam",
+                "Byłem",
+                "Byłaś",
+                "Była"
+              ],
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Byłam bardzo zmęczona.",
+              "en": "I was very tired.",
+              "gap": "Byłam",
+              "hint": "być",
+              "options": [
+                "Byłam",
+                "Byłem",
+                "Byłaś",
+                "Była"
+              ],
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-004",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Co robiłaś wczoraj?",
+              "en": "What did you do yesterday?",
+              "gap": "robiłaś",
+              "hint": "robić",
+              "options": [
+                "robiłaś",
+                "robiłeś",
+                "robiłam",
+                "robiła"
+              ],
+              "reason": "To a woman: robiłaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Co robiłeś wczoraj?",
+              "en": "What did you do yesterday?",
+              "gap": "robiłeś",
+              "hint": "robić",
+              "options": [
+                "robiłeś",
+                "robiłaś",
+                "robiłem",
+                "robił"
+              ],
+              "reason": "To a man: robiłeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Co robiłaś wczoraj?",
+              "en": "What did you do yesterday?",
+              "gap": "robiłaś",
+              "hint": "robić",
+              "options": [
+                "robiłaś",
+                "robiłeś",
+                "robiłam",
+                "robiła"
+              ],
+              "reason": "To a woman: robiłaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Co robiłeś wczoraj?",
+              "en": "What did you do yesterday?",
+              "gap": "robiłeś",
+              "hint": "robić",
+              "options": [
+                "robiłeś",
+                "robiłaś",
+                "robiłem",
+                "robił"
+              ],
+              "reason": "To a man: robiłeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-005",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Wczoraj gotowałem obiad.",
+              "en": "Yesterday I cooked dinner.",
+              "gap": "gotowałem",
+              "hint": "gotować",
+              "options": [
+                "gotowałem",
+                "gotowałam",
+                "gotowałeś",
+                "gotował"
+              ],
+              "reason": "A man says gotowałem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Wczoraj gotowałem obiad.",
+              "en": "Yesterday I cooked dinner.",
+              "gap": "gotowałem",
+              "hint": "gotować",
+              "options": [
+                "gotowałem",
+                "gotowałam",
+                "gotowałeś",
+                "gotował"
+              ],
+              "reason": "A man says gotowałem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Wczoraj gotowałam obiad.",
+              "en": "Yesterday I cooked dinner.",
+              "gap": "gotowałam",
+              "hint": "gotować",
+              "options": [
+                "gotowałam",
+                "gotowałem",
+                "gotowałaś",
+                "gotowała"
+              ],
+              "reason": "A woman says gotowałam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Wczoraj gotowałam obiad.",
+              "en": "Yesterday I cooked dinner.",
+              "gap": "gotowałam",
+              "hint": "gotować",
+              "options": [
+                "gotowałam",
+                "gotowałem",
+                "gotowałaś",
+                "gotowała"
+              ],
+              "reason": "A woman says gotowałam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-006",
+          "type": "choose",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Byłem u mamy.",
+              "en": "I was at my mum's.",
+              "gap": "Byłem",
+              "hint": "być",
+              "options": [
+                "Byłem",
+                "Byłam",
+                "Byłeś",
+                "Był"
+              ],
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Byłem u mamy.",
+              "en": "I was at my mum's.",
+              "gap": "Byłem",
+              "hint": "być",
+              "options": [
+                "Byłem",
+                "Byłam",
+                "Byłeś",
+                "Był"
+              ],
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Byłam u mamy.",
+              "en": "I was at my mum's.",
+              "gap": "Byłam",
+              "hint": "być",
+              "options": [
+                "Byłam",
+                "Byłem",
+                "Byłaś",
+                "Była"
+              ],
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Byłam u mamy.",
+              "en": "I was at my mum's.",
+              "gap": "Byłam",
+              "hint": "być",
+              "options": [
+                "Byłam",
+                "Byłem",
+                "Byłaś",
+                "Była"
+              ],
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-007",
+          "type": "choose",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Gdzie byłaś?",
+              "en": "Where were you?",
+              "gap": "byłaś",
+              "hint": "być",
+              "options": [
+                "byłaś",
+                "byłeś",
+                "byłam",
+                "była"
+              ],
+              "reason": "To a woman: byłaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Gdzie byłeś?",
+              "en": "Where were you?",
+              "gap": "byłeś",
+              "hint": "być",
+              "options": [
+                "byłeś",
+                "byłaś",
+                "byłem",
+                "był"
+              ],
+              "reason": "To a man: byłeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Gdzie byłaś?",
+              "en": "Where were you?",
+              "gap": "byłaś",
+              "hint": "być",
+              "options": [
+                "byłaś",
+                "byłeś",
+                "byłam",
+                "była"
+              ],
+              "reason": "To a woman: byłaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Gdzie byłeś?",
+              "en": "Where were you?",
+              "gap": "byłeś",
+              "hint": "być",
+              "options": [
+                "byłeś",
+                "byłaś",
+                "byłem",
+                "był"
+              ],
+              "reason": "To a man: byłeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-008",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Spałaś dobrze?",
+              "en": "Did you sleep well?",
+              "gap": "Spałaś",
+              "hint": "spać",
+              "options": [
+                "Spałaś",
+                "Spałeś",
+                "Spałam",
+                "Spała"
+              ],
+              "reason": "To a woman: spałaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Spałeś dobrze?",
+              "en": "Did you sleep well?",
+              "gap": "Spałeś",
+              "hint": "spać",
+              "options": [
+                "Spałeś",
+                "Spałaś",
+                "Spałem",
+                "Spał"
+              ],
+              "reason": "To a man: spałeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Spałaś dobrze?",
+              "en": "Did you sleep well?",
+              "gap": "Spałaś",
+              "hint": "spać",
+              "options": [
+                "Spałaś",
+                "Spałeś",
+                "Spałam",
+                "Spała"
+              ],
+              "reason": "To a woman: spałaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Spałeś dobrze?",
+              "en": "Did you sleep well?",
+              "gap": "Spałeś",
+              "hint": "spać",
+              "options": [
+                "Spałeś",
+                "Spałaś",
+                "Spałem",
+                "Spał"
+              ],
+              "reason": "To a man: spałeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-009",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Nie miałem czasu.",
+              "en": "I didn't have time.",
+              "gap": "miałem",
+              "hint": "mieć",
+              "options": [
+                "miałem",
+                "miałam",
+                "miałeś",
+                "miał"
+              ],
+              "reason": "A man says miałem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Nie miałem czasu.",
+              "en": "I didn't have time.",
+              "gap": "miałem",
+              "hint": "mieć",
+              "options": [
+                "miałem",
+                "miałam",
+                "miałeś",
+                "miał"
+              ],
+              "reason": "A man says miałem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Nie miałam czasu.",
+              "en": "I didn't have time.",
+              "gap": "miałam",
+              "hint": "mieć",
+              "options": [
+                "miałam",
+                "miałem",
+                "miałaś",
+                "miała"
+              ],
+              "reason": "A woman says miałam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Nie miałam czasu.",
+              "en": "I didn't have time.",
+              "gap": "miałam",
+              "hint": "mieć",
+              "options": [
+                "miałam",
+                "miałem",
+                "miałaś",
+                "miała"
+              ],
+              "reason": "A woman says miałam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-010",
+          "type": "choose",
+          "pl": "Obiad był pyszny.",
+          "en": "Dinner was delicious.",
+          "gap": "był",
+          "hint": "być",
+          "options": [
+            "był",
+            "była",
+            "było",
+            "byłem"
+          ],
+          "reason": "Obiad is masculine, so: był.",
+          "alts": []
+        },
+        {
+          "id": "g-08-011",
+          "type": "choose",
+          "pl": "Zupa była pyszna.",
+          "en": "The soup was delicious.",
+          "gap": "była",
+          "hint": "być",
+          "options": [
+            "była",
+            "był",
+            "było",
+            "byłam"
+          ],
+          "reason": "Zupa is feminine, so: była.",
+          "alts": []
+        },
+        {
+          "id": "g-08-012",
+          "type": "choose",
+          "pl": "Wino było dobre.",
+          "en": "The wine was good.",
+          "gap": "było",
+          "hint": "być",
+          "options": [
+            "było",
+            "był",
+            "była",
+            "byłem"
+          ],
+          "reason": "Wino is neuter, so: było.",
+          "alts": []
+        },
+        {
+          "id": "g-08-013",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Już jadłem.",
+              "en": "I've already eaten.",
+              "gap": "jadłem",
+              "hint": "jeść",
+              "options": [
+                "jadłem",
+                "jadłam",
+                "jadłeś",
+                "jadł"
+              ],
+              "reason": "A man says jadłem: -łem means \"I\" for a man. Jeść is irregular: jadł-."
+            },
+            "mm": {
+              "pl": "Już jadłem.",
+              "en": "I've already eaten.",
+              "gap": "jadłem",
+              "hint": "jeść",
+              "options": [
+                "jadłem",
+                "jadłam",
+                "jadłeś",
+                "jadł"
+              ],
+              "reason": "A man says jadłem: -łem means \"I\" for a man. Jeść is irregular: jadł-."
+            },
+            "ff": {
+              "pl": "Już jadłam.",
+              "en": "I've already eaten.",
+              "gap": "jadłam",
+              "hint": "jeść",
+              "options": [
+                "jadłam",
+                "jadłem",
+                "jadłaś",
+                "jadła"
+              ],
+              "reason": "A woman says jadłam: -łam means \"I\" for a woman. Jeść is irregular: jadł-."
+            },
+            "fm": {
+              "pl": "Już jadłam.",
+              "en": "I've already eaten.",
+              "gap": "jadłam",
+              "hint": "jeść",
+              "options": [
+                "jadłam",
+                "jadłem",
+                "jadłaś",
+                "jadła"
+              ],
+              "reason": "A woman says jadłam: -łam means \"I\" for a woman. Jeść is irregular: jadł-."
+            }
+          }
+        },
+        {
+          "id": "g-08-014",
+          "type": "choose",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Nie mogłem spać.",
+              "en": "I couldn't sleep.",
+              "gap": "mogłem",
+              "hint": "móc",
+              "options": [
+                "mogłem",
+                "mogłam",
+                "mogłeś",
+                "mógł"
+              ],
+              "reason": "A man says mogłem: -łem means \"I\" for a man. Móc is irregular: mogł-."
+            },
+            "mm": {
+              "pl": "Nie mogłem spać.",
+              "en": "I couldn't sleep.",
+              "gap": "mogłem",
+              "hint": "móc",
+              "options": [
+                "mogłem",
+                "mogłam",
+                "mogłeś",
+                "mógł"
+              ],
+              "reason": "A man says mogłem: -łem means \"I\" for a man. Móc is irregular: mogł-."
+            },
+            "ff": {
+              "pl": "Nie mogłam spać.",
+              "en": "I couldn't sleep.",
+              "gap": "mogłam",
+              "hint": "móc",
+              "options": [
+                "mogłam",
+                "mogłem",
+                "mogłaś",
+                "mogła"
+              ],
+              "reason": "A woman says mogłam: -łam means \"I\" for a woman. Móc is irregular: mogł-."
+            },
+            "fm": {
+              "pl": "Nie mogłam spać.",
+              "en": "I couldn't sleep.",
+              "gap": "mogłam",
+              "hint": "móc",
+              "options": [
+                "mogłam",
+                "mogłem",
+                "mogłaś",
+                "mogła"
+              ],
+              "reason": "A woman says mogłam: -łam means \"I\" for a woman. Móc is irregular: mogł-."
+            }
+          }
+        },
+        {
+          "id": "g-08-015",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Byłaś zmęczona?",
+              "en": "Were you tired?",
+              "gap": "Byłaś",
+              "hint": "być",
+              "reason": "To a woman: byłaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Byłeś zmęczony?",
+              "en": "Were you tired?",
+              "gap": "Byłeś",
+              "hint": "być",
+              "reason": "To a man: byłeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Byłaś zmęczona?",
+              "en": "Were you tired?",
+              "gap": "Byłaś",
+              "hint": "być",
+              "reason": "To a woman: byłaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Byłeś zmęczony?",
+              "en": "Were you tired?",
+              "gap": "Byłeś",
+              "hint": "być",
+              "reason": "To a man: byłeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-016",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Wczoraj pracowałem w domu.",
+              "en": "Yesterday I worked from home.",
+              "gap": "pracowałem",
+              "hint": "pracować",
+              "reason": "A man says pracowałem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Wczoraj pracowałem w domu.",
+              "en": "Yesterday I worked from home.",
+              "gap": "pracowałem",
+              "hint": "pracować",
+              "reason": "A man says pracowałem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Wczoraj pracowałam w domu.",
+              "en": "Yesterday I worked from home.",
+              "gap": "pracowałam",
+              "hint": "pracować",
+              "reason": "A woman says pracowałam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Wczoraj pracowałam w domu.",
+              "en": "Yesterday I worked from home.",
+              "gap": "pracowałam",
+              "hint": "pracować",
+              "reason": "A woman says pracowałam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-017",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jadłaś śniadanie?",
+              "en": "Have you had breakfast?",
+              "gap": "Jadłaś",
+              "hint": "jeść",
+              "reason": "To a woman: jadłaś (-łaś means \"you\" to a woman). Jeść is irregular: jadł-."
+            },
+            "mm": {
+              "pl": "Jadłeś śniadanie?",
+              "en": "Have you had breakfast?",
+              "gap": "Jadłeś",
+              "hint": "jeść",
+              "reason": "To a man: jadłeś (-łeś means \"you\" to a man). Jeść is irregular: jadł-."
+            },
+            "ff": {
+              "pl": "Jadłaś śniadanie?",
+              "en": "Have you had breakfast?",
+              "gap": "Jadłaś",
+              "hint": "jeść",
+              "reason": "To a woman: jadłaś (-łaś means \"you\" to a woman). Jeść is irregular: jadł-."
+            },
+            "fm": {
+              "pl": "Jadłeś śniadanie?",
+              "en": "Have you had breakfast?",
+              "gap": "Jadłeś",
+              "hint": "jeść",
+              "reason": "To a man: jadłeś (-łeś means \"you\" to a man). Jeść is irregular: jadł-."
+            }
+          }
+        },
+        {
+          "id": "g-08-018",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Myślałem o tobie.",
+              "en": "I was thinking about you.",
+              "gap": "Myślałem",
+              "hint": "myśleć",
+              "reason": "A man says myślałem: -łem means \"I\" for a man. -eć verbs change e to a: myśleć → myślał-."
+            },
+            "mm": {
+              "pl": "Myślałem o tobie.",
+              "en": "I was thinking about you.",
+              "gap": "Myślałem",
+              "hint": "myśleć",
+              "reason": "A man says myślałem: -łem means \"I\" for a man. -eć verbs change e to a: myśleć → myślał-."
+            },
+            "ff": {
+              "pl": "Myślałam o tobie.",
+              "en": "I was thinking about you.",
+              "gap": "Myślałam",
+              "hint": "myśleć",
+              "reason": "A woman says myślałam: -łam means \"I\" for a woman. -eć verbs change e to a: myśleć → myślał-."
+            },
+            "fm": {
+              "pl": "Myślałam o tobie.",
+              "en": "I was thinking about you.",
+              "gap": "Myślałam",
+              "hint": "myśleć",
+              "reason": "A woman says myślałam: -łam means \"I\" for a woman. -eć verbs change e to a: myśleć → myślał-."
+            }
+          }
+        },
+        {
+          "id": "g-08-019",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Tęskniłem za tobą.",
+              "en": "I missed you.",
+              "gap": "Tęskniłem",
+              "hint": "tęsknić",
+              "reason": "A man says tęskniłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Tęskniłem za tobą.",
+              "en": "I missed you.",
+              "gap": "Tęskniłem",
+              "hint": "tęsknić",
+              "reason": "A man says tęskniłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Tęskniłam za tobą.",
+              "en": "I missed you.",
+              "gap": "Tęskniłam",
+              "hint": "tęsknić",
+              "reason": "A woman says tęskniłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Tęskniłam za tobą.",
+              "en": "I missed you.",
+              "gap": "Tęskniłam",
+              "hint": "tęsknić",
+              "reason": "A woman says tęskniłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-020",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Widziałem twojego brata.",
+              "en": "I saw your brother.",
+              "gap": "Widziałem",
+              "hint": "widzieć",
+              "reason": "A man says widziałem: -łem means \"I\" for a man. -eć verbs change e to a: widzieć → widział-."
+            },
+            "mm": {
+              "pl": "Widziałem twojego brata.",
+              "en": "I saw your brother.",
+              "gap": "Widziałem",
+              "hint": "widzieć",
+              "reason": "A man says widziałem: -łem means \"I\" for a man. -eć verbs change e to a: widzieć → widział-."
+            },
+            "ff": {
+              "pl": "Widziałam twojego brata.",
+              "en": "I saw your brother.",
+              "gap": "Widziałam",
+              "hint": "widzieć",
+              "reason": "A woman says widziałam: -łam means \"I\" for a woman. -eć verbs change e to a: widzieć → widział-."
+            },
+            "fm": {
+              "pl": "Widziałam twojego brata.",
+              "en": "I saw your brother.",
+              "gap": "Widziałam",
+              "hint": "widzieć",
+              "reason": "A woman says widziałam: -łam means \"I\" for a woman. -eć verbs change e to a: widzieć → widział-."
+            }
+          }
+        },
+        {
+          "id": "g-08-021",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Widziałaś mój klucz?",
+              "en": "Have you seen my key?",
+              "gap": "Widziałaś",
+              "hint": "widzieć",
+              "reason": "To a woman: widziałaś (-łaś means \"you\" to a woman). -eć verbs change e to a: widzieć → widział-."
+            },
+            "mm": {
+              "pl": "Widziałeś mój klucz?",
+              "en": "Have you seen my key?",
+              "gap": "Widziałeś",
+              "hint": "widzieć",
+              "reason": "To a man: widziałeś (-łeś means \"you\" to a man). -eć verbs change e to a: widzieć → widział-."
+            },
+            "ff": {
+              "pl": "Widziałaś mój klucz?",
+              "en": "Have you seen my key?",
+              "gap": "Widziałaś",
+              "hint": "widzieć",
+              "reason": "To a woman: widziałaś (-łaś means \"you\" to a woman). -eć verbs change e to a: widzieć → widział-."
+            },
+            "fm": {
+              "pl": "Widziałeś mój klucz?",
+              "en": "Have you seen my key?",
+              "gap": "Widziałeś",
+              "hint": "widzieć",
+              "reason": "To a man: widziałeś (-łeś means \"you\" to a man). -eć verbs change e to a: widzieć → widział-."
+            }
+          }
+        },
+        {
+          "id": "g-08-022",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Co jadłaś?",
+              "en": "What did you eat?",
+              "gap": "jadłaś",
+              "hint": "jeść",
+              "reason": "To a woman: jadłaś (-łaś means \"you\" to a woman). Jeść is irregular: jadł-."
+            },
+            "mm": {
+              "pl": "Co jadłeś?",
+              "en": "What did you eat?",
+              "gap": "jadłeś",
+              "hint": "jeść",
+              "reason": "To a man: jadłeś (-łeś means \"you\" to a man). Jeść is irregular: jadł-."
+            },
+            "ff": {
+              "pl": "Co jadłaś?",
+              "en": "What did you eat?",
+              "gap": "jadłaś",
+              "hint": "jeść",
+              "reason": "To a woman: jadłaś (-łaś means \"you\" to a woman). Jeść is irregular: jadł-."
+            },
+            "fm": {
+              "pl": "Co jadłeś?",
+              "en": "What did you eat?",
+              "gap": "jadłeś",
+              "hint": "jeść",
+              "reason": "To a man: jadłeś (-łeś means \"you\" to a man). Jeść is irregular: jadł-."
+            }
+          }
+        },
+        {
+          "id": "g-08-023",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Kupiłem chleb.",
+              "en": "I bought bread.",
+              "gap": "Kupiłem",
+              "hint": "kupić",
+              "reason": "A man says kupiłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Kupiłem chleb.",
+              "en": "I bought bread.",
+              "gap": "Kupiłem",
+              "hint": "kupić",
+              "reason": "A man says kupiłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Kupiłam chleb.",
+              "en": "I bought bread.",
+              "gap": "Kupiłam",
+              "hint": "kupić",
+              "reason": "A woman says kupiłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Kupiłam chleb.",
+              "en": "I bought bread.",
+              "gap": "Kupiłam",
+              "hint": "kupić",
+              "reason": "A woman says kupiłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-024",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Dzwoniłaś do mamy?",
+              "en": "Did you call your mum?",
+              "gap": "Dzwoniłaś",
+              "hint": "dzwonić",
+              "reason": "To a woman: dzwoniłaś (-łaś means \"you\" to a woman).",
+              "alts": [
+                "Zadzwoniłaś"
+              ]
+            },
+            "mm": {
+              "pl": "Dzwoniłeś do mamy?",
+              "en": "Did you call your mum?",
+              "gap": "Dzwoniłeś",
+              "hint": "dzwonić",
+              "reason": "To a man: dzwoniłeś (-łeś means \"you\" to a man).",
+              "alts": [
+                "Zadzwoniłeś"
+              ]
+            },
+            "ff": {
+              "pl": "Dzwoniłaś do mamy?",
+              "en": "Did you call your mum?",
+              "gap": "Dzwoniłaś",
+              "hint": "dzwonić",
+              "reason": "To a woman: dzwoniłaś (-łaś means \"you\" to a woman).",
+              "alts": [
+                "Zadzwoniłaś"
+              ]
+            },
+            "fm": {
+              "pl": "Dzwoniłeś do mamy?",
+              "en": "Did you call your mum?",
+              "gap": "Dzwoniłeś",
+              "hint": "dzwonić",
+              "reason": "To a man: dzwoniłeś (-łeś means \"you\" to a man).",
+              "alts": [
+                "Zadzwoniłeś"
+              ]
+            }
+          }
+        },
+        {
+          "id": "g-08-025",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Chciałem ci pomóc.",
+              "en": "I wanted to help you.",
+              "gap": "Chciałem",
+              "hint": "chcieć",
+              "reason": "A man says chciałem: -łem means \"I\" for a man. -eć verbs change e to a: chcieć → chciał-."
+            },
+            "mm": {
+              "pl": "Chciałem ci pomóc.",
+              "en": "I wanted to help you.",
+              "gap": "Chciałem",
+              "hint": "chcieć",
+              "reason": "A man says chciałem: -łem means \"I\" for a man. -eć verbs change e to a: chcieć → chciał-."
+            },
+            "ff": {
+              "pl": "Chciałam ci pomóc.",
+              "en": "I wanted to help you.",
+              "gap": "Chciałam",
+              "hint": "chcieć",
+              "reason": "A woman says chciałam: -łam means \"I\" for a woman. -eć verbs change e to a: chcieć → chciał-."
+            },
+            "fm": {
+              "pl": "Chciałam ci pomóc.",
+              "en": "I wanted to help you.",
+              "gap": "Chciałam",
+              "hint": "chcieć",
+              "reason": "A woman says chciałam: -łam means \"I\" for a woman. -eć verbs change e to a: chcieć → chciał-."
+            }
+          }
+        },
+        {
+          "id": "g-08-026",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Wczoraj sprzątałem kuchnię.",
+              "en": "Yesterday I was cleaning the kitchen.",
+              "gap": "sprzątałem",
+              "hint": "sprzątać",
+              "reason": "A man says sprzątałem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Wczoraj sprzątałem kuchnię.",
+              "en": "Yesterday I was cleaning the kitchen.",
+              "gap": "sprzątałem",
+              "hint": "sprzątać",
+              "reason": "A man says sprzątałem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Wczoraj sprzątałam kuchnię.",
+              "en": "Yesterday I was cleaning the kitchen.",
+              "gap": "sprzątałam",
+              "hint": "sprzątać",
+              "reason": "A woman says sprzątałam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Wczoraj sprzątałam kuchnię.",
+              "en": "Yesterday I was cleaning the kitchen.",
+              "gap": "sprzątałam",
+              "hint": "sprzątać",
+              "reason": "A woman says sprzątałam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-027",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Co oglądałaś?",
+              "en": "What were you watching?",
+              "gap": "oglądałaś",
+              "hint": "oglądać",
+              "reason": "To a woman: oglądałaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Co oglądałeś?",
+              "en": "What were you watching?",
+              "gap": "oglądałeś",
+              "hint": "oglądać",
+              "reason": "To a man: oglądałeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Co oglądałaś?",
+              "en": "What were you watching?",
+              "gap": "oglądałaś",
+              "hint": "oglądać",
+              "reason": "To a woman: oglądałaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Co oglądałeś?",
+              "en": "What were you watching?",
+              "gap": "oglądałeś",
+              "hint": "oglądać",
+              "reason": "To a man: oglądałeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-028",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Szedłem do domu.",
+              "en": "I was walking home.",
+              "gap": "Szedłem",
+              "hint": "iść",
+              "reason": "A man says szedłem: -łem means \"I\" for a man. Iść is irregular: a man says szedłem, a woman szłam."
+            },
+            "mm": {
+              "pl": "Szedłem do domu.",
+              "en": "I was walking home.",
+              "gap": "Szedłem",
+              "hint": "iść",
+              "reason": "A man says szedłem: -łem means \"I\" for a man. Iść is irregular: a man says szedłem, a woman szłam."
+            },
+            "ff": {
+              "pl": "Szłam do domu.",
+              "en": "I was walking home.",
+              "gap": "Szłam",
+              "hint": "iść",
+              "reason": "A woman says szłam: -łam means \"I\" for a woman. Iść is irregular: a man says szedłem, a woman szłam."
+            },
+            "fm": {
+              "pl": "Szłam do domu.",
+              "en": "I was walking home.",
+              "gap": "Szłam",
+              "hint": "iść",
+              "reason": "A woman says szłam: -łam means \"I\" for a woman. Iść is irregular: a man says szedłem, a woman szłam."
+            }
+          }
+        },
+        {
+          "id": "g-08-029",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Dokąd szłaś?",
+              "en": "Where were you going?",
+              "gap": "szłaś",
+              "hint": "iść",
+              "reason": "To a woman: szłaś (-łaś means \"you\" to a woman). Iść is irregular: szedłeś to a man, szłaś to a woman."
+            },
+            "mm": {
+              "pl": "Dokąd szedłeś?",
+              "en": "Where were you going?",
+              "gap": "szedłeś",
+              "hint": "iść",
+              "reason": "To a man: szedłeś (-łeś means \"you\" to a man). Iść is irregular: szedłeś to a man, szłaś to a woman."
+            },
+            "ff": {
+              "pl": "Dokąd szłaś?",
+              "en": "Where were you going?",
+              "gap": "szłaś",
+              "hint": "iść",
+              "reason": "To a woman: szłaś (-łaś means \"you\" to a woman). Iść is irregular: szedłeś to a man, szłaś to a woman."
+            },
+            "fm": {
+              "pl": "Dokąd szedłeś?",
+              "en": "Where were you going?",
+              "gap": "szedłeś",
+              "hint": "iść",
+              "reason": "To a man: szedłeś (-łeś means \"you\" to a man). Iść is irregular: szedłeś to a man, szłaś to a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-030",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Nie mogłaś spać?",
+              "en": "Couldn't you sleep?",
+              "gap": "mogłaś",
+              "hint": "móc",
+              "reason": "To a woman: mogłaś (-łaś means \"you\" to a woman). Móc is irregular: mogł-."
+            },
+            "mm": {
+              "pl": "Nie mogłeś spać?",
+              "en": "Couldn't you sleep?",
+              "gap": "mogłeś",
+              "hint": "móc",
+              "reason": "To a man: mogłeś (-łeś means \"you\" to a man). Móc is irregular: mogł-."
+            },
+            "ff": {
+              "pl": "Nie mogłaś spać?",
+              "en": "Couldn't you sleep?",
+              "gap": "mogłaś",
+              "hint": "móc",
+              "reason": "To a woman: mogłaś (-łaś means \"you\" to a woman). Móc is irregular: mogł-."
+            },
+            "fm": {
+              "pl": "Nie mogłeś spać?",
+              "en": "Couldn't you sleep?",
+              "gap": "mogłeś",
+              "hint": "móc",
+              "reason": "To a man: mogłeś (-łeś means \"you\" to a man). Móc is irregular: mogł-."
+            }
+          }
+        },
+        {
+          "id": "g-08-031",
+          "type": "type",
+          "pl": "Tata był w ogrodzie.",
+          "en": "Dad was in the garden.",
+          "gap": "był",
+          "hint": "być",
+          "reason": "Tata is a man, so: był.",
+          "alts": []
+        },
+        {
+          "id": "g-08-032",
+          "type": "type",
+          "pl": "Mama gotowała obiad.",
+          "en": "Mum was cooking dinner.",
+          "gap": "gotowała",
+          "hint": "gotować",
+          "reason": "Mama is a woman, so -ła: gotowała.",
+          "alts": []
+        },
+        {
+          "id": "g-08-033",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Wczoraj piłem piwo.",
+              "en": "Yesterday I drank beer.",
+              "gap": "piłem",
+              "hint": "pić",
+              "reason": "A man says piłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Wczoraj piłem piwo.",
+              "en": "Yesterday I drank beer.",
+              "gap": "piłem",
+              "hint": "pić",
+              "reason": "A man says piłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Wczoraj piłam piwo.",
+              "en": "Yesterday I drank beer.",
+              "gap": "piłam",
+              "hint": "pić",
+              "reason": "A woman says piłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Wczoraj piłam piwo.",
+              "en": "Yesterday I drank beer.",
+              "gap": "piłam",
+              "hint": "pić",
+              "reason": "A woman says piłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-034",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Jak spałaś?",
+              "en": "How did you sleep?",
+              "gap": "spałaś",
+              "hint": "spać",
+              "reason": "To a woman: spałaś (-łaś means \"you\" to a woman)."
+            },
+            "mm": {
+              "pl": "Jak spałeś?",
+              "en": "How did you sleep?",
+              "gap": "spałeś",
+              "hint": "spać",
+              "reason": "To a man: spałeś (-łeś means \"you\" to a man)."
+            },
+            "ff": {
+              "pl": "Jak spałaś?",
+              "en": "How did you sleep?",
+              "gap": "spałaś",
+              "hint": "spać",
+              "reason": "To a woman: spałaś (-łaś means \"you\" to a woman)."
+            },
+            "fm": {
+              "pl": "Jak spałeś?",
+              "en": "How did you sleep?",
+              "gap": "spałeś",
+              "hint": "spać",
+              "reason": "To a man: spałeś (-łeś means \"you\" to a man)."
+            }
+          }
+        },
+        {
+          "id": "g-08-035",
+          "type": "type",
+          "speaker": "partner",
+          "v": {
+            "mf": {
+              "pl": "Byłem głodny.",
+              "en": "I was hungry.",
+              "gap": "Byłem",
+              "hint": "być",
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "mm": {
+              "pl": "Byłem głodny.",
+              "en": "I was hungry.",
+              "gap": "Byłem",
+              "hint": "być",
+              "reason": "A man says byłem: -łem means \"I\" for a man."
+            },
+            "ff": {
+              "pl": "Byłam głodna.",
+              "en": "I was hungry.",
+              "gap": "Byłam",
+              "hint": "być",
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            },
+            "fm": {
+              "pl": "Byłam głodna.",
+              "en": "I was hungry.",
+              "gap": "Byłam",
+              "hint": "być",
+              "reason": "A woman says byłam: -łam means \"I\" for a woman."
+            }
+          }
+        },
+        {
+          "id": "g-08-036",
+          "type": "type",
+          "speaker": "learner",
+          "v": {
+            "mf": {
+              "pl": "Nie wiedziałem.",
+              "en": "I didn't know.",
+              "gap": "wiedziałem",
+              "hint": "wiedzieć",
+              "reason": "A man says wiedziałem: -łem means \"I\" for a man. -eć verbs change e to a: wiedzieć → wiedział-."
+            },
+            "mm": {
+              "pl": "Nie wiedziałem.",
+              "en": "I didn't know.",
+              "gap": "wiedziałem",
+              "hint": "wiedzieć",
+              "reason": "A man says wiedziałem: -łem means \"I\" for a man. -eć verbs change e to a: wiedzieć → wiedział-."
+            },
+            "ff": {
+              "pl": "Nie wiedziałam.",
+              "en": "I didn't know.",
+              "gap": "wiedziałam",
+              "hint": "wiedzieć",
+              "reason": "A woman says wiedziałam: -łam means \"I\" for a woman. -eć verbs change e to a: wiedzieć → wiedział-."
+            },
+            "fm": {
+              "pl": "Nie wiedziałam.",
+              "en": "I didn't know.",
+              "gap": "wiedziałam",
+              "hint": "wiedzieć",
+              "reason": "A woman says wiedziałam: -łam means \"I\" for a woman. -eć verbs change e to a: wiedzieć → wiedział-."
+            }
+          }
+        }
+      ]
+    }
   ]
 }

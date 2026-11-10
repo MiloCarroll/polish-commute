@@ -44,3 +44,16 @@ test('whole-word matching ignores matches inside other words', () => {
   assert.deepEqual(splitGap('Mam kota.', 'kota'), { before: 'Mam ', after: '.' });
   assert.equal(splitGap('Mam kota.', 'kot'), null);
 });
+
+test('resolveDrill overlays the variant for the current genders', async () => {
+  const { resolveDrill } = await import('../js/variants.js');
+  const item = { id: 'g-08-001', type: 'type', speaker: 'partner', v: {
+    mf: { pl: 'x', gap: 'x', en: '' }, mm: { pl: 'x', gap: 'x', en: '' },
+    ff: { pl: 'Byłam u mamy.', gap: 'Byłam', en: 'I was at mum’s.' }, fm: { pl: 'Byłam u mamy.', gap: 'Byłam', en: 'I was at mum’s.', reason: 'She says byłam.' },
+  } };
+  const d = resolveDrill(item, { learnerGender: 'm', partnerGender: 'f' });
+  assert.equal(d.gap, 'Byłam');
+  assert.equal(d.type, 'type');
+  assert.equal(d.reason, 'She says byłam.');
+  assert.equal(d.v, undefined);
+});

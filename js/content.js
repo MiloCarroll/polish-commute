@@ -21,6 +21,9 @@ export function cardsForItem(module, topic, item) {
     case 'pronunciation':
       // One card per listed exercise: listen (listen and choose), dict (dictation), stress.
       return (item.cards ?? []).map((kind) => ({ id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind }));
+    case 'grammar':
+      // One card per drill; the drill ID is the card ID (e.g. "g-03-017").
+      return [{ id: item.id, module, topic: topic.id, item: item.id, kind: item.type }];
     default:
       return [];
   }

@@ -53,7 +53,7 @@ export function topicView(m, topicId) {
   if (!topic) { location.replace(`#/module/${m}`); return; }
   const c = countCards(topic.cards, state.records);
 
-  const items = topic.items.map((it) => `
+  const items = m === 'grammar' ? '' : topic.items.map((it) => `
     <li class="word">
       <button class="icon-btn small" data-action="say" data-text="${esc(it.pl)}" aria-label="Play ${esc(it.pl)}">${speakerIcon}</button>
       <span><span class="pl" lang="pl">${esc(it.pl)}</span> <span class="muted">${esc(it.en)}</span></span>
@@ -64,9 +64,12 @@ export function topicView(m, topicId) {
     back: `#/module/${m}`,
     body: topic.items.length
       ? `${lessonHtml(topic.lesson)}
-         <h2 class="section-title">Words in this topic</h2>
-         <p class="muted small">${c.learned}/${c.total} cards learned · ${c.due} due · ${c.newAvailable} new</p>
-         <ul class="words">${items}</ul>`
+         ${m === 'grammar'
+           ? `<h2 class="section-title">Drills</h2>
+              <p class="muted small">${c.total} drills · ${c.learned} learned · ${c.due} due · ${c.newAvailable} new</p>`
+           : `<h2 class="section-title">Words in this topic</h2>
+              <p class="muted small">${c.learned}/${c.total} cards learned · ${c.due} due · ${c.newAvailable} new</p>
+              <ul class="words">${items}</ul>`}`
       : `<p class="notice">${esc(topic.emptyNote || mod.status || 'This topic is coming soon.')}</p>`,
     actions: topic.cards.length && (c.due || c.newAvailable)
       ? `<a class="btn primary" href="#/study/${m}/${topic.id}">Study this topic</a>`

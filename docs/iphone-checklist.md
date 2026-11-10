@@ -96,3 +96,25 @@ Tap the **Update available** banner first. Your 8 starter words keep their progr
 
 **Content**
 - If a word, translation or sentence looks wrong or unnatural, note the topic and the Polish. (Flag buttons arrive in stage 5.)
+
+## Stage 4: grammar
+
+Tap the **Update available** banner first. (If a module says *All done for now*, today's 15 new cards are used up; raise *New cards per day* in Settings while testing.)
+
+**Explanations**
+- [ ] Grammar shows 8 topics; open one directly. The explanation is one or two short paragraphs, a small table where it helps (readable at phone width; it scrolls sideways if needed), and *More detail* collapsed.
+- [ ] Highlighted Polish words in the explanation and table play when tapped.
+- [ ] **Continue** shows a topic's explanation before its first drill.
+
+**Drills**
+- [ ] Early drills in a topic are **choose the form**: the sentence has a blank, the base form in brackets (e.g. *Idę do ? (sklep)*), the English underneath, and big option buttons at the bottom.
+- [ ] Later drills are **typed**, with the accent bar on the keyboard.
+- [ ] Get one wrong on purpose: you see the right form in the full sentence, a one-line reason, and a link back to the explanation. The link opens the topic.
+- [ ] *I was right* and *Next* are easy to reach.
+
+**Gender** (past tense, topic 8)
+- [ ] With default settings, your own sentences use *byłem / robiłem* and questions to your partner use *byłaś / robiłaś*.
+- [ ] Switch *I am* to Female in Settings: the same drill now expects *byłam*. Switch back.
+
+**Offline**
+- [ ] In Flight Mode, grammar explanations and drills still work.

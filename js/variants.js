@@ -60,3 +60,13 @@ export function countWhole(hay, needle) {
     from += i + needle.length;
   }
 }
+
+/**
+ * A grammar drill with its gender variant applied: top-level fields (type, options,
+ * reason, ...) overlaid by the variant's own fields.
+ */
+export function resolveDrill(item, genders) {
+  if (!item.v) return item;
+  const { v, ...base } = item;
+  return { ...base, ...v[variantKey(item, genders)] };
+}

@@ -23,11 +23,19 @@ export function lessonHtml(lesson) {
           </div>
         </div>`).join('')}
     </div>` : '';
+  const t = lesson.table;
+  const table = t?.rows?.length ? `
+    <div class="table-wrap"><table class="lesson-table">
+      ${t.caption ? `<caption>${richText(t.caption)}</caption>` : ''}
+      ${t.head ? `<thead><tr>${t.head.map((h) => `<th>${richText(h)}</th>`).join('')}</tr></thead>` : ''}
+      <tbody>${t.rows.map((r) => `<tr>${r.map((c) => `<td>${richText(c)}</td>`).join('')}</tr>`).join('')}</tbody>
+    </table></div>` : '';
   return `
     <section class="lesson">
       ${lesson.summary ? `<p class="lead">${richText(lesson.summary)}</p>` : ''}
       ${(lesson.body ?? []).map((p) => `<p>${richText(p)}</p>`).join('')}
       ${letters}
+      ${table}
       ${lesson.more?.length ? `<details class="more"><summary>More detail</summary>
         ${lesson.more.map((p) => `<p>${richText(p)}</p>`).join('')}</details>` : ''}
     </section>`;

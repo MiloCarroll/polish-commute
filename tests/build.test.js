@@ -79,3 +79,22 @@ test('validator catches vocabulary mistakes', () => {
   assert.ok(has('v-1003/ex0/fm', 'missing example'), 'all four gender variants required');
   assert.ok(has('v-1002', 'shared with') && has('v-1004', 'shared with'), 'same English needs a hint or alternatives');
 });
+
+test('validator catches grammar mistakes', () => {
+  const empty = (m) => ({ module: m, title: m, topics: [] });
+  const drill = (n, extra) => ({ id: `g-05-${String(n).padStart(3, '0')}`, type: 'type', pl: 'Nie mam czasu.', en: "I don't have time.", gap: 'czasu', hint: 'czas', reason: 'Genitive after negation.', ...extra });
+  const items = Array.from({ length: 25 }, (_, i) => drill(i + 1));
+  items[0] = drill(1, { type: 'choose', options: ['czas', 'czasem', 'czasie'] });            // answer missing from options
+  items[1] = drill(2, { gap: 'czas' });                                                       // gap not a whole word in the sentence
+  items[2] = drill(3, { type: 'choose', options: ['czas', 'czasu', 'czasem'] });             // choose after a type drill
+  items[3] = drill(4, { reason: undefined });                                                 // no reason
+  items[4] = { id: 'g-05-005', type: 'type', speaker: 'partner', v: { mf: drill(5), mm: drill(5), ff: drill(5) } }; // missing fm
+  const grammar = { module: 'grammar', title: 'G', topics: [{ id: 'g-05', title: 'T', lesson: { summary: 'S', body: ['B'] }, items }] };
+  const { errors } = validate({ pronunciation: empty('pronunciation'), vocabulary: empty('vocabulary'), grammar });
+  const has = (id, text) => errors.some((e) => e.includes(id) && e.includes(text));
+  assert.ok(has('g-05-001', 'exactly once'), 'answer must be among options');
+  assert.ok(has('g-05-002', 'whole word'), 'gap must fit sentence');
+  assert.ok(has('g-05-003', 'before type'), 'choose drills first');
+  assert.ok(has('g-05-004', 'reason'), 'reason required');
+  assert.ok(has('g-05-005/fm', 'missing variant'), 'all four variants');
+});

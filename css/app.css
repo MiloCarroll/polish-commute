@@ -352,3 +352,16 @@ body.typing .actions { visibility: hidden; }
 .forms table { border-collapse: collapse; width: 100%; }
 .forms td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
 .forms .say-word { background: none; border-bottom: none; padding: 0; }
+
+/* ---- Stage 4: grammar ------------------------------------------------ */
+.drill .sentence { text-align: center; }
+.hint-word { color: var(--muted); font-size: 1rem; white-space: nowrap; }
+.reason { background: var(--accent-soft); border-radius: 10px; padding: 10px 12px; text-align: left; }
+.table-wrap { overflow-x: auto; margin: 14px 0; }
+.lesson-table { border-collapse: collapse; width: 100%; background: var(--surface); border-radius: 12px; overflow: hidden; }
+.lesson-table caption { text-align: left; color: var(--muted); font-size: 0.9rem; padding-bottom: 6px; }
+.lesson-table { font-size: 0.92rem; }
+.lesson-table th, .lesson-table td { padding: 6px 7px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.lesson-table .say-word { padding: 0 2px; }
+.lesson-table th { background: var(--surface-2); font-size: 0.9rem; }
+.lesson-table .say-word { white-space: nowrap; }

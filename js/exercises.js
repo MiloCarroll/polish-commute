@@ -6,7 +6,7 @@ import { Rating, previewIntervals } from './scheduler.js';
 import { grade, diffExpected, normalise, MESSAGES } from './grading.js';
 import { render, esc, speakerIcon, onAction, $ } from './ui.js';
 import { attachAccentBar, hideAccentBar } from './accentbar.js';
-import { resolveExample, gapExample, splitGap } from './variants.js';
+import { resolveExample, resolveDrill, gapExample, splitGap } from './variants.js';
 import { settings } from './settings.js';
 import { state } from './app.js';
 import * as tts from './tts.js';
@@ -396,7 +396,67 @@ function stress(ctx) {
   });
 }
 
+// ---- Grammar drills ---------------------------------------------------------
+
+/** Shared prompt: sentence with a blank, base-form hint and translation. */
+function drillPrompt(d, ctx) {
+  const parts = splitGap(d.pl, d.gap);
+  return {
+    parts,
+    html: `
+      <p class="question">${esc(d.prompt ?? (d.type === 'choose' ? 'Choose the right form' : 'Fill the gap'))}</p>
+      <p class="sentence pl" lang="pl">${esc(parts.before)}<span class="blank">&nbsp;?&nbsp;</span>${esc(parts.after)}${d.hint ? ` <span class="hint-word">(${esc(d.hint)})</span>` : ''}</p>
+      <p class="muted">${esc(d.en)}${d.speaker === 'partner' ? ' <span class="small">(your partner says)</span>' : ''}</p>`,
+    full: `<p class="sentence pl" lang="pl">${esc(parts.before)}<strong>${esc(d.gap)}</strong>${esc(parts.after)}
+      <button class="icon-btn small inline" data-action="say" data-text="${esc(d.pl)}" aria-label="Play sentence">${speakerIcon}</button></p>`,
+    why: (correct) => (correct ? '' : `<p class="reason">${esc(d.reason ?? '')}</p><p class="small">${lessonLink(ctx)}</p>`),
+  };
+}
+
+function gchoose(ctx) {
+  const d = resolveDrill(ctx.item, genders());
+  const p = drillPrompt(d, ctx);
+  const options = shuffle(d.options);
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}<div class="card study drill">${p.html}<div id="feedback" hidden></div></div>`,
+    actions: `<div class="options">${options.map((o) =>
+      `<button class="btn option pl" lang="pl" data-action="choose" data-value="${esc(o)}">${esc(o)}</button>`).join('')}</div>`,
+  });
+  onAction({
+    choose: guard((el) => {
+      const correct = el.dataset.value === d.gap;
+      const fb = $('#feedback');
+      fb.hidden = false;
+      fb.innerHTML = `
+        <p class="verdict ${correct ? 'ok' : 'bad'}">${correct ? 'Correct' : 'Not quite'}</p>
+        ${p.full}
+        ${!correct ? `<p class="small">You chose <span class="pl" lang="pl">${esc(el.dataset.value)}</span>.</p>` : ''}
+        ${p.why(correct)}`;
+      document.getElementById('actions').innerHTML = outcomeActions(correct ? Rating.Good : Rating.Again, correct);
+      tts.speak(d.pl);
+      onAction({
+        say: (b) => tts.speak(b.dataset.text),
+        finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+      });
+    }),
+  });
+}
+
+function gtype(ctx) {
+  const d = resolveDrill(ctx.item, genders());
+  const p = drillPrompt(d, ctx);
+  typedCard(ctx, {
+    body: p.html,
+    answers: [d.gap, ...(d.alts ?? [])],
+    speak: d.pl,
+    afterHtml: (g) => `${p.full}${p.why(g.result === 'correct')}`,
+  });
+}
+
 export const EXERCISES = {
+  'grammar/choose': gchoose,
+  'grammar/type': gtype,
   'vocabulary/rec': rec,
   'vocabulary/prod': prod,
   'vocabulary/gap': gap,
