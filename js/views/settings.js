@@ -5,10 +5,10 @@ import * as tts from '../tts.js';
 const TEST_PHRASE = 'Dzień dobry! Miło mi.';
 
 function voiceOptions(current) {
-  const voices = tts.polishVoices().sort((a, b) => tts.voiceQuality(b) - tts.voiceQuality(a));
+  const voices = tts.rankedVoices();
   if (!voices.length) return '<option value="">No Polish voice found</option>';
-  return `<option value="">Best available (${esc(tts.bestVoice()?.name ?? '')})</option>` +
-    voices.map((v) => `<option value="${esc(v.voiceURI)}" ${v.voiceURI === current ? 'selected' : ''}>${esc(v.name)}</option>`).join('');
+  return `<option value="">Best available (${esc(tts.voiceLabel(voices[0]))})</option>` +
+    voices.map((v) => `<option value="${esc(v.voiceURI)}" ${v.voiceURI === current ? 'selected' : ''}>${esc(tts.voiceLabel(v))}</option>`).join('');
 }
 
 const seg = (name, value, options) => `

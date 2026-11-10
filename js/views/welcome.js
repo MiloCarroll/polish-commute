@@ -15,9 +15,16 @@ function voiceStatus() {
       then reopen the app. Everything works without audio, but listening exercises will be hard.</p>`;
   }
   const q = tts.voiceQuality(v);
-  return q >= 2
-    ? `<p class="ok">Using <strong>${esc(v.name)}</strong>, a high-quality voice. You're all set.</p>`
-    : `<p>Using <strong>${esc(v.name)}</strong>, the basic voice. An Enhanced or Premium voice sounds much more natural.</p>`;
+  const all = tts.rankedVoices();
+  return `${q >= 2
+      ? `<p class="ok">Using <strong>${esc(tts.voiceLabel(v))}</strong>, a high-quality voice. You're all set.</p>`
+      : `<p>Using <strong>${esc(tts.voiceLabel(v))}</strong>, the basic voice. An Enhanced or Premium voice sounds much more natural.</p>`}
+    <details class="voices">
+      <summary>Polish voices this app can see (${all.length})</summary>
+      <ul>${all.map((x) => `<li>${esc(tts.voiceLabel(x))}${x === v ? ' · <strong>in use</strong>' : ''}
+        <br><span class="muted small">${esc(x.voiceURI)}</span></li>`).join('')}</ul>
+      <p class="muted small">If a voice you downloaded is missing here, fully close Polski (swipe it away) and reopen it.</p>
+    </details>`;
 }
 
 export function welcomeView() {
@@ -32,11 +39,14 @@ export function welcomeView() {
         <h2>Get a better Polish voice</h2>
         <p>Audio comes from your iPhone's own voices. The best ones are a free download:</p>
         <ol class="steps">
-          <li>Open <strong>Settings</strong> → <strong>Accessibility</strong> → <strong>Spoken Content</strong> → <strong>Voices</strong>.</li>
+          <li>Open <strong>Settings</strong> → <strong>Accessibility</strong> → <strong>Read &amp; Speak</strong>
+            (called <strong>Spoken Content</strong> on older iOS) → <strong>Voices</strong>.</li>
           <li>Choose <strong>Polish</strong>.</li>
           <li>Download a voice marked <strong>Enhanced</strong> or <strong>Premium</strong> (Wi-Fi recommended).</li>
-          <li>Come back here and tap <em>Test</em>.</li>
+          <li>Fully close Polski (swipe it away in the app switcher) and reopen it, then tap <em>Test</em>.</li>
         </ol>
+        <p class="muted small">Choosing a voice in iPhone Settings doesn't change the voice here: the app picks the
+          best Polish voice it can see. To choose one yourself, use <strong>Voice</strong> in Polski's Settings.</p>
       </section>
       <section class="card">
         <h2>Test playback</h2>
@@ -44,8 +54,8 @@ export function welcomeView() {
         <div class="audio-row">
           <button class="btn" data-action="test">${speakerIcon}<span>Test: “<span lang="pl">${TEST_WORD}</span>”</span></button>
         </div>
-        <p class="muted small">Audio is best through headphones. If you hear nothing, check the volume
-          and try with the silent switch off.</p>
+        <p class="muted small">Audio is best through headphones. If you hear nothing without headphones,
+          check the volume and whether the phone is on silent.</p>
       </section>`,
     actions: first ? `<button class="btn primary" data-action="done">Start learning</button>` : '',
   });
