@@ -1,12 +1,12 @@
 # Recorded audio with Azure (free tier)
 
-The app plays recorded clips when they exist and falls back to the iPhone's Polish voice otherwise. Clips are made once on the Mac with `tools/make-audio.js`, using Azure AI Speech neural voices: **Zofia** (main female voice), **Marek** (male: used for your own lines when they depend on gender), and **Agnieszka** (a second female voice for listening variety).
+The app plays recorded clips when they exist and falls back to the iPhone's Polish voice otherwise. Clips are made once on the Mac with `tools/make-audio.js`, using Azure AI Speech neural voices: **Agnieszka** (main voice, and your partner's lines) and **Marek** (your own lines when they depend on gender, and, in the extra pass, a second speaker for listening variety). Zofia was tried and dropped: she glitched on some words.
 
 ## Staying free
 
 - Create the Speech resource on the **Free F0** pricing tier. F0 allows 0.5 million characters a month and 20 requests a minute.
 - The script keeps its own count in `tools/audio-usage.json` and stops at 400,000 characters a month (it refuses any cap above 500,000).
-- The whole course is about 37,000 characters for the main pass and 54,000 for the extra voices (both counted with a safety margin), so it uses well under a fifth of one month's allowance.
+- The whole course is about 37,000 characters for the main pass and about 26,000 for the extra pass (both counted with a safety margin), well under a fifth of one month's allowance.
 - Text is sent to Microsoft only to make the clips: the course content, never your progress.
 
 ## One-time Azure setup (about 10 minutes)
@@ -42,7 +42,7 @@ Main pass (about 90 minutes; leave it running):
 node tools/make-audio.js
 ```
 
-Optional extra voices for listening variety (about 2 hours more; can run another day):
+Optional extra pass: Marek for every sentence that doesn't depend on gender, for listening variety (about 70 minutes more; can run another day):
 
 ```bash
 node tools/make-audio.js --pass extra

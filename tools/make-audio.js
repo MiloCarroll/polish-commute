@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates the bundled audio clips with Azure AI Speech (neural Polish voices), staying
+// Generates the bundled audio clips with Azure AI Speech (Agnieszka and Marek), staying
 // inside the free (F0) tier: 0.5 million characters a month, 20 requests a minute.
 //
 //   export AZURE_SPEECH_KEY=...        # your Speech resource key (never commit it)
@@ -12,7 +12,7 @@
 // month is recorded in tools/audio-usage.json and the run stops before a self-imposed cap
 // (default 400,000 characters, below the 500,000 free allowance). Afterwards it rewrites
 // content/audio/manifest.json from the clips on disk. Then run `node tools/update-sw.js`.
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,28 +22,36 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const AUDIO = join(ROOT, 'content', 'audio');
 const USAGE = join(ROOT, 'tools', 'audio-usage.json');
 
-export const VOICES = { f: 'pl-PL-ZofiaNeural', m: 'pl-PL-MarekNeural', f2: 'pl-PL-AgnieszkaNeural' };
+// Zofia was dropped after listening tests: she produced audible glitches on some words
+// (e.g. "nas") that Agnieszka and Marek did not.
+export const VOICES = { f: 'pl-PL-AgnieszkaNeural', m: 'pl-PL-MarekNeural' };
 const FORMAT = 'audio-24khz-48kbitrate-mono-mp3';
 const FREE_CHARS = 500_000;
 const DEFAULT_CAP = 400_000;   // stop well below the free allowance
 const PER_REQUEST_MARGIN = 10; // count a little extra per request, to be safe
 const GAP_MS = 3300;           // ≈18 requests a minute (F0 allows 20 per 60 seconds)
 
-export const clipFile = (voice, text) => `${voice}/${createHash('sha1').update(`${VOICES[voice]}\n${text}`).digest('hex').slice(0, 16)}.mp3`;
+// Exact silence before and after the speech. The lead-in stops speakers and Bluetooth
+// headphones that take a moment to wake up from swallowing the first sound.
+const LEAD_MS = 300;
+const TAIL_MS = 150;
+const STYLE = `lead${LEAD_MS}-tail${TAIL_MS}`; // part of the file name: changing it remakes every clip
+
+export const clipFile = (voice, text) => `${voice}/${createHash('sha1').update(`${VOICES[voice]}\n${STYLE}\n${text}`).digest('hex').slice(0, 16)}.mp3`;
 
 /**
  * Jobs for a pass. main: one clip per text, in the speaker's voice for gender-dependent
  * sentences (both voices if both genders say it), otherwise the main female voice.
- * extra: a second female voice for everything female, and the male voice for sentences
- * that don't depend on gender, so listening cards can vary the speaker.
+ * extra: the male voice for sentences that don't depend on gender, so listening cards
+ * can vary the speaker.
  */
 export function plan(speech, pass) {
   const jobs = [];
   for (const [text, genders] of speech) {
     const main = genders.size ? [...genders].map((g) => (g === 'm' ? 'm' : 'f')) : ['f'];
-    const extra = [];
-    if (!genders.size) extra.push('m', 'f2');
-    else if (genders.has('f')) extra.push('f2');
+    // Extra pass: the other voice for sentences that don't depend on gender, so listening
+    // cards alternate between a female and a male speaker.
+    const extra = genders.size ? [] : ['m'];
     const voices = pass === 'main' ? main : pass === 'extra' ? extra : [...main, ...extra];
     for (const v of voices) jobs.push({ text, voice: v, file: clipFile(v, text) });
   }
@@ -55,7 +63,7 @@ const readUsage = () => (existsSync(USAGE) ? JSON.parse(readFileSync(USAGE, 'utf
 const cost = (text) => [...text].length + PER_REQUEST_MARGIN;
 
 const xml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
-const ssml = (voice, text) => `<speak version="1.0" xml:lang="pl-PL"><voice name="${VOICES[voice]}">${xml(text)}</voice></speak>`;
+const ssml = (voice, text) => `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="pl-PL"><voice name="${VOICES[voice]}"><mstts:silence type="Leading-exact" value="${LEAD_MS}ms"/><mstts:silence type="Tailing-exact" value="${TAIL_MS}ms"/>${xml(text)}</voice></speak>`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** Rebuild content/audio/manifest.json from the clips present on disk. */
@@ -69,9 +77,51 @@ export function writeManifest(speech) {
     }
     if (Object.keys(byVoice).length) clips[text] = byVoice;
   }
+  // Delete clips no longer referenced (removed texts, or made with older settings).
+  const keep = new Set(Object.values(clips).flatMap((v) => Object.values(v)));
+  for (const v of Object.keys(VOICES)) {
+    const dir = join(AUDIO, v);
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir)) if (f.endsWith('.mp3') && !keep.has(`${v}/${f}`)) unlinkSync(join(dir, f));
+  }
   mkdirSync(AUDIO, { recursive: true });
   writeFileSync(join(AUDIO, 'manifest.json'), JSON.stringify({ format: 2, voices: VOICES, clips }, null, 0) + '\n');
   return Object.keys(clips).length;
+}
+
+/** --sample "nas": the text in every voice at three MP3 qualities, for comparing by ear. */
+async function makeSamples(text) {
+  const { key, region } = azureEnv();
+  const dir = join(ROOT, 'tools', 'audio-samples');
+  mkdirSync(dir, { recursive: true });
+  const formats = { '48k': 'audio-24khz-48kbitrate-mono-mp3', '96k': 'audio-24khz-96kbitrate-mono-mp3', '160k': 'audio-24khz-160kbitrate-mono-mp3' };
+  const usage = readUsage();
+  let spent = 0;
+  for (const v of Object.keys(VOICES)) {
+    for (const [q, format] of Object.entries(formats)) {
+      const res = await fetch(`https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`, {
+        method: 'POST',
+        headers: { 'Ocp-Apim-Subscription-Key': key, 'Content-Type': 'application/ssml+xml', 'X-Microsoft-OutputFormat': format, 'User-Agent': 'polski-audio-generator' },
+        body: ssml(v, text),
+      });
+      if (!res.ok) throw new Error(`Azure returned ${res.status}: ${await res.text()}`);
+      const out = join(dir, `${text.replace(/[^\p{L}\p{N}]+/gu, '_')}-${v}-${q}.mp3`);
+      writeFileSync(out, Buffer.from(await res.arrayBuffer()));
+      spent += cost(text);
+      console.log(out);
+      await sleep(GAP_MS);
+    }
+  }
+  usage[monthKey()] = (usage[monthKey()] ?? 0) + spent;
+  writeFileSync(USAGE, JSON.stringify(usage, null, 2) + '\n');
+  console.log(`Listen with: afplay <file>. (${spent} characters used.)`);
+}
+
+function azureEnv() {
+  const key = process.env.AZURE_SPEECH_KEY;
+  const region = process.env.AZURE_SPEECH_REGION;
+  if (!key || !region) throw new Error('Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION first (see the top of this file).');
+  return { key, region };
 }
 
 async function main() {
@@ -84,6 +134,9 @@ async function main() {
   if (!['main', 'extra', 'all'].includes(pass)) throw new Error('--pass must be main, extra or all');
   if (cap > FREE_CHARS) throw new Error(`--max-chars may not exceed the free allowance (${FREE_CHARS})`);
 
+  const sample = opt('sample', null);
+  if (sample) return makeSamples(sample);
+
   const speech = collectSpeech();
   const todo = plan(speech, pass).filter((j) => !existsSync(join(AUDIO, j.file))).slice(0, limit);
   const chars = todo.reduce((n, j) => n + cost(j.text), 0);
@@ -94,9 +147,7 @@ async function main() {
     `About ${Math.ceil((todo.length * GAP_MS) / 60000)} minutes at the free-tier rate.`);
   if (dry || !todo.length) { if (!dry) console.log(`Manifest: ${writeManifest(speech)} texts with clips.`); return; }
 
-  const key = process.env.AZURE_SPEECH_KEY;
-  const region = process.env.AZURE_SPEECH_REGION;
-  if (!key || !region) throw new Error('Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION first (see the top of this file).');
+  const { key, region } = azureEnv();
   const base = `https://${region}.tts.speech.microsoft.com/cognitiveservices`;
 
   // Check the voices exist before spending anything.
