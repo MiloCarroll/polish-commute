@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalise, stripAccents, soundKey, editDistance, grade, diffExpected } from '../js/grading.js';
+import { normalise, stripAccents, soundKey, editDistance, grade, diffExpected, gradeSentence } from '../js/grading.js';
 import { Rating } from '../js/scheduler.js';
 
 test('normalise: trim, case, spaces, final punctuation', () => {
@@ -74,4 +74,31 @@ test('diffExpected marks the differing letters', () => {
   assert.equal(flat(diffExpected('zolw', 'żółw')), '[żół]w');
   assert.equal(flat(diffExpected('szfa', 'szafa')), 'sz[a]fa');
   assert.equal(flat(diffExpected('kot', 'kot')), 'kot');
+});
+
+test('sentence dictation: word by word, punctuation and capitals ignored', () => {
+  const S = 'Nie wiem, gdzie jest dworzec.';
+  assert.equal(gradeSentence('nie wiem gdzie jest dworzec', S).result, 'correct');
+  assert.equal(gradeSentence('nie wiem gdzie jest dworzec', S).rating, Rating.Good);
+  const slip = gradeSentence('nie wiem gdzie jest dwozec', S);
+  assert.equal(slip.result, 'nearly');
+  assert.equal(slip.rating, Rating.Hard);
+  assert.equal(gradeSentence('Ide do sklepu.', 'Idę do sklepu.').result, 'nearly');
+});
+
+test('sentence dictation: run-together and split words are word-break mistakes', () => {
+  const joined = gradeSentence('niewiem gdzie jest dworzec', 'Nie wiem, gdzie jest dworzec.');
+  assert.equal(joined.result, 'oneoff');
+  assert.deepEqual(joined.boundaries.map((b) => [b.kind, b.typed, b.expected]), [['join', 'niewiem', 'nie wiem']]);
+  const split = gradeSentence('w szystko w porządku', 'Wszystko w porządku.');
+  assert.equal(split.boundaries[0].kind, 'split');
+  assert.equal(split.rating, Rating.Again, 'one mistake in a short sentence fails it');
+});
+
+test('sentence dictation: missing, wrong and extra words', () => {
+  const g = gradeSentence('ja mam kot teraz', 'Ja mam kota.');
+  assert.deepEqual(g.words.map((w) => w.status), ['ok', 'ok', 'wrong']);
+  assert.deepEqual(g.extras, ['teraz']);
+  assert.equal(g.result, 'wrong');
+  assert.equal(gradeSentence('mam', 'Ja mam kota.').words.filter((w) => w.status === 'missing').length, 2);
 });

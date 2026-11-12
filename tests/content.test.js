@@ -14,22 +14,37 @@ test('pronunciation cards: one per exercise, listening before dictation within a
   assert.equal(mod.items.get('pr-01-002').pl, 'dom');
 });
 
-test('vocabulary cards: recognition first, other directions locked until it succeeds', async () => {
+test('vocabulary cards: in batches of 5 words, typed cards before self-graded ones, unlocked once recognition is seen', async () => {
   const { isUnlocked, applyReview, Rating } = await import('../js/scheduler.js');
-  const mod = buildModule({ module: 'vocabulary', title: 'V', topics: [{ id: 'v-x', title: 'X', items: [
-    { id: 'v-0001', pl: 'kot', en: 'cat', cards: ['rec', 'prod', 'gap', 'listen'] },
+  const ex = [{ pl: 'Mam kota.', en: 'I have a cat.' }];
+  const items = [
+    { id: 'v-0001', pl: 'kot', en: 'cat', cards: ['rec', 'prod', 'gap', 'listen'], examples: ex },
     { id: 'v-0002', pl: 'dom', en: 'house', cards: ['rec', 'prod'] },
     { id: 'v-0003', pl: 'tak', en: 'yes' },
-  ] }] });
+    { id: 'v-0004', pl: 'nie', en: 'no' },
+    { id: 'v-0005', pl: 'pies', en: 'dog' },
+    { id: 'v-0006', pl: 'mama', en: 'mum' },
+  ];
+  const mod = buildModule({ module: 'vocabulary', title: 'V', topics: [{ id: 'v-x', title: 'X', items }] });
   assert.deepEqual(mod.defs.map((d) => d.id), [
-    'v-0001-rec', 'v-0002-rec', 'v-0003-rec', 'v-0001-listen', 'v-0001-gap', 'v-0001-prod', 'v-0002-prod',
+    'v-0001-rec', 'v-0002-rec', 'v-0003-rec', 'v-0004-rec', 'v-0005-rec',
+    'v-0001-dict', 'v-0002-dict', 'v-0003-dict', 'v-0004-dict', 'v-0005-dict',
+    'v-0001-gap', 'v-0001-prod', 'v-0002-prod', 'v-0001-sdict', 'v-0001-listen', 'v-0001-say',
+    'v-0006-rec', 'v-0006-dict',
   ]);
   const records = new Map();
   const prod = mod.defs.find((d) => d.id === 'v-0001-prod');
   assert.equal(isUnlocked(prod, records), false);
   const rec = mod.defs[0];
-  records.set(rec.id, applyReview(rec, undefined, Rating.Good, new Date()).record);
+  records.set(rec.id, applyReview(rec, undefined, Rating.Again, new Date()).record);
   assert.equal(isUnlocked(prod, records), true);
+});
+
+test('vocabulary: sentence dictation also for lines the partner says', () => {
+  const mod = buildModule({ module: 'vocabulary', title: 'V', topics: [{ id: 'v-x', title: 'X', items: [
+    { id: 'v-0002', pl: 'pies', en: 'dog', cards: ['rec', 'listen'], examples: [{ speaker: 'partner', v: {} }] },
+  ] }] });
+  assert.ok(mod.defs.some((d) => d.id === 'v-0002-sdict' && d.requires === 'v-0002-rec'));
 });
 
 test('grammar: one card per drill, the drill id is the card id, order kept', () => {

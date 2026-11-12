@@ -3,7 +3,7 @@
 // `head` is the small counts line shown above every card.
 // Lookup: EXERCISES[`${module}/${kind}`] first, then EXERCISES[kind].
 import { Rating, previewIntervals } from './scheduler.js';
-import { grade, diffExpected, normalise, MESSAGES } from './grading.js';
+import { grade, diffExpected, normalise, MESSAGES, gradeSentence, SENTENCE_MESSAGES } from './grading.js';
 import { render, esc, speakerIcon, onAction, $ } from './ui.js';
 import { attachAccentBar, hideAccentBar } from './accentbar.js';
 import { resolveExample, resolveDrill, gapExample, splitGap, resolveLine, roleLabel } from './variants.js';
@@ -267,6 +267,119 @@ function gap(ctx) {
     afterHtml: () => `
       <p class="pl" lang="pl">${esc(parts.before)}<strong>${esc(ex.gap)}</strong>${esc(parts.after)}</p>
       <details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`,
+  });
+}
+
+// ---- Vocabulary: word dictation (hear it, spell it) ------------------------
+
+function vdict(ctx) {
+  const { item } = ctx;
+  typedCard(ctx, {
+    body: `
+      <p class="question">Type the word you hear</p>
+      ${audioRow()}
+      ${noVoiceNote(item.pl)}
+      <p class="muted hint">Meaning: ${esc(item.en)}</p>`,
+    answers: [item.pl],
+    homophones: true,
+    autoplayText: item.pl,
+    speak: (g) => g.expected,
+    afterHtml: () => `<details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`,
+    handlers: {
+      play: () => tts.speak(item.pl),
+      slow: () => tts.speak(item.pl, { slow: true }),
+    },
+  });
+}
+
+// ---- Vocabulary: sentence dictation (hear a sentence, type all of it) -------
+
+const WORD_NOTE = {
+  accents: 'accents', homophone: 'same sound, other spelling', typo: 'typo',
+};
+
+function sentenceFeedback(g) {
+  const words = g.words.map((w) => {
+    const t = esc(w.text);
+    if (w.status === 'ok') return t;
+    if (WORD_NOTE[w.status]) return `<mark class="slip">${t}</mark>`;
+    if (w.status === 'missing') return `<mark class="missing">${t}</mark>`;
+    return `<mark>${t}</mark>`;
+  }).join(' ');
+  const notes = [
+    ...g.boundaries.map((b) => (b.kind === 'join'
+      ? `<li>Word break: <span class="pl" lang="pl">${esc(b.typed)}</span> is two words, <strong class="pl" lang="pl">${esc(b.expected)}</strong>.</li>`
+      : `<li>Word break: <span class="pl" lang="pl">${esc(b.typed)}</span> is one word, <strong class="pl" lang="pl">${esc(b.expected)}</strong>.</li>`)),
+    ...(g.words.some((w) => w.status === 'missing') ? ['<li>Underlined words were missing.</li>'] : []),
+    ...(g.extras.length ? [`<li>Not in the sentence: <span class="pl" lang="pl">${esc(g.extras.join(', '))}</span></li>`] : []),
+    ...(g.slips ? ['<li>Lightly marked words were nearly right (accents or a typo).</li>'] : []),
+  ];
+  return { words, notes: notes.length ? `<ul class="small sentence-notes">${notes.join('')}</ul>` : '' };
+}
+
+function sdict(ctx) {
+  const { item } = ctx;
+  const raw = item.examples?.[0];
+  const ex = resolveExample(raw, genders());
+  if (!ex) return vdict(ctx);
+  const voice = { gender: speakerGender(raw), variety: true };
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}
+      <div class="card study">
+        <p class="question">Type the sentence you hear</p>
+        ${audioRow()}
+        ${noVoiceNote(ex.pl)}
+        <p class="muted small">Every word counts, including where each one starts and ends. Punctuation and capitals don't.</p>
+        <form id="typed-form" class="answer-form" autocomplete="off">
+          <textarea id="typed-input" class="answer-input sentence-input" rows="2" lang="pl" enterkeyhint="go"
+            autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"
+            aria-label="Your answer"></textarea>
+        </form>
+        <div id="feedback" hidden></div>
+      </div>`,
+    actions: `<button class="btn primary" data-action="check">Check</button>`,
+  });
+  if (settings().autoplay) tts.autoSpeak(ex.pl, voice);
+  const input = $('#typed-input');
+  const detach = attachAccentBar(input, () => check());
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); check(); } });
+  $('#typed-form').addEventListener('submit', (e) => { e.preventDefault(); check(); });
+
+  function check() {
+    if (input.disabled) return;
+    if (!input.value.trim()) { input.focus(); return; }
+    const g = gradeSentence(input.value, ex.pl);
+    detach();
+    input.blur();
+    hideAccentBar();
+    input.disabled = true;
+    const correct = g.result === 'correct';
+    const { words, notes } = sentenceFeedback(g);
+    const fb = $('#feedback');
+    fb.hidden = false;
+    fb.innerHTML = `
+      <p class="verdict ${correct ? 'ok' : g.result === 'wrong' ? 'bad' : 'warn'}">${SENTENCE_MESSAGES[g.result]}</p>
+      <p class="sentence pl answer-word" lang="pl">${words}</p>
+      ${notes}
+      <p class="muted">${esc(ex.en)}${ex.speaker === 'partner' ? ' <span class="small">(your partner says)</span>' : ''}</p>
+      <details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`;
+    document.getElementById('actions').innerHTML = outcomeActions(g.rating, correct);
+    tts.speak(ex.pl, voice);
+    fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    onAction({
+      play: () => tts.speak(ex.pl, voice),
+      slow: () => tts.speak(ex.pl, { ...voice, slow: true }),
+      say: sayEl,
+      finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+    });
+  }
+
+  onAction({
+    play: () => tts.speak(ex.pl, voice),
+    slow: () => tts.speak(ex.pl, { ...voice, slow: true }),
+    say: sayEl,
+    check: () => check(),
   });
 }
 
@@ -587,6 +700,8 @@ export const EXERCISES = {
   'vocabulary/prod': prod,
   'vocabulary/gap': gap,
   'vocabulary/listen': vlisten,
+  'vocabulary/dict': vdict,
+  'vocabulary/sdict': sdict,
   'vocabulary/say': vsay,
   'dialogues/listen': dlisten,
   'dialogues/say': dsay,

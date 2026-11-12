@@ -99,10 +99,10 @@ test('own phrases: ids, cleaning, and cards in My phrases', () => {
     { id: 'u-b', pl: 'Na zdrowie', en: 'Cheers', created: 2 },
     { id: 'u-a', pl: 'Smacznej kawusi', en: 'Enjoy your coffee', created: 1 },
   ]);
-  assert.deepEqual(mod.defs.map((d) => d.id), ['v-0001-rec', 'u-a-rec', 'u-b-rec', 'u-a-prod', 'u-b-prod']);
+  assert.deepEqual(mod.defs.map((d) => d.id), ['v-0001-rec', 'v-0001-dict', 'u-a-rec', 'u-b-rec', 'u-a-dict', 'u-b-dict', 'u-a-prod', 'u-b-prod']);
   assert.equal(mod.defs.find((d) => d.id === 'u-a-prod').requires, 'u-a-rec');
   assert.equal(mod.items.get('u-b').pl, 'Na zdrowie');
-  assert.equal(vocab.defs.length, 1, 'the original module is not changed');
+  assert.equal(vocab.defs.length, 2, 'the original module is not changed');
 });
 
 test('flags export as plain text, sorted by card id', async () => {

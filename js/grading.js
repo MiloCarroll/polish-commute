@@ -121,3 +121,96 @@ export const MESSAGES = {
   typo: 'Typo? Try once more',
   wrong: 'Not quite',
 };
+
+// ---- Sentence dictation ----------------------------------------------------
+//
+// The typed sentence is aligned with the expected one word by word, so a single slip
+// doesn't fail the whole sentence, and two words run together ("niewiem") or one word
+// split ("w szystko") are pointed out as word-boundary mistakes.
+//
+// Per expected word: ok | accents | homophone | typo (a slip) | join | split | wrong | missing
+// Sentence result     Shown                                   FSRS rating
+// correct             "Correct"                               Good
+// nearly              "Nearly: small slips"                   Hard (only slips)
+// oneoff              "One word off"                          Hard (one mistake, 4+ words)
+// wrong               "Not quite"                             Again
+
+const WORD_PUNCT = /[.,!?;:…"“”„»«()–—]/gu;
+
+/** Split a sentence into words: { raw, n } where n is the normalised form for comparing. */
+export function sentenceWords(s) {
+  return String(s ?? '').normalize('NFC').replace(/[’‘]/g, "'").split(/\s+/)
+    .map((raw) => ({ raw, n: raw.toLocaleLowerCase('pl').replace(WORD_PUNCT, '').replace(/^-+|-+$/g, '') }))
+    .filter((w) => w.n);
+}
+
+function compareWord(given, expected) {
+  if (given === expected) return 'ok';
+  if (stripAccents(given) === stripAccents(expected)) return 'accents';
+  if (soundKey(given) === soundKey(expected)) return 'homophone';
+  if ([...expected].length > 4 && editDistance(given, expected) === 1) return 'typo';
+  return 'wrong';
+}
+
+const SLIPS = new Set(['accents', 'homophone', 'typo']);
+const loose = (s) => soundKey(stripAccents(s));
+
+export function gradeSentence(input, answer) {
+  const E = sentenceWords(answer);
+  const T = sentenceWords(input);
+  const n = E.length, m = T.length;
+  // cost[i][j]: aligning E[i..] with T[j..]
+  const cost = Array.from({ length: n + 1 }, () => Array(m + 1).fill(Infinity));
+  const step = Array.from({ length: n + 1 }, () => Array(m + 1).fill(null));
+  cost[n][m] = 0;
+  for (let i = n; i >= 0; i--) {
+    for (let j = m; j >= 0; j--) {
+      if (i === n && j === m) continue;
+      const opts = [];
+      if (i < n && j < m) {
+        const c = compareWord(T[j].n, E[i].n);
+        opts.push([c === 'ok' ? 0 : SLIPS.has(c) ? 0.5 : 2, 'sub', c, i + 1, j + 1]);
+      }
+      if (i < n) opts.push([2, 'missing', null, i + 1, j]);
+      if (j < m) opts.push([2, 'extra', null, i, j + 1]);
+      if (i + 1 < n && j < m && loose(T[j].n) === loose(E[i].n + E[i + 1].n)) opts.push([1, 'join', null, i + 2, j + 1]);
+      if (i < n && j + 1 < m && loose(T[j].n + T[j + 1].n) === loose(E[i].n)) opts.push([1, 'split', null, i + 1, j + 2]);
+      for (const [c, kind, cls, ni, nj] of opts) {
+        const total = c + cost[ni][nj];
+        if (total < cost[i][j]) { cost[i][j] = total; step[i][j] = { kind, cls, ni, nj }; }
+      }
+    }
+  }
+  const words = E.map((w) => ({ text: w.raw, status: 'missing' }));
+  const extras = [];
+  const boundaries = [];
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    const s = step[i][j];
+    if (s.kind === 'sub') words[i].status = s.cls;
+    else if (s.kind === 'extra') extras.push(T[j].raw);
+    else if (s.kind === 'join') {
+      words[i].status = words[i + 1].status = 'join';
+      boundaries.push({ kind: 'join', typed: T[j].raw, expected: `${E[i].n} ${E[i + 1].n}` });
+    } else if (s.kind === 'split') {
+      words[i].status = 'split';
+      boundaries.push({ kind: 'split', typed: `${T[j].raw} ${T[j + 1].raw}`, expected: E[i].n });
+    }
+    i = s.ni; j = s.nj;
+  }
+  const slips = words.filter((w) => SLIPS.has(w.status)).length;
+  const mistakes = words.filter((w) => w.status === 'wrong' || w.status === 'missing').length + extras.length + boundaries.length;
+  let result, rating;
+  if (mistakes === 0 && slips === 0) { result = 'correct'; rating = Rating.Good; }
+  else if (mistakes === 0) { result = 'nearly'; rating = Rating.Hard; }
+  else if (mistakes === 1 && n >= 4) { result = 'oneoff'; rating = Rating.Hard; }
+  else { result = 'wrong'; rating = Rating.Again; }
+  return { result, rating, words, extras, boundaries, slips, mistakes };
+}
+
+export const SENTENCE_MESSAGES = {
+  correct: 'Correct',
+  nearly: 'Nearly: small slips',
+  oneoff: 'One word off',
+  wrong: 'Not quite',
+};

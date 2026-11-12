@@ -3,19 +3,31 @@
 
 export const MODULES = ['pronunciation', 'vocabulary', 'grammar', 'dialogues'];
 
-/** Order in which card kinds are introduced within a topic. */
+/** Order in which card kinds are introduced within a topic (pronunciation, dialogues). */
 export const KIND_ORDER = ['rec', 'listen', 'stress', 'dict', 'gap', 'prod', 'say'];
+
+/**
+ * Vocabulary: graded (typed) cards come before the self-graded ones, and words are
+ * introduced in small batches, so spelling and production tests start on day one:
+ * recognition for 5 words, then those 5 words' dictation, gaps, English → Polish and
+ * sentence dictation, then their listening and "say it" cards, then the next 5 words.
+ */
+export const VOCAB_KIND_ORDER = ['rec', 'dict', 'gap', 'prod', 'sdict', 'listen', 'say'];
+export const VOCAB_BATCH = 5;
 
 /** Card kinds generated for each module's items. Later stages add kinds here. */
 export function cardsForItem(module, topic, item) {
   switch (module) {
     case 'vocabulary': {
-      // Recognition first; the other directions unlock after its first successful review.
+      // Recognition first; the other cards unlock once it has been seen (answered once).
       const rec = `${item.id}-rec`;
       const kinds = [...(item.cards ?? ['rec'])];
-      // Whole-sentence production: every item with a listening card also gets a "say it"
-      // card for the same sentence (not for lines the partner says).
+      // Word dictation (hear it, spell it) for every word.
+      if (!kinds.includes('dict')) kinds.push('dict');
       const ex = item.examples?.[0];
+      // Sentence dictation and whole-sentence production for every item with a listening
+      // card (its first example). "Say it" is not for lines the partner says.
+      if (kinds.includes('listen') && ex) kinds.push('sdict');
       if (kinds.includes('listen') && ex && ex.speaker !== 'partner') kinds.push('say');
       return kinds.map((kind) => ({
         id: `${item.id}-${kind}`, module, topic: topic.id, item: item.id, kind,
@@ -51,8 +63,14 @@ export function buildModule(json) {
     }
     // New cards are introduced in this order. Within a topic, all listening cards come
     // before dictation, so a word's spelling isn't shown just before you have to type it.
-    const rank = (d) => KIND_ORDER.indexOf(d.kind);
-    topic.cards.sort((a, b) => rank(a) - rank(b)); // stable: item order kept within a kind
+    if (json.module === 'vocabulary') {
+      const batch = new Map(topic.items.map((it, i) => [it.id, Math.floor(i / VOCAB_BATCH)]));
+      const rank = (d) => VOCAB_KIND_ORDER.indexOf(d.kind);
+      topic.cards.sort((a, b) => batch.get(a.item) - batch.get(b.item) || rank(a) - rank(b));
+    } else {
+      const rank = (d) => KIND_ORDER.indexOf(d.kind);
+      topic.cards.sort((a, b) => rank(a) - rank(b)); // stable: item order kept within a kind
+    }
     defs.push(...topic.cards);
   }
   return { ...json, defs, items };

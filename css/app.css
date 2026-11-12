@@ -448,3 +448,10 @@ textarea.answer-input { resize: vertical; min-height: 64px; }
 .script li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
 .script li.mine { border-color: var(--accent); background: var(--accent-soft); }
 .script p { margin: 2px 0 0; }
+
+/* Sentence dictation */
+textarea.sentence-input { text-align: left; font-size: 1.15rem; resize: none; }
+.answer-word mark.slip { background: transparent; color: inherit; text-decoration: underline wavy var(--accent); text-underline-offset: 4px; }
+.answer-word mark.missing { background: transparent; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.sentence-notes { margin: 4px 0 8px; padding: 0; list-style: none; }
+.sentence-notes li { margin: 2px 0; }

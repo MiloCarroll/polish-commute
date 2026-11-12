@@ -118,11 +118,10 @@ export function newRemaining(newPerDay, logs, now = new Date()) {
 
 // ---- Availability ----------------------------------------------------------
 
-/** A card is unlocked when it has no prerequisite, or its prerequisite has a successful review. */
+/** A card is unlocked when it has no prerequisite, or its prerequisite has been seen (answered once, any grade). */
 export function isUnlocked(def, records) {
   if (!def.requires) return true;
-  const req = records.get(def.requires);
-  return !!req && (req.successes ?? 0) > 0;
+  return records.has(def.requires);
 }
 
 /** Studied card that is due at some point today (before the next 04:00). */

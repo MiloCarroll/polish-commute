@@ -166,3 +166,16 @@ Tap the **Update available** banner first.
 - [ ] Study it: each card shows the line before it; you hear a line and reveal it; later, "Your turn" cards show the English of your line to say in your head.
 - [ ] **Whole sentences:** in Vocabulary, some words now also have "How would you say…" cards (after you've got the Polish → English card right once): you see an English sentence, say it in your head, then *Show Polish*.
 - [ ] **New vocabulary topics** at the end of the list: Health, Weather, Work and studies, Free time and hobbies, Holidays and traditions, At the table.
+
+## Additions: dictation in vocabulary, earlier tests
+
+Tap the **Update available** banner first. Your progress is kept; the new cards join as new cards.
+
+- [ ] Vocabulary now introduces words **5 at a time**: their Polish → English cards, then (for those 5) *Type the word you hear*, gaps, English → Polish and *Type the sentence you hear*, and only then the listening and "How would you say…" cards.
+- [ ] Typed cards appear as soon as you've seen a word's Polish → English card once, whatever grade you gave it.
+- [ ] **Word dictation:** the word plays (Agnieszka); type it with the accent bar. Marking works like pronunciation dictation.
+- [ ] **Sentence dictation:** the sentence plays; type all of it. Try:
+  - [ ] Leave out the full stop and capitals: still *Correct*.
+  - [ ] Run two words together (e.g. *niewiem*): a "Word break" note explains it.
+  - [ ] Miss an accent in one word: *Nearly*, with that word lightly underlined.
+  - [ ] The box wraps long sentences, and the accent bar sits on the keyboard.

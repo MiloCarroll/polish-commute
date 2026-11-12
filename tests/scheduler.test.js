@@ -53,15 +53,13 @@ test('allowance resets at 04:00, not midnight', () => {
   assert.equal(newIntroducedToday(late, at(2026, 11, 11, 5)), 0);
 });
 
-test('production card unlocks only after a successful recognition review', () => {
+test('production card unlocks once the recognition card has been seen, at any grade', () => {
   const rec = def('v-1-rec');
   const prod = def('v-1-prod', { requires: 'v-1-rec' });
   const records = new Map();
   assert.equal(isUnlocked(prod, records), false);
   review(records, rec, Rating.Again, at(2026, 11, 10, 8));
-  assert.equal(isUnlocked(prod, records), false, 'Again is not a success');
-  review(records, rec, Rating.Good, at(2026, 11, 10, 8, 5));
-  assert.equal(isUnlocked(prod, records), true);
+  assert.equal(isUnlocked(prod, records), true, 'seeing it is enough, even with Again');
 });
 
 test('pickNext: due cards before new cards, new cards in order, respects allowance', () => {
