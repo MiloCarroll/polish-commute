@@ -1,5 +1,6 @@
 // App settings with defaults, persisted in the IndexedDB "settings" store.
 import * as db from './db.js';
+import { dayKey } from './day.js';
 
 export const DEFAULTS = Object.freeze({
   learnerGender: 'm',   // 'm' | 'f' — chooses sentence variants spoken by the learner
@@ -15,6 +16,7 @@ export const DEFAULTS = Object.freeze({
   firstStudy: null,     // epoch ms of the first review ever (for the backup reminder)
   lastBackup: null,     // epoch ms of the last export
   backupSnoozeUntil: null, // "Remind me later" on the Home backup notice
+  extraNew: null,       // { day: dayKey, n } extra new cards added for one day ("+5 new cards")
 });
 
 let cache = null;
@@ -35,4 +37,22 @@ export async function setSetting(key, value) {
   if (!(key in DEFAULTS)) throw new Error(`Unknown setting: ${key}`);
   cache[key] = value;
   await db.put('settings', { key, value });
+}
+
+/** Extra new cards a single tap adds for today. */
+export const EXTRA_STEP = 5;
+
+/** Today's new-card allowance: the daily setting plus any extra added today. */
+export function newAllowance(now = new Date()) {
+  const s = settings();
+  const extra = s.extraNew && s.extraNew.day === dayKey(now) ? s.extraNew.n : 0;
+  return s.newPerDay + extra;
+}
+
+/** Add EXTRA_STEP new cards to today's allowance (resets at the start of the next day). */
+export async function addExtraNew(now = new Date()) {
+  const s = settings();
+  const day = dayKey(now);
+  const n = (s.extraNew && s.extraNew.day === day ? s.extraNew.n : 0) + EXTRA_STEP;
+  await setSetting('extraNew', { day, n });
 }

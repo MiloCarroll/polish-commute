@@ -1,5 +1,5 @@
 import { state } from '../app.js';
-import { settings } from '../settings.js';
+import { settings, newAllowance, addExtraNew, EXTRA_STEP } from '../settings.js';
 import { countCards, newRemaining, isUnlocked } from '../scheduler.js';
 import { render, esc, plural, speakerIcon, onAction } from '../ui.js';
 import { lessonHtml, lessonHandlers } from '../lesson.js';
@@ -20,7 +20,7 @@ export function moduleView(m) {
   const { records } = state;
   const c = countCards(mod.defs, records);
   const next = nextSuggestedTopic(mod, records);
-  const newLeft = newRemaining(settings().newPerDay, state.todayLogs);
+  const newLeft = newRemaining(newAllowance(), state.todayLogs);
 
   const list = mod.topics.map((t, i) => {
     const tc = countCards(t.cards, records);
@@ -47,8 +47,11 @@ export function moduleView(m) {
       <ol class="topics">${list}</ol>`,
     actions: canStudy
       ? `<a class="btn primary" href="#/study/${m}">Continue</a>`
-      : `<button class="btn primary" disabled>${c.total ? 'All done for now' : 'Nothing to study yet'}</button>`,
+      : c.newAvailable > 0 && newLeft === 0
+        ? `<button class="btn primary" data-action="more-new">Learn ${EXTRA_STEP} more new cards</button>`
+        : `<button class="btn primary" disabled>${c.total ? 'All done for now' : 'Nothing to study yet'}</button>`,
   });
+  onAction({ 'more-new': async () => { await addExtraNew(); location.hash = `#/study/${m}`; } });
 }
 
 export function topicView(m, topicId) {

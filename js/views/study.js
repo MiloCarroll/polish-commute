@@ -1,7 +1,7 @@
 // Study session: picks the next card, shows a topic's lesson before its first new card,
 // renders the exercise for the card's kind, and records the grade.
 import { state, recordReview, undoLastReview } from '../app.js';
-import { settings, setSetting } from '../settings.js';
+import { settings, setSetting, newAllowance, addExtraNew, EXTRA_STEP } from '../settings.js';
 import { allDefs, MODULES } from '../content.js';
 import { pickToday } from '../session.js';
 import { pickNext, applyReview, newRemaining, countCards } from '../scheduler.js';
@@ -47,7 +47,7 @@ export function studyView(scope, topicId) {
     if (!stillHere()) return;
     const now = new Date();
     // "Review all due" shows only due cards; new cards come from a module's Continue.
-    const newLeft = scope === 'all' ? 0 : newRemaining(settings().newPerDay, state.todayLogs, now);
+    const newLeft = scope === 'all' ? 0 : newRemaining(newAllowance(now), state.todayLogs, now);
     let p = pick(newLeft, now, new Set(lastId ? [lastId] : []));
     if (!p.def && lastId) p = pick(newLeft, now, new Set());
     if (!p.def) return finished(p.waitUntil);
@@ -73,16 +73,23 @@ export function studyView(scope, topicId) {
 
   function finished(waitUntil) {
     const mins = waitUntil ? Math.ceil((waitUntil - Date.now()) / 60000) : 0;
+    // Only the allowance is stopping new cards: offer a few more for today.
+    const moreNew = scope !== 'all' && newRemaining(newAllowance(), state.todayLogs) === 0
+      && countCards(scope === 'today' ? allDefs(state.content) : defs, state.records).newAvailable > 0;
     render({
       title, back,
       body: `<div class="card center">
         <h2>All done for now</h2>
         <p>${waitUntil
           ? `A card you are still learning comes back in about ${mins} minute${mins === 1 ? '' : 's'}.`
+          : moreNew ? "Nothing else is due, and today's new cards are used up. You can carry on with a few more."
           : scope === 'today' ? "That's today's session done: nothing else is due and today's new cards are used up." : 'Nothing else is due in this section today.'}</p>
       </div>`,
-      actions: `${undo ? '<button type="button" class="btn" data-undo>↶ Undo last answer</button>' : ''}<a class="btn primary" href="${back}">Back</a>`,
+      actions: `${undo ? '<button type="button" class="btn" data-undo>↶ Undo last answer</button>' : ''}
+        ${moreNew && !waitUntil ? `<button type="button" class="btn primary" data-more-new>Learn ${EXTRA_STEP} more new cards</button>
+          <a class="btn" href="${back}">Back</a>` : `<a class="btn primary" href="${back}">Back</a>`}`,
     });
+    document.querySelector('[data-more-new]')?.addEventListener('click', async () => { await addExtraNew(); next(); }, { once: true });
     if (waitUntil) timer = setTimeout(() => { if (stillHere()) next(); }, waitUntil - Date.now() + 500);
   }
 

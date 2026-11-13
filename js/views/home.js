@@ -1,5 +1,5 @@
 import { state } from '../app.js';
-import { settings, setSetting } from '../settings.js';
+import { settings, setSetting, newAllowance, addExtraNew, EXTRA_STEP } from '../settings.js';
 import { backupReminder } from '../backup.js';
 import { MODULES, allDefs } from '../content.js';
 import { countCards, newRemaining } from '../scheduler.js';
@@ -7,10 +7,13 @@ import { render, esc, plural, onAction } from '../ui.js';
 
 export function homeView() {
   const { content, records, todayLogs } = state;
-  const newLeft = newRemaining(settings().newPerDay, todayLogs);
+  const allowance = newAllowance();
+  const newLeft = newRemaining(allowance, todayLogs);
   const all = countCards(allDefs(content), records);
   const totalDue = all.due;
   const newToday = Math.min(all.newAvailable, newLeft);
+  // Offered once today's new cards are used up and more are waiting.
+  const moreNew = newLeft === 0 && all.newAvailable > 0;
   const s = settings();
   const reminder = backupReminder({ lastBackup: s.lastBackup, firstStudy: s.firstStudy, snoozeUntil: s.backupSnoozeUntil });
 
@@ -38,8 +41,8 @@ export function homeView() {
     title: 'Polski',
     body: `
       <p class="allowance">${newLeft
-        ? `<strong>${newLeft}</strong> of ${settings().newPerDay} new cards left today`
-        : `No new cards left today. Reviews are unlimited.`}</p>
+        ? `<strong>${newLeft}</strong> of ${allowance} new cards left today`
+        : `Today's ${allowance} new cards are used up.`}</p>
       ${reminder ? `<div class="notice backup-note" id="backup-note">
           <p>${reminder.never ? "You haven't backed up your progress yet." : `Your last backup was ${reminder.daysSince} days ago.`}
             Progress is stored only on this phone.</p>
@@ -56,10 +59,13 @@ export function homeView() {
       ${totalDue || newToday
         ? `<a class="btn primary today" href="#/study/today"><span>Today's session</span>
              <span class="small">${totalDue} due · ${newToday} new</span></a>`
-        : `<button class="btn primary" disabled>All done for today</button>`}
+        : moreNew
+          ? `<button class="btn primary" data-action="more-new">Learn ${EXTRA_STEP} more new cards</button>`
+          : `<button class="btn primary" disabled>All done for today</button>`}
       ${totalDue ? `<a class="btn secondary" href="#/study/all">Review all due only (${totalDue})</a>` : ''}`,
   });
   onAction({
+    'more-new': async () => { await addExtraNew(); location.hash = '#/study/today'; },
     'backup-later': async () => {
       await setSetting('backupSnoozeUntil', Date.now() + 3 * 86400000);
       document.getElementById('backup-note')?.remove();

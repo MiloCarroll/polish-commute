@@ -179,3 +179,8 @@ Tap the **Update available** banner first. Your progress is kept; the new cards 
   - [ ] Run two words together (e.g. *niewiem*): a "Word break" note explains it.
   - [ ] Miss an accent in one word: *Nearly*, with that word lightly underlined.
   - [ ] The box wraps long sentences, and the accent bar sits on the keyboard.
+
+## Addition: more new cards today
+
+- [ ] When today's new cards are used up, Home says so and its main button is **Learn 5 more new cards**. Tapping it starts today's session with 5 more.
+- [ ] The *All done for now* screen and a module page offer the same button. The extra resets at 04:00; *New cards per day* in Settings is unchanged.
