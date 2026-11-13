@@ -29,6 +29,7 @@ function ensureBar() {
   document.body.appendChild(bar);
   window.visualViewport?.addEventListener('resize', position);
   window.visualViewport?.addEventListener('scroll', position);
+  window.addEventListener('scroll', position, { passive: true });
   return bar;
 }
 
@@ -43,10 +44,24 @@ function insert(input, text) {
 function position() {
   if (!bar || bar.hidden) return;
   const vv = window.visualViewport;
-  // Distance from the bottom of the layout viewport to the bottom of the visible area
-  // (i.e. the keyboard height on iOS).
-  const offset = vv ? Math.max(0, window.innerHeight - (vv.height + vv.offsetTop)) : 0;
-  bar.style.transform = `translateY(${-offset}px)`;
+  if (!vv) return; // CSS keeps it at the bottom
+  // Pin the bar's top to the bottom edge of the visible area (the keyboard's top edge on
+  // iOS). Measuring from the top stays right when iOS scrolls the page to reveal the
+  // input, which a bottom-anchored offset did not.
+  bar.style.top = `${Math.round(vv.offsetTop + vv.height - bar.offsetHeight)}px`;
+  bar.style.bottom = 'auto';
+}
+
+/** After the keyboard has settled: re-pin the bar and keep the input above it. */
+function settle(input) {
+  for (const ms of [50, 250, 500, 800]) {
+    setTimeout(() => {
+      if (target !== input || bar.hidden) return;
+      position();
+      const gap = input.getBoundingClientRect().bottom - bar.getBoundingClientRect().top + 8;
+      if (gap > 0) window.scrollBy(0, gap);
+    }, ms);
+  }
 }
 
 /**
@@ -55,11 +70,11 @@ function position() {
  */
 export function attachAccentBar(input, submit) {
   ensureBar();
-  const show = () => { target = input; onSubmit = submit; bar.hidden = false; document.body.classList.add('typing'); position(); };
+  const show = () => { target = input; onSubmit = submit; bar.hidden = false; document.body.classList.add('typing'); position(); settle(input); };
   const hide = () => {
     // Delay so a tap that moves focus elsewhere doesn't flicker the bar.
     setTimeout(() => {
-      if (document.activeElement !== input) { bar.hidden = true; document.body.classList.remove('typing'); }
+      if (document.activeElement !== input) { bar.hidden = true; document.body.classList.remove('typing'); reset(); }
     }, 100);
   };
   input.addEventListener('focus', show);
@@ -68,12 +83,16 @@ export function attachAccentBar(input, submit) {
   return () => {
     input.removeEventListener('focus', show);
     input.removeEventListener('blur', hide);
-    if (target === input) { bar.hidden = true; target = null; document.body.classList.remove('typing'); }
+    if (target === input) { bar.hidden = true; target = null; document.body.classList.remove('typing'); reset(); }
   };
 }
 
+function reset() {
+  if (bar) { bar.style.top = ''; bar.style.bottom = ''; }
+}
+
 export function hideAccentBar() {
-  if (bar) bar.hidden = true;
+  if (bar) { bar.hidden = true; reset(); }
   target = null;
   document.body.classList.remove('typing');
 }
