@@ -16,6 +16,7 @@ export const DEFAULTS = Object.freeze({
   firstStudy: null,     // epoch ms of the first review ever (for the backup reminder)
   lastBackup: null,     // epoch ms of the last export
   backupSnoozeUntil: null, // "Remind me later" on the Home backup notice
+  handsFree: { mode: 'understand', minutes: 20, pause: 4 }, // hands-free listening choices
   extraNew: null,       // { day: dayKey, n } extra new cards added for one day ("+5 new cards")
 });
 

@@ -87,7 +87,8 @@ export function studyView(scope, topicId) {
       </div>`,
       actions: `${undo ? '<button type="button" class="btn" data-undo>↶ Undo last answer</button>' : ''}
         ${moreNew && !waitUntil ? `<button type="button" class="btn primary" data-more-new>Learn ${EXTRA_STEP} more new cards</button>
-          <a class="btn" href="${back}">Back</a>` : `<a class="btn primary" href="${back}">Back</a>`}`,
+          <a class="btn" href="${back}">Back</a>` : `<a class="btn primary" href="${back}">Back</a>`}
+        ${!waitUntil ? `<a class="btn secondary" href="#/practice/${scope === 'today' ? 'all' : scope}">Practise studied cards</a>` : ''}`,
     });
     document.querySelector('[data-more-new]')?.addEventListener('click', async () => { await addExtraNew(); next(); }, { once: true });
     if (waitUntil) timer = setTimeout(() => { if (stillHere()) next(); }, waitUntil - Date.now() + 500);

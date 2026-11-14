@@ -184,3 +184,19 @@ Tap the **Update available** banner first. Your progress is kept; the new cards 
 
 - [ ] When today's new cards are used up, Home says so and its main button is **Learn 5 more new cards**. Tapping it starts today's session with 5 more.
 - [ ] The *All done for now* screen and a module page offer the same button. The extra resets at 04:00; *New cards per day* in Settings is unchanged.
+
+## Additions: practice, hands-free listening, typed conversation turns
+
+Tap the **Update available** banner first.
+
+**Practice** (Home → *Practise*, or a module page → *Practise …*)
+- [ ] A round of up to 20 cards you've already studied, only ones the app marks itself (typing, choosing). Wrong answers come back once at the end.
+- [ ] After the round, Home's due counts are the same as before: practice doesn't change the schedule.
+
+**Hands-free** (Home → *Hands-free*)
+- [ ] Choose Polish first, 10 min, 4 s pause; *Start*. It plays sentence, pause, sentence again, and shows the English once the pause has passed.
+- [ ] **Lock the phone** (the important one): does it keep playing? Do the lock-screen and headphone controls pause and skip?
+- [ ] After the English recordings are made and published: *English first* becomes available, and Polish first also says the English.
+
+**Conversations: your turn**
+- [ ] "Your turn" cards now ask you to type your line in Polish, marked word by word like sentence dictation.

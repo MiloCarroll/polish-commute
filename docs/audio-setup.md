@@ -48,7 +48,13 @@ Optional extra pass: Marek for every sentence that doesn't depend on gender, for
 node tools/make-audio.js --pass extra
 ```
 
-Or both in one go, e.g. overnight (about 3 hours for the whole course):
+English translations for **hands-free listening**, read by **Sonia** (British English). About 660 clips, 23,000 characters, roughly 40 minutes:
+
+```bash
+node tools/make-audio.js --pass english
+```
+
+Or everything in one go, e.g. overnight:
 
 ```bash
 node tools/make-audio.js --pass all

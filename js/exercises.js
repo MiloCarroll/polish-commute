@@ -317,20 +317,18 @@ function sentenceFeedback(g) {
   return { words, notes: notes.length ? `<ul class="small sentence-notes">${notes.join('')}</ul>` : '' };
 }
 
-function sdict(ctx) {
-  const { item } = ctx;
-  const raw = item.examples?.[0];
-  const ex = resolveExample(raw, genders());
-  if (!ex) return vdict(ctx);
-  const voice = { gender: speakerGender(raw), variety: true };
+/**
+ * A typed whole-sentence answer, marked word by word (gradeSentence).
+ *   body: HTML above the box; answer: the Polish expected; voice: how to play it
+ *   autoplay: play the answer when the card appears (dictation)
+ *   afterHtml: extra HTML after marking; handlers: extra actions (e.g. play/slow)
+ */
+function typedSentenceCard(ctx, { body, answer, voice = {}, autoplay = false, afterHtml = '', handlers = {} }) {
   render({
     title: ctx.title, back: ctx.back,
     body: `${ctx.head}
       <div class="card study">
-        <p class="question">Type the sentence you hear</p>
-        ${audioRow()}
-        ${noVoiceNote(ex.pl)}
-        <p class="muted small">Every word counts, including where each one starts and ends. Punctuation and capitals don't.</p>
+        ${body}
         <form id="typed-form" class="answer-form" autocomplete="off">
           <textarea id="typed-input" class="answer-input sentence-input" rows="2" lang="pl" enterkeyhint="go"
             autocorrect="off" autocapitalize="off" spellcheck="false" autocomplete="off"
@@ -340,7 +338,7 @@ function sdict(ctx) {
       </div>`,
     actions: `<button class="btn primary" data-action="check">Check</button>`,
   });
-  if (settings().autoplay) tts.autoSpeak(ex.pl, voice);
+  if (autoplay && settings().autoplay) tts.autoSpeak(answer, voice);
   const input = $('#typed-input');
   const detach = attachAccentBar(input, () => check());
   input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); check(); } });
@@ -349,7 +347,7 @@ function sdict(ctx) {
   function check() {
     if (input.disabled) return;
     if (!input.value.trim()) { input.focus(); return; }
-    const g = gradeSentence(input.value, ex.pl);
+    const g = gradeSentence(input.value, answer);
     detach();
     input.blur();
     hideAccentBar();
@@ -360,26 +358,39 @@ function sdict(ctx) {
     fb.hidden = false;
     fb.innerHTML = `
       <p class="verdict ${correct ? 'ok' : g.result === 'wrong' ? 'bad' : 'warn'}">${SENTENCE_MESSAGES[g.result]}</p>
-      <p class="sentence pl answer-word" lang="pl">${words}</p>
+      <p class="sentence pl answer-word" lang="pl">${words}
+        <button class="icon-btn small inline" data-action="say" data-text="${esc(answer)}" ${voice.gender ? `data-gender="${voice.gender}"` : ''} aria-label="Play">${speakerIcon}</button></p>
       ${notes}
-      <p class="muted">${esc(ex.en)}${ex.speaker === 'partner' ? ' <span class="small">(your partner says)</span>' : ''}</p>
-      <details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`;
+      ${afterHtml}`;
     document.getElementById('actions').innerHTML = outcomeActions(g.rating, correct);
-    tts.speak(ex.pl, voice);
+    tts.speak(answer, voice);
     fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    onAction({
-      play: () => tts.speak(ex.pl, voice),
-      slow: () => tts.speak(ex.pl, { ...voice, slow: true }),
-      say: sayEl,
-      finish: guard((b) => ctx.done(Number(b.dataset.rating))),
-    });
+    onAction({ ...handlers, say: sayEl, finish: guard((b) => ctx.done(Number(b.dataset.rating))) });
   }
 
-  onAction({
-    play: () => tts.speak(ex.pl, voice),
-    slow: () => tts.speak(ex.pl, { ...voice, slow: true }),
-    say: sayEl,
-    check: () => check(),
+  onAction({ ...handlers, say: sayEl, check: () => check() });
+}
+
+function sdict(ctx) {
+  const { item } = ctx;
+  const raw = item.examples?.[0];
+  const ex = resolveExample(raw, genders());
+  if (!ex) return vdict(ctx);
+  const voice = { gender: speakerGender(raw), variety: true };
+  typedSentenceCard(ctx, {
+    body: `
+      <p class="question">Type the sentence you hear</p>
+      ${audioRow()}
+      ${noVoiceNote(ex.pl)}
+      <p class="muted small">Every word counts, including where each one starts and ends. Punctuation and capitals don't.</p>`,
+    answer: ex.pl, voice, autoplay: true,
+    afterHtml: `
+      <p class="muted">${esc(ex.en)}${ex.speaker === 'partner' ? ' <span class="small">(your partner says)</span>' : ''}</p>
+      <details class="more"><summary>About ${esc(item.pl)}</summary>${itemDetails(item)}</details>`,
+    handlers: {
+      play: () => tts.speak(ex.pl, voice),
+      slow: () => tts.speak(ex.pl, { ...voice, slow: true }),
+    },
   });
 }
 
@@ -514,10 +525,17 @@ function dlisten(ctx) {
 
 function dsay(ctx) {
   const line = resolveLine(ctx.item, ctx.topic.cast, genders());
-  sayCard(ctx, {
-    en: line.en, pl: line.pl, gender: line.gender,
-    context: `${previousLine(ctx)}<p class="small muted">Your turn${line.to && line.to !== 'all' ? `, to ${esc(roleLabel(line.to, ctx.topic.cast).replace(/^(Your|Her|His|Our) /, (w) => w.toLowerCase()))}` : ''}.</p>`,
-    details: line.note ? `<p class="note">${esc(line.note)}</p>` : '',
+  const to = line.to && line.to !== 'all'
+    ? `, to ${esc(roleLabel(line.to, ctx.topic.cast).replace(/^(Your|Her|His|Our) /, (w) => w.toLowerCase()))}` : '';
+  typedSentenceCard(ctx, {
+    body: `
+      ${previousLine(ctx)}
+      <p class="small muted">Your turn${to}. Type it in Polish:</p>
+      <p class="prompt sentence-prompt">${esc(line.en)}</p>`,
+    answer: line.pl,
+    voice: { gender: line.gender },
+    afterHtml: `${line.note ? `<p class="note">${esc(line.note)}</p>` : ''}
+      <p class="small muted">Said it differently but correctly? Tap <em>I was right</em>.</p>`,
   });
 }
 

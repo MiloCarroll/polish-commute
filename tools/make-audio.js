@@ -7,7 +7,8 @@
 //   node tools/make-audio.js --dry-run            # what would be generated, no key needed
 //   node tools/make-audio.js                      # main pass: every text in a matching voice
 //   node tools/make-audio.js --pass extra         # extra voices for listening variety
-//   node tools/make-audio.js --pass all           # both, e.g. overnight
+//   node tools/make-audio.js --pass english       # English translations (hands-free listening)
+//   node tools/make-audio.js --pass all           # all of these, e.g. overnight
 //
 // It is safe to stop (Ctrl-C) and run again: existing clips are skipped. Usage per calendar
 // month is recorded in tools/audio-usage.json and the run stops before a self-imposed cap
@@ -17,7 +18,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, unlink
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { collectSpeech } from './audio-texts.js';
+import { collectSpeech, collectEnglish } from './audio-texts.js';
 import { spawn } from 'node:child_process';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -26,7 +27,9 @@ const USAGE = join(ROOT, 'tools', 'audio-usage.json');
 
 // Zofia was dropped after listening tests: she produced audible glitches on some words
 // (e.g. "nas") that Agnieszka and Marek did not.
-export const VOICES = { f: 'pl-PL-AgnieszkaNeural', m: 'pl-PL-MarekNeural' };
+export const VOICES = { f: 'pl-PL-AgnieszkaNeural', m: 'pl-PL-MarekNeural', e: 'en-GB-SoniaNeural' };
+// Voice "e" reads the English translations for hands-free listening.
+const LANG = (voice) => (voice === 'e' ? 'en-GB' : 'pl-PL');
 const FORMAT = 'audio-24khz-48kbitrate-mono-mp3';
 const FREE_CHARS = 500_000;
 const DEFAULT_CAP = 400_000;   // stop well below the free allowance
@@ -47,8 +50,12 @@ export const clipFile = (voice, text) => `${voice}/${createHash('sha1').update(`
  * extra: the male voice for sentences that don't depend on gender, so listening cards
  * can vary the speaker.
  */
-export function plan(speech, pass) {
+export function plan(speech, pass, english = new Map()) {
   const jobs = [];
+  if (pass === 'english' || pass === 'all') {
+    for (const text of english.keys()) jobs.push({ text, voice: 'e', file: clipFile('e', text) });
+    if (pass === 'english') return jobs;
+  }
   for (const [text, genders] of speech) {
     const main = genders.size ? [...genders].map((g) => (g === 'm' ? 'm' : 'f')) : ['f'];
     // Extra pass: the other voice for sentences that don't depend on gender, so listening
@@ -65,7 +72,7 @@ const readUsage = () => (existsSync(USAGE) ? JSON.parse(readFileSync(USAGE, 'utf
 const cost = (text) => [...text].length + PER_REQUEST_MARGIN;
 
 const xml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
-const ssml = (voice, text) => `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="pl-PL"><voice name="${VOICES[voice]}"><mstts:silence type="Leading-exact" value="${LEAD_MS}ms"/><mstts:silence type="Tailing-exact" value="${TAIL_MS}ms"/>${xml(text)}</voice></speak>`;
+const ssml = (voice, text) => `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${LANG(voice)}"><voice name="${VOICES[voice]}"><mstts:silence type="Leading-exact" value="${LEAD_MS}ms"/><mstts:silence type="Tailing-exact" value="${TAIL_MS}ms"/>${xml(text)}</voice></speak>`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** Rebuild content/audio/manifest.json from the clips present on disk. */
@@ -133,14 +140,16 @@ async function main() {
   const pass = opt('pass', 'main');
   const cap = Number(opt('max-chars', DEFAULT_CAP));
   const limit = Number(opt('limit', Infinity));
-  if (!['main', 'extra', 'all'].includes(pass)) throw new Error('--pass must be main, extra or all');
+  if (!['main', 'extra', 'english', 'all'].includes(pass)) throw new Error('--pass must be main, extra, english or all');
   if (cap > FREE_CHARS) throw new Error(`--max-chars may not exceed the free allowance (${FREE_CHARS})`);
 
   const sample = opt('sample', null);
   if (sample) return makeSamples(sample);
 
-  const speech = collectSpeech();
-  const todo = plan(speech, pass).filter((j) => !existsSync(join(AUDIO, j.file))).slice(0, limit);
+  const english = collectEnglish();
+  // Polish and English texts together, for the manifest (each text lists the clips it has).
+  const speech = new Map([...english, ...collectSpeech()]);
+  const todo = plan(collectSpeech(), pass, english).filter((j) => !existsSync(join(AUDIO, j.file))).slice(0, limit);
   const chars = todo.reduce((n, j) => n + cost(j.text), 0);
   const usage = readUsage();
   const used = usage[monthKey()] ?? 0;

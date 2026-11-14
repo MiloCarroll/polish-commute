@@ -51,6 +51,8 @@ export function homeView() {
         </div>` : ''}
       <div class="tiles">${tiles}</div>
       <nav class="links">
+        <a href="#/practice/all">Practise</a>
+        <a href="#/listen">Hands-free</a>
         <a href="#/stats">Stats</a>
         <a href="#/phrase/new">Add phrase</a>
         <a href="#/settings">Settings</a>

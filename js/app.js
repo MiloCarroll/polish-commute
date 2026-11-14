@@ -9,6 +9,8 @@ import { hideAccentBar } from './accentbar.js';
 import { homeView } from './views/home.js';
 import { moduleView, topicView } from './views/module.js';
 import { studyView } from './views/study.js';
+import { practiceView } from './views/practice.js';
+import { listenView } from './views/listen.js';
 import { settingsView } from './views/settings.js';
 import { welcomeView } from './views/welcome.js';
 import { statsView } from './views/stats.js';
@@ -71,6 +73,8 @@ const routes = [
   [/^#\/module\/(\w+)$/, (m) => moduleView(m[1])],
   [/^#\/topic\/(\w+)\/([\w-]+)$/, (m) => topicView(m[1], m[2])],
   [/^#\/study\/(\w+)(?:\/([\w-]+))?$/, (m) => studyView(m[1], m[2])],
+  [/^#\/practice\/(\w+)$/, (m) => practiceView(m[1])],
+  [/^#\/listen$/, () => listenView()],
   [/^#\/settings$/, () => settingsView()],
   [/^#\/welcome$/, () => welcomeView()],
   [/^#\/stats$/, () => statsView()],

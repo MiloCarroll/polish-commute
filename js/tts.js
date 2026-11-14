@@ -174,7 +174,7 @@ export function unlock() {
  */
 export function chooseClip(byVoice, { gender = null, variety = false } = {}, rand = Math.random) {
   if (!byVoice) return null;
-  const voices = Object.keys(byVoice);
+  const voices = Object.keys(byVoice).filter((v) => v !== 'e'); // "e" is the English voice
   if (!voices.length) return null;
   if (variety) {
     const pool = gender ? voices.filter((v) => v[0] === gender) : voices;
@@ -186,6 +186,16 @@ export function chooseClip(byVoice, { gender = null, variety = false } = {}, ran
     if (match) return byVoice[match];
   }
   return byVoice.f ?? byVoice[voices[0]];
+}
+
+/** URL of a Polish clip for the text (same choice rules as speak), or null. */
+export function clipUrl(text, opts = {}) {
+  return chooseClip(clips.get(clipKey(text)), opts);
+}
+
+/** URL of the English clip for a translation (hands-free listening), or null. */
+export function englishClipUrl(text) {
+  return clips.get(clipKey(text))?.e ?? null;
 }
 
 export function speak(text, { slow = false, gender = null, variety = false } = {}) {

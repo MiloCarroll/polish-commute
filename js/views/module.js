@@ -44,7 +44,8 @@ export function moduleView(m) {
     body: `
       ${mod.status ? `<p class="notice">${esc(mod.status)}</p>` : ''}
       <p class="muted">${plural(c.due, 'review')} due · ${c.newAvailable} new available · ${newLeft} new left today</p>
-      <ol class="topics">${list}</ol>`,
+      <ol class="topics">${list}</ol>
+      ${c.studied ? `<p><a class="btn secondary" href="#/practice/${m}">Practise ${esc(mod.title.toLowerCase())} (doesn't change the schedule)</a></p>` : ''}`,
     actions: canStudy
       ? `<a class="btn primary" href="#/study/${m}">Continue</a>`
       : c.newAvailable > 0 && newLeft === 0

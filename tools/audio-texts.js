@@ -58,6 +58,19 @@ export function collectSpeech() {
   return out;
 }
 
+/**
+ * English translations of every sentence hands-free listening can play (vocabulary
+ * examples and conversation lines, in every gender variant): Map text → empty Set.
+ */
+export function collectEnglish() {
+  const out = new Map();
+  const add = (t) => { if (t && /\p{L}/u.test(t)) out.set(clipKey(t), new Set()); };
+  const both = (x) => { add(x?.en); Object.values(x?.v ?? {}).forEach((v) => add(v.en ?? x.en)); };
+  for (const t of load('vocabulary').topics) for (const i of t.items) (i.examples ?? []).forEach(both);
+  for (const t of load('dialogues').topics) t.items.forEach(both);
+  return out;
+}
+
 export function collectTexts() {
   return [...collectSpeech().keys()].sort();
 }
