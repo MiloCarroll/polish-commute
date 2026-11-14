@@ -463,3 +463,7 @@ textarea.sentence-input { text-align: left; font-size: 1.15rem; resize: none; }
 .hf-player .answer { min-height: 1.5em; }
 .hf-progress { margin: 18px 0 6px; }
 .center { text-align: center; }
+
+/* Home: practice and hands-free under the module tiles */
+.extra-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.extra-modes .btn { flex-direction: column; gap: 2px; min-height: 64px; text-align: center; }

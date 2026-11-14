@@ -6,6 +6,9 @@ import { State } from './scheduler.js';
 
 export const MODULE_ORDER = ['pronunciation', 'vocabulary', 'grammar', 'dialogues'];
 
+/** Share of the day's new cards each module gets, relative to the others (conversations: half). */
+export const MODULE_WEIGHT = { pronunciation: 1, vocabulary: 1, grammar: 1, dialogues: 0.5 };
+
 /** New cards introduced today per module (first-ever review today). */
 export function newTodayByModule(todayLogs, now = new Date()) {
   const start = dayStart(now).getTime();
@@ -24,6 +27,7 @@ export function newTodayByModule(todayLogs, now = new Date()) {
  *   defsByModule: { pronunciation: [...], vocabulary: [...], grammar: [...] } in suggested order
  * 1. Any due card from any module (same priority rules as pickNext).
  * 2. Otherwise a new card from the module that has introduced the fewest new cards today
+ *    relative to its weight (conversations get half as many as each other module)
  *    (ties in the order pronunciation, vocabulary, grammar), so the day's allowance is
  *    spread across all three and no module is neglected.
  * Returns the same shape as pickNext.
@@ -37,7 +41,8 @@ export function pickToday(defsByModule, records, newLeft, todayLogs, now = new D
   if (due.def && !early) return due;
   if (newLeft > 0) {
     const counts = newTodayByModule(todayLogs, now);
-    const order = MODULE_ORDER.slice().sort((a, b) => counts[a] - counts[b] || MODULE_ORDER.indexOf(a) - MODULE_ORDER.indexOf(b));
+    const load = (m) => counts[m] / (MODULE_WEIGHT[m] ?? 1);
+    const order = MODULE_ORDER.slice().sort((a, b) => load(a) - load(b) || MODULE_ORDER.indexOf(a) - MODULE_ORDER.indexOf(b));
     for (const m of order) {
       const p = pickNext(defsByModule[m] ?? [], records, newLeft, now, skip);
       if (p.def && p.isNew) return p;

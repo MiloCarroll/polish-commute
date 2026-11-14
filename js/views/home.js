@@ -50,9 +50,11 @@ export function homeView() {
             <a class="btn primary" href="#/settings">Back up now</a></div>
         </div>` : ''}
       <div class="tiles">${tiles}</div>
+      <div class="extra-modes">
+        <a class="btn secondary" href="#/practice/all"><span>Practice</span><span class="small muted">Extra tests, no scheduling</span></a>
+        <a class="btn secondary" href="#/listen"><span>Hands-free</span><span class="small muted">Listen with the screen off</span></a>
+      </div>
       <nav class="links">
-        <a href="#/practice/all">Practise</a>
-        <a href="#/listen">Hands-free</a>
         <a href="#/stats">Stats</a>
         <a href="#/phrase/new">Add phrase</a>
         <a href="#/settings">Settings</a>

@@ -54,3 +54,10 @@ test('respects the shared allowance and counts per module', () => {
   assert.equal(new Set(shown).size, 2, 'only two distinct new cards (then their learning steps)');
   assert.deepEqual(newTodayByModule(logs, at(2026, 11, 10, 9)), { pronunciation: 1, vocabulary: 1, grammar: 0, dialogues: 0 });
 });
+
+test('conversations get half the new cards of each other module', () => {
+  const mods = { ...byModule(), pronunciation: defs('pronunciation', 'p', 9), vocabulary: defs('vocabulary', 'v', 9), grammar: defs('grammar', 'g', 9), dialogues: defs('dialogues', 'd', 9) };
+  const { shown } = run(mods, new Map(), 14, at(2026, 11, 10, 8), 14);
+  const count = (p) => shown.filter((id) => id.startsWith(`${p}-`)).length;
+  assert.deepEqual([count('p'), count('v'), count('g'), count('d')], [4, 4, 4, 2]);
+});

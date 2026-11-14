@@ -361,7 +361,7 @@ function typedSentenceCard(ctx, { body, answer, voice = {}, autoplay = false, af
       <p class="sentence pl answer-word" lang="pl">${words}
         <button class="icon-btn small inline" data-action="say" data-text="${esc(answer)}" ${voice.gender ? `data-gender="${voice.gender}"` : ''} aria-label="Play">${speakerIcon}</button></p>
       ${notes}
-      ${afterHtml}`;
+      ${typeof afterHtml === 'function' ? afterHtml(g) : afterHtml}`;
     document.getElementById('actions').innerHTML = outcomeActions(g.rating, correct);
     tts.speak(answer, voice);
     fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -534,8 +534,8 @@ function dsay(ctx) {
       <p class="prompt sentence-prompt">${esc(line.en)}</p>`,
     answer: line.pl,
     voice: { gender: line.gender },
-    afterHtml: `${line.note ? `<p class="note">${esc(line.note)}</p>` : ''}
-      <p class="small muted">Said it differently but correctly? Tap <em>I was right</em>.</p>`,
+    afterHtml: (g) => `${line.note ? `<p class="note">${esc(line.note)}</p>` : ''}
+      ${g.result === 'correct' ? '' : '<p class="small muted">Said it differently but correctly? Tap <em>I was right</em>.</p>'}`,
   });
 }
 
