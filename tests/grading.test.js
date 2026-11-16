@@ -102,3 +102,12 @@ test('sentence dictation: missing, wrong and extra words', () => {
   assert.equal(g.result, 'wrong');
   assert.equal(gradeSentence('mam', 'Ja mam kota.').words.filter((w) => w.status === 'missing').length, 2);
 });
+
+test('conversation lines split for build-up at a sentence end, a comma, or the middle', async () => {
+  const { splitForBuildUp } = await import('../js/grading.js');
+  assert.deepEqual(splitForBuildUp('Dziękuję, jestem najedzony. Wszystko było pyszne.'), ['Dziękuję, jestem najedzony.', 'Wszystko było pyszne.']);
+  assert.deepEqual(splitForBuildUp('Tak, poproszę jeszcze trochę.'), ['Tak,', 'poproszę jeszcze trochę.']);
+  assert.deepEqual(splitForBuildUp('Mają państwo bardzo ładny dom.'), ['Mają państwo bardzo', 'ładny dom.']);
+  assert.equal(splitForBuildUp('Sama pani je zrobiła?').length, 2);
+  assert.equal(splitForBuildUp('Dziękuję, nawzajem.'), null);
+});

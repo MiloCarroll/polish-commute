@@ -3,7 +3,7 @@
 
 /** Card kinds the app marks itself. Self-graded kinds (show answer, then grade) are left out. */
 export const MARKED_KINDS = new Set([
-  'dict', 'sdict', 'gap', 'prod',            // vocabulary
+  'dict', 'sdict', 'gap', 'prod', 'contrast', // vocabulary
   'listen', 'stress',                        // pronunciation (listen = listen and choose)
   'choose', 'type',                          // grammar
   'say',                                     // conversations: typed "your turn"

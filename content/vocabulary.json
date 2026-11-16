@@ -575,6 +575,193 @@
             }
           ]
         }
+      ],
+      "contrasts": [
+        {
+          "id": "vc-01",
+          "title": "Saying hello",
+          "words": [
+            "v-0001",
+            "v-0002",
+            "v-0108"
+          ],
+          "options": [
+            {
+              "pl": "cześć",
+              "use": "Informal: your girlfriend, friends, people your age."
+            },
+            {
+              "pl": "dzień dobry",
+              "use": "Polite, from morning until it gets dark: her parents, shops, strangers."
+            },
+            {
+              "pl": "dobry wieczór",
+              "use": "Polite, once it is dark in the evening."
+            }
+          ],
+          "scenarios": [
+            {
+              "en": "Her mum opens the door to you at 11 in the morning.",
+              "answer": "dzień dobry"
+            },
+            {
+              "en": "You arrive at her parents' for dinner at 8 in the evening.",
+              "answer": "dobry wieczór",
+              "also": [
+                "dzień dobry"
+              ],
+              "why": "Dzień dobry is still fine in the early evening; once it is dark, dobry wieczór sounds right."
+            },
+            {
+              "en": "Her best friend arrives at your flat.",
+              "answer": "cześć"
+            },
+            {
+              "en": "You walk into a bakery in the morning.",
+              "answer": "dzień dobry"
+            }
+          ]
+        },
+        {
+          "id": "vc-02",
+          "title": "Saying goodbye",
+          "words": [
+            "v-0106",
+            "v-0006",
+            "v-0104",
+            "v-0117",
+            "v-0107"
+          ],
+          "options": [
+            {
+              "pl": "do widzenia",
+              "use": "Polite goodbye: her parents, shops, strangers. Fine even if you won't meet again."
+            },
+            {
+              "pl": "do zobaczenia",
+              "use": "Neutral \"see you\": fine with anyone you will see again."
+            },
+            {
+              "pl": "na razie",
+              "use": "Casual \"bye for now\": friends and family your age."
+            },
+            {
+              "pl": "do usłyszenia",
+              "use": "Goodbye at the end of a phone call (\"until we hear each other\")."
+            },
+            {
+              "pl": "dobranoc",
+              "use": "Only when going to bed or leaving late at night."
+            }
+          ],
+          "scenarios": [
+            {
+              "en": "Leaving a shop.",
+              "answer": "do widzenia"
+            },
+            {
+              "en": "Leaving her parents' after Sunday lunch.",
+              "answer": "do widzenia",
+              "also": [
+                "do zobaczenia"
+              ],
+              "why": "Both work; do widzenia is the safest polite choice with her parents."
+            },
+            {
+              "en": "Her brother heads home; you'll see him at the weekend.",
+              "answer": "na razie",
+              "also": [
+                "do zobaczenia"
+              ]
+            },
+            {
+              "en": "Ending a phone call with her mum.",
+              "answer": "do usłyszenia"
+            },
+            {
+              "en": "Everyone at her parents' is going to bed.",
+              "answer": "dobranoc"
+            }
+          ]
+        },
+        {
+          "id": "vc-03",
+          "title": "Replying to thanks or sorry",
+          "words": [
+            "v-0103",
+            "v-0115"
+          ],
+          "options": [
+            {
+              "pl": "nie ma za co",
+              "use": "Reply to thanks: \"there's nothing to thank for\"."
+            },
+            {
+              "pl": "nic nie szkodzi",
+              "use": "Reply to sorry: \"nothing harms\", i.e. never mind."
+            }
+          ],
+          "scenarios": [
+            {
+              "en": "Her mum thanks you for the flowers.",
+              "answer": "nie ma za co"
+            },
+            {
+              "en": "Her dad says sorry for keeping you waiting.",
+              "answer": "nic nie szkodzi"
+            },
+            {
+              "en": "Your girlfriend says sorry for spilling your tea.",
+              "answer": "nic nie szkodzi"
+            },
+            {
+              "en": "Your girlfriend thanks you for making dinner.",
+              "answer": "nie ma za co"
+            }
+          ]
+        },
+        {
+          "id": "vc-04",
+          "title": "Asking how someone is",
+          "words": [
+            "v-0109",
+            "v-0110",
+            "v-0111"
+          ],
+          "summary": "Jak się masz?, Co u ciebie? and Co słychać? all mean roughly \"how are you / how are things?\", and all three are informal, so pick any with your girlfriend, friends and her siblings. What matters is who you ask: with her parents, switch to pan or pani.",
+          "options": [
+            {
+              "pl": "Co u ciebie?",
+              "use": "Informal (ty): friends, her siblings. Jak się masz? and Co słychać? work here too."
+            },
+            {
+              "pl": "Co u pani słychać?",
+              "use": "Polite, to a woman: her mum, her grandmother."
+            },
+            {
+              "pl": "Co u pana słychać?",
+              "use": "Polite, to a man: her dad, her grandfather."
+            }
+          ],
+          "scenarios": [
+            {
+              "en": "Her mum picks up the phone.",
+              "answer": "Co u pani słychać?"
+            },
+            {
+              "en": "Her dad, when you arrive.",
+              "answer": "Co u pana słychać?"
+            },
+            {
+              "en": "Her sister, who is about your age.",
+              "answer": "Co u ciebie?"
+            },
+            {
+              "en": "A friend of hers you haven't seen for months.",
+              "answer": "Co u ciebie?"
+            }
+          ]
+        }
       ]
     },
     {

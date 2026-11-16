@@ -200,3 +200,20 @@ Tap the **Update available** banner first.
 
 **Conversations: your turn**
 - [ ] "Your turn" cards now ask you to type your line in Polish, marked word by word like sentence dictation.
+
+## Changes after the first week's review
+
+Tap the **Update available** banner first.
+
+**Conversations**
+- [ ] A new conversation line's *Your turn* card appears no earlier than the day after you first heard that line.
+- [ ] Until you've got a line right once, longer lines build up in steps (*Build-up 1 of 3*): type the first part with the rest shown, then the second part, then the whole line. Only the whole line is marked.
+
+**Vocabulary share**
+- [ ] Today's session brings in noticeably more new words, about one word for every new card in pronunciation or grammar.
+
+**Contrast cards** (in *Greetings*, once you've met every word in a set)
+- [ ] *Which fits?* shows a situation and some look-alike phrases. After you choose, every phrase is listed with when to use it.
+
+**Typed answers saved**
+- [ ] After a few typed cards, *Export progress* still works. The export now includes what you typed.

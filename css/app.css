@@ -467,3 +467,14 @@ textarea.sentence-input { text-align: left; font-size: 1.15rem; resize: none; }
 /* Home: practice and hands-free under the module tiles */
 .extra-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
 .extra-modes .btn { flex-direction: column; gap: 2px; min-height: 64px; text-align: center; }
+
+/* Contrast cards: every option with when to use it */
+.contrast-list { margin: 10px 0 4px; padding: 0; list-style: none; }
+.contrast-list li { padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; margin: 6px 0; }
+.contrast-list li .pl { font-weight: 600; }
+.contrast-list li .small { display: block; color: var(--muted); }
+.contrast-list li.is-answer { border-color: var(--ok); }
+.contrast-list li.is-chosen { border-color: var(--again); }
+
+/* Conversation build-up: the part already given, with a blank for the rest */
+.build-up { margin: 8px 0; }

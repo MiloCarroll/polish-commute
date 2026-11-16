@@ -1,9 +1,10 @@
-// Exercise renderers. Each takes a context and calls ctx.done(rating) when the card is finished.
+// Exercise renderers. Each takes a context and calls ctx.done(rating, answer?) when the card
+// is finished; marked cards pass what was typed or chosen, which is kept in the review log.
 //   ctx = { def, item, topic, head, title, back, done(rating) }
 // `head` is the small counts line shown above every card.
 // Lookup: EXERCISES[`${module}/${kind}`] first, then EXERCISES[kind].
 import { Rating, previewIntervals } from './scheduler.js';
-import { grade, diffExpected, normalise, MESSAGES, gradeSentence, SENTENCE_MESSAGES } from './grading.js';
+import { grade, diffExpected, normalise, MESSAGES, gradeSentence, SENTENCE_MESSAGES, splitForBuildUp } from './grading.js';
 import { render, esc, speakerIcon, onAction, $ } from './ui.js';
 import { attachAccentBar, hideAccentBar } from './accentbar.js';
 import { resolveExample, resolveDrill, gapExample, splitGap, resolveLine, roleLabel } from './variants.js';
@@ -140,6 +141,7 @@ export function itemDetails(item, { showWord = true } = {}) {
  */
 function typedCard(ctx, { body, answers, homophones = false, afterHtml = () => '', speak, autoplayText, handlers = {} }) {
   let attempt = 1;
+  let firstTry = null; // what was typed before a "nearly: try again"
   render({
     title: ctx.title, back: ctx.back,
     body: `${ctx.head}
@@ -168,6 +170,7 @@ function typedCard(ctx, { body, answers, homophones = false, afterHtml = () => '
     fb.hidden = false;
     if (g.retry) {
       attempt = 2;
+      firstTry = input.value;
       fb.innerHTML = `<p class="verdict warn">${MESSAGES.typo}</p>`;
       input.focus();
       input.select();
@@ -195,11 +198,16 @@ function typedCard(ctx, { body, answers, homophones = false, afterHtml = () => '
     onAction({
       ...handlers,
       say: sayEl,
-      finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+      finish: guard((b) => ctx.done(Number(b.dataset.rating), answerLog(input.value, g.result, firstTry))),
     });
   }
 
   onAction({ ...handlers, say: sayEl, check: () => check() });
+}
+
+/** What gets stored with the review: the answer, how it was marked, and any first try. */
+function answerLog(typed, result, first = null) {
+  return { typed, result, ...(first != null ? { first } : {}) };
 }
 
 // ---- Vocabulary: recognition (Polish → English, self-graded) --------------
@@ -323,7 +331,11 @@ function sentenceFeedback(g) {
  *   autoplay: play the answer when the card appears (dictation)
  *   afterHtml: extra HTML after marking; handlers: extra actions (e.g. play/slow)
  */
-function typedSentenceCard(ctx, { body, answer, voice = {}, autoplay = false, afterHtml = '', handlers = {} }) {
+/**
+ * A typed sentence, marked word by word. `next`, when given, makes this an in-between step:
+ * one Continue button that calls next() instead of grading the card, and no audio.
+ */
+function typedSentenceCard(ctx, { body, answer, voice = {}, autoplay = false, afterHtml = '', handlers = {}, next = null }) {
   render({
     title: ctx.title, back: ctx.back,
     body: `${ctx.head}
@@ -362,10 +374,13 @@ function typedSentenceCard(ctx, { body, answer, voice = {}, autoplay = false, af
         <button class="icon-btn small inline" data-action="say" data-text="${esc(answer)}" ${voice.gender ? `data-gender="${voice.gender}"` : ''} aria-label="Play">${speakerIcon}</button></p>
       ${notes}
       ${typeof afterHtml === 'function' ? afterHtml(g) : afterHtml}`;
-    document.getElementById('actions').innerHTML = outcomeActions(g.rating, correct);
-    tts.speak(answer, voice);
+    document.getElementById('actions').innerHTML = next
+      ? '<button class="btn primary" data-action="continue">Continue</button>'
+      : outcomeActions(g.rating, correct);
+    if (!next) tts.speak(answer, voice);
     fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    onAction({ ...handlers, say: sayEl, finish: guard((b) => ctx.done(Number(b.dataset.rating))) });
+    if (next) { onAction({ ...handlers, say: sayEl, continue: guard(() => next()) }); return; }
+    onAction({ ...handlers, say: sayEl, finish: guard((b) => ctx.done(Number(b.dataset.rating), answerLog(input.value, g.result))) });
   }
 
   onAction({ ...handlers, say: sayEl, check: () => check() });
@@ -478,6 +493,50 @@ function vsay(ctx) {
   });
 }
 
+// ---- Vocabulary: contrast (which of these look-alikes fits the situation?) ---
+
+function contrast(ctx) {
+  const c = ctx.item;
+  const sc = c.scenarios[Math.floor(Math.random() * c.scenarios.length)];
+  const options = shuffle(c.options);
+  render({
+    title: ctx.title, back: ctx.back,
+    body: `${ctx.head}
+      <div class="card study">
+        <p class="question">Which fits? <span class="muted small">${esc(c.title)}</span></p>
+        <p class="prompt sentence-prompt">${esc(sc.en)}</p>
+        <div id="feedback" hidden></div>
+      </div>`,
+    actions: `<div class="options">${options.map((o) =>
+      `<button class="btn option pl" lang="pl" data-action="choose" data-value="${esc(o.pl)}">${esc(o.pl)}</button>`).join('')}</div>`,
+  });
+  onAction({
+    choose: guard((el) => {
+      const chosen = el.dataset.value;
+      const best = chosen === sc.answer;
+      const ok = best || (sc.also ?? []).includes(chosen);
+      const fb = $('#feedback');
+      fb.hidden = false;
+      fb.innerHTML = `
+        <p class="verdict ${best ? 'ok' : ok ? 'warn' : 'bad'}">${best ? 'Correct' : ok ? 'Also fine' : 'Not quite'}</p>
+        <p class="answer-word pl" lang="pl">${esc(sc.answer)}
+          <button class="icon-btn small inline" data-action="say" data-text="${esc(sc.answer)}" aria-label="Play">${speakerIcon}</button></p>
+        ${sc.why ? `<p class="note">${esc(sc.why)}</p>` : ''}
+        ${c.summary ? `<p class="small">${esc(c.summary)}</p>` : ''}
+        <ul class="contrast-list">${c.options.map((o) => `
+          <li class="${o.pl === sc.answer ? 'is-answer' : o.pl === chosen ? 'is-chosen' : ''}">
+            <span class="pl" lang="pl">${esc(o.pl)}</span> <span class="small">${esc(o.use)}</span></li>`).join('')}</ul>`;
+      document.getElementById('actions').innerHTML = outcomeActions(ok ? Rating.Good : Rating.Again, ok);
+      tts.speak(sc.answer);
+      onAction({
+        say: sayEl,
+        finish: guard((b) => ctx.done(Number(b.dataset.rating), answerLog(chosen, best ? 'correct' : ok ? 'also' : 'wrong'))),
+      });
+      fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }),
+  });
+}
+
 // ---- Dialogues -----------------------------------------------------------------
 
 /** The line before this one, shown for context (text, translation and play button). */
@@ -527,16 +586,33 @@ function dsay(ctx) {
   const line = resolveLine(ctx.item, ctx.topic.cast, genders());
   const to = line.to && line.to !== 'all'
     ? `, to ${esc(roleLabel(line.to, ctx.topic.cast).replace(/^(Your|Her|His|Our) /, (w) => w.toLowerCase()))}` : '';
-  typedSentenceCard(ctx, {
-    body: `
+  const voice = { gender: line.gender };
+  const intro = (step) => `
       ${previousLine(ctx)}
-      <p class="small muted">Your turn${to}. Type it in Polish:</p>
-      <p class="prompt sentence-prompt">${esc(line.en)}</p>`,
+      <p class="small muted">Your turn${to}.${step ? ` <span class="pill">Build-up ${step} of 3</span>` : ''}</p>
+      <p class="prompt sentence-prompt">${esc(line.en)}</p>`;
+  const whole = () => typedSentenceCard(ctx, {
+    body: `${intro(parts ? 3 : 0)}<p class="small muted">${parts ? 'Now the whole line' : 'Type it in Polish'}:</p>`,
     answer: line.pl,
-    voice: { gender: line.gender },
+    voice,
     afterHtml: (g) => `${line.note ? `<p class="note">${esc(line.note)}</p>` : ''}
       ${g.result === 'correct' ? '' : '<p class="small muted">Said it differently but correctly? Tap <em>I was right</em>.</p>'}`,
   });
+
+  // Until a line has been got right once, build it up: first part (with the rest shown),
+  // second part (with the first shown), then the whole line, which is the one marked.
+  const record = state.records.get(ctx.def.id);
+  const parts = (record?.successes ?? 0) > 0 ? null : splitForBuildUp(line.pl);
+  if (!parts) { whole(); return; }
+  const [first, second] = parts;
+  const step = (n, answer, shown) => typedSentenceCard(ctx, {
+    body: `${intro(n)}
+      <p class="small muted">Type the missing part:</p>
+      <p class="sentence pl build-up" lang="pl">${n === 1 ? `<span class="blank">…</span> ${esc(shown)}` : `${esc(shown)} <span class="blank">…</span>`}</p>`,
+    answer, voice,
+    next: n === 1 ? () => step(2, second, first) : whole,
+  });
+  step(1, first, second);
 }
 
 // ---- Pronunciation: listen and choose --------------------------------------
@@ -583,7 +659,7 @@ function listen(ctx) {
       onAction({
         play: () => tts.speak(item.pl),
         slow: () => tts.speak(item.pl, { slow: true }),
-        finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+        finish: guard((b) => ctx.done(Number(b.dataset.rating), answerLog(el.dataset.value, correct ? 'correct' : 'wrong'))),
       });
     }),
   });
@@ -645,7 +721,7 @@ function stress(ctx) {
       onAction({
         play: () => tts.speak(item.pl),
         slow: () => tts.speak(item.pl, { slow: true }),
-        finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+        finish: guard((b) => ctx.done(Number(b.dataset.rating), answerLog(item.syll[i], correct ? 'correct' : 'wrong'))),
       });
     }),
   });
@@ -693,7 +769,7 @@ function gchoose(ctx) {
       tts.speak(d.pl, { gender: dG });
       onAction({
         say: sayEl,
-        finish: guard((b) => ctx.done(Number(b.dataset.rating))),
+        finish: guard((b) => ctx.done(Number(b.dataset.rating), answerLog(el.dataset.value, correct ? 'correct' : 'wrong'))),
       });
     }),
   });
@@ -721,6 +797,7 @@ export const EXERCISES = {
   'vocabulary/dict': vdict,
   'vocabulary/sdict': sdict,
   'vocabulary/say': vsay,
+  'vocabulary/contrast': contrast,
   'dialogues/listen': dlisten,
   'dialogues/say': dsay,
   'pronunciation/listen': listen,

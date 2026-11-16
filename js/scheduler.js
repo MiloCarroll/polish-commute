@@ -42,7 +42,7 @@ function toFsrsCard(record, now) {
  * Apply a rating. Returns the new record and a review-log entry (kept forever so FSRS
  * parameters can be optimised later).
  */
-export function applyReview(def, record, rating, now = new Date(), retention = 0.9, durationMs = 0) {
+export function applyReview(def, record, rating, now = new Date(), retention = 0.9, durationMs = 0, answer = null) {
   const { card, log } = getScheduler(retention).next(toFsrsCard(record, now), now, rating);
   const newRecord = {
     id: def.id,
@@ -58,6 +58,8 @@ export function applyReview(def, record, rating, now = new Date(), retention = 0
     state: card.state,
     last_review: card.last_review ? new Date(card.last_review).getTime() : now.getTime(),
     successes: (record?.successes ?? 0) + (rating === Rating.Again ? 0 : 1),
+    // When the card was first answered. Older records don't have it (treated as long ago).
+    ...(record ? (record.first_review != null ? { first_review: record.first_review } : {}) : { first_review: now.getTime() }),
   };
   const logEntry = {
     cardId: def.id,
@@ -73,6 +75,8 @@ export function applyReview(def, record, rating, now = new Date(), retention = 0
     learning_steps: log.learning_steps,
     review: new Date(log.review).getTime(),
     duration: durationMs,
+    // What was typed or chosen on marked cards ({ typed, first? }), so mistakes can be analysed later.
+    ...(answer ? { answer } : {}),
   };
   return { record: newRecord, log: logEntry };
 }
@@ -118,10 +122,21 @@ export function newRemaining(newPerDay, logs, now = new Date()) {
 
 // ---- Availability ----------------------------------------------------------
 
-/** A card is unlocked when it has no prerequisite, or its prerequisite has been seen (answered once, any grade). */
-export function isUnlocked(def, records) {
+/**
+ * A card is unlocked when it has no prerequisite, or its prerequisites have been seen
+ * (answered once, any grade). `requires` is one card id or a list of them. With
+ * `requiresEarlierDay`, the prerequisite must first have been answered on an earlier study
+ * day (conversation "your turn" cards: hear the line one day, produce it from the next).
+ */
+export function isUnlocked(def, records, now = new Date()) {
   if (!def.requires) return true;
-  return records.has(def.requires);
+  const ids = Array.isArray(def.requires) ? def.requires : [def.requires];
+  const today = dayStart(now).getTime();
+  return ids.every((id) => {
+    const rec = records.get(id);
+    if (!rec) return false;
+    return !def.requiresEarlierDay || rec.first_review == null || rec.first_review < today;
+  });
 }
 
 /** Studied card that is due at some point today (before the next 04:00). */
@@ -141,7 +156,7 @@ export function countCards(defs, records, now = new Date()) {
       studied++;
       if ((rec.successes ?? 0) > 0) learned++;
       if (isDueToday(rec, now)) due++;
-    } else if (isUnlocked(def, records)) {
+    } else if (isUnlocked(def, records, now)) {
       newAvailable++;
     }
   }
@@ -168,7 +183,7 @@ export function pickNext(defs, records, newLeft, now = new Date(), skip = new Se
     if (skip.has(def.id)) continue;
     const rec = records.get(def.id);
     if (!rec) {
-      if (!firstNew && isUnlocked(def, records)) firstNew = def;
+      if (!firstNew && isUnlocked(def, records, now)) firstNew = def;
       continue;
     }
     if (rec.due <= t) {

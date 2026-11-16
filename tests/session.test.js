@@ -28,7 +28,8 @@ function run(mods, records, newPerDay, now, steps) {
 
 test('new cards are shared out across the three modules', () => {
   const { shown } = run(byModule(), new Map(), 6, at(2026, 11, 10, 8), 6);
-  assert.deepEqual(shown, ['p-1', 'v-1', 'g-1', 'p-2', 'v-2', 'g-2']);
+  // Every module gets a turn; vocabulary then catches up (it counts about a quarter per card).
+  assert.deepEqual(shown, ['p-1', 'v-1', 'g-1', 'v-2', 'v-3', 'p-2']);
 });
 
 test('due reviews from any module come before new cards', () => {
@@ -55,9 +56,9 @@ test('respects the shared allowance and counts per module', () => {
   assert.deepEqual(newTodayByModule(logs, at(2026, 11, 10, 9)), { pronunciation: 1, vocabulary: 1, grammar: 0, dialogues: 0 });
 });
 
-test('conversations get half the new cards of each other module', () => {
-  const mods = { ...byModule(), pronunciation: defs('pronunciation', 'p', 9), vocabulary: defs('vocabulary', 'v', 9), grammar: defs('grammar', 'g', 9), dialogues: defs('dialogues', 'd', 9) };
-  const { shown } = run(mods, new Map(), 14, at(2026, 11, 10, 8), 14);
+test('vocabulary gets four cards (about a word) per card elsewhere; conversations half', () => {
+  const mods = { ...byModule(), pronunciation: defs('pronunciation', 'p', 30), vocabulary: defs('vocabulary', 'v', 30), grammar: defs('grammar', 'g', 30), dialogues: defs('dialogues', 'd', 30) };
+  const { shown } = run(mods, new Map(), 26, at(2026, 11, 10, 8), 26);
   const count = (p) => shown.filter((id) => id.startsWith(`${p}-`)).length;
-  assert.deepEqual([count('p'), count('v'), count('g'), count('d')], [4, 4, 4, 2]);
+  assert.deepEqual([count('p'), count('v'), count('g'), count('d')], [4, 16, 4, 2]);
 });

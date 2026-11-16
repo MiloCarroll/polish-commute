@@ -70,3 +70,20 @@ test('vocabulary: items with a listening card also get a whole-sentence "say" ca
   assert.ok(mod.defs.some((d) => d.id === 'v-0001-say' && d.requires === 'v-0001-rec'));
   assert.ok(!mod.defs.some((d) => d.id === 'v-0002-say'), "no say card for the partner's lines");
 });
+
+test('contrast cards need all their words seen and come after the last word\'s batch', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { buildModule: build } = await import('../js/content.js');
+  const mod = build(JSON.parse(readFileSync(new URL('../content/vocabulary.json', import.meta.url), 'utf8')));
+  const c = mod.defs.find((d) => d.id === 'vc-02');
+  assert.equal(c.kind, 'contrast');
+  assert.deepEqual(c.requires, ['v-0106-rec', 'v-0006-rec', 'v-0104-rec', 'v-0117-rec', 'v-0107-rec']);
+  const ids = mod.defs.map((d) => d.id);
+  assert.ok(ids.indexOf('vc-02') > ids.indexOf('v-0117-say') || ids.indexOf('vc-02') > ids.indexOf('v-0117-prod'));
+  for (const t of mod.topics) for (const k of t.contrasts ?? []) for (const s of k.scenarios) {
+    const pls = k.options.map((o) => o.pl);
+    for (const w of k.words) assert.ok(mod.items.has(w), `${k.id}: unknown word ${w}`);
+    assert.ok(pls.includes(s.answer), `${k.id}: ${s.answer}`);
+    for (const a of s.also ?? []) assert.ok(pls.includes(a), `${k.id}: ${a}`);
+  }
+});

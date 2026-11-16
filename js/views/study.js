@@ -113,11 +113,11 @@ export function studyView(scope, topicId) {
 
     exercise({
       def, item, topic, head, title, back,
-      done: async (rating) => {
+      done: async (rating, answer = null) => {
         tts.stop();
         const now = new Date();
         const { record, log } = applyReview(def, state.records.get(def.id), rating,
-          now, settings().retention, now.getTime() - shownAt);
+          now, settings().retention, now.getTime() - shownAt, answer);
         const handle = await recordReview(record, log);
         undo = { handle, def, isNew, topic };
         lastId = def.id;

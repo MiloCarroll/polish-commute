@@ -6,8 +6,13 @@ import { State } from './scheduler.js';
 
 export const MODULE_ORDER = ['pronunciation', 'vocabulary', 'grammar', 'dialogues'];
 
-/** Share of the day's new cards each module gets, relative to the others (conversations: half). */
-export const MODULE_WEIGHT = { pronunciation: 1, vocabulary: 1, grammar: 1, dialogues: 0.5 };
+/**
+ * Share of the day's new cards each module gets, relative to the others. Vocabulary is
+ * shared out by words rather than cards: each word brings about four cards (recognition,
+ * dictation, English → Polish, and gap, sentence or listening cards), so it gets four
+ * times the cards, i.e. one new word for each new card in another module. Conversations: half.
+ */
+export const MODULE_WEIGHT = { pronunciation: 1, vocabulary: 4, grammar: 1, dialogues: 0.5 };
 
 /** New cards introduced today per module (first-ever review today). */
 export function newTodayByModule(todayLogs, now = new Date()) {
@@ -27,7 +32,7 @@ export function newTodayByModule(todayLogs, now = new Date()) {
  *   defsByModule: { pronunciation: [...], vocabulary: [...], grammar: [...] } in suggested order
  * 1. Any due card from any module (same priority rules as pickNext).
  * 2. Otherwise a new card from the module that has introduced the fewest new cards today
- *    relative to its weight (conversations get half as many as each other module)
+ *    relative to its weight (vocabulary about one word per card elsewhere, conversations half)
  *    (ties in the order pronunciation, vocabulary, grammar), so the day's allowance is
  *    spread across all three and no module is neglected.
  * Returns the same shape as pickNext.

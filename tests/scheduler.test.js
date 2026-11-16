@@ -118,3 +118,29 @@ test('formatInterval', () => {
   assert.equal(formatInterval(3 * 3600_000), '3h');
   assert.equal(formatInterval(4 * 86400_000), '4d');
 });
+
+test('"your turn" cards wait until the line was first heard on an earlier day', async () => {
+  const { isUnlocked: unlocked } = await import('../js/scheduler.js');
+  const listen = { id: 'd-1-listen', module: 'dialogues', kind: 'listen' };
+  const say = { id: 'd-1-say', module: 'dialogues', kind: 'say', requires: 'd-1-listen', requiresEarlierDay: true };
+  const day1 = new Date(2026, 10, 10, 9);
+  const records = new Map([['d-1-listen', applyReview(listen, undefined, Rating.Good, day1).record]]);
+  assert.equal(unlocked(say, records, new Date(2026, 10, 10, 22)), false, 'same day');
+  assert.equal(unlocked(say, records, new Date(2026, 10, 11, 3)), false, 'before 04:00 is still the same study day');
+  assert.equal(unlocked(say, records, new Date(2026, 10, 11, 5)), true, 'next day');
+  // Records from before first_review existed count as heard long ago.
+  const old = { ...records.get('d-1-listen') }; delete old.first_review;
+  assert.equal(unlocked(say, new Map([['d-1-listen', old]]), new Date(2026, 10, 10, 22)), true);
+  // A list of prerequisites: all must have been seen.
+  const both = { id: 'c', requires: ['d-1-listen', 'x'] };
+  assert.equal(unlocked(both, records, day1), false);
+  records.set('x', records.get('d-1-listen'));
+  assert.equal(unlocked(both, records, day1), true);
+});
+
+test('the answer typed is kept in the review log', () => {
+  const def = { id: 'v-1-dict', module: 'vocabulary', kind: 'dict' };
+  const { log } = applyReview(def, undefined, Rating.Again, new Date(), 0.9, 5000, { typed: 'dzien dobry' });
+  assert.deepEqual(log.answer, { typed: 'dzien dobry' });
+  assert.equal('answer' in applyReview(def, undefined, Rating.Good).log, false);
+});

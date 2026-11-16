@@ -42,7 +42,8 @@ export function cardsForItem(module, topic, item) {
       // unlocked once its listening card has been answered correctly.
       const listen = { id: `${item.id}-listen`, module, topic: topic.id, item: item.id, kind: 'listen' };
       if (item.who !== 'learner') return [listen];
-      return [listen, { id: `${item.id}-say`, module, topic: topic.id, item: item.id, kind: 'say', requires: listen.id }];
+      // "Your turn" waits until the line was first heard on an earlier day.
+      return [listen, { id: `${item.id}-say`, module, topic: topic.id, item: item.id, kind: 'say', requires: listen.id, requiresEarlierDay: true }];
     }
     case 'grammar':
       // One card per drill; the drill ID is the card ID (e.g. "g-03-017").
@@ -61,11 +62,19 @@ export function buildModule(json) {
       items.set(item.id, item);
       topic.cards.push(...cardsForItem(json.module, topic, item));
     }
+    // Vocabulary contrast cards ("which fits?") for look-alike words, once all are seen.
+    for (const c of topic.contrasts ?? []) {
+      c.pl = c.options.map((o) => o.pl).join(' / ');
+      items.set(c.id, c);
+      topic.cards.push({ id: c.id, module: json.module, topic: topic.id, item: c.id, kind: 'contrast', requires: c.words.map((w) => `${w}-rec`) });
+    }
     // New cards are introduced in this order. Within a topic, all listening cards come
     // before dictation, so a word's spelling isn't shown just before you have to type it.
     if (json.module === 'vocabulary') {
       const batch = new Map(topic.items.map((it, i) => [it.id, Math.floor(i / VOCAB_BATCH)]));
-      const rank = (d) => VOCAB_KIND_ORDER.indexOf(d.kind);
+      // A contrast card comes after the batch of the last of its words.
+      for (const c of topic.contrasts ?? []) batch.set(c.id, Math.max(...c.words.map((w) => batch.get(w) ?? 0)));
+      const rank = (d) => (d.kind === 'contrast' ? VOCAB_KIND_ORDER.length : VOCAB_KIND_ORDER.indexOf(d.kind));
       topic.cards.sort((a, b) => batch.get(a.item) - batch.get(b.item) || rank(a) - rank(b));
     } else {
       const rank = (d) => KIND_ORDER.indexOf(d.kind);

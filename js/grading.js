@@ -214,3 +214,26 @@ export const SENTENCE_MESSAGES = {
   oneoff: 'One word off',
   wrong: 'Not quite',
 };
+
+/**
+ * Split a conversation line in two for the build-up steps (type the first part, then the
+ * second, then the whole line). Splits after a sentence end if there is one, otherwise
+ * after the comma nearest the middle, otherwise in the middle. Lines under four words
+ * aren't split (returns null).
+ */
+export function splitForBuildUp(text) {
+  const words = text.trim().split(/\s+/);
+  if (words.length < 4) return null;
+  const mid = words.length / 2;
+  const nearest = (re) => {
+    let best = -1;
+    for (let i = 0; i < words.length - 1; i++) {
+      if (re.test(words[i]) && (best < 0 || Math.abs(i + 1 - mid) < Math.abs(best + 1 - mid))) best = i;
+    }
+    return best;
+  };
+  let at = nearest(/[.!?…]$/);
+  if (at < 0) at = nearest(/[,;:]$/);
+  const cut = at >= 0 ? at + 1 : Math.ceil(mid);
+  return [words.slice(0, cut).join(' '), words.slice(cut).join(' ')];
+}
