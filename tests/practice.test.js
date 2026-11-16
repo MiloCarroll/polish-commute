@@ -51,3 +51,17 @@ test('hands-free: steps per mode', () => {
   assert.equal(stepsFor({ pl: 'p', en: null }, 'speak', 4), null);
   assert.deepEqual(stepsFor({ pl: 'p', en: null }, 'understand', 4).filter((x) => x.clip).length, 2);
 });
+
+test('workload forecast: more new cards a day means more reviews later', async () => {
+  const { forecast, forecastAverage } = await import('../js/stats.js');
+  const now = new Date(2026, 10, 16, 12);
+  const low = forecast([], { newPerDay: 10, now, days: 21 });
+  const high = forecast([], { newPerDay: 40, now, days: 21 });
+  assert.equal(low.length, 21);
+  assert.equal(low[0].reviews, 0, 'nothing started before tomorrow, so no reviews on day one');
+  assert.ok(low[0].newShown >= 10, 'each new card is shown at least once');
+  const l = forecastAverage(low, 14, 21), h = forecastAverage(high, 14, 21);
+  assert.ok(l.reviews > 0 && h.reviews > 2.5 * l.reviews, `${l.reviews} vs ${h.reviews}`);
+  // Same inputs, same answer (seeded).
+  assert.deepEqual(forecast([], { newPerDay: 10, now, days: 5 }).map((d) => d.newShown), forecast([], { newPerDay: 10, now, days: 5 }).map((d) => d.newShown));
+});

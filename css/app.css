@@ -478,3 +478,7 @@ textarea.sentence-input { text-align: left; font-size: 1.15rem; resize: none; }
 
 /* Conversation build-up: the part already given, with a blank for the rest */
 .build-up { margin: 8px 0; }
+
+/* Workload forecast table */
+.forecast th { font-size: 0.8rem; font-weight: 600; color: var(--muted); padding: 4px; border-bottom: 1px solid var(--line); vertical-align: bottom; }
+.forecast tr.current td { font-weight: 700; background: var(--accent-soft); }

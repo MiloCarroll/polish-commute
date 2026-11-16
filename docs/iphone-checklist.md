@@ -217,3 +217,15 @@ Tap the **Update available** banner first.
 
 **Typed answers saved**
 - [ ] After a few typed cards, *Export progress* still works. The export now includes what you typed.
+
+## Additions: case-ending drills and workload forecast
+
+Tap the **Update available** banner first.
+
+**Grammar** (three new topics after *Negation and the genitive*)
+- [ ] *Where? W and na + locative*, *To, from and at: do, z, od, u + genitive* and *With: z + instrumental* each have a lesson and about 32 drills.
+- [ ] Until the new audio is made (`node tools/make-audio.js`), these sentences use the phone's own Polish voice.
+
+**Stats → Workload forecast**
+- [ ] A table of new cards a day (20, 30, 40, 50 and your setting) with reviews a day in week 1 and week 4, and time a day by week 4. Your setting is highlighted, with your recent minutes a day below.
+- [ ] Settings → *New cards per day* links to it.

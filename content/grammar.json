@@ -2547,6 +2547,1334 @@
       ]
     },
     {
+      "id": "g-09",
+      "title": "Where? W and na + locative",
+      "lesson": {
+        "summary": "To say where something is, use w (in) or na (on, at) with the locative case: w domu, w kuchni, na stole.",
+        "body": [
+          "After {{w}} and {{na}} meaning \"where\", the noun changes its ending. Feminine nouns in -a usually take -e, and the consonant before it often softens: {{szkoła}} → {{w szkole}}, {{Warszawa}} → {{w Warszawie}}, {{łazienka}} → {{w łazience}}. Nouns in -ia, -ca and soft consonants take -i or -y instead: {{kuchnia}} → {{w kuchni}}, {{praca}} → {{w pracy}}, {{kieszeń}} → {{w kieszeni}}.",
+          "Masculine and neuter nouns mostly take -e too, again softening the consonant: {{stół}} → {{na stole}}, {{Kraków}} → {{w Krakowie}}, {{biuro}} → {{w biurze}}. After k, g and ch, and for neuters in -e, the ending is -u: {{łóżko}} → {{na łóżku}}, {{rynek}} → {{na rynku}}, {{mieszkanie}} → {{w mieszkaniu}}. {{Dom}} is an exception worth knowing: {{w domu}}."
+        ],
+        "table": {
+          "caption": "Common places",
+          "head": [
+            "Word",
+            "Where?"
+          ],
+          "rows": [
+            [
+              "{{dom}}",
+              "{{w domu}}"
+            ],
+            [
+              "{{kuchnia}}",
+              "{{w kuchni}}"
+            ],
+            [
+              "{{praca}}",
+              "{{w pracy}}"
+            ],
+            [
+              "{{szkoła}}",
+              "{{w szkole}}"
+            ],
+            [
+              "{{sklep}}",
+              "{{w sklepie}}"
+            ],
+            [
+              "{{stół}}",
+              "{{na stole}}"
+            ],
+            [
+              "{{Polska}}",
+              "{{w Polsce}}"
+            ],
+            [
+              "{{poczta}}",
+              "{{na poczcie}}"
+            ]
+          ]
+        },
+        "more": [
+          "W or na? {{W}} is for inside a place: {{w domu}}, {{w sklepie}}, {{w pracy}}. {{Na}} is for surfaces ({{na stole}}), open spaces and events ({{na ulicy}}, {{na rynku}}, {{na weselu}}), and some places you simply learn: {{na poczcie}}, {{na dworcu}}, {{na uniwersytecie}}.",
+          "{{O}} (about) takes the locative too: {{o mamie}}, {{o pracy}}, {{o tobie}}. That is why it was {{o panu}} in the conversation with her dad.",
+          "The softening follows a pattern: t → ci, d → dzi, s → si, r → rz, ł → l, k → c, g → dz. So {{miasto}} → {{w mieście}} and {{ogród}} → {{w ogrodzie}}. Learning the common places as whole phrases is the quickest route."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-09-001",
+          "type": "choose",
+          "pl": "Jestem w domu.",
+          "en": "I'm at home.",
+          "gap": "domu",
+          "hint": "dom",
+          "options": [
+            "dom",
+            "domu",
+            "domem"
+          ],
+          "alts": [],
+          "reason": "Dom is an exception: w domu."
+        },
+        {
+          "id": "g-09-002",
+          "type": "choose",
+          "pl": "Mama jest w kuchni.",
+          "en": "Mum is in the kitchen.",
+          "gap": "kuchni",
+          "hint": "kuchnia",
+          "options": [
+            "kuchnia",
+            "kuchni",
+            "kuchnię"
+          ],
+          "alts": [],
+          "reason": "Kuchnia ends in -ia, so the locative is kuchni."
+        },
+        {
+          "id": "g-09-003",
+          "type": "choose",
+          "pl": "Chleb jest na stole.",
+          "en": "The bread is on the table.",
+          "gap": "stole",
+          "hint": "stół",
+          "options": [
+            "stół",
+            "stole",
+            "stołu"
+          ],
+          "alts": [],
+          "reason": "Stół → na stole: ó becomes o and ł softens to l before -e."
+        },
+        {
+          "id": "g-09-004",
+          "type": "choose",
+          "pl": "Jestem w pracy.",
+          "en": "I'm at work.",
+          "gap": "pracy",
+          "hint": "praca",
+          "options": [
+            "praca",
+            "pracy",
+            "pracę"
+          ],
+          "alts": [],
+          "reason": "Praca ends in -ca, so the locative is pracy."
+        },
+        {
+          "id": "g-09-005",
+          "type": "choose",
+          "pl": "Mieszkamy w Krakowie.",
+          "en": "We live in Kraków.",
+          "gap": "Krakowie",
+          "hint": "Kraków",
+          "options": [
+            "Kraków",
+            "Krakowie",
+            "Krakowa"
+          ],
+          "alts": [],
+          "reason": "Kraków → w Krakowie: ó becomes o, then -ie."
+        },
+        {
+          "id": "g-09-006",
+          "type": "choose",
+          "pl": "Jej rodzice mieszkają w Polsce.",
+          "en": "Her parents live in Poland.",
+          "gap": "Polsce",
+          "hint": "Polska",
+          "options": [
+            "Polska",
+            "Polsce",
+            "Polski"
+          ],
+          "alts": [],
+          "reason": "Polska → w Polsce: k becomes c before -e."
+        },
+        {
+          "id": "g-09-007",
+          "type": "choose",
+          "pl": "Kot śpi na łóżku.",
+          "en": "The cat is sleeping on the bed.",
+          "gap": "łóżku",
+          "hint": "łóżko",
+          "options": [
+            "łóżko",
+            "łóżku",
+            "łóżce"
+          ],
+          "alts": [],
+          "reason": "After k the ending is -u: łóżko → na łóżku."
+        },
+        {
+          "id": "g-09-008",
+          "type": "choose",
+          "pl": "Dzieci są w szkole.",
+          "en": "The children are at school.",
+          "gap": "szkole",
+          "hint": "szkoła",
+          "options": [
+            "szkoła",
+            "szkole",
+            "szkoły"
+          ],
+          "alts": [],
+          "reason": "Szkoła → w szkole: ł softens to l before -e."
+        },
+        {
+          "id": "g-09-009",
+          "type": "choose",
+          "pl": "Telefon jest w samochodzie.",
+          "en": "The phone is in the car.",
+          "gap": "samochodzie",
+          "hint": "samochód",
+          "options": [
+            "samochód",
+            "samochodzie",
+            "samochodu"
+          ],
+          "alts": [],
+          "reason": "Samochód → w samochodzie: ó becomes o and d softens to dzi."
+        },
+        {
+          "id": "g-09-010",
+          "type": "choose",
+          "pl": "Dzieci bawią się na ulicy.",
+          "en": "The children are playing in the street.",
+          "gap": "ulicy",
+          "hint": "ulica",
+          "options": [
+            "ulica",
+            "ulicy",
+            "ulice"
+          ],
+          "alts": [],
+          "reason": "Ulica ends in -ca, so -y; streets take na: na ulicy."
+        },
+        {
+          "id": "g-09-011",
+          "type": "choose",
+          "pl": "Jestem na poczcie.",
+          "en": "I'm at the post office.",
+          "gap": "na",
+          "hint": null,
+          "options": [
+            "w",
+            "na",
+            "do"
+          ],
+          "alts": [],
+          "reason": "Poczta is one of the places that take na: na poczcie."
+        },
+        {
+          "id": "g-09-012",
+          "type": "choose",
+          "pl": "Jesteśmy w sklepie.",
+          "en": "We're in the shop.",
+          "gap": "w",
+          "hint": null,
+          "options": [
+            "w",
+            "na",
+            "do"
+          ],
+          "alts": [],
+          "reason": "A shop is a building you are inside: w sklepie."
+        },
+        {
+          "id": "g-09-013",
+          "type": "choose",
+          "pl": "Rozmawiamy o mamie.",
+          "en": "We're talking about Mum.",
+          "gap": "mamie",
+          "hint": "mama",
+          "options": [
+            "mama",
+            "mamie",
+            "mamy"
+          ],
+          "alts": [],
+          "reason": "O (about) takes the locative: mama → o mamie."
+        },
+        {
+          "id": "g-09-014",
+          "type": "choose",
+          "pl": "Spotkajmy się na rynku.",
+          "en": "Let's meet in the market square.",
+          "gap": "rynku",
+          "hint": "rynek",
+          "options": [
+            "rynek",
+            "rynku",
+            "rynkiem"
+          ],
+          "alts": [],
+          "reason": "A square is open space, so na; after k the ending is -u (and the e drops): na rynku."
+        },
+        {
+          "id": "g-09-015",
+          "type": "type",
+          "pl": "Pracuję w biurze.",
+          "en": "I work in an office.",
+          "gap": "biurze",
+          "hint": "biuro",
+          "alts": [],
+          "reason": "Biuro → w biurze: r softens to rz before -e."
+        },
+        {
+          "id": "g-09-016",
+          "type": "type",
+          "pl": "Kawa jest w kuchni.",
+          "en": "The coffee is in the kitchen.",
+          "gap": "kuchni",
+          "hint": "kuchnia",
+          "alts": [],
+          "reason": "Kuchnia → w kuchni."
+        },
+        {
+          "id": "g-09-017",
+          "type": "type",
+          "pl": "Mieszkam w Londynie.",
+          "en": "I live in London.",
+          "gap": "Londynie",
+          "hint": "Londyn",
+          "alts": [],
+          "reason": "Londyn → w Londynie: n softens to ni before -e."
+        },
+        {
+          "id": "g-09-018",
+          "type": "type",
+          "pl": "Jej siostra mieszka w Warszawie.",
+          "en": "Her sister lives in Warsaw.",
+          "gap": "Warszawie",
+          "hint": "Warszawa",
+          "alts": [],
+          "reason": "Warszawa → w Warszawie: -a becomes -ie after w."
+        },
+        {
+          "id": "g-09-019",
+          "type": "type",
+          "pl": "Książka jest na stole.",
+          "en": "The book is on the table.",
+          "gap": "stole",
+          "hint": "stół",
+          "alts": [],
+          "reason": "Stół → na stole."
+        },
+        {
+          "id": "g-09-020",
+          "type": "type",
+          "pl": "Tata jest w ogrodzie.",
+          "en": "Dad is in the garden.",
+          "gap": "ogrodzie",
+          "hint": "ogród",
+          "alts": [],
+          "reason": "Ogród → w ogrodzie: ó becomes o and d softens to dzi."
+        },
+        {
+          "id": "g-09-021",
+          "type": "type",
+          "pl": "Jesteśmy w domu.",
+          "en": "We're at home.",
+          "gap": "domu",
+          "hint": "dom",
+          "alts": [],
+          "reason": "Dom is an exception: w domu."
+        },
+        {
+          "id": "g-09-022",
+          "type": "type",
+          "pl": "Mleko jest w lodówce.",
+          "en": "The milk is in the fridge.",
+          "gap": "lodówce",
+          "hint": "lodówka",
+          "alts": [],
+          "reason": "Lodówka → w lodówce: k becomes c before -e."
+        },
+        {
+          "id": "g-09-023",
+          "type": "type",
+          "pl": "Telefon jest w torbie.",
+          "en": "The phone is in the bag.",
+          "gap": "torbie",
+          "hint": "torba",
+          "alts": [],
+          "reason": "Torba → w torbie: -a becomes -ie after b."
+        },
+        {
+          "id": "g-09-024",
+          "type": "type",
+          "pl": "Ona jest w łazience.",
+          "en": "She's in the bathroom.",
+          "gap": "łazience",
+          "hint": "łazienka",
+          "alts": [],
+          "reason": "Łazienka → w łazience: k becomes c before -e."
+        },
+        {
+          "id": "g-09-025",
+          "type": "type",
+          "pl": "Spotkamy się w kawiarni.",
+          "en": "We'll meet in the café.",
+          "gap": "kawiarni",
+          "hint": "kawiarnia",
+          "alts": [],
+          "reason": "Kawiarnia ends in -ia, so the locative is kawiarni."
+        },
+        {
+          "id": "g-09-026",
+          "type": "type",
+          "pl": "Pies śpi na kanapie.",
+          "en": "The dog is sleeping on the sofa.",
+          "gap": "kanapie",
+          "hint": "kanapa",
+          "alts": [],
+          "reason": "Kanapa → na kanapie: -a becomes -ie after p."
+        },
+        {
+          "id": "g-09-027",
+          "type": "type",
+          "pl": "Czekam w samochodzie.",
+          "en": "I'm waiting in the car.",
+          "gap": "samochodzie",
+          "hint": "samochód",
+          "alts": [],
+          "reason": "Samochód → w samochodzie."
+        },
+        {
+          "id": "g-09-028",
+          "type": "type",
+          "pl": "Mieszkamy w mieście.",
+          "en": "We live in the city.",
+          "gap": "mieście",
+          "hint": "miasto",
+          "alts": [],
+          "reason": "Miasto → w mieście: a becomes e and st softens to ści."
+        },
+        {
+          "id": "g-09-029",
+          "type": "type",
+          "pl": "Myślę o tobie.",
+          "en": "I'm thinking about you.",
+          "gap": "tobie",
+          "hint": "ty",
+          "alts": [],
+          "reason": "O + locative: ty → o tobie."
+        },
+        {
+          "id": "g-09-030",
+          "type": "type",
+          "pl": "Rozmawiamy o pracy.",
+          "en": "We're talking about work.",
+          "gap": "pracy",
+          "hint": "praca",
+          "alts": [],
+          "reason": "O + locative: praca → o pracy."
+        },
+        {
+          "id": "g-09-031",
+          "type": "type",
+          "pl": "Jestem na dworcu.",
+          "en": "I'm at the station.",
+          "gap": "dworcu",
+          "hint": "dworzec",
+          "alts": [],
+          "reason": "Dworzec takes na, and the e drops: na dworcu."
+        },
+        {
+          "id": "g-09-032",
+          "type": "type",
+          "pl": "Mieszkam w Polsce.",
+          "en": "I live in Poland.",
+          "gap": "Polsce",
+          "hint": "Polska",
+          "alts": [],
+          "reason": "Polska → w Polsce: k becomes c before -e."
+        },
+        {
+          "id": "g-09-033",
+          "type": "type",
+          "pl": "Klucze są w kieszeni.",
+          "en": "The keys are in my pocket.",
+          "gap": "kieszeni",
+          "hint": "kieszeń",
+          "alts": [],
+          "reason": "Kieszeń ends in a soft consonant, so the locative is -i: w kieszeni."
+        }
+      ]
+    },
+    {
+      "id": "g-10",
+      "title": "To, from and at: do, z, od, u + genitive",
+      "lesson": {
+        "summary": "Do (to), z (from a place), od (from a person) and u (at someone's) all take the genitive: do domu, z pracy, od mamy, u babci.",
+        "body": [
+          "You met the genitive after {{nie}}. The same forms follow {{do}}, {{z}}, {{od}} and {{u}}. Feminine -a becomes -y or -i ({{praca}} → {{z pracy}}, {{babcia}} → {{u babci}}), neuter -o or -e becomes -a ({{kino}} → {{do kina}}), and masculine nouns add -a or -u ({{brat}} → {{do brata}}, {{sklep}} → {{do sklepu}}).",
+          "Going to a person is {{do}}: {{Jadę do mamy}}. Being at their home is {{u}}: {{Jestem u mamy}}. Coming back from a place is {{z}} ({{z pracy}}, {{ze sklepu}}), but from a person it is {{od}}: {{Mam prezent od taty}}."
+        ],
+        "table": {
+          "caption": "To, at and from",
+          "head": [
+            "Where to?",
+            "Where?",
+            "Where from?"
+          ],
+          "rows": [
+            [
+              "{{do domu}}",
+              "{{w domu}}",
+              "{{z domu}}"
+            ],
+            [
+              "{{do pracy}}",
+              "{{w pracy}}",
+              "{{z pracy}}"
+            ],
+            [
+              "{{do sklepu}}",
+              "{{w sklepie}}",
+              "{{ze sklepu}}"
+            ],
+            [
+              "{{do mamy}}",
+              "{{u mamy}}",
+              "{{od mamy}}"
+            ]
+          ]
+        },
+        "more": [
+          "Before some groups of consonants {{z}} becomes {{ze}}: {{ze sklepu}}, {{ze szkoły}}.",
+          "Places that take {{na}} for \"where\" ({{na poczcie}}) use {{na}} with the accusative for \"where to\" ({{na pocztę}}, {{na dworzec}}) and {{z}} for \"from\" ({{z poczty}}).",
+          "{{Dzwonić do}} (to phone someone) also takes the genitive: {{Dzwonię do mamy}}."
+        ]
+      },
+      "items": [
+        {
+          "id": "g-10-001",
+          "type": "choose",
+          "pl": "Idę do sklepu.",
+          "en": "I'm going to the shop.",
+          "gap": "sklepu",
+          "hint": "sklep",
+          "options": [
+            "sklep",
+            "sklepu",
+            "sklepie"
+          ],
+          "alts": [],
+          "reason": "Do takes the genitive: sklep → sklepu."
+        },
+        {
+          "id": "g-10-002",
+          "type": "choose",
+          "pl": "Wracam z pracy.",
+          "en": "I'm coming back from work.",
+          "gap": "pracy",
+          "hint": "praca",
+          "options": [
+            "praca",
+            "pracy",
+            "pracę"
+          ],
+          "alts": [],
+          "reason": "Z (from a place) takes the genitive: praca → pracy."
+        },
+        {
+          "id": "g-10-003",
+          "type": "choose",
+          "pl": "Jadę do mamy.",
+          "en": "I'm going to Mum's.",
+          "gap": "mamy",
+          "hint": "mama",
+          "options": [
+            "mama",
+            "mamy",
+            "mamie"
+          ],
+          "alts": [],
+          "reason": "Do takes the genitive: mama → mamy."
+        },
+        {
+          "id": "g-10-004",
+          "type": "choose",
+          "pl": "Jesteśmy u babci.",
+          "en": "We're at Grandma's.",
+          "gap": "babci",
+          "hint": "babcia",
+          "options": [
+            "babcia",
+            "babci",
+            "babcię"
+          ],
+          "alts": [],
+          "reason": "U (at someone's) takes the genitive: babcia → babci."
+        },
+        {
+          "id": "g-10-005",
+          "type": "choose",
+          "pl": "Mam prezent od taty.",
+          "en": "I have a present from Dad.",
+          "gap": "taty",
+          "hint": "tata",
+          "options": [
+            "tata",
+            "taty",
+            "tacie"
+          ],
+          "alts": [],
+          "reason": "Od takes the genitive; tata changes like a feminine noun: taty."
+        },
+        {
+          "id": "g-10-006",
+          "type": "choose",
+          "pl": "Idziemy do kina.",
+          "en": "We're going to the cinema.",
+          "gap": "kina",
+          "hint": "kino",
+          "options": [
+            "kino",
+            "kina",
+            "kinie"
+          ],
+          "alts": [],
+          "reason": "Neuter -o becomes -a in the genitive: do kina."
+        },
+        {
+          "id": "g-10-007",
+          "type": "choose",
+          "pl": "Jestem u mamy.",
+          "en": "I'm at Mum's.",
+          "gap": "u",
+          "hint": null,
+          "options": [
+            "u",
+            "do",
+            "w"
+          ],
+          "alts": [],
+          "reason": "Being at someone's home is u: u mamy."
+        },
+        {
+          "id": "g-10-008",
+          "type": "choose",
+          "pl": "Wracam od brata.",
+          "en": "I'm coming back from my brother's.",
+          "gap": "od",
+          "hint": null,
+          "options": [
+            "od",
+            "z",
+            "u"
+          ],
+          "alts": [],
+          "reason": "From a person is od; z is for places."
+        },
+        {
+          "id": "g-10-009",
+          "type": "choose",
+          "pl": "Wracam ze szkoły.",
+          "en": "I'm coming back from school.",
+          "gap": "ze",
+          "hint": null,
+          "options": [
+            "ze",
+            "od",
+            "do"
+          ],
+          "alts": [],
+          "reason": "From a place is z; before sz it becomes ze."
+        },
+        {
+          "id": "g-10-010",
+          "type": "choose",
+          "pl": "Idę do domu.",
+          "en": "I'm going home.",
+          "gap": "domu",
+          "hint": "dom",
+          "options": [
+            "dom",
+            "domu",
+            "domem"
+          ],
+          "alts": [],
+          "reason": "Do takes the genitive: dom → domu."
+        },
+        {
+          "id": "g-10-011",
+          "type": "choose",
+          "pl": "To jest list od siostry.",
+          "en": "It's a letter from my sister.",
+          "gap": "siostry",
+          "hint": "siostra",
+          "options": [
+            "siostra",
+            "siostry",
+            "siostrę"
+          ],
+          "alts": [],
+          "reason": "Od takes the genitive: siostra → siostry."
+        },
+        {
+          "id": "g-10-012",
+          "type": "choose",
+          "pl": "Jedziemy do Krakowa.",
+          "en": "We're going to Kraków.",
+          "gap": "Krakowa",
+          "hint": "Kraków",
+          "options": [
+            "Kraków",
+            "Krakowa",
+            "Krakowie"
+          ],
+          "alts": [],
+          "reason": "Do takes the genitive: Kraków → Krakowa (ó becomes o)."
+        },
+        {
+          "id": "g-10-013",
+          "type": "choose",
+          "pl": "Wracam z Londynu.",
+          "en": "I'm coming back from London.",
+          "gap": "Londynu",
+          "hint": "Londyn",
+          "options": [
+            "Londyn",
+            "Londynu",
+            "Londynie"
+          ],
+          "alts": [],
+          "reason": "Z takes the genitive: Londyn → Londynu."
+        },
+        {
+          "id": "g-10-014",
+          "type": "type",
+          "pl": "Idę do pracy.",
+          "en": "I'm going to work.",
+          "gap": "pracy",
+          "hint": "praca",
+          "alts": [],
+          "reason": "Do + genitive: praca → pracy."
+        },
+        {
+          "id": "g-10-015",
+          "type": "type",
+          "pl": "Wracam ze sklepu.",
+          "en": "I'm coming back from the shop.",
+          "gap": "sklepu",
+          "hint": "sklep",
+          "alts": [],
+          "reason": "Z(e) + genitive: sklep → sklepu."
+        },
+        {
+          "id": "g-10-016",
+          "type": "type",
+          "pl": "Jedziemy do Warszawy.",
+          "en": "We're going to Warsaw.",
+          "gap": "Warszawy",
+          "hint": "Warszawa",
+          "alts": [],
+          "reason": "Do + genitive: Warszawa → Warszawy."
+        },
+        {
+          "id": "g-10-017",
+          "type": "type",
+          "pl": "Śpimy u rodziców.",
+          "en": "We're sleeping at her parents'.",
+          "gap": "rodziców",
+          "hint": "rodzice",
+          "alts": [],
+          "reason": "U + genitive; rodzice is plural: u rodziców."
+        },
+        {
+          "id": "g-10-018",
+          "type": "type",
+          "pl": "Idę do łazienki.",
+          "en": "I'm going to the bathroom.",
+          "gap": "łazienki",
+          "hint": "łazienka",
+          "alts": [],
+          "reason": "After k the genitive is -i, not -y: łazienki."
+        },
+        {
+          "id": "g-10-019",
+          "type": "type",
+          "pl": "Dzwonię do siostry.",
+          "en": "I'm phoning my sister.",
+          "gap": "siostry",
+          "hint": "siostra",
+          "alts": [],
+          "reason": "Dzwonić do takes the genitive: siostra → siostry."
+        },
+        {
+          "id": "g-10-020",
+          "type": "type",
+          "pl": "Dzwonię do brata.",
+          "en": "I'm phoning my brother.",
+          "gap": "brata",
+          "hint": "brat",
+          "alts": [],
+          "reason": "People add -a: brat → brata."
+        },
+        {
+          "id": "g-10-021",
+          "type": "type",
+          "pl": "Mam wiadomość od mamy.",
+          "en": "I have a message from Mum.",
+          "gap": "mamy",
+          "hint": "mama",
+          "alts": [],
+          "reason": "Od + genitive: mama → mamy."
+        },
+        {
+          "id": "g-10-022",
+          "type": "type",
+          "pl": "Obiad jest u babci.",
+          "en": "Lunch is at Grandma's.",
+          "gap": "babci",
+          "hint": "babcia",
+          "alts": [],
+          "reason": "U + genitive: babcia → babci."
+        },
+        {
+          "id": "g-10-023",
+          "type": "type",
+          "pl": "Wracamy z kina.",
+          "en": "We're coming back from the cinema.",
+          "gap": "kina",
+          "hint": "kino",
+          "alts": [],
+          "reason": "Z + genitive: kino → kina."
+        },
+        {
+          "id": "g-10-024",
+          "type": "type",
+          "pl": "Idziemy do restauracji.",
+          "en": "We're going to a restaurant.",
+          "gap": "restauracji",
+          "hint": "restauracja",
+          "alts": [],
+          "reason": "Nouns in -cja take -cji: restauracji."
+        },
+        {
+          "id": "g-10-025",
+          "type": "type",
+          "pl": "Ten ser jest z Polski.",
+          "en": "This cheese is from Poland.",
+          "gap": "Polski",
+          "hint": "Polska",
+          "alts": [],
+          "reason": "Z + genitive; after k the ending is -i: Polski."
+        },
+        {
+          "id": "g-10-026",
+          "type": "type",
+          "pl": "Idę do lekarza.",
+          "en": "I'm going to the doctor.",
+          "gap": "lekarza",
+          "hint": "lekarz",
+          "alts": [],
+          "reason": "People add -a: lekarz → lekarza."
+        },
+        {
+          "id": "g-10-027",
+          "type": "type",
+          "pl": "Idziemy do parku.",
+          "en": "We're going to the park.",
+          "gap": "parku",
+          "hint": "park",
+          "alts": [],
+          "reason": "Park takes -u: do parku."
+        },
+        {
+          "id": "g-10-028",
+          "type": "type",
+          "pl": "Jadę do miasta.",
+          "en": "I'm going into town.",
+          "gap": "miasta",
+          "hint": "miasto",
+          "alts": [],
+          "reason": "Neuter -o becomes -a: do miasta."
+        },
+        {
+          "id": "g-10-029",
+          "type": "type",
+          "pl": "Mam list od babci.",
+          "en": "I have a letter from Grandma.",
+          "gap": "babci",
+          "hint": "babcia",
+          "alts": [],
+          "reason": "Od + genitive: babcia → babci."
+        },
+        {
+          "id": "g-10-030",
+          "type": "type",
+          "pl": "Wychodzę z domu.",
+          "en": "I'm leaving the house.",
+          "gap": "domu",
+          "hint": "dom",
+          "alts": [],
+          "reason": "Z + genitive: dom → domu."
+        },
+        {
+          "id": "g-10-031",
+          "type": "type",
+          "pl": "Idę do kuchni.",
+          "en": "I'm going to the kitchen.",
+          "gap": "kuchni",
+          "hint": "kuchnia",
+          "alts": [],
+          "reason": "Do + genitive: kuchnia → kuchni."
+        },
+        {
+          "id": "g-10-032",
+          "type": "type",
+          "pl": "Nocujemy u Kasi.",
+          "en": "We're staying the night at Kasia's.",
+          "gap": "Kasi",
+          "hint": "Kasia",
+          "alts": [],
+          "reason": "U + genitive: Kasia → Kasi."
+        }
+      ]
+    },
+    {
+      "id": "g-11",
+      "title": "With: z + instrumental",
+      "lesson": {
+        "summary": "Z meaning \"with\" takes the instrumental: feminine -a becomes -ą, masculine and neuter nouns add -em: z mamą, z bratem, z mlekiem.",
+        "body": [
+          "When {{z}} means \"with\" (together with someone, or with something added), the noun goes into the instrumental. Feminine nouns change -a to -ą: {{z mamą}}, {{z siostrą}}, {{z Kasią}}. Masculine and neuter nouns add -em, or -iem after k and g: {{z bratem}}, {{z serem}}, {{z mlekiem}}. Men's words ending in -a behave like feminine ones: {{z tatą}}.",
+          "So {{z}} has two meanings, and the ending tells you which. With the genitive it means \"from\" ({{z pracy}}); with the instrumental it means \"with\" ({{z mamą}}). The pronouns are worth learning as phrases: {{ze mną}} (with me), {{z tobą}} (with you), {{z nim}} (with him), {{z nią}} (with her), {{z nami}} (with us)."
+        ],
+        "table": {
+          "caption": "With…",
+          "head": [
+            "Word",
+            "With…"
+          ],
+          "rows": [
+            [
+              "{{mama}}",
+              "{{z mamą}}"
+            ],
+            [
+              "{{tata}}",
+              "{{z tatą}}"
+            ],
+            [
+              "{{brat}}",
+              "{{z bratem}}"
+            ],
+            [
+              "{{mleko}}",
+              "{{z mlekiem}}"
+            ],
+            [
+              "{{ja}}",
+              "{{ze mną}}"
+            ],
+            [
+              "{{ty}}",
+              "{{z tobą}}"
+            ]
+          ]
+        },
+        "more": [
+          "Some nouns drop an e when they add an ending: {{pies}} → {{z psem}}, {{cukier}} → {{z cukrem}}, {{ojciec}} → {{z ojcem}}.",
+          "In the plural the instrumental usually ends in -ami: {{z rodzicami}}. A few words differ, like {{z przyjaciółmi}} (with friends).",
+          "Questions: {{Z kim?}} (with whom?) and {{Z czym?}} (with what?): {{Z kim rozmawiasz?}}"
+        ]
+      },
+      "items": [
+        {
+          "id": "g-11-001",
+          "type": "choose",
+          "pl": "Mieszkam z dziewczyną.",
+          "en": "I live with my girlfriend.",
+          "gap": "dziewczyną",
+          "hint": "dziewczyna",
+          "options": [
+            "dziewczyna",
+            "dziewczyną",
+            "dziewczynę"
+          ],
+          "alts": [],
+          "reason": "Z (with) + instrumental: -a becomes -ą."
+        },
+        {
+          "id": "g-11-002",
+          "type": "choose",
+          "pl": "Idę do kina z bratem.",
+          "en": "I'm going to the cinema with my brother.",
+          "gap": "bratem",
+          "hint": "brat",
+          "options": [
+            "brat",
+            "bratem",
+            "brata"
+          ],
+          "alts": [],
+          "reason": "Masculine nouns add -em: brat → z bratem."
+        },
+        {
+          "id": "g-11-003",
+          "type": "choose",
+          "pl": "Kawa z mlekiem, proszę.",
+          "en": "Coffee with milk, please.",
+          "gap": "mlekiem",
+          "hint": "mleko",
+          "options": [
+            "mleko",
+            "mlekiem",
+            "mleka"
+          ],
+          "alts": [],
+          "reason": "After k the ending is -iem: mleko → z mlekiem."
+        },
+        {
+          "id": "g-11-004",
+          "type": "choose",
+          "pl": "Rozmawiam z mamą.",
+          "en": "I'm talking to Mum.",
+          "gap": "mamą",
+          "hint": "mama",
+          "options": [
+            "mama",
+            "mamą",
+            "mamy"
+          ],
+          "alts": [],
+          "reason": "Z (with) + instrumental: mama → z mamą."
+        },
+        {
+          "id": "g-11-005",
+          "type": "choose",
+          "pl": "Lubię pierogi z serem.",
+          "en": "I like pierogi with cheese.",
+          "gap": "serem",
+          "hint": "ser",
+          "options": [
+            "ser",
+            "serem",
+            "sera"
+          ],
+          "alts": [],
+          "reason": "Masculine nouns add -em: ser → z serem."
+        },
+        {
+          "id": "g-11-006",
+          "type": "choose",
+          "pl": "Idziesz ze mną?",
+          "en": "Are you coming with me?",
+          "gap": "mną",
+          "hint": "ja",
+          "options": [
+            "mną",
+            "mnie",
+            "mi"
+          ],
+          "alts": [],
+          "reason": "With me is ze mną."
+        },
+        {
+          "id": "g-11-007",
+          "type": "choose",
+          "pl": "Rozmawiam z tatą.",
+          "en": "I'm talking to Dad.",
+          "gap": "tatą",
+          "hint": "tata",
+          "options": [
+            "tata",
+            "tatą",
+            "tatem"
+          ],
+          "alts": [],
+          "reason": "Tata ends in -a, so it takes -ą like a feminine noun."
+        },
+        {
+          "id": "g-11-008",
+          "type": "choose",
+          "pl": "Piję herbatę z cytryną.",
+          "en": "I'm drinking tea with lemon.",
+          "gap": "cytryną",
+          "hint": "cytryna",
+          "options": [
+            "cytryna",
+            "cytryną",
+            "cytryny"
+          ],
+          "alts": [],
+          "reason": "With (added to): cytryna → z cytryną."
+        },
+        {
+          "id": "g-11-009",
+          "type": "choose",
+          "pl": "Mam problem z komputerem.",
+          "en": "I have a problem with the computer.",
+          "gap": "komputerem",
+          "hint": "komputer",
+          "options": [
+            "komputer",
+            "komputerem",
+            "komputera"
+          ],
+          "alts": [],
+          "reason": "Mieć problem z takes the instrumental: komputer → z komputerem."
+        },
+        {
+          "id": "g-11-010",
+          "type": "choose",
+          "pl": "Wracam z pracy o piątej.",
+          "en": "I come back from work at five.",
+          "gap": "pracy",
+          "hint": "praca",
+          "options": [
+            "pracy",
+            "pracą",
+            "pracę"
+          ],
+          "alts": [],
+          "reason": "Here z means \"from\", so it takes the genitive: z pracy. \"With work\" would be z pracą."
+        },
+        {
+          "id": "g-11-011",
+          "type": "choose",
+          "pl": "Spotykam się z Kasią.",
+          "en": "I'm meeting Kasia.",
+          "gap": "Kasią",
+          "hint": "Kasia",
+          "options": [
+            "Kasia",
+            "Kasią",
+            "Kasi"
+          ],
+          "alts": [],
+          "reason": "Spotykać się z takes the instrumental: Kasia → z Kasią."
+        },
+        {
+          "id": "g-11-012",
+          "type": "choose",
+          "pl": "Jadę z rodzicami.",
+          "en": "I'm going with my parents.",
+          "gap": "rodzicami",
+          "hint": "rodzice",
+          "options": [
+            "rodzice",
+            "rodzicami",
+            "rodziców"
+          ],
+          "alts": [],
+          "reason": "The plural instrumental ends in -ami: z rodzicami."
+        },
+        {
+          "id": "g-11-013",
+          "type": "choose",
+          "pl": "Z kim rozmawiasz?",
+          "en": "Who are you talking to?",
+          "gap": "kim",
+          "hint": "kto",
+          "options": [
+            "kto",
+            "kim",
+            "kogo"
+          ],
+          "alts": [],
+          "reason": "Kto in the instrumental is kim: z kim?"
+        },
+        {
+          "id": "g-11-014",
+          "type": "type",
+          "pl": "Mieszkam z siostrą.",
+          "en": "I live with my sister.",
+          "gap": "siostrą",
+          "hint": "siostra",
+          "alts": [],
+          "reason": "Z + instrumental: siostra → z siostrą."
+        },
+        {
+          "id": "g-11-015",
+          "type": "type",
+          "pl": "Rozmawiam z babcią.",
+          "en": "I'm talking to Grandma.",
+          "gap": "babcią",
+          "hint": "babcia",
+          "alts": [],
+          "reason": "Z + instrumental: babcia → z babcią."
+        },
+        {
+          "id": "g-11-016",
+          "type": "type",
+          "pl": "Idę na spacer z psem.",
+          "en": "I'm going for a walk with the dog.",
+          "gap": "psem",
+          "hint": "pies",
+          "alts": [],
+          "reason": "Pies drops its e: z psem."
+        },
+        {
+          "id": "g-11-017",
+          "type": "type",
+          "pl": "Lubię kanapki z szynką.",
+          "en": "I like ham sandwiches.",
+          "gap": "szynką",
+          "hint": "szynka",
+          "alts": [],
+          "reason": "Z + instrumental: szynka → z szynką."
+        },
+        {
+          "id": "g-11-018",
+          "type": "type",
+          "pl": "Piję kawę z cukrem.",
+          "en": "I take my coffee with sugar.",
+          "gap": "cukrem",
+          "hint": "cukier",
+          "alts": [],
+          "reason": "Cukier drops its e: z cukrem."
+        },
+        {
+          "id": "g-11-019",
+          "type": "type",
+          "pl": "Jem chleb z masłem.",
+          "en": "I'm eating bread and butter.",
+          "gap": "masłem",
+          "hint": "masło",
+          "alts": [],
+          "reason": "Neuter nouns add -em: masło → z masłem."
+        },
+        {
+          "id": "g-11-020",
+          "type": "type",
+          "pl": "Pracuję z kolegą.",
+          "en": "I work with a colleague.",
+          "gap": "kolegą",
+          "hint": "kolega",
+          "alts": [],
+          "reason": "Kolega ends in -a, so it takes -ą: z kolegą."
+        },
+        {
+          "id": "g-11-021",
+          "type": "type",
+          "pl": "Rozmawiam z ojcem.",
+          "en": "I'm talking to my father.",
+          "gap": "ojcem",
+          "hint": "ojciec",
+          "alts": [],
+          "reason": "Ojciec drops its ie: z ojcem."
+        },
+        {
+          "id": "g-11-022",
+          "type": "type",
+          "pl": "Idziesz z nami?",
+          "en": "Are you coming with us?",
+          "gap": "nami",
+          "hint": "my",
+          "alts": [],
+          "reason": "With us: z nami."
+        },
+        {
+          "id": "g-11-023",
+          "type": "type",
+          "pl": "Chcę porozmawiać z tobą.",
+          "en": "I want to talk to you.",
+          "gap": "tobą",
+          "hint": "ty",
+          "alts": [],
+          "reason": "With you: z tobą."
+        },
+        {
+          "id": "g-11-024",
+          "type": "type",
+          "pl": "Jem zupę z makaronem.",
+          "en": "I'm eating soup with noodles.",
+          "gap": "makaronem",
+          "hint": "makaron",
+          "alts": [],
+          "reason": "Masculine nouns add -em: makaron → z makaronem."
+        },
+        {
+          "id": "g-11-025",
+          "type": "type",
+          "pl": "Spotykam się z przyjacielem.",
+          "en": "I'm meeting a friend.",
+          "gap": "przyjacielem",
+          "hint": "przyjaciel",
+          "alts": [],
+          "reason": "Masculine nouns add -em: przyjaciel → z przyjacielem."
+        },
+        {
+          "id": "g-11-026",
+          "type": "type",
+          "pl": "Mieszkamy z kotem.",
+          "en": "We live with a cat.",
+          "gap": "kotem",
+          "hint": "kot",
+          "alts": [],
+          "reason": "Masculine nouns add -em: kot → z kotem."
+        },
+        {
+          "id": "g-11-027",
+          "type": "type",
+          "pl": "Lubię herbatę z miodem.",
+          "en": "I like tea with honey.",
+          "gap": "miodem",
+          "hint": "miód",
+          "alts": [],
+          "reason": "Miód → z miodem: ó becomes o."
+        },
+        {
+          "id": "g-11-028",
+          "type": "type",
+          "pl": "Jadę do Krakowa z mamą.",
+          "en": "I'm going to Kraków with Mum.",
+          "gap": "mamą",
+          "hint": "mama",
+          "alts": [],
+          "reason": "Z (with) + instrumental: z mamą. Do takes the genitive: do Krakowa."
+        },
+        {
+          "id": "g-11-029",
+          "type": "type",
+          "pl": "Idę do sklepu z tatą.",
+          "en": "I'm going to the shop with Dad.",
+          "gap": "tatą",
+          "hint": "tata",
+          "alts": [],
+          "reason": "Tata takes -ą: z tatą."
+        },
+        {
+          "id": "g-11-030",
+          "type": "type",
+          "pl": "Rozmawiam z nią.",
+          "en": "I'm talking to her.",
+          "gap": "nią",
+          "hint": "ona",
+          "alts": [],
+          "reason": "With her: z nią."
+        },
+        {
+          "id": "g-11-031",
+          "type": "type",
+          "pl": "Rozmawiam z nim.",
+          "en": "I'm talking to him.",
+          "gap": "nim",
+          "hint": "on",
+          "alts": [],
+          "reason": "With him: z nim."
+        },
+        {
+          "id": "g-11-032",
+          "type": "type",
+          "pl": "Poproszę wodę z lodem.",
+          "en": "Water with ice, please.",
+          "gap": "lodem",
+          "hint": "lód",
+          "alts": [],
+          "reason": "Lód → z lodem: ó becomes o."
+        }
+      ]
+    },
+    {
       "id": "g-06",
       "title": "Adjective agreement",
       "lesson": {

@@ -3,8 +3,50 @@
 import { state } from '../app.js';
 import * as db from '../db.js';
 import { MODULES } from '../content.js';
-import { daysStudied, cardsLearned, dueByDay, accuracyByModule } from '../stats.js';
+import { daysStudied, cardsLearned, dueByDay, accuracyByModule, forecast, forecastAverage, passRates, secondsPerCard } from '../stats.js';
+import { dayKey } from '../day.js';
+import { settings } from '../settings.js';
 import { render, esc } from '../ui.js';
+
+/** Minutes a day you've actually studied, averaged over your last 7 study days. */
+function recentMinutes(reviews) {
+  const byDay = new Map();
+  for (const r of reviews) {
+    const k = dayKey(new Date(r.review));
+    byDay.set(k, (byDay.get(k) ?? 0) + Math.min(r.duration ?? 0, 120000));
+  }
+  const last = [...byDay.keys()].sort().slice(-7);
+  if (!last.length) return null;
+  return Math.round(last.reduce((n, k) => n + byDay.get(k), 0) / last.length / 60000);
+}
+
+/** The forecast section: for a few new-cards-per-day settings, the reviews and minutes ahead. */
+function forecastHtml(records, reviews) {
+  const current = settings().newPerDay;
+  const rates = passRates(reviews);
+  const spc = secondsPerCard(reviews);
+  const options = [...new Set([20, 30, 40, 50, current])].filter((n) => n > 0).sort((a, b) => a - b);
+  const rows = options.map((n) => {
+    const f = forecast(records, { newPerDay: n, retention: settings().retention, ...rates });
+    const w1 = forecastAverage(f, 0, 7), w4 = forecastAverage(f, 21, 28);
+    const min = Math.round(((w4.reviews + w4.newShown) * spc) / 60);
+    return `<tr class="${n === current ? 'current' : ''}">
+      <td class="num">${n}${n === current ? '<span class="small muted"> now</span>' : ''}</td>
+      <td class="num">${w1.reviews} → ${w4.reviews}</td>
+      <td class="num">${min >= 60 ? `${Math.floor(min / 60)} h ${String(min % 60).padStart(2, '0')}` : `${min} min`}</td></tr>`;
+  }).join('');
+  const recent = recentMinutes(reviews);
+  return `
+    <p class="small">Each new card keeps coming back as reviews, so the daily load keeps growing for weeks after you raise the number.</p>
+    <table class="acc forecast">
+      <tr><th class="num">New a day</th><th class="num">Reviews a day,<br>week 1 → week 4</th><th class="num">Time a day<br>by week 4</th></tr>
+      ${rows}
+    </table>
+    <p class="muted small">Based on your answers so far: you pass about ${Math.round(rates.pass * 100)}% of reviews and spend about ${spc} s a card.
+      Time includes new cards and their repeats; "+5 more" extras aren't counted.
+      ${recent != null ? `Lately you've studied about <strong>${recent} min a day</strong>.` : ''}
+      Change it in <a href="#/settings">Settings → New cards per day</a>.</p>`;
+}
 
 function dayLabel(start, i) {
   if (i === 0) return 'Today';
@@ -61,10 +103,19 @@ export async function statsView() {
         ${dueChart(days)}
       </section>
       <section class="card">
+        <h2>Workload forecast</h2>
+        <div id="forecast"><p class="muted small">Working it out…</p></div>
+      </section>
+      <section class="card">
         <h2>Accuracy</h2>
         <p class="muted small">Share of reviews you didn't mark "Again" (or got right).</p>
         <table class="acc">${accRows}</table>
       </section>
       <p class="muted small">"Cards learned" counts cards with at least one successful review.</p>`,
   });
+  // The simulation takes a moment on a phone: let the page paint first.
+  setTimeout(() => {
+    const el = document.getElementById('forecast');
+    if (el) el.innerHTML = forecastHtml(records, reviews);
+  }, 30);
 }

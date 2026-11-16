@@ -41,7 +41,8 @@ export function settingsView() {
           <h2>Daily study</h2>
           <label class="field"><span>New cards per day</span>
             <input type="number" name="newPerDay" min="0" max="100" step="1" inputmode="numeric" value="${s.newPerDay}"></label>
-          <p class="muted small">Shared across all modules. The day resets at 04:00.</p>
+          <p class="muted small">Shared across all modules. The day resets at 04:00.
+            <a href="#/stats">See how it affects your daily time</a> (Stats → Workload forecast).</p>
           <label class="field"><span>Target retention</span>
             <select name="retention">
               ${[0.8, 0.85, 0.9, 0.95].map((r) => `<option value="${r}" ${r === s.retention ? 'selected' : ''}>${Math.round(r * 100)}%</option>`).join('')}
