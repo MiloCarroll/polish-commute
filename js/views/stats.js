@@ -43,7 +43,7 @@ function forecastHtml(records, reviews) {
       ${rows}
     </table>
     <p class="muted small">Based on your answers so far: you pass about ${Math.round(rates.pass * 100)}% of reviews and spend about ${spc} s a card.
-      Time includes new cards and their repeats; "+5 more" extras aren't counted.
+      Time includes new cards and their repeats; "Learn 10 more" extras aren't counted.
       ${recent != null ? `Lately you've studied about <strong>${recent} min a day</strong>.` : ''}
       Change it in <a href="#/settings">Settings → New cards per day</a>.</p>`;
 }

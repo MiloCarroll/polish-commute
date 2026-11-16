@@ -17,7 +17,7 @@ export const DEFAULTS = Object.freeze({
   lastBackup: null,     // epoch ms of the last export
   backupSnoozeUntil: null, // "Remind me later" on the Home backup notice
   handsFree: { mode: 'understand', minutes: 20, pause: 4 }, // hands-free listening choices
-  extraNew: null,       // { day: dayKey, n } extra new cards added for one day ("+5 new cards")
+  extraNew: null,       // { day: dayKey, n } extra new cards added for one day ("+10 new cards")
 });
 
 let cache = null;
@@ -41,7 +41,7 @@ export async function setSetting(key, value) {
 }
 
 /** Extra new cards a single tap adds for today. */
-export const EXTRA_STEP = 5;
+export const EXTRA_STEP = 10;
 
 /** Today's new-card allowance: the daily setting plus any extra added today. */
 export function newAllowance(now = new Date()) {
