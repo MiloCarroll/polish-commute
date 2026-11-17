@@ -5845,6 +5845,7 @@
     {
       "id": "v-verbs",
       "title": "Core verbs and their present-tense forms",
+      "spacing": 4,
       "items": [
         {
           "id": "v-1001",
@@ -7604,6 +7605,7 @@
     {
       "id": "v-formal",
       "title": "Polite phrases for older relatives (formal)",
+      "keepTogether": true,
       "items": [
         {
           "id": "v-1201",
@@ -11434,6 +11436,7 @@
     {
       "id": "v-holidays",
       "title": "Holidays, celebrations and traditions",
+      "keepTogether": true,
       "items": [
         {
           "id": "v-1701",
@@ -12165,6 +12168,7 @@
     {
       "id": "v-table",
       "title": "At the table: manners and phrases",
+      "keepTogether": true,
       "items": [
         {
           "id": "v-1801",

@@ -238,3 +238,12 @@ Tap the **Update available** banner first.
 - [ ] In a session, no sound plays and there are no play buttons. Dictation and listening cards don't appear; typing, choosing, grammar and "your turn" cards do.
 - [ ] The speaker button at the top of each card switches modes mid-session. Turning sound back on brings the held-back cards into the session.
 - [ ] The same switch is in Settings → Audio. It stays on until you turn it off.
+
+## Change: vocabulary order
+
+Tap the **Update available** banner first.
+
+- [ ] Today's session first finishes the words you'd already started (their dictation, English → Polish and so on).
+- [ ] After that, new words come from several topics in turn, most common first (*być, nie, cześć, co, mieć…*). Words from the same set (numbers, question words, goodbyes) are spread about a day apart.
+- [ ] *Polite phrases*, *At the table* and *Holidays* come in runs of up to five, since they belong to one situation.
+- [ ] A topic page's *Study this topic* still goes through that topic in its own order.

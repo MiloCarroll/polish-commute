@@ -97,3 +97,36 @@ test('silent mode holds back only the cards that need sound', async () => {
   assert.deepEqual(['listen', 'say'].map((x) => k('dialogues', x)), [true, false]);
   assert.equal(k('grammar', 'type'), false);
 });
+
+test('vocabulary order: most common first, same-topic words spaced out, situations kept together', async () => {
+  const { vocabularyOrder, VOCAB_SPACING } = await import('../js/content.js');
+  const items = (p, n, rank0, step = 1) => Array.from({ length: n }, (_, i) => ({ id: `${p}${i}`, rank: rank0 + i * step }));
+  const topics = [
+    { id: 'family', items: items('f', 6, 10) },               // very common, but a similar-meaning set
+    ...'abcdeghijk'.split('').map((p, k) => ({ id: p, items: items(p, 6, 100 + k * 10) })),
+    { id: 'table', keepTogether: true, items: items('t', 4, 50) },
+  ];
+  const order = vocabularyOrder(topics).map((it) => it.id);
+  assert.equal(order[0], 'f0', 'the most common word first');
+  const fam = order.map((id, i) => (id.startsWith('f') ? i : -1)).filter((i) => i >= 0);
+  for (let i = 1; i < fam.length; i++) assert.ok(fam[i] - fam[i - 1] >= VOCAB_SPACING, `family words ${fam[i - 1]} and ${fam[i]} too close`);
+  const tab = order.map((id, i) => (id.startsWith('t') ? i : -1)).filter((i) => i >= 0);
+  assert.deepEqual(tab, [tab[0], tab[0] + 1, tab[0] + 2, tab[0] + 3], 'a situation topic stays together');
+  assert.equal(new Set(order).size, order.length);
+});
+
+test('words started on an earlier day get their next card before new words start', async () => {
+  const { pickNext, applyReview, Rating } = await import('../js/scheduler.js');
+  const defs = [
+    { id: 'a-rec', module: 'vocabulary', kind: 'rec' },
+    { id: 'b-rec', module: 'vocabulary', kind: 'rec' },
+    { id: 'z-rec', module: 'vocabulary', kind: 'rec' },
+    { id: 'z-dict', module: 'vocabulary', kind: 'dict', requires: 'z-rec' },
+  ];
+  const yesterday = new Date(2026, 10, 16, 10), today = new Date(2026, 10, 17, 10);
+  const records = new Map([['z-rec', { ...applyReview(defs[2], undefined, Rating.Good, yesterday).record, due: today.getTime() + 864e5 }]]);
+  assert.equal(pickNext(defs, records, 5, today).def.id, 'z-dict');
+  // Started today: the usual order (a new word first, the follow-up later in its batch).
+  const fresh = new Map([['z-rec', { ...applyReview(defs[2], undefined, Rating.Good, today).record, due: today.getTime() + 864e5 }]]);
+  assert.equal(pickNext(defs, fresh, 5, today).def.id, 'a-rec');
+});

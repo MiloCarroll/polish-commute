@@ -178,12 +178,17 @@ export function pickNext(defs, records, newLeft, now = new Date(), skip = new Se
   let dueLaterToday = null; // review-state card due later today
   let ahead = null;         // learning card due soon
   let firstNew = null;
+  let firstFollowUp = null; // the next card of something started on an earlier day
+  const today = dayStart(now).getTime();
+  const startedBefore = (id) => { const r = records.get(id); return !!r && (r.first_review == null || r.first_review < today); };
 
   for (const def of defs) {
     if (skip.has(def.id)) continue;
     const rec = records.get(def.id);
     if (!rec) {
       if (!firstNew && isUnlocked(def, records, now)) firstNew = def;
+      if (!firstFollowUp && def.requires && isUnlocked(def, records, now)
+        && [].concat(def.requires).every(startedBefore)) firstFollowUp = def;
       continue;
     }
     if (rec.due <= t) {
@@ -197,7 +202,8 @@ export function pickNext(defs, records, newLeft, now = new Date(), skip = new Se
 
   if (dueNow) return { def: dueNow, isNew: false };
   if (dueLaterToday) return { def: dueLaterToday, isNew: false };
-  if (firstNew && newLeft > 0) return { def: firstNew, isNew: true };
+  // Finish words started on earlier days before starting new ones.
+  if (firstNew && newLeft > 0) return { def: firstFollowUp ?? firstNew, isNew: true };
   if (ahead) {
     const due = records.get(ahead.id).due;
     if (due - t <= LEARN_AHEAD_MS) return { def: ahead, isNew: false };

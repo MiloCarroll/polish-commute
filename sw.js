@@ -3,7 +3,7 @@
 // A new version installs in the background and waits; the app shows an "Update available"
 // banner, and tapping it sends SKIP_WAITING.
 
-const VERSION = 'cd4901f4857b';
+const VERSION = '5314cac12953';
 const ASSETS = [
   './',
   'content/audio/manifest.json',
