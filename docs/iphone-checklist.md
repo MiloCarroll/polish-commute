@@ -234,7 +234,7 @@ Tap the **Update available** banner first.
 
 Tap the **Update available** banner first.
 
-- [ ] Home has a **🔈 Sound on** switch next to the new-cards line. Tap it: it becomes **🔇 Silent**, a note says how many listening cards are waiting, and the due counts drop by that many.
+- [ ] Home has a **Sound on** switch (speaker symbol) next to the new-cards line. Tap it: it becomes **Silent** (crossed-out speaker), a note says how many listening cards are waiting, and the due counts drop by that many.
 - [ ] In a session, no sound plays and there are no play buttons. Dictation and listening cards don't appear; typing, choosing, grammar and "your turn" cards do.
-- [ ] The 🔇/🔈 button at the top of each card switches modes mid-session. Turning sound back on brings the held-back cards into the session.
+- [ ] The speaker button at the top of each card switches modes mid-session. Turning sound back on brings the held-back cards into the session.
 - [ ] The same switch is in Settings → Audio. It stays on until you turn it off.

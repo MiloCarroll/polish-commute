@@ -493,3 +493,4 @@ body.silent .audio-row, body.silent [data-action="say"], body.silent [data-actio
 .silent-toggle.compact { min-height: 32px; padding: 2px 10px; }
 .session-counts .silent-toggle { margin-left: auto; }
 .session-counts .silent-toggle + .flag-btn { margin-left: 0; }
+.silent-toggle svg { flex: none; color: var(--accent); }

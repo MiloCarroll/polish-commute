@@ -5,6 +5,10 @@ import { settings, setSetting } from './settings.js';
 import { needsSound } from './content.js';
 import { isDueToday } from './scheduler.js';
 import * as tts from './tts.js';
+import { speakerIcon } from './ui.js';
+
+/** Speaker with a cross, in the same style as the play icon (takes the text colour). */
+const mutedIcon = `<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 
 export const isSilent = () => !!settings().silent;
 
@@ -35,5 +39,5 @@ export function silentToggle({ compact = false } = {}) {
   const on = isSilent();
   const label = on ? 'Silent mode is on. Tap to turn the sound back on.' : 'Sound is on. Tap for silent mode.';
   return `<button type="button" class="silent-toggle ${on ? 'on' : ''} ${compact ? 'compact' : ''}" data-silent
-    aria-pressed="${on}" aria-label="${label}">${on ? '🔇' : '🔈'}${compact ? '' : `<span>${on ? 'Silent' : 'Sound on'}</span>`}</button>`;
+    aria-pressed="${on}" aria-label="${label}">${on ? mutedIcon : speakerIcon.replace(/width="22" height="22"/, 'width="20" height="20"')}${compact ? '' : `<span>${on ? 'Silent' : 'Sound on'}</span>`}</button>`;
 }
