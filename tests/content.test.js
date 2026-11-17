@@ -87,3 +87,13 @@ test('contrast cards need all their words seen and come after the last word\'s b
     for (const a of s.also ?? []) assert.ok(pls.includes(a), `${k.id}: ${a}`);
   }
 });
+
+test('silent mode holds back only the cards that need sound', async () => {
+  const { needsSound } = await import('../js/content.js');
+  const k = (module, kind) => needsSound({ module, kind });
+  assert.deepEqual(['dict', 'sdict', 'listen', 'rec', 'prod', 'gap', 'say', 'contrast'].map((x) => k('vocabulary', x)),
+    [true, true, true, false, false, false, false, false]);
+  assert.deepEqual(['listen', 'dict', 'stress'].map((x) => k('pronunciation', x)), [true, true, false]);
+  assert.deepEqual(['listen', 'say'].map((x) => k('dialogues', x)), [true, false]);
+  assert.equal(k('grammar', 'type'), false);
+});

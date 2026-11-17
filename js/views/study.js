@@ -12,6 +12,7 @@ import { hideAccentBar } from '../accentbar.js';
 import * as tts from '../tts.js';
 import { flagButton } from '../flags.js';
 import { resolveDrill, resolveLine } from '../variants.js';
+import { audible, heldBack, silentToggle } from '../silent.js';
 
 function scopeDefs(scope, topicId) {
   if (scope === 'all' || scope === 'today') return allDefs(state.content);
@@ -27,11 +28,13 @@ export async function markLessonSeen(topicId) {
 }
 
 export function studyView(scope, topicId) {
-  const defs = scopeDefs(scope, topicId);
-  if (!defs) { location.replace('#/'); return; }
+  const allScope = scopeDefs(scope, topicId);
+  if (!allScope) { location.replace('#/'); return; }
+  // In silent mode, listening cards are left out (they stay due for later).
+  const defs = audible(allScope);
   const back = scope === 'all' || scope === 'today' ? '#/' : topicId ? `#/topic/${scope}/${topicId}` : `#/module/${scope}`;
   const title = scope === 'today' ? "Today's session" : scope === 'all' ? 'Review' : state.content[scope].title;
-  const byModule = () => Object.fromEntries(MODULES.map((m) => [m, state.content[m].defs]));
+  const byModule = () => Object.fromEntries(MODULES.map((m) => [m, audible(state.content[m].defs)]));
   const pick = (newLeft, now, skip) => (scope === 'today'
     ? pickToday(byModule(), state.records, newLeft, state.todayLogs, now, skip)
     : pickNext(defs, state.records, newLeft, now, skip));
@@ -75,7 +78,8 @@ export function studyView(scope, topicId) {
     const mins = waitUntil ? Math.ceil((waitUntil - Date.now()) / 60000) : 0;
     // Only the allowance is stopping new cards: offer a few more for today.
     const moreNew = scope !== 'all' && newRemaining(newAllowance(), state.todayLogs) === 0
-      && countCards(scope === 'today' ? allDefs(state.content) : defs, state.records).newAvailable > 0;
+      && countCards(scope === 'today' ? audible(allDefs(state.content)) : defs, state.records).newAvailable > 0;
+    const held = heldBack(allScope, state.records);
     render({
       title, back,
       body: `<div class="card center">
@@ -84,6 +88,8 @@ export function studyView(scope, topicId) {
           ? `A card you are still learning comes back in about ${mins} minute${mins === 1 ? '' : 's'}.`
           : moreNew ? "Nothing else is due, and today's new cards are used up. You can carry on with a few more."
           : scope === 'today' ? "That's today's session done: nothing else is due and today's new cards are used up." : 'Nothing else is due in this section today.'}</p>
+        ${held ? `<p class="small">Silent mode is holding back ${held} listening card${held === 1 ? '' : 's'} due today. They'll be here when the sound is back on.</p>
+          <p>${silentToggle()}</p>` : ''}
       </div>`,
       actions: `${undo ? '<button type="button" class="btn" data-undo>↶ Undo last answer</button>' : ''}
         ${moreNew && !waitUntil ? `<button type="button" class="btn primary" data-more-new>Learn ${EXTRA_STEP} more new cards</button>
@@ -108,6 +114,7 @@ export function studyView(scope, topicId) {
         <span>${counts.due} due</span>
         ${!topicId ? `<span class="topic-tag">${esc(topic.title)}</span>` : ''}
         ${undo ? '<button type="button" class="undo-btn" data-undo aria-label="Undo the last answer">↶ Undo</button>' : ''}
+        ${silentToggle({ compact: true })}
         ${flagButton(def.id, shown)}
       </div>`;
 

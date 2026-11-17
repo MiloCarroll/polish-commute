@@ -11,6 +11,7 @@ import { flagButton } from '../flags.js';
 import { settings } from '../settings.js';
 import { resolveDrill, resolveLine } from '../variants.js';
 import * as tts from '../tts.js';
+import { audible } from '../silent.js';
 
 function scopeDefs(scope) {
   if (scope === 'all') return allDefs(state.content);
@@ -25,7 +26,7 @@ export function practiceView(scope) {
   const route = location.hash;
   const stillHere = () => location.hash === route;
 
-  let queue = pickRound(defs, state.records);
+  let queue = pickRound(audible(defs), state.records);
   const total = queue.length;
   const retried = new Set();
   let right = 0, answered = 0, retryRight = 0;

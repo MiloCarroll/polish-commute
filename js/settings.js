@@ -17,6 +17,7 @@ export const DEFAULTS = Object.freeze({
   lastBackup: null,     // epoch ms of the last export
   backupSnoozeUntil: null, // "Remind me later" on the Home backup notice
   handsFree: { mode: 'understand', minutes: 20, pause: 4 }, // hands-free listening choices
+  silent: false,        // silent mode: no audio, listening cards wait
   extraNew: null,       // { day: dayKey, n } extra new cards added for one day ("+10 new cards")
 });
 

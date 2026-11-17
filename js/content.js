@@ -99,6 +99,16 @@ export async function loadContent() {
   return loaded;
 }
 
+/** Cards that can't be done without hearing audio: dictation and listening. */
+const SOUND_KINDS = {
+  vocabulary: new Set(['dict', 'sdict', 'listen']),
+  pronunciation: new Set(['listen', 'dict']),
+  dialogues: new Set(['listen']),
+};
+export function needsSound(def) {
+  return SOUND_KINDS[def.module]?.has(def.kind) ?? false;
+}
+
 export function allDefs(content) {
   return MODULES.flatMap((m) => content[m].defs);
 }

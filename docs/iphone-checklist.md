@@ -229,3 +229,12 @@ Tap the **Update available** banner first.
 **Stats → Workload forecast**
 - [ ] A table of new cards a day (20, 30, 40, 50 and your setting) with reviews a day in week 1 and week 4, and time a day by week 4. Your setting is highlighted, with your recent minutes a day below.
 - [ ] Settings → *New cards per day* links to it.
+
+## Addition: silent mode
+
+Tap the **Update available** banner first.
+
+- [ ] Home has a **🔈 Sound on** switch next to the new-cards line. Tap it: it becomes **🔇 Silent**, a note says how many listening cards are waiting, and the due counts drop by that many.
+- [ ] In a session, no sound plays and there are no play buttons. Dictation and listening cards don't appear; typing, choosing, grammar and "your turn" cards do.
+- [ ] The 🔇/🔈 button at the top of each card switches modes mid-session. Turning sound back on brings the held-back cards into the session.
+- [ ] The same switch is in Settings → Audio. It stays on until you turn it off.

@@ -6,6 +6,7 @@ import { DEFAULTS } from '../settings.js';
 import { makeBackup, parseBackup, describeBackup, backupFilename, lastBackupText } from '../backup.js';
 import { loadFlags, flagsAsText } from '../flags.js';
 import { timerSettingsChanged } from '../timer.js';
+import { applySilent } from '../silent.js';
 
 const TEST_PHRASE = 'Dzień dobry! Miło mi.';
 
@@ -56,6 +57,9 @@ export function settingsView() {
           <div class="field"><span>Speed</span>${seg('rate', s.rate, [['normal', 'Normal'], ['slow', 'Slow']])}</div>
           <label class="field check"><span>Play audio when a card appears</span>
             <input type="checkbox" name="autoplay" ${s.autoplay ? 'checked' : ''}></label>
+          <label class="field check"><span>Silent mode</span>
+            <input type="checkbox" name="silent" ${s.silent ? 'checked' : ''}></label>
+          <p class="muted small">No sound at all; listening and dictation cards wait until it's off. Also on Home and at the top of each card.</p>
           <button type="button" class="btn" data-action="test">Test voice</button>
           <p class="muted small"><a href="#/welcome">About the Polish voice</a></p>
         </section>
@@ -101,13 +105,14 @@ export function settingsView() {
       value = Math.max(0, Math.min(100, Math.round(Number(e.target.value) || 0)));
       e.target.value = value;
     } else if (name === 'retention') value = Number(e.target.value);
-    else if (name === 'autoplay') value = e.target.checked;
+    else if (name === 'autoplay' || name === 'silent') value = e.target.checked;
     else if (name === 'voiceURI') value = e.target.value || null;
     else if (name === 'timerMinutes') value = Number(e.target.value);
     else value = e.target.value;
     await setSetting(name, value);
     if (name === 'voiceURI' || name === 'rate') tts.configure({ [name]: value });
     if (name === 'timerMinutes') timerSettingsChanged();
+    if (name === 'silent') applySilent();
   });
 
   $('#import-file').addEventListener('change', async (e) => {

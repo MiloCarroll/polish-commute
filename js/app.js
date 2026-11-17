@@ -1,6 +1,7 @@
 // App entry: loads data, routes between views, registers the service worker.
 import * as db from './db.js';
 import * as tts from './tts.js';
+import { applySilent, setSilent, isSilent } from './silent.js';
 import { loadSettings, settings, setSetting } from './settings.js';
 import { loadContent } from './content.js';
 import { dayStart } from './day.js';
@@ -98,6 +99,15 @@ async function route() {
   location.replace('#/');
 }
 
+// Silent-mode switches (Home, session header): flip it and redraw the current page, so
+// listening cards drop out of (or come back into) counts and sessions straight away.
+document.addEventListener('click', async (e) => {
+  if (!e.target.closest('[data-silent]')) return;
+  e.preventDefault();
+  await setSilent(!isSilent());
+  route();
+});
+
 export function go(hash) {
   if (location.hash === hash) route();
   else location.hash = hash;
@@ -147,6 +157,7 @@ async function start() {
     await db.openDB();
     const [s, records, content] = await Promise.all([loadSettings(), db.getAll('cards'), loadContent()]);
     tts.configure({ voiceURI: s.voiceURI, rate: s.rate });
+    applySilent();
     tts.ready();
     tts.loadClips();
     state.content = content;

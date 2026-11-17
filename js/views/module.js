@@ -8,22 +8,23 @@ import { OWN_TOPIC } from '../own.js';
 import { ownTopicView } from './phrases.js';
 import { resolveLine, roleLabel } from '../variants.js';
 import * as tts from '../tts.js';
+import { audible } from '../silent.js';
 
 /** First topic (in suggested order) that still has unstudied cards. */
 export function nextSuggestedTopic(mod, records) {
-  return mod.topics.find((t) => t.cards.some((d) => !records.has(d.id) && isUnlocked(d, records))) ?? null;
+  return mod.topics.find((t) => audible(t.cards).some((d) => !records.has(d.id) && isUnlocked(d, records))) ?? null;
 }
 
 export function moduleView(m) {
   const mod = state.content[m];
   if (!mod) { location.replace('#/'); return; }
   const { records } = state;
-  const c = countCards(mod.defs, records);
+  const c = countCards(audible(mod.defs), records);
   const next = nextSuggestedTopic(mod, records);
   const newLeft = newRemaining(newAllowance(), state.todayLogs);
 
   const list = mod.topics.map((t, i) => {
-    const tc = countCards(t.cards, records);
+    const tc = { ...countCards(t.cards, records), due: countCards(audible(t.cards), records).due };
     const isNext = next && t.id === next.id;
     return `
       <li><a class="topic ${isNext ? 'next' : ''}" href="#/topic/${m}/${t.id}">

@@ -4,12 +4,16 @@ import { backupReminder } from '../backup.js';
 import { MODULES, allDefs } from '../content.js';
 import { countCards, newRemaining } from '../scheduler.js';
 import { render, esc, plural, onAction } from '../ui.js';
+import { audible, heldBack, isSilent, silentToggle } from '../silent.js';
+
+const pick = (o, ...keys) => Object.fromEntries(keys.map((k) => [k, o[k]]));
 
 export function homeView() {
   const { content, records, todayLogs } = state;
   const allowance = newAllowance();
   const newLeft = newRemaining(allowance, todayLogs);
-  const all = countCards(allDefs(content), records);
+  const all = countCards(audible(allDefs(content)), records);
+  const held = heldBack(allDefs(content), records);
   const totalDue = all.due;
   const newToday = Math.min(all.newAvailable, newLeft);
   // Offered once today's new cards are used up and more are waiting.
@@ -19,7 +23,8 @@ export function homeView() {
 
   const tiles = MODULES.map((m) => {
     const mod = content[m];
-    const c = countCards(mod.defs, records);
+    // Due and new follow silent mode; progress (learned of total) always counts every card.
+    const c = { ...countCards(mod.defs, records), ...pick(countCards(audible(mod.defs), records), 'due', 'newAvailable') };
     const pct = c.total ? Math.round((c.learned / c.total) * 100) : 0;
     const empty = c.total === 0;
     return `
@@ -40,9 +45,13 @@ export function homeView() {
   render({
     title: 'Polski',
     body: `
-      <p class="allowance">${newLeft
-        ? `<strong>${newLeft}</strong> of ${allowance} new cards left today`
-        : `Today's ${allowance} new cards are used up.`}</p>
+      <div class="allowance-row">
+        <p class="allowance">${newLeft
+          ? `<strong>${newLeft}</strong> of ${allowance} new cards left today`
+          : `Today's ${allowance} new cards are used up.`}</p>
+        ${silentToggle()}
+      </div>
+      ${isSilent() ? `<p class="notice small">Silent mode: no sound, and listening and dictation cards wait${held ? ` (${held} due today)` : ''} until you turn the sound back on.</p>` : ''}
       ${reminder ? `<div class="notice backup-note" id="backup-note">
           <p>${reminder.never ? "You haven't backed up your progress yet." : `Your last backup was ${reminder.daysSince} days ago.`}
             Progress is stored only on this phone.</p>

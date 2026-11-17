@@ -482,3 +482,14 @@ textarea.sentence-input { text-align: left; font-size: 1.15rem; resize: none; }
 /* Workload forecast table */
 .forecast th { font-size: 0.8rem; font-weight: 600; color: var(--muted); padding: 4px; border-bottom: 1px solid var(--line); vertical-align: bottom; }
 .forecast tr.current td { font-weight: 700; background: var(--accent-soft); }
+
+/* Silent mode */
+body.silent .audio-row, body.silent [data-action="say"], body.silent [data-action="play"], body.silent [data-action="slow"] { display: none !important; }
+.allowance-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 14px; }
+.allowance-row .allowance { margin: 0; }
+.silent-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; font-size: 0.9rem; white-space: nowrap; cursor: pointer; }
+.silent-toggle.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.silent-toggle.compact { min-height: 32px; padding: 2px 10px; }
+.session-counts .silent-toggle { margin-left: auto; }
+.session-counts .silent-toggle + .flag-btn { margin-left: 0; }

@@ -74,6 +74,10 @@ export function bestVoice() {
   return chosen || rankedVoices()[0];
 }
 
+let silent = false;
+/** Silent mode: nothing plays until it is turned off. */
+export function setSilent(on) { silent = !!on; if (silent) stop(); }
+
 export function configure({ voiceURI, rate }) {
   if (voiceURI !== undefined) preferredURI = voiceURI;
   if (rate !== undefined) rateName = rate;
@@ -199,6 +203,7 @@ export function englishClipUrl(text) {
 }
 
 export function speak(text, { slow = false, gender = null, variety = false } = {}) {
+  if (silent) return Promise.resolve(false);
   const clip = chooseClip(clips.get(clipKey(text)), { gender, variety });
   if (clip) return playFile(clip, { slow }).then((ok) => ok || speakVoice(text, { slow }));
   return speakVoice(text, { slow });
